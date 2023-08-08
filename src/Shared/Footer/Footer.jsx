@@ -5,6 +5,10 @@ const Footer = () => {
         <div>
             <h2>this is footer</h2>
             <h2>this is footer</h2>
+            <h2>this is footer</h2>
+            <h2>this is footer</h2>
+            <h2>this is footer</h2>
+            <h2>this is footer</h2>
         </div>
             
     );
