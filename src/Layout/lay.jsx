@@ -6,6 +6,10 @@ const lay = () => {
             <h1>this is layout
                 
             </h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, at!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, at!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, at!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, at!</p>
         </div>
     );
 };
