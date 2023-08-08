@@ -7,6 +7,7 @@ const Navbar = () => {
 =======
             <h1>this in nav</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero et beatae officiis exercitationem consectetur odit iste quidem, omnis corporis velit!</p>
+            <p>Lorem ipsum dolor sit amet.</p>
 
         </div>
     );
