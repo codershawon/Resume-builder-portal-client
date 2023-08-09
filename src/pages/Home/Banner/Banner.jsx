@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Container from "../../../components/Container";
+// import Container from "../../../components/Container";
 import "./Banner.css";
 
 const Banner = () => {
@@ -22,13 +22,13 @@ const Banner = () => {
 
   return (
     <div>
-      <Container>
-        <div className="banner-section flex flex-col md:flex-col lg:flex-row justify-around items-center lg:items-start mb-10">
+      {/* <Container> */}
+        <div className="banner-section flex flex-col md:flex-col lg:flex-row justify-around items-center text-center lg:text-left lg:items-start mt-10 lg:mt-0 mb-20">
           <div className="banner-content mb-8 lg:mb-0 lg:mr-20">
             <h1 className="text-sm uppercase font-semibold text-gray-500 mb-2 lg:pt-36">
               Unlock Your Potential with Resume Genius
             </h1>
-            <h2 className="text-4xl w-96 font-bold mb-2">
+            <h2 className="text-4xl w-full  lg:w-96 font-bold mb-2">
               Create an Impressive Resume in Minutes
             </h2>
             <p className="w-full lg:w-[500px] text-base font-medium mb-2">
@@ -67,7 +67,8 @@ const Banner = () => {
               ))}
             </div>
           </div>
-      </Container>
+        </div>
+      {/* </Container> */}
     </div>
   );
 };

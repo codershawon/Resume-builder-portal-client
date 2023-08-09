@@ -13,12 +13,12 @@ const Home = () => {
 
 
             {/* Banner section */}
-
+            <Banner/>
             {/* <Banner/> */}
             {/* <Testimonial/> */}
             <StepsSection/>
 
-            <Banner/>
+           
             <Testimonial/>
             
             {/* Testimonial slider start here */}
