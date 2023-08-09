@@ -1,6 +1,5 @@
 import Banner from "../Banner/Banner";
 import React from "react";
-import Testimonial from "../Testimonial/Testimonial";
 
 import StepsSection from "../../../components/StepsSection";
 
@@ -15,7 +14,6 @@ const Home = () => {
       {/* <Testimonial/> */}
       <StepsSection />
 
-      <Testimonial />
 
       {/* Testimonial slider start here */}
       <TestimonialSlider />
