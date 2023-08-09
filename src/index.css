@@ -16,3 +16,8 @@ html{
 }
 
 
+.footerGrid{
+  display: grid;
+  align-content: space-between;
+  justify-items: start;
+}
