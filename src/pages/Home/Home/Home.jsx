@@ -5,7 +5,6 @@ import Testimonial from '../Testimonial/Testimonial';
 const Home = () => {
     return (
         <div className='teal'>
-            {/* Banner section */}
             <Banner/>
             <Testimonial/>
         </div>
