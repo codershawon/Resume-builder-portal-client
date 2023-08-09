@@ -57,6 +57,8 @@ const Navbar = () => {
     {/* #### TODO #### do uncomment after implement the {authProvider} correctly
         {user && <li className="text-xl"><Link to="/dashboard">My Documents</Link></li>} */}
 
+
+  
     <div>
       {
         // user ?
