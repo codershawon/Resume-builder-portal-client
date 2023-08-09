@@ -15,7 +15,7 @@ const Home = () => {
 
 const Home = () => {
     return (
-        <div>
+        <div className='teal'>
             {/* Banner section */}
 
             {/* <Banner/> */}
