@@ -5,6 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 
 
 const Navbar = () => {
+
   const location = useLocation();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -53,6 +54,8 @@ const Navbar = () => {
 
     {/* #### TODO #### do uncomment after implement the {authProvider} correctly
         {user && <li className="text-xl"><Link to="/dashboard">My Documents</Link></li>} */}
+
+  return (
     <div>
       {
         // user ?
