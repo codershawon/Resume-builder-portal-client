@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import "./Steps.css";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import FixedWidth from "./fixedwidth";
 
 const StepsSection = () => {
   
   return (
-    <div className="mx-auto pt-5 bg-[#fff]">
+    <FixedWidth>
+      <div className="mx-auto pt-5 bg-[#fff]">
       {/* SubTile Section Start */}
       <div className="text-center max-w-[600px] mx-auto mb-14">
         <p className="text-[#5d61bf] block uppercase mb-2 text-base font-semibold">
@@ -155,6 +157,7 @@ const StepsSection = () => {
       </Tabs>
       {/* Details Steps section End */}
     </div>
+    </FixedWidth>
   );
 };
 
