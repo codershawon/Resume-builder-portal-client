@@ -5,7 +5,7 @@ import TestimonialSlider from '../Testimonial/TestimonialSlider';
 
 const Home = () => {
     return (
-        <div>
+        <div className='teal'>
             {/* Banner section */}
             <Banner/>
             <Testimonial/>
