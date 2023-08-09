@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import imgLogo from "../../assets/resume-cv-cover-letter-transparent.png";
+import imgLogo from "../../assets/logo/resume-cv-cover-letter-transparent.png";
 import { FaDribbble, FaFacebook, FaGithub, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
