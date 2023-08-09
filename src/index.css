@@ -9,4 +9,16 @@
   background-color: rgba(255, 255, 255, 0.87);
   font-family: 'Roboto', sans-serif;
 
+
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+
+.footerGrid{
+  display: grid;
+  align-content: space-between;
+  justify-items: start;
 }
