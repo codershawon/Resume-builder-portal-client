@@ -8,9 +8,11 @@ const Home = () => {
     <div className="teal">
       {/* Banner section */}
       <Banner />
-      {/* <Banner/> */}
-      {/* <Testimonial/> */}
-      <StepsSection />       
+     
+
+            {/* <Testimonial/> */}
+            <StepsSection/>
+
             {/* Testimonial slider start here */}
             <TestimonialSlider/>
         </div>
