@@ -20,7 +20,7 @@ const Navbar = () => {
   // Listen for changes in viewport size
   useEffect(() => {
     const handleResize = () => {
-      // Close the mobile menu when switching to desktop view
+      
       if (window.innerWidth >= 768) {
         closeMobileMenu();
       }
