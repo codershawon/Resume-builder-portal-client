@@ -6,6 +6,12 @@ import StepsSection from '../../../components/StepsSection';
 
 import TestimonialSlider from '../Testimonial/TestimonialSlider';
 
+<<<<<<< Updated upstream
+=======
+
+const Home = () => {
+  
+>>>>>>> Stashed changes
 
 const Home = () => {
     return (
