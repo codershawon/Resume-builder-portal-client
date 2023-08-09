@@ -10,6 +10,8 @@ import TestimonialSlider from '../Testimonial/TestimonialSlider';
 const Home = () => {
     return (
         <div className='teal'>
+
+
             {/* Banner section */}
 
             {/* <Banner/> */}
