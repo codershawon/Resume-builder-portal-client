@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-// import Container from "../../../components/Container";
 import "./Banner.css";
+import FixedWidth from "../../../components/fixedwidth";
 
 const Banner = () => {
   const images = [
