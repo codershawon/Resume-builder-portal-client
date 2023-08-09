@@ -1,0 +1,31 @@
+.hover-design{
+    transition: 0.5s ease;
+  }
+  .hover-design:hover{
+    transform: translateY(-15px);
+    background-color: #197685;
+  }
+  .hover-design:hover .text-colors{
+    transform: translateY(-5px);
+    color: #fff;
+    transition: 0.5s ease;
+  }
+  .hover-design:hover .icon-hover {
+    background-color: #fff;
+    transition: 0.5s ease;
+  }
+  .hover-design:hover .icon-hover .icons{
+    transform: rotate(720deg);
+    color: #197685;
+    transition: 0.5s ease;
+  }
+
+  .react-tabs__tab {
+    border: none !important;
+    padding: 0px 0px !important;
+    bottom: 0px !important;
+  }
+  .react-tabs__tab-list{
+    border-bottom: none !important;
+    margin: 0px !important;
+  }
