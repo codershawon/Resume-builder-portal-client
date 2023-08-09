@@ -9,3 +9,9 @@
   background-color: rgba(255, 255, 255, 0.87);
 
 }
+
+.footerGrid{
+  display: grid;
+  align-content: space-between;
+  justify-items: start;
+}

@@ -1,49 +1,103 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import imgLogo from "../../assets/resume-cv-cover-letter-transparent.png"
+import imgLogo from "../../assets/resume-cv-cover-letter-transparent.png";
+import { FaDribbble, FaFacebook, FaGithub, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <div>
-      <footer className="footer p-10 bg-base-200 text-base-content">
+      <footer className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 p-10 bg-[#197685] bg-opacity-10 text-base-content">
         <div>
-          <div className="flex justify-center items-center gap-4">
-            <img
-              className="w-[75px]"
-              src={imgLogo}
-              alt=""
-            />
+          <div className="md:flex justify-center items-center gap-4">
+            <img className="w-[240px]" src={imgLogo} alt="" />
           </div>
-          <p>
-            There are many variations of <br /> passg of Lorem Ipsum available,
-            <br /> but thmajority have suffered altem.
-          </p>
+          <div className="ps-2">
+            <p className="py-2">
+              There are many variations of <br /> passg of Lorem Ipsum
+              available.
+            </p>
+            <span className="flex gap-2 lg:hidden">
+              <Link
+                to=""
+                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+              >
+                <FaFacebook></FaFacebook>
+              </Link>
+              <Link
+                to=""
+                className="  shadow-lg font-normal bg-white bg-opacity-30 flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+              >
+                <FaGithub></FaGithub>
+              </Link>
+              <Link
+                to=""
+                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+              >
+                <FaDribbble></FaDribbble>
+              </Link>
+              <Link
+                to=""
+                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+              >
+                <FaTwitter></FaTwitter>
+              </Link>
+            </span>
+          </div>
         </div>
-        <div>
-          <span className="footer-title">Services</span>
-          <Link to="" className="">Branding</Link>
-          <Link to=""className="">Design</Link>
-          <Link to="" className="">Marketing</Link>
-          <Link to="" className="">Advertisement</Link>
+        <div className="footerGrid">
+          <div className="footer-title">Services</div>
+          <Link to=""> Branding </Link>
+          <Link to=""> Design</Link>
+          <Link to=""> Marketing</Link>
+          <Link to="">  Advertisement</Link>
         </div>
-        <div>
-          <span className="footer-title">Company</span>
+        <div className="footerGrid">
+          <div className="footer-title">Company</div>
           <Link to="" className="">About us</Link>
-          <Link to="" className="">Resume Templates</Link>
-          <Link to="" className="">Contact Us</Link>
-          <Link to="" className="">Press kit</Link>
+          <Link to="" className="">  Resume Templates </Link>
+          <Link to="" className="">  Blog</Link>
+          <Link to="" className="">  Contact Us</Link>
         </div>
-        <div>
-          <span className="footer-title">Legal</span>
-          <Link to="" className="">Terms of use</Link>
-          <Link to="" className="">Privacy policy</Link>
-          <Link to="" className="">Cookie policy</Link>
+        <div className="footerGrid">
+          <div className="footer-title">Legal</div>
+          <Link to=""> Terms of use</Link>
+          <Link to=""> Privacy policy</Link>
+          <Link to=""> Additionally</Link>
         </div>
       </footer>
-      <footer className="footer footer-center p-4 bg-base-300 text-base-content">
-        <div>
-          <p>Copyright © <script>document.write(new Date().getFullYear())</script> - All right reserved by ResumeGenius</p>
+      <footer className="p-4 bg-[#197685] bg-opacity-20 ">
+        <div className="text-center lg:flex lg:justify-between  lg:items-center mx-8">
+          <p>Copyright © 2023 - All right reserved by ResumeGenius</p>
+          <span className="  hidden lg:block">
+              <div className="flex gap-2">
+                <Link
+                to=""
+                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+              >
+                <FaFacebook></FaFacebook>
+              </Link>
+              <Link
+                to=""
+                className="  shadow-lg font-normal bg-white bg-opacity-30 flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+              >
+                <FaGithub></FaGithub>
+              </Link>
+              <Link
+                to=""
+                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+              >
+                <FaDribbble></FaDribbble>
+              </Link>
+              <Link
+                to=""
+                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+              >
+                <FaTwitter></FaTwitter>
+              </Link>
+              </div>
+            </span>
         </div>
+        
       </footer>
     </div>
   );
