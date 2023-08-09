@@ -1,11 +1,11 @@
 import React from 'react';
 
-const test1010 = () => {
+const AuthProvider = () => {
     return (
         <div>
-            <h1>Hello</h1>
+            
         </div>
     );
 };
 
-export default test1010;
+export default AuthProvider;
