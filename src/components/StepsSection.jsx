@@ -133,6 +133,7 @@ const StepsSection = () => {
           </TabPanel>
 
           {/* details section 3 */}
+          {/* just commit  */}
 
           <TabPanel>
             <section
