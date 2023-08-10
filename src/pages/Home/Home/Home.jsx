@@ -1,5 +1,6 @@
 import Banner from "../Banner/Banner";
 import React from "react";
+import ResumeBuilder from "../../../components/ResumeCheck/ResumeBuilder";
 import StepsSection from "../../../components/StepsSection";
 import TestimonialSlider from "../Testimonial/TestimonialSlider";
 import BestResume from "../BestResume/BestResume";
@@ -14,6 +15,7 @@ const Home = () => {
       {/* Banner section */}
       <Banner />
 
+      {/* <Testimonial/> */}
       <StepsSection />
 
       {/* Best Resume */}
