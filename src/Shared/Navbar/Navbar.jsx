@@ -41,7 +41,7 @@ const Navbar = () => {
 
   const navOptions = <>
     <li className={location.pathname === "" ? "navActive" : "navStyle "}><Link to='/' >Resume Template</Link></li>
-    <li className={location.pathname === "" ? "navActive" : "navStyle"}><Link to="/">CoverLetter</Link></li>
+    <li className={location.pathname === "" ? "navActive" : "navStyle"}><Link to="/">Cover Letter</Link></li>
 
     <li className={`relative navHover ${location.pathname === "" ? "navActive" : "navStyle"}`}>
       <Link to="/">Career</Link>
@@ -49,7 +49,6 @@ const Navbar = () => {
       <ul className="navDropdown">
         <li className={location.pathname === "/coverletter" ? "navActive" : "navStyle"}><Link to='/Resume' >Resume Template</Link></li>
         <li className={location.pathname === "/coverletter" ? "navActive" : "navStyle"}><Link to="/coverletter">CoverLetter</Link></li>
-        {/* Add more dropdown options here */}
       </ul>
     </li>
 
@@ -100,7 +99,7 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-      {/* Mobile menu  */}
+      {/* Mobile menu options */}
       <div className={`mobile-menu ${isMobileMenuOpen ? 'mobile-menu-open' : ''}`}>
         <ul>
           {navOptions}
