@@ -1,10 +1,10 @@
 import Banner from "../Banner/Banner";
+import BestResume from "../BestResume/BestResume";
+import { Helmet } from "react-helmet-async";
 import React from "react";
 import ResumeBuilder from "../../../components/ResumeCheck/ResumeBuilder";
 import StepsSection from "../../../components/StepsSection";
 import TestimonialSlider from "../Testimonial/TestimonialSlider";
-import BestResume from "../BestResume/BestResume";
-import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   return (
@@ -14,23 +14,7 @@ const Home = () => {
       </Helmet>
       {/* Banner section */}
       <Banner />
-
-
       <ResumeBuilder />
-      {/* <Testimonial/> */}
-      <StepsSection />
-
-      {/* Testimonial slider start here */}
-      <TestimonialSlider />
-            {/* <Testimonial/> */}
-            <StepsSection/>
-             {/* Steps */}
-             <BestResume/>
-            {/* Testimonial slider start here */}
-            <TestimonialSlider/>
-            {/* kdkfdk */}
-        </div>
-    );
       {/* <Testimonial/> */}
       <StepsSection />
 
