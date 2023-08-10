@@ -15,22 +15,6 @@ const Home = () => {
       {/* Banner section */}
       <Banner />
 
-
-      <ResumeBuilder />
-      {/* <Testimonial/> */}
-      <StepsSection />
-
-      {/* Testimonial slider start here */}
-      <TestimonialSlider />
-            {/* <Testimonial/> */}
-            <StepsSection/>
-             {/* Steps */}
-             <BestResume/>
-            {/* Testimonial slider start here */}
-            <TestimonialSlider/>
-            {/* kdkfdk */}
-        </div>
-    );
       {/* <Testimonial/> */}
       <StepsSection />
 
