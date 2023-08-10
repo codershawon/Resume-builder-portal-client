@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import './BestResume.css';
-import { Autoplay, Navigation } from 'swiper/modules';
+import { Autoplay,} from 'swiper/modules';
 
 const BestResume = () => {
 
@@ -118,8 +118,7 @@ const BestResume = () => {
                         delay: 0,
                         disableOnInteraction: false,
                     }}
-                    navigation={true}
-                    modules={[Autoplay, Navigation]}
+                    modules={[Autoplay]}
                     speed={2500} 
                     loop={true}
                     breakpoints={{
