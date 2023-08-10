@@ -19,12 +19,7 @@ const Footer = () => {
             <span className="flex gap-2">
               <Link
                 to=""
-
-                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 hover:bg-[#197685] hover:text-white"
-
-                className="shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
-
-              >
+                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 hover:bg-[#197685] hover:text-white">
                 <FaFacebook></FaFacebook>
               </Link>
               <Link
