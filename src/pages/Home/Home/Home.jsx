@@ -1,8 +1,6 @@
 import Banner from "../Banner/Banner";
 import React from "react";
-
 import StepsSection from "../../../components/StepsSection";
-
 import TestimonialSlider from "../Testimonial/TestimonialSlider";
 
 const Home = () => {
@@ -10,9 +8,11 @@ const Home = () => {
     <div className="teal">
       {/* Banner section */}
       <Banner />
-      {/* <Banner/> */}
-      {/* <Testimonial/> */}
-      <StepsSection />       
+     
+
+            {/* <Testimonial/> */}
+            <StepsSection/>
+
             {/* Testimonial slider start here */}
             <TestimonialSlider/>
         </div>
