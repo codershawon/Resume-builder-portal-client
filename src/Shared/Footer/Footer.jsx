@@ -19,25 +19,29 @@ const Footer = () => {
             <span className="flex gap-2">
               <Link
                 to=""
+
+                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 hover:bg-[#197685] hover:text-white"
+
                 className="shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+
               >
                 <FaFacebook></FaFacebook>
               </Link>
               <Link
                 to=""
-                className="  shadow-lg font-normal bg-white bg-opacity-30 flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+                className="  shadow-lg font-normal bg-white bg-opacity-30 flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 hover:bg-[#197685] hover:text-white"
               >
                 <FaGithub></FaGithub>
               </Link>
               <Link
                 to=""
-                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 hover:bg-[#197685] hover:text-white"
               >
                 <FaDribbble></FaDribbble>
               </Link>
               <Link
                 to=""
-                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 hover:bg-[#197685] hover:text-white"
               >
                 <FaTwitter></FaTwitter>
               </Link>
@@ -67,8 +71,13 @@ const Footer = () => {
       </footer>
       <footer className="p-4 bg-[#197685] bg-opacity-20 ">
       <div className="text-center ">
+
+          <p>Copyright © 2023 - All right reserved by ResumeGenius </p>
+             
+
           <p>Copyright © 2023 - All right reserved by ResumeGenius</p>
           
+
         </div>
         
       </footer>
