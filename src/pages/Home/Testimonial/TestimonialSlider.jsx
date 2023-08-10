@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FixedWidth from "../../../components/fixedwidth";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const TestimonialSlider = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -15,7 +15,7 @@ const TestimonialSlider = () => {
       title: "Founder of meta",
       rating: "4",
       review:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et est hendrerit, porta nunc vitae, gravida justo. Nunc fermentum magna lorem, euismod volutpat arcu volutpat et.",
+      "As a tech professional, having a well-designed resume is crucial. Your builder's intuitive features, coupled with the ability to showcase my skills and experience, resulted in a modern and polished resume. Highly recommended!",
     },
     {
       photo: "https://randomuser.me/api/portraits/women/79.jpg",
@@ -23,7 +23,7 @@ const TestimonialSlider = () => {
       title: "Product designer",
       rating: "5",
       review:
-        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout, that the point of using Lorem Ipsum.",
+      "I used your resume builder to create a visually appealing and comprehensive resume. The range of templates and customization options allowed me to tailor my resume to match different job opportunities. A fantastic tool for job seekers!",
     },
     {
       photo: "https://randomuser.me/api/portraits/men/86.jpg",
@@ -31,7 +31,7 @@ const TestimonialSlider = () => {
       title: "DevOp engineer",
       rating: "4.5",
       review:
-        "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati ",
+      "Your resume builder helped me craft a standout resume that got noticed by recruiters. The user-friendly interface and customizable templates made the process a breeze. I'm grateful for this tool!",
     },
   ];
 
