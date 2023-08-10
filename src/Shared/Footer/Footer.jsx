@@ -1,8 +1,6 @@
 import { FaDribbble, FaFacebook, FaGithub, FaTwitter } from "react-icons/fa";
-
 import { Link } from "react-router-dom";
 import React from "react";
-import imgLogo from "../../assets/logo/resume-cv-cover-letter-transparent.png";
 
 const Footer = () => {
   return (
