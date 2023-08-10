@@ -55,9 +55,9 @@ const Banner = () => {
                   }`}
                   style={{
                     right: `-${index * 100}%`,
-                    transform: "translateX(50%)",
+                    transform: "translateX(40%)",
                     top: "30%",
-                    width: "230px",
+                    width: "240px",
                     height: "350px",
                     objectFit: "cover",
                   }}
