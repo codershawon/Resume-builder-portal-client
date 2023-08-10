@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import imgLogo from "../../assets/resume-cv-cover-letter-transparent.png";
+import imgLogo from "../../assets/logo/resume-cv-cover-letter-transparent.png";
 import { FaDribbble, FaFacebook, FaGithub, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
@@ -16,7 +16,7 @@ const Footer = () => {
               There are many variations of <br /> pass of Lorem Ipsum
               available.
             </p>
-            <span className="flex gap-2 lg:hidden">
+            <span className="flex gap-2">
               <Link
                 to=""
                 className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 hover:bg-[#197685] hover:text-white">
@@ -24,19 +24,19 @@ const Footer = () => {
               </Link>
               <Link
                 to=""
-                className="  shadow-lg font-normal bg-white bg-opacity-30 flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+                className="  shadow-lg font-normal bg-white bg-opacity-30 flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 hover:bg-[#197685] hover:text-white"
               >
                 <FaGithub></FaGithub>
               </Link>
               <Link
                 to=""
-                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 hover:bg-[#197685] hover:text-white"
               >
                 <FaDribbble></FaDribbble>
               </Link>
               <Link
                 to=""
-                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 hover:bg-[#197685] hover:text-white"
               >
                 <FaTwitter></FaTwitter>
               </Link>
@@ -65,39 +65,13 @@ const Footer = () => {
         </div>
       </footer>
       <footer className="p-4 bg-[#197685] bg-opacity-20 ">
-        <div className="text-center lg:flex lg:justify-between  lg:items-center mx-8">
+        <div className="text-center mx-8">
           <p>Copyright © 2023 - All right reserved by ResumeGenius</p>
-          <span className="  hidden lg:block">
-              <div className="flex gap-2">
-                <Link
-                to=""
-                className="shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
-              >
-                <FaFacebook></FaFacebook>
-              </Link>
-              <Link
-                to=""
-                className="  shadow-lg font-normal bg-white bg-opacity-30 flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
-              >
-                <FaGithub></FaGithub>
-              </Link>
-              <Link
-                to=""
-                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
-              >
-                <FaDribbble></FaDribbble>
-              </Link>
-              <Link
-                to=""
-                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
-              >
-                <FaTwitter></FaTwitter>
-              </Link>
-              </div>
-            </span>
+          
         </div>
         
       </footer>
+
     </div>
   );
 };
