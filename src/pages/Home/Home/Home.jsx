@@ -14,16 +14,6 @@ const Home = () => {
       {/* Banner section */}
       <Banner />
 
-            {/* <Testimonial/> */}
-            <StepsSection/>
-             {/* Steps */}
-             <BestResume/>
-            {/* Testimonial slider start here */}
-            <TestimonialSlider/>
-            {/* kdkfdk */}
-        </div>
-    );
-      {/* <Testimonial/> */}
       <StepsSection />
 
       {/* Best Resume */}
