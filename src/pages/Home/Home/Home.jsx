@@ -2,6 +2,7 @@ import Banner from "../Banner/Banner";
 import React from "react";
 import StepsSection from "../../../components/StepsSection";
 import TestimonialSlider from "../Testimonial/TestimonialSlider";
+import BestResume from "../BestResume/BestResume";
 
 const Home = () => {
   return (
@@ -12,7 +13,8 @@ const Home = () => {
 
             {/* <Testimonial/> */}
             <StepsSection/>
-
+             {/* Steps */}
+             <BestResume/>
             {/* Testimonial slider start here */}
             <TestimonialSlider/>
             {/* kdkfdk */}
