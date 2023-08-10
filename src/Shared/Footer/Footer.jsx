@@ -6,7 +6,7 @@ import { FaDribbble, FaFacebook, FaGithub, FaTwitter } from "react-icons/fa";
 const Footer = () => {
   return (
     <div>
-      <footer className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 p-10 bg-[#197685] bg-opacity-10 text-base-content">
+      <footer className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 p-10 bg-[#197685] bg-opacity-10 text-black">
         <div>
           <div className="md:flex justify-center items-center gap-4">
             <img className="w-[240px]" src={imgLogo} alt="" />
@@ -19,7 +19,11 @@ const Footer = () => {
             <span className="flex gap-2">
               <Link
                 to=""
+
                 className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 hover:bg-[#197685] hover:text-white"
+
+                className="shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+
               >
                 <FaFacebook></FaFacebook>
               </Link>
@@ -67,8 +71,13 @@ const Footer = () => {
       </footer>
       <footer className="p-4 bg-[#197685] bg-opacity-20 ">
       <div className="text-center ">
+
           <p>Copyright © 2023 - All right reserved by ResumeGenius </p>
              
+
+          <p>Copyright © 2023 - All right reserved by ResumeGenius</p>
+          
+
         </div>
         
       </footer>
