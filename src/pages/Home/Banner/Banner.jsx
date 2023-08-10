@@ -22,8 +22,8 @@ const Banner = () => {
 
   return (
     <div>
-      {/* <Container> */}
-        <div className="banner-section flex flex-col md:flex-col lg:flex-row justify-around items-center text-center lg:text-left lg:items-start mt-10 lg:mt-0 mb-20">
+      <FixedWidth>
+        <div className="banner-section flex flex-col md:flex-col overflow-hidden lg:flex-row justify-around items-center text-center lg:text-left lg:items-start mt-10 lg:mt-0 mb-20">
           <div className="banner-content mb-8 lg:mb-0 lg:mr-20">
             <h1 className="text-sm uppercase font-semibold text-gray-500 mb-2 lg:pt-36">
               Unlock Your Potential with Resume Genius
@@ -68,7 +68,7 @@ const Banner = () => {
             </div>
           </div>
         </div>
-      {/* </Container> */}
+        </FixedWidth>
     </div>
   );
 };
