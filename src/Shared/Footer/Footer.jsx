@@ -5,7 +5,7 @@ import { FaDribbble, FaFacebook, FaGithub, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div>
+    <div className="">
       <footer className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 p-10 bg-[#197685] bg-opacity-10 text-black">
         <div>
           <div className="md:flex justify-center items-center gap-4">
