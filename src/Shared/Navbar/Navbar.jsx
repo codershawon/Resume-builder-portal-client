@@ -71,7 +71,7 @@ const Navbar = () => {
         //   </div>)
         //   :
         (<div>
-          <div><Link to="/" className="btn btn-primary">Login</Link></div>
+          <div><Link to="/" className="btn my-btn">Login</Link></div>
         </div>)}
     </div>
   </>
@@ -83,7 +83,7 @@ const Navbar = () => {
         <div className="flex items-center">
           <img src={logo} alt="Resume genius logo" />
         </div>
-        <ul className="hidden md:flex space-x-4">
+        <ul className="hidden md:flex items-center space-x-4">
           {navOptions}
         </ul>
         <div className="md:hidden">

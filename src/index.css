@@ -16,6 +16,13 @@
 html{
   scroll-behavior: smooth;
 }
+body{
+  background-color: #fff;
+}
+
+.rgContainer{
+  @apply max-w-7xl mx-auto
+}
 
 
 .footerGrid{

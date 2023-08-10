@@ -6,6 +6,7 @@ import imgLogo from "../../assets/logo/resume-cv-cover-letter-transparent.png";
 
 const Footer = () => {
   return (
+    <div className="">
 
     <footer className="bg-gray-900 text-white py-10">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
