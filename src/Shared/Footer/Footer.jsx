@@ -8,10 +8,10 @@ const Footer = () => {
     <div className="">
       <footer className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 p-10 bg-[#197685] bg-opacity-10 text-black">
         <div>
-          <div className="md:flex justify-center items-center gap-4">
+          <div className=" gap-4">
             <img className="w-[240px]" src={imgLogo} alt="" />
           </div>
-          <div className="ps-2">
+          <div>
             <p className="py-2">
               There are many variations of <br /> pass of Lorem Ipsum
               available.
