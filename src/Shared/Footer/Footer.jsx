@@ -1,8 +1,7 @@
 import React from 'react';
 
 const Footer = () => {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
     return (
         <div>
             <h2>this is footer</h2>
@@ -11,7 +10,7 @@ const Footer = () => {
         </div>
             
     );
-=======
+
     // return (
     //     <div>
     //         <h2>this is footer</h2>
@@ -20,8 +19,7 @@ const Footer = () => {
     //     </div>
             
     // );
->>>>>>> Stashed changes
-=======
+
     // return (
     //     <div>
     //         <h2>this is footer</h2>
@@ -30,7 +28,7 @@ const Footer = () => {
     //     </div>
             
     // );
->>>>>>> Stashed changes
+
 };
 
 export default Footer;
