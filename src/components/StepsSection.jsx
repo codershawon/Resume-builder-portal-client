@@ -1,18 +1,14 @@
 import React, { useState } from "react";
-import step1 from "../assets/step-img/headhunting.png";
-import step2 from "../assets/step-img/cv.png";
-import step3 from "../assets/step-img/resume.png";
-import steps1 from "../assets/step-img/step-1.jpg";
-import steps2 from "../assets/step-img/step-2.jpg";
-import steps3 from "../assets/step-img/step-3.jpg";
 import "./Steps.css";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import FixedWidth from "./fixedwidth";
 
 const StepsSection = () => {
   
   return (
-    <div className="mx-auto pt-5 bg-[#fff]">
+    <FixedWidth>
+      <div className="mx-auto pt-5 bg-[#fff]">
       {/* SubTile Section Start */}
       <div className="text-center max-w-[600px] mx-auto mb-14">
         <p className="text-[#5d61bf] block uppercase mb-2 text-base font-semibold">
@@ -33,7 +29,7 @@ const StepsSection = () => {
                 <div
                   className="bg-[#F4F7FC] text-white py-10 px-8 rounded-md hover-design">
                   <div className="h-14 w-14 icon-hover bg-[rgba(247,138,203,.2)] flex justify-center items-center rounded-full mb-5">
-                    <img className=" h-8 w-8 icons" src={step3} alt="" />
+                    <img className=" h-8 w-8 icons" src="https://i.ibb.co/tqMKdWP/resume.png" alt="" />
                   </div>
                   <div className="text-gray-700  text-colors">
                     <h2 className="font-bold text-2xl ">Step 01</h2>
@@ -50,7 +46,7 @@ const StepsSection = () => {
                 <div
                   className="bg-[#F4F7FC] text-white py-10 px-8 rounded-md hover-design">
                   <div className="h-14 w-14 icon-hover bg-[rgba(0,174,255,.2)] flex justify-center items-center rounded-full mb-5">
-                    <img className=" h-8 w-8 icons" src={step2} alt="" />
+                    <img className=" h-8 w-8 icons" src="https://i.ibb.co/HNDghbq/cv.png" alt="" />
                   </div>
                   <div className="text-gray-700  text-colors">
                     <h2 className="font-bold text-2xl ">Step 02</h2>
@@ -67,7 +63,7 @@ const StepsSection = () => {
                 <div
                   className="bg-[#F4F7FC] text-white py-10 px-8 rounded-md hover-design">
                   <div className="h-14 w-14 icon-hover bg-[rgba(247,138,203,.2)] flex justify-center items-center rounded-full mb-5">
-                    <img className=" h-8 w-8 icons" src={step1} alt="" />
+                    <img className=" h-8 w-8 icons" src="https://i.ibb.co/KWFPTs4/headhunting.png" alt="" />
                   </div>
                   <div className="text-gray-700  text-colors">
                     <h2 className="font-bold text-2xl ">Step 03</h2>
@@ -101,7 +97,7 @@ const StepsSection = () => {
                 </p>
               </div>
               <div className="">
-                <img className="w-full h-full" src={steps1} alt="" />
+                <img className="w-full h-full" src="https://i.ibb.co/ccHNWZW/step-1-11zon.jpg" alt="" />
               </div>
             </section>
           </TabPanel>
@@ -113,7 +109,7 @@ const StepsSection = () => {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 mx-10 lg:mx-20 lg:px-10"
               id="step2">
               <div className="">
-                <img className="w-full h-full" src={steps2} alt="" />
+                <img className="w-full h-full" src="https://i.ibb.co/56wfHpX/step-2-11zon.jpg" alt="" />
               </div>
               <div className="flex flex-col justify-center ">
                 <p className="text-[#ddd] font-bold text-6xl md:text-9xl mb-5 md:mb-9"> 02</p>
@@ -153,7 +149,7 @@ const StepsSection = () => {
                 </p>
               </div>
               <div className="">
-                <img className="w-full h-full" src={steps3} alt="" />
+                <img className="w-full h-full" src="https://i.ibb.co/0FCbRFr/step-3-11zon.jpg" alt="" />
               </div>
             </section>
           </TabPanel>
@@ -161,6 +157,7 @@ const StepsSection = () => {
       </Tabs>
       {/* Details Steps section End */}
     </div>
+    </FixedWidth>
   );
 };
 

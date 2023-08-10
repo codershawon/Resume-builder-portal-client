@@ -1,14 +1,106 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
+import imgLogo from "../../assets/resume-cv-cover-letter-transparent.png";
+import { FaDribbble, FaFacebook, FaGithub, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
-    // return (
-    //     <div>
-    //         <h2>this is footer</h2>
-    //         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sequi quasi ullam cumque quos magni itaque recusandae molestias ea, mollitia eius animi molestiae fugit.</p>
-    //         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore, nesciunt? Illo aliquid odio, cum eaque nam natus explicabo id atque sunt, incidunt rerum, dolor iste quam sapiente eum voluptas ullam voluptate sequi harum dignissimos.</p>
-    //     </div>
-            
-    // );
+  return (
+    <div>
+      <footer className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 p-10 bg-[#197685] bg-opacity-10 text-black">
+        <div>
+          <div className="md:flex justify-center items-center gap-4">
+            <img className="w-[240px]" src={imgLogo} alt="" />
+          </div>
+          <div className="ps-2">
+            <p className="py-2">
+              There are many variations of <br /> pass of Lorem Ipsum
+              available.
+            </p>
+            <span className="flex gap-2 lg:hidden">
+              <Link
+                to=""
+                className="shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+              >
+                <FaFacebook></FaFacebook>
+              </Link>
+              <Link
+                to=""
+                className="  shadow-lg font-normal bg-white bg-opacity-30 flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+              >
+                <FaGithub></FaGithub>
+              </Link>
+              <Link
+                to=""
+                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+              >
+                <FaDribbble></FaDribbble>
+              </Link>
+              <Link
+                to=""
+                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+              >
+                <FaTwitter></FaTwitter>
+              </Link>
+            </span>
+          </div>
+        </div>
+        <div className="footerGrid">
+          <div className="footer-title">Services</div>
+          <Link to=""> Branding </Link>
+          <Link to=""> Design</Link>
+          <Link to=""> Marketing</Link>
+          <Link to="">  Advertisement</Link>
+        </div>
+        <div className="footerGrid">
+          <div className="footer-title">Company</div>
+          <Link to="" className="">About us</Link>
+          <Link to="" className="">  Resume Templates </Link>
+          <Link to="" className="">  Blog</Link>
+          <Link to="" className="">  Contact Us</Link>
+        </div>
+        <div className="footerGrid">
+          <div className="footer-title">Legal</div>
+          <Link to=""> Terms of use</Link>
+          <Link to=""> Privacy policy</Link>
+          <Link to=""> Additionally</Link>
+        </div>
+      </footer>
+      <footer className="p-4 bg-[#197685] bg-opacity-20 ">
+        <div className="text-center lg:flex lg:justify-between  lg:items-center mx-8">
+          <p>Copyright © 2023 - All right reserved by ResumeGenius</p>
+          <span className="  hidden lg:block">
+              <div className="flex gap-2">
+                <Link
+                to=""
+                className="shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+              >
+                <FaFacebook></FaFacebook>
+              </Link>
+              <Link
+                to=""
+                className="  shadow-lg font-normal bg-white bg-opacity-30 flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+              >
+                <FaGithub></FaGithub>
+              </Link>
+              <Link
+                to=""
+                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+              >
+                <FaDribbble></FaDribbble>
+              </Link>
+              <Link
+                to=""
+                className="  shadow-lg font-normal  bg-white bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 "
+              >
+                <FaTwitter></FaTwitter>
+              </Link>
+              </div>
+            </span>
+        </div>
+        
+      </footer>
+    </div>
+  );
 };
 
 export default Footer;
