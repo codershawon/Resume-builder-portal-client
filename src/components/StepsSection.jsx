@@ -7,8 +7,8 @@ import SectionTitle from "../Hooks/SectionTitle";
 
 const StepsSection = () => {
   return (
-    <FixedWidth>
-      <div className="mx-auto pt-5 bg-[#fff]">
+   
+      <div className="rgContainer bg-[#fff]">
         {/* SubTile Section Start */}
         <SectionTitle
           subHeading={"HOW IT WORKS"}
@@ -20,7 +20,7 @@ const StepsSection = () => {
         {/* Step Card Sections Start */}
         <Tabs>
           <TabList>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-10 md:mx-10 lg:mx-32">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <Tab>
                 <a href="#step1">
                   <div className="bg-[#F4F7FC] text-white py-10 px-8 shadow-lg rounded-md hover-design">
@@ -89,7 +89,7 @@ const StepsSection = () => {
             {/* details section 1 */}
             <TabPanel>
               <section
-                className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-2 justify-between gap-10 mx-10 lg:mx-20 lg:px-10"
+                className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-2 justify-between gap-10 "
                 id="step1">
                 <div className="flex flex-col justify-center ">
                   <p className="text-[#ddd] font-bold text-6xl md:text-9xl mb-5 md:mb-9">
@@ -119,7 +119,7 @@ const StepsSection = () => {
 
             <TabPanel>
               <section
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 mx-10 lg:mx-20 lg:px-10"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10"
                 id="step2">
                 <div className="">
                   <img
@@ -153,7 +153,7 @@ const StepsSection = () => {
 
             <TabPanel>
               <section
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 mx-10 lg:mx-20 lg:px-10"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10"
                 id="step3">
                 <div className="flex flex-col justify-center ">
                   <p className="text-[#ddd] font-bold text-6xl md:text-9xl mb-5 md:mb-9">
@@ -184,7 +184,7 @@ const StepsSection = () => {
         </Tabs>
         {/* Details Steps section End */}
       </div>
-    </FixedWidth>
+    
   );
 };
 
