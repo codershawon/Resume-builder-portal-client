@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import logo from '../../assets/logo/resume-cv-cover-letter-transparent.png'
+import { FaAngleDown } from "react-icons/fa6";
 
 const Navbar = () => {
 
@@ -44,7 +45,7 @@ const Navbar = () => {
     <li className={location.pathname === "" ? "navActive" : "navStyle"}><Link to="/">Cover Letter</Link></li>
 
     <li className={`relative navHover ${location.pathname === "" ? "navActive" : "navStyle"}`}>
-      <Link to="/">Career</Link>
+      <Link className='flex items-center gap-1' to="/">Career <FaAngleDown/></Link>
       {/* Dropdown options */}
       <ul className="navDropdown">
         <li className={location.pathname === "/coverletter" ? "navActive" : "navStyle"}><Link to='/Resume' >Resume Template</Link></li>
@@ -79,7 +80,7 @@ const Navbar = () => {
 
   return (
     <nav className="navBar">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
+      <div className="rgContainer flex justify-between items-center">
         <div className="flex items-center">
           <img src={logo} alt="Resume genius logo" />
         </div>
