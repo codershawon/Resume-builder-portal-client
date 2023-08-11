@@ -101,7 +101,7 @@ const TestimonialSlider = () => {
                   <li key={idx}>
                     <figure>
                       <blockquote>
-                        <p className="text-gray-800 text-xl font-semibold sm:text-2xl">
+                        <p className="text-gray-500 text-xl font-semibold sm:text-2xl">
                           “{item.review}“
                         </p>
                       </blockquote>
