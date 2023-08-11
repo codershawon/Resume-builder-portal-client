@@ -14,6 +14,7 @@ const Home = () => {
       </Helmet>
       {/* Banner section */}
       <Banner />
+      <ResumeBuilder/>
 
       {/* <Testimonial/> */}
       <StepsSection />

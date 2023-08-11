@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import Dropzone from "react-dropzone";
 import axios from "axios";
+import FixedWidth from "../fixedwidth";
 
 const ResumeBuilder = () => {
   const [uploadedFile, setUploadedFile] = useState(null);
@@ -37,7 +38,8 @@ const ResumeBuilder = () => {
   };
 
   return (
-    <div className="p-24">
+   <FixedWidth>
+     <div className="p-24">
       {/* SubTile Section Start */}
       <div className="text-center max-w-[600px] mx-auto mb-8">
         <h2 className="max-w-[560px] font-bold text-[40px] leading-10 text-gray-700 font-sans">
@@ -102,6 +104,7 @@ const ResumeBuilder = () => {
         )}
       </div>
     </div>
+ </FixedWidth>
   );
 };
 

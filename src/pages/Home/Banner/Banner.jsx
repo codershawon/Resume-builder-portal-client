@@ -5,7 +5,7 @@ import FixedWidth from "../../../components/fixedwidth";
 const Banner = () => {
   const images = [
     "https://i.ibb.co/R7mFPB6/Pink-Simple-Profile-Resume.jpg",
-    "https://i.ibb.co/jwgMDLx/Pink-Simple-Profile-Resume-1.jpg",
+    "https://i.ibb.co/MnFg40Z/White-simple-student-cv-resume.jpg",
     "https://i.ibb.co/Cwkbmdq/Professional-CV-Resume.jpg",
     "https://i.ibb.co/QfHfzVc/Black-White-Minimalist-CV-Resume.jpg",
   ];
@@ -21,7 +21,7 @@ const Banner = () => {
   }, [images.length]);
 
   return (
-    <div>
+    <div className="banner-section ">
       <FixedWidth>
         <div className="banner-section flex flex-col md:flex-col overflow-hidden lg:flex-row justify-around items-center text-center lg:text-left lg:items-start mt-10 lg:mt-0 mb-20">
           <div className="banner-content mb-8 lg:mb-0 lg:mr-20">
@@ -43,7 +43,7 @@ const Banner = () => {
             </p>
             <button className="my-btn">Get Started Now</button>
           </div>
-          <div className="rotating-images-area relative w-full lg:w-[250px] h-[400px] -mt-32 lg:-mt-0">
+          <div className="rotating-images-area relative w-full md:w-[250px] lg:w-[250px] h-[400px] md:h-[350px] -mt-32 lg:-mt-0">
             <div className="rotating-images">
               {images.map((image, index) => (
                 <img
@@ -55,7 +55,7 @@ const Banner = () => {
                   }`}
                   style={{
                     right: `-${index * 100}%`,
-                    transform: "translateX(40%)",
+                    transform: "translateX(-40%)",
                     top: "30%",
                     width: "240px",
                     height: "350px",

@@ -4,6 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import './BestResume.css';
 import { Autoplay,} from 'swiper/modules';
+import FixedWidth from '../../../components/fixedwidth';
 
 const BestResume = () => {
 
@@ -87,7 +88,8 @@ const BestResume = () => {
 
 
     return (
-        <div>
+       <FixedWidth>
+         <div>
             <div className='text-center font-bold text-3xl sm:text-5xl mt-10'>
                 <h2>Our best resume</h2>
                 <h2>templates available</h2>
@@ -156,6 +158,7 @@ const BestResume = () => {
                 </Swiper>
             </>
         </div>
+       </FixedWidth>
     );
 };
 

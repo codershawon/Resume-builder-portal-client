@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import logo from '../../assets/logo/resume-cv-cover-letter-transparent.png'
+import FixedWidth from '../../components/fixedwidth';
 
 const Navbar = () => {
 
@@ -79,6 +80,7 @@ const Navbar = () => {
 
   return (
     <nav className="navBar">
+      <FixedWidth>
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <img src={logo} alt="Resume genius logo" />
@@ -105,6 +107,7 @@ const Navbar = () => {
           {navOptions}
         </ul>
       </div>
+      </FixedWidth>
     </nav>
   );
 };
