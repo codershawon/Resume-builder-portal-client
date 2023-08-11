@@ -25,7 +25,7 @@
         transform: translateX(-100%);
     }
     66% {
-        transform: translateX(-200%);
+        transform: translateX(100%);
     }
     100% {
         transform: translateY(0%);

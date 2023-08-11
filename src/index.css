@@ -21,7 +21,7 @@ body{
 }
 
 .rgContainer{
-  @apply max-w-7xl mx-auto
+  @apply max-w-[1400px] mx-auto md:px-10 sm:px-2 px-4
 }
 
 
