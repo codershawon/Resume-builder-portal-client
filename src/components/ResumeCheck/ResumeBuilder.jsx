@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Dropzone from "react-dropzone";
 import axios from "axios";
-import FixedWidth from "../fixedwidth";
+import SectionTitle from "../../Hooks/SectionTitle";
 
 const ResumeBuilder = () => {
   const [uploadedFile, setUploadedFile] = useState(null);
@@ -38,14 +38,18 @@ const ResumeBuilder = () => {
   };
 
   return (
-   <FixedWidth>
-     <div className="p-24">
+    <div className="rgContainer my-[80px]">
       {/* SubTile Section Start */}
-      <div className="text-center max-w-[600px] mx-auto mb-8">
+      <SectionTitle
+          subHeading={"Resume Checker"}
+          heading={
+            "Check your resume"
+          }></SectionTitle>
+      {/* <div className="text-center max-w-[600px] mx-auto mb-8">
         <h2 className="max-w-[560px] font-bold text-[40px] leading-10 text-gray-700 font-sans">
           Check your resume
         </h2>
-      </div>
+      </div> */}
       {/* SubTile Section End */}
       <div className="p-8 bg-gray-50 ">
         {/* <h2 className="text-2xl text-center font-semibold mb-4">Resume Builder</h2> */}

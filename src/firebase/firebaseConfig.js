@@ -1,8 +1,4 @@
 
-
-// Import the functions you need from the SDKs you need
-
-// import { getAnalytics } from "firebase/analytics";
 import { initializeApp } from "firebase/app";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -25,3 +21,4 @@ const app = initializeApp(firebaseConfig);
 
 // const analytics = getAnalytics(app);
 export default app;
+

@@ -21,10 +21,9 @@ const Banner = () => {
   }, [images.length]);
 
   return (
-    <div className="banner-section ">
-      <FixedWidth>
-        <div className="banner-section flex flex-col md:flex-col overflow-hidden lg:flex-row justify-around items-center text-center lg:text-left lg:items-start mt-10 lg:mt-0 mb-20">
-          <div className="banner-content mb-8 lg:mb-0 lg:mr-20">
+    <div className="rgContainer">
+      <div className="banner-section  overflow-hidden grid md:grid-cols-2 text-center md:text-left lg:items-start mt-10 lg:mt-0 mb-20">
+      <div className="banner-content mb-8 lg:mb-0 lg:mr-20">
             <h1 className="text-sm uppercase font-semibold text-gray-500 mb-2 lg:pt-36">
               Unlock Your Potential with Resume Genius
             </h1>
@@ -43,16 +42,17 @@ const Banner = () => {
             </p>
             <button className="my-btn">Get Started Now</button>
           </div>
-          <div className="rotating-images-area relative w-full md:w-[250px] lg:w-[250px] h-[400px] md:h-[350px] -mt-32 lg:-mt-0">
+
+        <div className="overflow-clip h-full">
+          <div className="rotating-images-area relative w-full lg:w-[250px] h-[400px] -mt-32 lg:-mt-0">
             <div className="rotating-images">
               {images.map((image, index) => (
                 <img
                   key={index}
                   src={image}
                   alt={`Resume ${index + 1}`}
-                  className={`absolute transition-opacity duration-1000 ${
-                    index === currentImageIndex ? "opacity-100" : "opacity-0"
-                  }`}
+                  className={`absolute transition-opacity duration-1000 ${index === currentImageIndex ? "opacity-100" : "opacity-0"
+                    }`}
                   style={{
                     right: `-${index * 100}%`,
                     transform: "translateX(-40%)",
@@ -66,7 +66,8 @@ const Banner = () => {
             </div>
           </div>
         </div>
-      </FixedWidth>
+      </div>
+
     </div>
   );
 };

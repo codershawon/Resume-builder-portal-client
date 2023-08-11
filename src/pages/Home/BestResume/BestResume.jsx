@@ -3,8 +3,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import './BestResume.css';
+<<<<<<< HEAD
 import { Autoplay,} from 'swiper/modules';
 import FixedWidth from '../../../components/fixedwidth';
+=======
+import { Autoplay, } from 'swiper/modules';
+import SectionTitle from '../../../Hooks/SectionTitle';
+>>>>>>> ea7b99da9d951ddcebd99ab7733dbfa03b8c189d
 
 const BestResume = () => {
 
@@ -88,12 +93,17 @@ const BestResume = () => {
 
 
     return (
-       <FixedWidth>
-         <div>
-            <div className='text-center font-bold text-3xl sm:text-5xl mt-10'>
+        <div className='rgContainer'>
+
+            <SectionTitle
+                subHeading={"Our Host template"}
+                heading={
+                    "Our best resume templates available"
+                }></SectionTitle>
+            {/* <div className='text-center font-bold text-3xl sm:text-5xl mt-10'>
                 <h2>Our best resume</h2>
                 <h2>templates available</h2>
-            </div>
+            </div> */}
 
             <div className='text-center my-8'>
                 <button onClick={() => { setResume(resumeCollections); setActiveButton('all') }}
@@ -121,7 +131,7 @@ const BestResume = () => {
                         disableOnInteraction: false,
                     }}
                     modules={[Autoplay]}
-                    speed={2500} 
+                    speed={2500}
                     loop={true}
                     breakpoints={{
                         450: {

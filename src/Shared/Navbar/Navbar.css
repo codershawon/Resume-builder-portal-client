@@ -6,7 +6,7 @@
 
 /* navigation route style {Link tag} */
 .navStyle {
-    @apply text-lg font-semibold p-2 hover:text-[#197685];
+    @apply  text-sm lg:text-lg font-semibold lg:p-2 hover:text-[#197685];
   }
 
 /* active route style */
