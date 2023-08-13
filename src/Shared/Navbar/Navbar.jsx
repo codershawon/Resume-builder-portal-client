@@ -80,7 +80,7 @@ const Navbar = () => {
 
   return (
     <nav className="navBar">
-      <div className="rgContainer flex justify-between items-center">
+      <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <img src={logo} alt="Resume genius logo" />
         </div>
@@ -106,6 +106,7 @@ const Navbar = () => {
           {navOptions}
         </ul>
       </div>
+      {/* </FixedWidth> */}
     </nav>
   );
 };
