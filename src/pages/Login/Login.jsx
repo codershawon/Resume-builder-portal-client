@@ -113,7 +113,17 @@ const Login = () => {
         });
     });
   };
-
+        console.log(result.user);
+        //save user to db
+        saveUser(result.user);
+        navigate(from, { replace: true });
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log(err.message);
+        toast.error(err.message);
+      });
+  };
 
   return (
     <div className="hero min-h-screen bg-white">
