@@ -11,8 +11,9 @@ import { FcGoogle } from "react-icons/fc";
 const Login = () => {
   // Login
 
-  const { signInUser, signInWithGoogle, loading, setLoading } = useContext(AuthContext);
-  
+  const { signInUser, signInWithGoogle, loading, setLoading } =
+    useContext(AuthContext);
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -47,6 +48,7 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const { createUser, updateUserProfile } = useContext(AuthContext);
+
   const onSubmit = (data) => {
     console.log(data);
     createUser(data.email, data.password).then((result) => {
@@ -54,16 +56,35 @@ const Login = () => {
       console.log(loggedUser);
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
+          const saveUser = {
+            name: data.name,
+            email: data.email,
+            photoURL: data.photoURL,
+          };
+          console.log(saveUser);
           console.log("user profile info updated");
-          reset();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Your work has been saved",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          navigate("/");
+          fetch('http://localhost:5000/users', {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(saveUser),
+          }).then((res) => res.json())
+          .then((data)=>{
+            if (data.insertedId) {
+              reset();
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "User created successfully.",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate("/");
+
+            }
+          })
+          
         })
         .catch((error) => console.log(error));
     });
@@ -72,18 +93,27 @@ const Login = () => {
   // Google
   const handleGoogleSignIn = () => {
     signInWithGoogle()
-      .then(result => {
-        console.log(result.user)
-        //save user to db
-        saveUser(result.user)
-        navigate(from, { replace: true })
+      .then((result) => {
+      const loggedInUser = result.user;
+      console.log(loggedInUser);
+      const saveUser = {
+        name: loggedInUser.displayName,
+        email: loggedInUser.email,
+      };
+      fetch("http://localhost:5000/users", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(saveUser),
       })
-      .catch(err => {
-        setLoading(false)
-        console.log(err.message)
-        toast.error(err.message)
-      })
-  }
+        .then((res) => res.json())
+        .then(() => {
+          navigate(from, { replace: true });
+        });
+    });
+  };
+
 
   return (
     <div className="hero min-h-screen bg-white">
@@ -95,7 +125,7 @@ const Login = () => {
           />
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <div className="card-body">
+          <div className="card-body bg-white">
             <div>
               <h3 className="text-xl text-center">
                 Welcome to{" "}
@@ -108,24 +138,6 @@ const Login = () => {
                     <Tab className="login-link ">Sign Up</Tab>
                   </TabList>
                   <TabPanel>
-                 
-                  <div>
-                        <p className="px-3 text-sm dark:text-gray-400">
-                          Signup with social accounts
-                        </p>
-                        <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-                      </div>
-                      <div
-                        onClick={handleGoogleSignIn}
-                        className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer"
-                      >
-                        <FcGoogle size={32} />
-
-                        <p className="font-semibold text-gray-600">
-                          Continue with Google
-                        </p>
-                      </div>
-                  
                     <form onSubmit={handleLogin}>
                       <div className="form-control">
                         <label className="label">
@@ -135,7 +147,7 @@ const Login = () => {
                           type="email"
                           name="email"
                           placeholder="email"
-                          className="input input-bordered"
+                          className="input input-bordered bg-white"
                         />
                       </div>
 
@@ -146,8 +158,8 @@ const Login = () => {
                         <input
                           type="password"
                           name="password"
-                          placeholder="password"
-                          className="input input-bordered"
+                          placeholder="password "
+                          className="input input-bordered bg-white"
                         />
                         <label className="label flex-row-reverse">
                           <a
@@ -166,21 +178,16 @@ const Login = () => {
                           value="Login"
                         />
                       </div>
-                    </form>
-                  </TabPanel>
-
-                  <TabPanel>
-                 
-                    <div>
-                      <div>
-                        <p className="px-3 text-sm dark:text-gray-400">
+                      <div className="flex items-center pt-4 space-x-1">
+                        <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
+                        <p className="px-3 text-sm dark:text-gray-400 text-center">
                           Signup with social accounts
                         </p>
                         <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
                       </div>
                       <div
                         onClick={handleGoogleSignIn}
-                        className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer"
+                        className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer w-full mx-auto pl-12 rounded-md bg-[#197685] bg-opacity-10"
                       >
                         <FcGoogle size={32} />
 
@@ -188,7 +195,11 @@ const Login = () => {
                           Continue with Google
                         </p>
                       </div>
+                    </form>
+                  </TabPanel>
 
+                  <TabPanel>
+                    <div>
                       <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-control">
                           <label className="label">
@@ -198,7 +209,7 @@ const Login = () => {
                             type="text"
                             {...register("name", { required: true })}
                             placeholder="name"
-                            className="input input-bordered"
+                            className="input input-bordered bg-white"
                             required
                           />
                           {errors.name && (
@@ -215,7 +226,7 @@ const Login = () => {
                             type="photoURL"
                             {...register("photoURL", { required: true })}
                             placeholder="photoURL"
-                            className="input input-bordered"
+                            className="input input-bordered bg-white"
                             required
                           />
                           {errors.photoURL && (
@@ -232,7 +243,7 @@ const Login = () => {
                             type="email"
                             {...register("email", { required: true })}
                             placeholder="email"
-                            className="input input-bordered"
+                            className="input input-bordered bg-white"
                             required
                           />
                           {errors.email && (
@@ -255,7 +266,7 @@ const Login = () => {
                                 /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                             })}
                             placeholder="password"
-                            className="input input-bordered"
+                            className="input input-bordered bg-white"
                             required
                           />
                           {errors.password?.type === "minLength" && (
@@ -289,7 +300,7 @@ const Login = () => {
                                 /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                             })}
                             placeholder="confirmPassword"
-                            className="input input-bordered"
+                            className="input input-bordered bg-white"
                             required
                           />
                           {errors.confirmPassword?.type === "minLength" && (
@@ -325,9 +336,25 @@ const Login = () => {
                             value="Sign Up"
                           />
                         </div>
+                        <div className="flex items-center pt-4 space-x-1">
+                          <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
+                          <p className="px-3 text-sm dark:text-gray-400 text-center">
+                            Signup with social accounts
+                          </p>
+                          <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
+                        </div>
+                        <div
+                          onClick={handleGoogleSignIn}
+                          className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer w-full mx-auto pl-12 rounded-md bg-[#197685] bg-opacity-10"
+                        >
+                          <FcGoogle size={32} />
+
+                          <p className="font-semibold text-gray-600">
+                            Continue with Google
+                          </p>
+                        </div>
                       </form>
                     </div>
-                    
                   </TabPanel>
                 </Tabs>
               </div>
