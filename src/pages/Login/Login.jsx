@@ -90,7 +90,6 @@ const Login = () => {
     });
   };
 
-  // Google
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
@@ -112,17 +111,6 @@ const Login = () => {
           navigate(from, { replace: true });
         });
     });
-  };
-        console.log(result.user);
-        //save user to db
-        saveUser(result.user);
-        navigate(from, { replace: true });
-      })
-      .catch((err) => {
-        setLoading(false);
-        console.log(err.message);
-        toast.error(err.message);
-      });
   };
 
   return (
