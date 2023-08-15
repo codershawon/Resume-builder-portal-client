@@ -49,12 +49,14 @@ const AuthProvider = ({ children }) => {
       return unsubscribe();
     };
   }, []);
+
   const updateUserProfile = (name, photoURL) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photoURL,
     });
   };
+
   const authInfo = {
     user,
     createUser,

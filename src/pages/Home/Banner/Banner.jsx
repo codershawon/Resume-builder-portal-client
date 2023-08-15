@@ -22,7 +22,7 @@ const Banner = () => {
 
   return (
     <div className="rgContainer">
-      <div className="banner-section  overflow-hidden grid md:grid-cols-2 text-center md:text-left lg:items-start mt-10 lg:mt-0 mb-20">
+      <div className="banner-section overflow-hidden grid md:grid-cols-2 text-center md:text-left lg:items-start mt-10 lg:mt-0 mb-20 ">
       <div className="banner-content mb-8 lg:mb-0 lg:mr-20">
             <h1 className="text-sm uppercase font-semibold text-gray-500 mb-2 lg:pt-36">
               Unlock Your Potential with Resume Genius

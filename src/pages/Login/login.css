@@ -1,0 +1,51 @@
+.login-signup-toggle {
+      margin-bottom: 30px;
+  }
+
+  .toggle-base {
+      background-color: #ebf3fd;
+      border-radius: 25px;
+      overflow: hidden;
+      height: 44px;
+      width: 100%;
+      max-width: 238px;
+      margin: 0 auto;
+      padding: 7px 8px;
+  }
+
+
+  .toggle-base active {
+      background-color: #0091ff;
+      color: #fff;
+      float: left;
+  }
+
+  .toggle-base .signup-link {
+      font-family: "Poppins",sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 30px;
+      color: #197685;
+      border-radius: 25px;
+      height: 30px;
+      max-width: 110px;
+      text-align: center;
+      display: inline-block;
+      width: 100%;
+      cursor: pointer;
+  }
+
+  .toggle-base .login-link {
+      font-family: "Poppins",sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 30px;
+      color: #197685;
+      border-radius: 25px;
+      height: 30px;
+      max-width: 110px;
+      text-align: center;
+      display: inline-block;
+      width: 100%;
+      cursor: pointer;
+  }
