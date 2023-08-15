@@ -48,7 +48,7 @@ const Navbar = () => {
       <Link className='flex items-center gap-1' to="/">Career <FaAngleDown/></Link>
       {/* Dropdown options */}
       <ul className="navDropdown">
-        <li className={location.pathname === "/coverletter" ? "navActive" : "navStyle"}><Link to='/Resume' >Resume Template</Link></li>
+        <li className={location.pathname === "/coverletter" ? "navActive" : "navStyle"}><Link to='/resumeTemplate' >Resume Template</Link></li>
         <li className={location.pathname === "/coverletter" ? "navActive" : "navStyle"}><Link to="/coverletter">CoverLetter</Link></li>
       </ul>
     </li>
@@ -80,7 +80,7 @@ const Navbar = () => {
 
   return (
     <nav className="navBar">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
+      <div className="rgContainer flex justify-between items-center">
         <div className="flex items-center">
           <img src={logo} alt="Resume genius logo" />
         </div>
@@ -106,7 +106,6 @@ const Navbar = () => {
           {navOptions}
         </ul>
       </div>
-      {/* </FixedWidth> */}
     </nav>
   );
 };
