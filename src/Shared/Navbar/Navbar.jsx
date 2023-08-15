@@ -83,7 +83,25 @@ const Navbar = () => {
         </ul>
       </li>
 
+
+  const navOptions = <>
+    <li className={location.pathname === "" ? "navActive" : "navStyle "}><Link to='/' >Resume Template</Link></li>
+    <li className={location.pathname === "" ? "navActive" : "navStyle"}><Link to="/">Cover Letter</Link></li>
+
+    <li className={`relative navHover ${location.pathname === "" ? "navActive" : "navStyle"}`}>
+      <Link className='flex items-center gap-1' to="/">Career <FaAngleDown/></Link>
+      {/* Dropdown options */}
+      <ul className="navDropdown">
+        <li className={location.pathname === "/coverletter" ? "navActive" : "navStyle"}><Link to='/resumeTemplate' >Resume Template</Link></li>
+        <li className={location.pathname === "/coverletter" ? "navActive" : "navStyle"}><Link to="/coverletter">CoverLetter</Link></li>
+      </ul>
+    </li>
+
+
+
+    {/* #### TODO #### do uncomment after implement the {authProvider} correctly
       {/* #### TODO #### do uncomment after implement the {authProvider} correctly
+
         {user && <li className="text-xl"><Link to="/dashboard">My Documents</Link></li>} */}
 
       <div>

@@ -9,7 +9,7 @@ const Footer = () => {
     <footer>
     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 p-10 bg-[#197685] bg-opacity-10 text-black">
       <div className="rgContainer">
-        <div className=" gap-4">
+        <div className="gap-4">
           <img className="w-[240px]" src="https://i.ibb.co/zhYJKFk/resume-cv-cover-letter-transparent.png" alt="" />
         </div>
         <div>
