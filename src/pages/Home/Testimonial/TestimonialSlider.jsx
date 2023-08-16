@@ -3,49 +3,28 @@ import { faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
 
 import FixedWidth from "../../../components/fixedwidth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const TestimonialSlider = () => {
+  const {user}=useContext(AuthContext)
+  console.log(user)
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [testimonials, setTestimonials] = useState([]);
+  console.log(testimonials)
 
-  // Testimonial static data
-  const testimonials = [
-    {
-      photo: "https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg",
-      name: "Martin escobar",
-      title: "Founder of meta",
-      rating: "4",
-      review:
-      "As a tech professional, having a well-designed resume is crucial. Your builder's intuitive features, coupled with the ability to showcase my skills and experience, resulted in a modern and polished resume. Highly recommended!",
-    },
-    {
-      photo: "https://randomuser.me/api/portraits/women/79.jpg",
-      name: "Angela stian",
-      title: "Product designer",
-      rating: "5",
-      review:
-      "I used your resume builder to create a visually appealing and comprehensive resume. The range of templates and customization options allowed me to tailor my resume to match different job opportunities. A fantastic tool for job seekers!",
-    },
-    {
-      photo: "https://randomuser.me/api/portraits/men/86.jpg",
-      name: "Karim ahmed",
-      title: "DevOp engineer",
-      rating: "4.5",
-      review:
-      "Your resume builder helped me craft a standout resume that got noticed by recruiters. The user-friendly interface and customizable templates made the process a breeze. I'm grateful for this tool!",
-    },
-  ];
 
   // When get backend data, use the code and remove static testimonials array.
 
-  // const [testimonials, setTestimonials] = useState([]);
 
-  // useEffect(() => {
-  //     // Fetch testimonials from the backend
-  //     fetch("https://ph-ero-college-server-site.vercel.app/testimonials")
-  //       .then((res) => res.json())
-  //       .then((data) => setTestimonials(data))
-  //       .catch((error) => console.error(error));
-  //   }, []);
+
+  useEffect(() => {
+      // Fetch testimonials from the backend
+      fetch("http://localhost:5000/review")
+        .then((res) => res.json())
+        .then((data) => setTestimonials(data))
+        .catch((error) => console.error(error));
+    }, []);
 
   // Helper function to render the star rating
   const renderRatingStars = (rating) => {
@@ -98,16 +77,16 @@ const TestimonialSlider = () => {
             <ul>
               {testimonials.map((item, idx) =>
                 currentTestimonial === idx ? (
-                  <li key={idx}>
+                  <li key={item.id}>
                     <figure>
                       <blockquote>
                         <p className="text-gray-500 text-xl font-semibold sm:text-2xl">
-                          “{item.review}“
+                          “{item.reviewText}“
                         </p>
                       </blockquote>
                       <div className="mt-6">
                         <img
-                          src={item.photo}
+                          src={user.photoURL}
                           className="w-16 h-16 mx-auto rounded-full"
                           alt={item.name}
                         />
