@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import logo from "../../assets/logo/resume-cv-cover-letter-transparent.png";
-import { FaAngleDown } from "react-icons/fa6";
+import { FaAngleDown , FaUserCircle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 

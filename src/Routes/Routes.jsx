@@ -6,31 +6,23 @@ import Login from "../pages/Login/Login";
 import Dashboard from "../Layout/Dashboard";
 
 export const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main/>,
-      children: [
-        {
-          path: "/",
-          element: <Home/>,
-        },
-        {
-            path:"/resumeTemplate",
-            element:<ResumeTemplate/>
-        },
-        {
-            path:"/login",
-            element:<Login />
-        }
-      ],
-    },
-    {
-      path: "dashboard",
-      element: <Dashboard/>,
-      children: [
-        {
-          
-        },
-      ],
-    },
-  ]);
+  {
+    path: "/",
+    element: <Main />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/resumeTemplate",
+        element: <ResumeTemplate />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+    ],
+  },
+]);
+
