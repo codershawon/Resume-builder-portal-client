@@ -25,10 +25,10 @@ const Dashboard = () => {
   const [open, setOpen] = useState(true);
   const admin = [
     { name: "Admin Dashboard", link: "/dashboard", icon: MdOutlineDashboard },
-    { name: "All Users", link: "/", icon: HiOutlineUserGroup },
+    { name: "All Users", link: "/dashboard/allUsers", icon: HiOutlineUserGroup },
     { name: "Users resumes and letters", link: "/", icon: RiBookLine },
     { name: "Users Templates", link: "/", icon: HiTemplate },
-    { name: "Templates", link: "/", icon: RiContactsBook2Line, margin: true },
+    { name: "Templates", link: "/dashboard/allUsers", icon: RiContactsBook2Line, margin: true },
     { name: "Home", link: "/", icon: RiHome4Line, margin: true },
     { name: "My Profile", link: "/", icon: HiUser },
   ];
@@ -41,7 +41,7 @@ const Dashboard = () => {
     { name: "My Profile", link: "/", icon: HiUser },
   ];
 
-  const user = false;
+  const user = true;
 
   return (
     // Container Sections

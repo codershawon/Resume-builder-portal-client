@@ -2,15 +2,23 @@ import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import Swal from "sweetalert2";
 import "./ResumeTemplate.css";
+
 const ResumeTemplate = () => {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
   const [reviewText, setReviewText] = useState("");
+  const [isReviewSubmitted, setIsReviewSubmitted] = useState(false); // New state variable
+
   const handleRatingChange = (ratingValue) => {
     setRating(ratingValue);
   };
+
   const handleReviewSubmit = (e) => {
     e.preventDefault();
+    if (isReviewSubmitted) {
+      return; // Prevent submitting multiple times
+    }
+
     const form = e.target;
     const rating = form.rating.value;
     const reviewText = form.reviewText.value;
@@ -18,6 +26,7 @@ const ResumeTemplate = () => {
       rating,
       reviewText,
     };
+
     fetch(`http://localhost:5000/review`, {
       method: "POST",
       headers: {
@@ -42,7 +51,8 @@ const ResumeTemplate = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          form.reset()
+          setIsReviewSubmitted(true); // Set the state to indicate review is submitted
+          form.reset();
         }
       })
       .catch((error) => {
@@ -55,8 +65,8 @@ const ResumeTemplate = () => {
         });
       });
   };
+
   return (
-    // Review Section
     <div>
       <form onSubmit={handleReviewSubmit}>
         <div className="mt-10 w-full p-5 lg:px-72">
@@ -65,7 +75,7 @@ const ResumeTemplate = () => {
             {[...Array(5)].map((star, i) => {
               const ratingValue = i + 1;
               return (
-                <label>
+                <label key={i}>
                   <input
                     type="radio"
                     name="rating"
@@ -92,11 +102,14 @@ const ResumeTemplate = () => {
             onChange={(e) => setReviewText(e.target.value)}
             name="reviewText"
           ></textarea>
-         <div>
-         <button className="btn my-btn mt-10 w-full md:w-96 lg:w-96">
-            Submit
-          </button>
-         </div>
+          <div>
+            <button
+              className="btn my-btn mt-10 w-full md:w-96 lg:w-96"
+              disabled={isReviewSubmitted} // Disable the button if review is submitted
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </form>
     </div>
@@ -104,3 +117,4 @@ const ResumeTemplate = () => {
 };
 
 export default ResumeTemplate;
+
