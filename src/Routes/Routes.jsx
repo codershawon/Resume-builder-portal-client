@@ -5,20 +5,22 @@ import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
 import Login from "../pages/Login/Login";
 
 export const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main/>,
-      children: [
-        {
-          path: "/",
-          element: <Home/>,
-        },
-        {
-            path:"/resumeTemplate",
-            element:<ResumeTemplate/>
-            path:"/login",
-            element:<Login />
-        }
-      ],
-    },
-  ]);
+  {
+    path: "/",
+    element: <Main />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/resumeTemplate",
+        element: <ResumeTemplate />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+    ],
+  },
+]);

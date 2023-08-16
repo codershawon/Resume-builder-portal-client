@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import logo from "../../assets/logo/resume-cv-cover-letter-transparent.png";
-import { FaAngleDown } from "react-icons/fa6";
+import { FaAngleDown , FaUserCircle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
@@ -47,41 +47,9 @@ const Navbar = () => {
     };
   }, []);
 
-  const navOptions = (
-    <>
-      <li className={location.pathname === "" ? "navActive" : "navStyle "}>
-        <Link to="/">Resume Template</Link>
-      </li>
-      <li className={location.pathname === "" ? "navActive" : "navStyle"}>
-        <Link to="/">Cover Letter</Link>
-      </li>
 
-      <li
-        className={`relative navHover ${
-          location.pathname === "" ? "navActive" : "navStyle"
-        }`}
-      >
-        <Link className="flex items-center gap-1" to="/">
-          Career <FaAngleDown />
-        </Link>
-        {/* Dropdown options */}
-        <ul className="navDropdown">
-          <li
-            className={
-              location.pathname === "/coverletter" ? "navActive" : "navStyle"
-            }
-          >
-            <Link to="/Resume">Resume Template</Link>
-          </li>
-          <li
-            className={
-              location.pathname === "/coverletter" ? "navActive" : "navStyle"
-            }
-          >
-            <Link to="/coverletter">CoverLetter</Link>
-          </li>
-        </ul>
-      </li>
+
+      
 
 
   const navOptions = <>
@@ -145,7 +113,7 @@ const Navbar = () => {
         } */}
       </div>
     </>
-  );
+  ;
 
   return (
     <nav className="navBar">
