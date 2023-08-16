@@ -4,7 +4,7 @@ import Home from "../pages/Home/Home/Home";
 import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
 import Login from "../pages/Login/Login";
 import Dashboard from "../Layout/Dashboard";
-import AllUsers from "../components/allUsers";
+import AllUsers from "../components/Allusers/AllUsers";
 
 export const router = createBrowserRouter([
   {
@@ -24,13 +24,14 @@ export const router = createBrowserRouter([
         element: <Login />,
       },
     ],
-  },{
-    path:"/dashboard",
-    element:<Dashboard/>,
-    children:[
+  },
+  {
+    path: 'dashboard',
+    element: <Dashboard></Dashboard>,
+    children: [
       {
-        path:"allUsers",
-        element:<AllUsers/>
+        path: "allUsers",
+        element : <AllUsers></AllUsers>
       }
     ]
   }

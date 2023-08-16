@@ -18,17 +18,17 @@ import {
   RiUserFill,
   RiContactsBook2Line,
 } from "react-icons/ri";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import "../components/Dashboard.css";
 
 const Dashboard = () => {
   const [open, setOpen] = useState(true);
   const admin = [
-    { name: "Admin Dashboard", link: "/dashboard", icon: MdOutlineDashboard },
+    { name: "Admin Dashboard", link: "/dashboard/admin", icon: MdOutlineDashboard },
     { name: "All Users", link: "/dashboard/allUsers", icon: HiOutlineUserGroup },
     { name: "Users resumes and letters", link: "/", icon: RiBookLine },
     { name: "Users Templates", link: "/", icon: HiTemplate },
-    { name: "Templates", link: "/dashboard/allUsers", icon: RiContactsBook2Line, margin: true },
+    { name: "Templates", link: "/", icon: RiContactsBook2Line, margin: true },
     { name: "Home", link: "/", icon: RiHome4Line, margin: true },
     { name: "My Profile", link: "/", icon: HiUser },
   ];
@@ -182,7 +182,7 @@ const Dashboard = () => {
         {/* Logout sections */}
         <div
           title="LogOut"
-          className={`mt-32 flex gap-4 cursor-pointer p-2 bg-gray-800 hover:bg-gray-50 hover:text-black rounded-md duration-500 ${
+          className={` flex gap-4 cursor-pointer p-2 bg-gray-800 hover:bg-gray-50 hover:text-black rounded-md duration-500 ${
             !open && "p-2 "
           } `}>
           <div className={` duration-500 ${!open && "duration-500"}`}>
@@ -201,8 +201,7 @@ const Dashboard = () => {
 
       {/* Components Start */}
       <div className="m-3  text-gray-900  ">
-        This is Your Dashboard
-        <p>Lorem ipsum dolor t numquam recusandae non minus aspernatur</p>
+       <Outlet/>
       </div>
       {/* Components End */}
     </section>
