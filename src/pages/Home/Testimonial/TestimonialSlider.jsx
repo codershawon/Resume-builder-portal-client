@@ -86,7 +86,7 @@ const TestimonialSlider = () => {
                       </blockquote>
                       <div className="mt-6">
                         <img
-                          src={user.photoURL}
+                          src={user?.photoURL}
                           className="w-16 h-16 mx-auto rounded-full"
                           alt={item.name}
                         />
