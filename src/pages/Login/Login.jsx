@@ -84,15 +84,12 @@ const Login = () => {
 
             }
           })
-        
-          
           
         })
         .catch((error) => console.log(error));
     });
   };
 
-  // Google
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
@@ -101,7 +98,6 @@ const Login = () => {
       const saveUser = {
         name: loggedInUser.displayName,
         email: loggedInUser.email,
-        photoURL: loggedInUser.photoURL,
       };
       fetch("http://localhost:5000/users", {
         method: "POST",
@@ -127,7 +123,7 @@ const Login = () => {
           />
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <div className="card-body">
+          <div className="card-body bg-white">
             <div>
               <h3 className="text-xl text-center">
                 Welcome to{" "}
@@ -140,23 +136,6 @@ const Login = () => {
                     <Tab className="login-link ">Sign Up</Tab>
                   </TabList>
                   <TabPanel>
-                    <div>
-                      <p className="px-3 text-sm dark:text-gray-400">
-                        Signup with social accounts
-                      </p>
-                      <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-                    </div>
-                    <div
-                      onClick={handleGoogleSignIn}
-                      className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer"
-                    >
-                      <FcGoogle size={32} />
-
-                      <p className="font-semibold text-gray-600">
-                        Continue with Google
-                      </p>
-                    </div>
-
                     <form onSubmit={handleLogin}>
                       <div className="form-control">
                         <label className="label">
@@ -166,7 +145,7 @@ const Login = () => {
                           type="email"
                           name="email"
                           placeholder="email"
-                          className="input input-bordered"
+                          className="input input-bordered bg-white"
                         />
                       </div>
 
@@ -177,8 +156,8 @@ const Login = () => {
                         <input
                           type="password"
                           name="password"
-                          placeholder="password"
-                          className="input input-bordered"
+                          placeholder="password "
+                          className="input input-bordered bg-white"
                         />
                         <label className="label flex-row-reverse">
                           <a
@@ -197,20 +176,16 @@ const Login = () => {
                           value="Login"
                         />
                       </div>
-                    </form>
-                  </TabPanel>
-
-                  <TabPanel>
-                    <div>
-                      <div>
-                        <p className="px-3 text-sm dark:text-gray-400">
+                      <div className="flex items-center pt-4 space-x-1">
+                        <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
+                        <p className="px-3 text-sm dark:text-gray-400 text-center">
                           Signup with social accounts
                         </p>
                         <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
                       </div>
                       <div
                         onClick={handleGoogleSignIn}
-                        className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer"
+                        className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer w-full mx-auto pl-12 rounded-md bg-[#197685] bg-opacity-10"
                       >
                         <FcGoogle size={32} />
 
@@ -218,7 +193,11 @@ const Login = () => {
                           Continue with Google
                         </p>
                       </div>
+                    </form>
+                  </TabPanel>
 
+                  <TabPanel>
+                    <div>
                       <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-control">
                           <label className="label">
@@ -228,7 +207,7 @@ const Login = () => {
                             type="text"
                             {...register("name", { required: true })}
                             placeholder="name"
-                            className="input input-bordered"
+                            className="input input-bordered bg-white"
                             required
                           />
                           {errors.name && (
@@ -245,7 +224,7 @@ const Login = () => {
                             type="photoURL"
                             {...register("photoURL", { required: true })}
                             placeholder="photoURL"
-                            className="input input-bordered"
+                            className="input input-bordered bg-white"
                             required
                           />
                           {errors.photoURL && (
@@ -262,7 +241,7 @@ const Login = () => {
                             type="email"
                             {...register("email", { required: true })}
                             placeholder="email"
-                            className="input input-bordered"
+                            className="input input-bordered bg-white"
                             required
                           />
                           {errors.email && (
@@ -285,7 +264,7 @@ const Login = () => {
                                 /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                             })}
                             placeholder="password"
-                            className="input input-bordered"
+                            className="input input-bordered bg-white"
                             required
                           />
                           {errors.password?.type === "minLength" && (
@@ -319,7 +298,7 @@ const Login = () => {
                                 /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                             })}
                             placeholder="confirmPassword"
-                            className="input input-bordered"
+                            className="input input-bordered bg-white"
                             required
                           />
                           {errors.confirmPassword?.type === "minLength" && (
@@ -354,6 +333,23 @@ const Login = () => {
                             type="submit"
                             value="Sign Up"
                           />
+                        </div>
+                        <div className="flex items-center pt-4 space-x-1">
+                          <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
+                          <p className="px-3 text-sm dark:text-gray-400 text-center">
+                            Signup with social accounts
+                          </p>
+                          <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
+                        </div>
+                        <div
+                          onClick={handleGoogleSignIn}
+                          className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer w-full mx-auto pl-12 rounded-md bg-[#197685] bg-opacity-10"
+                        >
+                          <FcGoogle size={32} />
+
+                          <p className="font-semibold text-gray-600">
+                            Continue with Google
+                          </p>
                         </div>
                       </form>
                     </div>

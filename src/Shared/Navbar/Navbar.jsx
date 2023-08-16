@@ -48,10 +48,6 @@ const Navbar = () => {
   }, []);
 
 
-
-      
-
-
   const navOptions = <>
     <li className={location.pathname === "" ? "navActive" : "navStyle "}><Link to='/' >Resume Template</Link></li>
     <li className={location.pathname === "" ? "navActive" : "navStyle"}><Link to="/">Cover Letter</Link></li>
@@ -64,6 +60,7 @@ const Navbar = () => {
         <li className={location.pathname === "/coverletter" ? "navActive" : "navStyle"}><Link to="/coverletter">CoverLetter</Link></li>
       </ul>
     </li>
+    <li className={location.pathname === "" ? "navActive" : "navStyle"}><Link to="/dashboard">Dashboard</Link></li>
 
 
 
@@ -113,7 +110,6 @@ const Navbar = () => {
         } */}
       </div>
     </>
-  ;
 
   return (
     <nav className="navBar">
@@ -161,4 +157,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar
