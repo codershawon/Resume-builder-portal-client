@@ -7,6 +7,7 @@ import Dashboard from "../Layout/Dashboard";
 import PrivateRoutes from "./PrivateRoutes";
 import AllUsers from "../pages/Dashboard/AllUsers";
 import AdminRoute from "./AdminRoute";
+import AllResume from "../pages/AllResume/AllResume";
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path:"allresume",
+        element:<AllResume></AllResume>
       },
       {
         path: "/resumeTemplate",
