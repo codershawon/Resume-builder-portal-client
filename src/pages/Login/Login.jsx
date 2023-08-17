@@ -1,4 +1,3 @@
-import React, { useContext, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import "./login.css";
@@ -424,3 +423,4 @@ const Login = () => {
 };
 
 export default Login;
+
