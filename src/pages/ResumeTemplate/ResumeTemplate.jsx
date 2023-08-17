@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaStar } from "react-icons/fa";
-import Swal from "sweetalert2";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import "./ResumeTemplate.css";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const ResumeTemplate = () => {
+  const { user } = useContext(AuthContext);
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
   const [reviewText, setReviewText] = useState("");
-  const [isReviewSubmitted, setIsReviewSubmitted] = useState(false); // New state variable
+  const [isReviewSubmitted, setIsReviewSubmitted] = useState(false);
 
   const handleRatingChange = (ratingValue) => {
     setRating(ratingValue);
@@ -16,15 +20,19 @@ const ResumeTemplate = () => {
   const handleReviewSubmit = (e) => {
     e.preventDefault();
     if (isReviewSubmitted) {
-      return; // Prevent submitting multiple times
+      return;
     }
 
     const form = e.target;
     const rating = form.rating.value;
     const reviewText = form.reviewText.value;
+    const image = user?.photoURL;
+    const email = user?.email;
     const data = {
       rating,
       reviewText,
+      image,
+      email,
     };
 
     fetch(`http://localhost:5000/review`, {
@@ -44,38 +52,25 @@ const ResumeTemplate = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Review submitted successfully!",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          setIsReviewSubmitted(true); // Set the state to indicate review is submitted
+          setIsReviewSubmitted(true);
           form.reset();
+          toast.success("Review submitted successfully!");
+        } else if (data.message) {
+          toast.error("User already exists. Cannot submit multiple reviews.");
         }
-      })
-      .catch((error) => {
-        console.error(error);
-        // Show an error message to the user
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Failed to submit review and rating.",
-        });
       });
   };
 
   return (
-    <div>
-      <form onSubmit={handleReviewSubmit}>
-        <div className="mt-10 w-full p-5 lg:px-72">
-          <h1 className="font-bold text-lg">Your overall rating</h1>
-          <div className="flex">
+    <div className="min-h-screen flex items-center justify-center">
+      <form onSubmit={handleReviewSubmit} className="w-full max-w-md">
+        <div className="px-4 py-8 bg-white rounded-lg shadow-2xl">
+          <h1 className="font-bold text-lg mb-3">Your overall rating</h1>
+          <div className="flex mb-4">
             {[...Array(5)].map((star, i) => {
               const ratingValue = i + 1;
               return (
-                <label key={i}>
+                <label key={i} className="flex items-center">
                   <input
                     type="radio"
                     name="rating"
@@ -83,7 +78,7 @@ const ResumeTemplate = () => {
                     onClick={() => handleRatingChange(ratingValue)}
                   />
                   <FaStar
-                    className="star"
+                    className="star ml-1"
                     color={
                       ratingValue <= (hover || rating) ? "#ffc107" : "gray"
                     }
@@ -95,22 +90,22 @@ const ResumeTemplate = () => {
               );
             })}
           </div>
-          <h1 className="font-bold text-lg mt-5">Your review</h1>
+          <h1 className="font-bold text-lg mt-3 mb-2">Your review</h1>
           <textarea
-            className="bg-gray-200 border-2 w-full md:w-96 lg:w-96 h-full border-gray-400 rounded-lg p-2"
+            className="bg-gray-200 border-2 w-full h-32 md:h-40 lg:h-48 border-gray-400 rounded-lg p-2 mb-3"
             value={reviewText}
             onChange={(e) => setReviewText(e.target.value)}
             name="reviewText"
           ></textarea>
           <div>
             <button
-              className="btn my-btn mt-10 w-full md:w-96 lg:w-96"
-              disabled={isReviewSubmitted} // Disable the button if review is submitted
+              className="btn my-btn w-full"
             >
               Submit
             </button>
           </div>
         </div>
+        <ToastContainer />
       </form>
     </div>
   );
