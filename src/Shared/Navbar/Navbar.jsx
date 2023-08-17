@@ -49,7 +49,7 @@ const Navbar = () => {
 
 
   const navOptions = <>
-    <li className={location.pathname === "" ? "navActive" : "navStyle "}><Link to='/' >Resume Template</Link></li>
+    <li className={location.pathname === "" ? "navActive" : "navStyle "}><Link to='/allresume' >Resume</Link></li>
     <li className={location.pathname === "" ? "navActive" : "navStyle"}><Link to="/">Cover Letter</Link></li>
 
     <li className={`relative navHover ${location.pathname === "" ? "navActive" : "navStyle"}`}>
@@ -115,7 +115,7 @@ const Navbar = () => {
     <nav className="navBar">
       <div className="rgContainer flex justify-between items-center">
         <div className="flex items-center">
-          <img src={logo} alt="Resume genius logo" />
+         <Link to="/"><img src={logo} alt="Resume genius logo" /></Link>
         </div>
         <ul className="hidden md:flex items-center space-x-4">{navOptions}</ul>
         <div className="md:hidden">
