@@ -2,13 +2,14 @@
     background-image: url("https://i.ibb.co/xskFFcZ/Hexagon-dotted-connect-line-background-removebg-preview.png");
     background-size: contain; 
     background-position: center;
-    height: auto;
+    height: 100%;
+    padding: 20px;
 }
 .rotating-images {
     display: flex;
     overflow: hidden;
-    width: 400px; 
-    height: 400px;
+    max-width: 100%; 
+    margin: 0 auto;
 }
 
 .rotating-images img {
