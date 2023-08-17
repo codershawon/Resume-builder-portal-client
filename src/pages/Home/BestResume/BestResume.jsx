@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -9,75 +9,21 @@ import SectionTitle from '../../../Hooks/SectionTitle';
 const BestResume = () => {
 
 
-    const resumeCollections = [
-        {
-            profile: "photo",
-            template: "https://i.ibb.co/vdTtZPK/91b7d95e4ed14609e2cc51d731f1cfc4f583becb.webp"
-        },
-        {
-            profile: "photo",
-            template: "https://i.ibb.co/8zLt24p/1131w-NXs7x-Sf0-K8-I.webp"
-        },
-        {
-            profile: "photo",
-            template: "https://i.ibb.co/C7pmhNf/best-cv-resume-templates-design-3636812b19c6d153d0f493057323ea84-screen.jpg"
-        },
-        {
-            profile: "photo",
-            template: "https://i.ibb.co/CbjZ8w2/hceqkwas15xsjepvbdtn.jpg"
-        },
-        {
-            profile: "photo",
-            template: "https://i.ibb.co/YR8SKf3/professional-resume-template.jpg"
-        },
-        {
-            profile: "photo",
-            template: "https://i.ibb.co/jTxkybx/Resume-CV-Format-Download-3-1-min.jpg"
-        },
-        {
-            profile: "photo",
-            template: "https://i.ibb.co/fvvJQ6P/student-resume-example.jpg"
-        },
-        {
-            profile: "photo",
-            template: "https://i.ibb.co/8zLt24p/1131w-NXs7x-Sf0-K8-I.webp"
-        },
-        {
-            profile: "noPhoto",
-            template: "https://i.ibb.co/qyr7Qvz/943b5ed20329705e124ef37f3ebb57bd.jpg"
-        },
-        {
-            profile: "noPhoto",
-            template: "https://i.ibb.co/QbjWDFG/noimg.png"
-        },
-        {
-            profile: "noPhoto",
-            template: "https://i.ibb.co/vV5VBWJ/ivy-league-cover-letter-template-1-439b5cab58.png"
-        },
-        {
-            profile: "noPhoto",
-            template: "https://i.ibb.co/pnbYQHm/de9a0816b40a701f4d625bef109edc76.jpg"
-        },
-        {
-            profile: "noPhoto",
-            template: "https://i.ibb.co/M7qjQL9/college-resume-template.png"
-        },
-        {
-            profile: "noPhoto",
-            template: "https://i.ibb.co/rcwPSJj/cascade-3-duo-blue-navy-21-3x.png"
-        },
-        {
-            profile: "noPhoto",
-            template: "https://i.ibb.co/Q67Dx1c/best-online-resume-builders-zety-us-12.jpg"
-        },
-        {
-            profile: "noPhoto",
-            template: "https://i.ibb.co/hMpnYm6/1520211773915.jpg"
-        },
-    ]
+    
 
     const [activeButton, setActiveButton] = useState('all');
+    const [resumeCollections, setResumeCollections]= useState([])
     const [allResume, setResume] = useState(resumeCollections);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/resume')
+            .then(res => res.json())
+            .then(data => {
+                setResumeCollections(data);
+                setResume(data)
+            })
+            .catch((error) => console.error(error));
+    }, [])
 
     const filterItem = (profile) => {
         const filteredResume = resumeCollections.filter((resume) => {
@@ -85,6 +31,7 @@ const BestResume = () => {
         })
         setResume(filteredResume);
     }
+    
 
 
     return (

@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import "./login.css";
@@ -7,8 +6,17 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
 const Login = () => {
+  // eye
+  const [control, setControl] = useState(false);
+
+  const [password, setPassword] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState(false);
+  const [show, setShow] = useState(false);
   // Login
 
   const { signInUser, signInWithGoogle, loading, setLoading } =
@@ -48,7 +56,6 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const { createUser, updateUserProfile } = useContext(AuthContext);
-
   const onSubmit = (data) => {
     console.log(data);
     createUser(data.email, data.password).then((result) => {
@@ -56,63 +63,44 @@ const Login = () => {
       console.log(loggedUser);
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
-          const saveUser = {
-            name: data.name,
-            email: data.email,
-            photoURL: data.photoURL,
-          };
-          console.log(saveUser);
           console.log("user profile info updated");
-          fetch('http://localhost:5000/users', {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(saveUser),
-          }).then((res) => res.json())
-          .then((data)=>{
-            if (data.insertedId) {
-              reset();
-              Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "User created successfully.",
-                showConfirmButton: false,
-                timer: 1500,
-              });
-              navigate("/");
-
-            }
-          })
-          
+          reset();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your work has been saved",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/");
         })
         .catch((error) => console.log(error));
     });
   };
 
+  // Google
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
-      const loggedInUser = result.user;
-      console.log(loggedInUser);
-      const saveUser = {
-        name: loggedInUser.displayName,
-        email: loggedInUser.email,
-        photoURL: loggedInUser.photoURL,
-
-      };
-      fetch("http://localhost:5000/users", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(saveUser),
-      })
-        .then((res) => res.json())
-        .then(() => {
-          navigate(from, { replace: true });
+        console.log(result.user);
+        Swal.fire({
+          title: "User Login successfully",
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
         });
-    });
+        //save user to db
+        // saveUser(result.user);
+        navigate(from, { replace: true });
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log(err.message);
+        toast.error(err.message);
+      });
   };
 
   return (
@@ -146,27 +134,55 @@ const Login = () => {
                         <input
                           type="email"
                           name="email"
-                          placeholder="email"
+                          placeholder="Email"
                           className="input input-bordered bg-white"
                         />
                       </div>
 
-                      <div className="form-control">
+                      <div className="form-control overflow-hidden">
                         <label className="label">
                           <span className="label-text">Password</span>
                         </label>
-                        <input
-                          type="password"
-                          name="password"
-                          placeholder="password "
-                          className="input input-bordered bg-white"
-                        />
+                        {control ? (
+                          <>
+                            <input
+                              onChange={(e) => setPassword(e.target.value)}
+                              type="password"
+                              name="password"
+                              placeholder="Password "
+                              className="input input-bordered bg-white"
+                            />
+                            <span
+                              onClick={() => setControl(!control)}
+                              className="relative left-64  md:left-72 bottom-8"
+                            >
+                              <FaEyeSlash />
+                            </span>
+                          </>
+                        ) : (
+                          <>
+                            <input
+                              onChange={(e) => setPassword(e.target.value)}
+                              type="text"
+                              name="password"
+                              placeholder="Password "
+                              className="input input-bordered bg-white"
+                            />
+                            <span
+                              onClick={() => setControl(!control)}
+                              className="relative left-64  md:left-72 bottom-8"
+                            >
+                              <FaEye />
+                            </span>
+                          </>
+                        )}
+                        {/* ToDo forget password */}
                         <label className="label flex-row-reverse">
                           <a
                             href="#"
                             className="label-text-alt link link-hover"
                           >
-                            Forgot password?
+                            Forget password?
                           </a>
                         </label>
                       </div>
@@ -208,7 +224,7 @@ const Login = () => {
                           <input
                             type="text"
                             {...register("name", { required: true })}
-                            placeholder="name"
+                            placeholder="Name"
                             className="input input-bordered bg-white"
                             required
                           />
@@ -225,7 +241,7 @@ const Login = () => {
                           <input
                             type="photoURL"
                             {...register("photoURL", { required: true })}
-                            placeholder="photoURL"
+                            placeholder="PhotoURL"
                             className="input input-bordered bg-white"
                             required
                           />
@@ -242,7 +258,7 @@ const Login = () => {
                           <input
                             type="email"
                             {...register("email", { required: true })}
-                            placeholder="email"
+                            placeholder="Email"
                             className="input input-bordered bg-white"
                             required
                           />
@@ -252,23 +268,43 @@ const Login = () => {
                             </span>
                           )}
                         </div>
-                        <div className="form-control">
+                        <div className="form-control overflow-hidden">
                           <label className="label">
                             <span className="label-text">Password</span>
                           </label>
-                          <input
-                            type="password"
-                            {...register("password", {
-                              required: true,
-                              minLength: 6,
-                              maxLength: 20,
-                              pattern:
-                                /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
-                            })}
-                            placeholder="password"
-                            className="input input-bordered bg-white"
-                            required
-                          />
+                          {control ? (
+                            <>
+                              <input
+                                onChange={(e) => setPassword(e.target.value)}
+                                type="password"
+                                name="password"
+                                placeholder="Password "
+                                className="input input-bordered bg-white"
+                              />
+                              <span
+                                onClick={() => setControl(!control)}
+                                className="relative left-64  md:left-72 bottom-8"
+                              >
+                                <FaEyeSlash />
+                              </span>
+                            </>
+                          ) : (
+                            <>
+                              <input
+                                onChange={(e) => setPassword(e.target.value)}
+                                type="text"
+                                name="password"
+                                placeholder="Password "
+                                className="input input-bordered bg-white"
+                              />
+                              <span
+                                onClick={() => setControl(!control)}
+                                className="relative left-64  md:left-72 bottom-8"
+                              >
+                                <FaEye />
+                              </span>
+                            </>
+                          )}
                           {errors.password?.type === "minLength" && (
                             <p className="text-red-700">
                               password must be 6 Characters
@@ -286,23 +322,43 @@ const Login = () => {
                             </span>
                           )}
                         </div>
-                        <div className="form-control">
+                        <div className="form-control overflow-hidden">
                           <label className="label">
                             <span className="label-text">Confirm Password</span>
                           </label>
-                          <input
-                            type="password"
-                            {...register("confirmPassword", {
-                              required: true,
-                              minLength: 6,
-                              maxLength: 20,
-                              pattern:
-                                /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
-                            })}
-                            placeholder="confirmPassword"
-                            className="input input-bordered bg-white"
-                            required
-                          />
+                          {show ? (
+                            <>
+                              <input
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                type="password"
+                                name="confirmPassword"
+                                placeholder="ConfirmPassword"
+                                className="input input-bordered bg-white"
+                              />
+                              <span
+                                onClick={() => setShow(!show)}
+                                className="relative left-64  md:left-72 bottom-8"
+                              >
+                                <FaEyeSlash />
+                              </span>
+                            </>
+                          ) : (
+                            <>
+                              <input
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                type="text"
+                                name="confirmPassword"
+                                placeholder="ConfirmPassword"
+                                className="input input-bordered bg-white"
+                              />
+                              <span
+                                onClick={() => setShow(!show)}
+                                className="relative left-64  md:left-72 bottom-8"
+                              >
+                                <FaEye />
+                              </span>
+                            </>
+                          )}
                           {errors.confirmPassword?.type === "minLength" && (
                             <p className="text-red-700">
                               password must be 6 Characters
@@ -319,13 +375,13 @@ const Login = () => {
                               Password is required
                             </span>
                           )}
-
+                          {/* TODO forget password setup */}
                           <label className="label flex-row-reverse">
                             <a
                               href="#"
                               className="label-text-alt link link-hover"
                             >
-                              Forgot password?
+                              Forget password?
                             </a>
                           </label>
                         </div>
@@ -367,3 +423,4 @@ const Login = () => {
 };
 
 export default Login;
+
