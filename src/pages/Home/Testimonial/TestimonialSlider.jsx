@@ -3,12 +3,8 @@ import { faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
 
 import FixedWidth from "../../../components/fixedwidth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext } from "react";
-import { AuthContext } from "../../../Providers/AuthProvider";
 
 const TestimonialSlider = () => {
-  const {user}=useContext(AuthContext)
-  console.log(user)
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [testimonials, setTestimonials] = useState([]);
   console.log(testimonials)
@@ -86,7 +82,7 @@ const TestimonialSlider = () => {
                       </blockquote>
                       <div className="mt-6">
                         <img
-                          src={user?.photoURL}
+                          src={item.image}
                           className="w-16 h-16 mx-auto rounded-full"
                           alt={item.name}
                         />
