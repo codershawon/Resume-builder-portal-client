@@ -4,7 +4,9 @@ import Home from "../pages/Home/Home/Home";
 import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
 import Login from "../pages/Login/Login";
 import Dashboard from "../Layout/Dashboard";
-import AllUsers from "../components/Allusers/AllUsers";
+import PrivateRoutes from "./PrivateRoutes";
+import AllUsers from "../pages/Dashboard/AllUsers";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -27,11 +29,12 @@ export const router = createBrowserRouter([
   },
   {
     path: 'dashboard',
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
     children: [
       {
         path: "allUsers",
-        element : <AllUsers></AllUsers>
+        // TODO : have to warp around by the adminRoute 
+        element : <AdminRoute><AllUsers></AllUsers></AdminRoute>
       }
     ]
   }
