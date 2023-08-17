@@ -49,7 +49,7 @@ const Navbar = () => {
   const navOptions = (
     <>
       <li className={location.pathname === "" ? "navActive" : "navStyle "}>
-        <Link to="/">Resume Template</Link>
+        <Link to="/allresume">Resume Template</Link>
       </li>
       <li className={location.pathname === "" ? "navActive" : "navStyle"}>
         <Link to="/">Cover Letter</Link>
@@ -70,7 +70,7 @@ const Navbar = () => {
               location.pathname === "/coverletter" ? "navActive" : "navStyle"
             }
           >
-            <Link to="/Resume">Resume Template</Link>
+            <Link to="/resumeTemplate">Resume Template</Link>
           </li>
           <li
             className={
@@ -79,10 +79,13 @@ const Navbar = () => {
           >
             <Link to="/coverletter">CoverLetter</Link>
           </li>
-          
         </ul>
       </li>
-        {user && <li className={location.pathname === "" ? "navActive" : "navStyle"}><Link to="/dashboard">Dashboard</Link></li>}
+      {user && (
+        <li className={location.pathname === "" ? "navActive" : "navStyle"}>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+      )}
 
       {/* #### TODO #### do uncomment after implement the {authProvider} correctly
         {user && <li className="text-xl"><Link to="/dashboard">My Documents</Link></li>} */}
@@ -142,7 +145,6 @@ const Navbar = () => {
             </div>
           </div>
         )}
-
       </div>
     </>
   );
@@ -151,11 +153,13 @@ const Navbar = () => {
     <nav className="navBar">
       <div className="rgContainer flex justify-between items-center">
         <div className="flex  items-center">
-          <img
-            className="w-44 lg:w-full"
-            src="https://i.ibb.co/zhYJKFk/resume-cv-cover-letter-transparent.png"
-            alt="Resume genius logo"
-          />
+          <Link to="/">
+            <img
+              className="w-44 lg:w-full"
+              src="https://i.ibb.co/zhYJKFk/resume-cv-cover-letter-transparent.png"
+              alt="Resume genius logo"
+            />
+          </Link>
         </div>
 
         <ul className="hidden md:flex items-center space-x-4">{navOptions}</ul>

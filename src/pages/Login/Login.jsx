@@ -9,6 +9,8 @@ import { FcGoogle } from "react-icons/fc";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { useState } from "react";
+import { useContext } from "react";
 
 const Login = () => {
   // eye
@@ -36,13 +38,11 @@ const Login = () => {
       const loggedUser = result.user;
       console.log(loggedUser);
       Swal.fire({
-        title: "User Login successfully",
-        showClass: {
-          popup: "animate__animated animate__fadeInDown",
-        },
-        hideClass: {
-          popup: "animate__animated animate__fadeOutUp",
-        },
+        position: "top-center",
+        icon: "success",
+        title: "Login Successfully",
+        showConfirmButton: false,
+        timer: 1500,
       });
       navigate(from, { replace: true });
     });
@@ -84,13 +84,11 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         Swal.fire({
-          title: "User Login successfully",
-          showClass: {
-            popup: "animate__animated animate__fadeInDown",
-          },
-          hideClass: {
-            popup: "animate__animated animate__fadeOutUp",
-          },
+          position: "top-center",
+          icon: "success",
+          title: "Login Successfully",
+          showConfirmButton: false,
+          timer: 1500,
         });
         //save user to db
         // saveUser(result.user);
