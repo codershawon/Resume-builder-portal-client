@@ -5,6 +5,7 @@ import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
 import Login from "../pages/Login/Login";
 import Dashboard from "../Layout/Dashboard";
 import AllUsers from "../components/Allusers/AllUsers";
+import AllResume from "../pages/AllResume/AllResume";
 
 export const router = createBrowserRouter([
   {
@@ -16,11 +17,15 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/resumeTemplate",
+        path: "allresume",
+        element: <AllResume/> ,
+      },
+      {
+        path: "resumeTemplate",
         element: <ResumeTemplate />,
       },
       {
-        path: "/login",
+        path: "login",
         element: <Login />,
       },
     ],
