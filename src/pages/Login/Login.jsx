@@ -154,14 +154,15 @@ const Login = () => {
                               onClick={() => setControl(!control)}
                               className="relative left-64  md:left-72 bottom-8"
                             >
-                              <FaEyeSlash />
+                              <FaEye />
+                           
                             </span>
                           </>
                         ) : (
                           <>
                             <input
                               onChange={(e) => setPassword(e.target.value)}
-                              type="text"
+                              type="password"
                               name="password"
                               placeholder="Password "
                               className="input input-bordered bg-white"
@@ -170,7 +171,7 @@ const Login = () => {
                               onClick={() => setControl(!control)}
                               className="relative left-64  md:left-72 bottom-8"
                             >
-                              <FaEye />
+                                 <FaEyeSlash />
                             </span>
                           </>
                         )}
@@ -274,22 +275,6 @@ const Login = () => {
                             <>
                               <input
                                 onChange={(e) => setPassword(e.target.value)}
-                                type="password"
-                                name="password"
-                                placeholder="Password "
-                                className="input input-bordered bg-white"
-                              />
-                              <span
-                                onClick={() => setControl(!control)}
-                                className="relative left-64  md:left-72 bottom-8"
-                              >
-                                <FaEyeSlash />
-                              </span>
-                            </>
-                          ) : (
-                            <>
-                              <input
-                                onChange={(e) => setPassword(e.target.value)}
                                 type="text"
                                 name="password"
                                 placeholder="Password "
@@ -299,7 +284,24 @@ const Login = () => {
                                 onClick={() => setControl(!control)}
                                 className="relative left-64  md:left-72 bottom-8"
                               >
-                                <FaEye />
+                                  <FaEye />
+                              </span>
+                            </>
+                          ) : (
+                            <>
+                              <input
+                                onChange={(e) => setPassword(e.target.value)}
+                                type="password"
+                                name="password"
+                                placeholder="Password "
+                                className="input input-bordered bg-white"
+                              />
+                              <span
+                                onClick={() => setControl(!control)}
+                                className="relative left-64  md:left-72 bottom-8"
+                              >
+                                 <FaEyeSlash />
+                             
                               </span>
                             </>
                           )}
@@ -328,6 +330,23 @@ const Login = () => {
                             <>
                               <input
                                 onChange={(e) => setConfirmPassword(e.target.value)}
+                                type="text"
+                                name="confirmPassword"
+                                placeholder="ConfirmPassword"
+                                className="input input-bordered bg-white"
+                              />
+                              <span
+                                onClick={() => setShow(!show)}
+                                className="relative left-64  md:left-72 bottom-8"
+                              >
+                                 <FaEye />
+                               
+                              </span>
+                            </>
+                          ) : (
+                            <>
+                              <input
+                                onChange={(e) => setConfirmPassword(e.target.value)}
                                 type="password"
                                 name="confirmPassword"
                                 placeholder="ConfirmPassword"
@@ -338,22 +357,6 @@ const Login = () => {
                                 className="relative left-64  md:left-72 bottom-8"
                               >
                                 <FaEyeSlash />
-                              </span>
-                            </>
-                          ) : (
-                            <>
-                              <input
-                                onChange={(e) => setConfirmPassword(e.target.value)}
-                                type="text"
-                                name="confirmPassword"
-                                placeholder="ConfirmPassword"
-                                className="input input-bordered bg-white"
-                              />
-                              <span
-                                onClick={() => setShow(!show)}
-                                className="relative left-64  md:left-72 bottom-8"
-                              >
-                                <FaEye />
                               </span>
                             </>
                           )}

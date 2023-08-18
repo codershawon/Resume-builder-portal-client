@@ -13,7 +13,8 @@ const AllUsers = () => {
 
   const handleMakeAdmin = (user) => {
     // TODO : swap the vercel link
-    fetch(`http://localhost:5000/users/admin/${user._id}`, {
+    // fetch(`http://localhost:5000/users/admin/${user._id}`, {
+    fetch(`https://resume-builder-portal-server.vercel.app/users/admin/${user._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
