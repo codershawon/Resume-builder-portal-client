@@ -32,6 +32,7 @@ const AllUsers = () => {
         }
       });
   };
+   //TODO : shorten user name must must
 
   return (
     <div>
@@ -47,6 +48,8 @@ const AllUsers = () => {
               <th>Admin</th>
             </tr>
           </thead>
+          
+
           <tbody className=" text-gray-600">
             {users.map((user, index) => (
               <tr key={user._id}>
@@ -62,9 +65,11 @@ const AllUsers = () => {
                     ) : (
                       <FaUserCircle className="md:w-12 md:h-12 w-6 h-6 rounded-full"></FaUserCircle>
                     )}
-                  </span>{" "}
+                  </span>
+                  
                   {user.name}
                 </td>
+
 
                 <td>{user.email}</td>
                 <td>
