@@ -67,7 +67,7 @@ const Footer = () => {
     </div>
     <div className="p-4 bg-[#197685] bg-opacity-20 ">
       <div className="text-center mx-8">
-        <p>Copyright © 2023 - All right reserved by ResumeGenius</p>
+        <p>Copyright &copy; 2023 - All right reserved by ResumeGenius</p>
         
       </div>
       
