@@ -11,6 +11,7 @@ const AllUsers = () => {
     return res.data;
   });
 
+  
   const handleMakeAdmin = (user) => {
     // TODO : swap the vercel link
     // fetch(`http://localhost:5000/users/admin/${user._id}`, {
