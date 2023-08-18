@@ -90,7 +90,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        //save user to db
+        //save user to db added
         // saveUser(result.user);
         navigate(from, { replace: true });
       })
@@ -145,7 +145,7 @@ const Login = () => {
                           <>
                             <input
                               onChange={(e) => setPassword(e.target.value)}
-                              type="password"
+                              type="text"
                               name="password"
                               placeholder="Password "
                               className="input input-bordered bg-white"
