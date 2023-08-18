@@ -11,9 +11,11 @@ const AllUsers = () => {
     return res.data;
   });
 
+  
   const handleMakeAdmin = (user) => {
     // TODO : swap the vercel link
-    fetch(`http://localhost:5000/users/admin/${user._id}`, {
+    // fetch(`http://localhost:5000/users/admin/${user._id}`, {
+    fetch(`https://resume-builder-portal-server.vercel.app/users/admin/${user._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -32,6 +34,7 @@ const AllUsers = () => {
         }
       });
   };
+   //TODO : shorten user name must must
 
   return (
     <div>
@@ -47,9 +50,11 @@ const AllUsers = () => {
               <th>Admin</th>
             </tr>
           </thead>
+          
+
           <tbody className=" text-gray-600">
             {users.map((user, index) => (
-              <tr key={user._id}>
+              <tr  key={user._id} style={{backgroundColor: "white"}} className="bg-gray-50 border-0">
                 <th>{index + 1}</th>
                 <td className="flex items-center gap-2">
                   <span>
@@ -62,9 +67,11 @@ const AllUsers = () => {
                     ) : (
                       <FaUserCircle className="md:w-12 md:h-12 w-6 h-6 rounded-full"></FaUserCircle>
                     )}
-                  </span>{" "}
+                  </span>
+                  
                   {user.name}
                 </td>
+
 
                 <td>{user.email}</td>
                 <td>

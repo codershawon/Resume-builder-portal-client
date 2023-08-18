@@ -35,7 +35,8 @@ const ResumeTemplate = () => {
       email,
     };
 
-    fetch(`http://localhost:5000/review`, {
+    // fetch(`http://localhost:5000/review`, {
+    fetch(`https://resume-builder-portal-server.vercel.app/review`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

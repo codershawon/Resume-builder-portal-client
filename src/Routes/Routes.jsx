@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/resumeTemplate",
-        element: <ResumeTemplate />,
+        element: <PrivateRoutes><ResumeTemplate /></PrivateRoutes>,
       },
       {
         path: "/login",
@@ -44,3 +44,4 @@ export const router = createBrowserRouter([
     ]
   }
 ]);
+

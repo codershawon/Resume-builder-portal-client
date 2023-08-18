@@ -1,10 +1,11 @@
-.useButton {
-    @apply -z-40 btn bg-[#197685] rounded-md text-white w-[80%] absolute bottom-20 right-0  
-}
+/* .useButton {
+    @apply -z-40 btn btn-sm bg-[#197685] rounded-md text-white w-[80%] absolute bottom-20 right-0  
+} */
 
 .resumeContents:hover .useButton {
-    z-index: 0;
-    transform: translate(-12%);
-    transition: transform 0.9s ;
+    color: #197685 ;
+    background: #fff;
+    border: 2px solid #197685;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     
 }

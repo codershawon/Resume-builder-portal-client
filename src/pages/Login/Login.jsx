@@ -62,37 +62,74 @@ const Login = () => {
       const loggedUser = result.user;
       console.log(loggedUser);
       updateUserProfile(data.name, data.photoURL)
-        .then(() => {
-          console.log("user profile info updated");
-          reset();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Your work has been saved",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          navigate("/");
+      .then(() => {
+        const saveUser = { name: data.name, email: data.email, photoURL: data.photoURL };
+        console.log(saveUser)
+        // fetch("http://localhost:5000/users", {
+        fetch("https://resume-builder-portal-server.vercel.app/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
         })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            reset();
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "User created successfully.",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate("/");
+          }
+        });
+      
+      })
+
+      
+        // .then(() => {
+        //   console.log("user profile info updated");
+        //   reset();
+        //   Swal.fire({
+        //     position: "top-end",
+        //     icon: "success",
+        //     title: "Your work has been saved",
+        //     showConfirmButton: false,
+        //     timer: 1500,
+        //   });
+        //   navigate("/");
+        // })
         .catch((error) => console.log(error));
     });
   };
 
   // Google
   const handleGoogleSignIn = () => {
-    signInWithGoogle()
-      .then((result) => {
-        console.log(result.user);
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "Login Successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        //save user to db
-        // saveUser(result.user);
+    signInWithGoogle().then((result) => {
+      const loggedInUser = result.user;
+      console.log(loggedInUser);
+      const saveUser = {
+        name: loggedInUser.displayName,
+        email: loggedInUser.email,
+        photoURL : loggedInUser.photoURL,
+      };
+      //fetch("http://localhost:5000/users", {
+      fetch("https://resume-builder-portal-server.vercel.app/users", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(saveUser),
+      })
+      .then((res) => res.json())
+      .then(() => {
         navigate(from, { replace: true });
+      })
+      
       })
       .catch((err) => {
         setLoading(false);
@@ -154,14 +191,15 @@ const Login = () => {
                               onClick={() => setControl(!control)}
                               className="relative left-64  md:left-72 bottom-8"
                             >
-                              <FaEyeSlash />
+                              <FaEye />
+                           
                             </span>
                           </>
                         ) : (
                           <>
                             <input
                               onChange={(e) => setPassword(e.target.value)}
-                              type="text"
+                              type="password"
                               name="password"
                               placeholder="Password "
                               className="input input-bordered bg-white"
@@ -170,7 +208,7 @@ const Login = () => {
                               onClick={() => setControl(!control)}
                               className="relative left-64  md:left-72 bottom-8"
                             >
-                              <FaEye />
+                                 <FaEyeSlash />
                             </span>
                           </>
                         )}
@@ -274,22 +312,6 @@ const Login = () => {
                             <>
                               <input
                                 onChange={(e) => setPassword(e.target.value)}
-                                type="password"
-                                name="password"
-                                placeholder="Password "
-                                className="input input-bordered bg-white"
-                              />
-                              <span
-                                onClick={() => setControl(!control)}
-                                className="relative left-64  md:left-72 bottom-8"
-                              >
-                                <FaEyeSlash />
-                              </span>
-                            </>
-                          ) : (
-                            <>
-                              <input
-                                onChange={(e) => setPassword(e.target.value)}
                                 type="text"
                                 name="password"
                                 placeholder="Password "
@@ -299,7 +321,24 @@ const Login = () => {
                                 onClick={() => setControl(!control)}
                                 className="relative left-64  md:left-72 bottom-8"
                               >
-                                <FaEye />
+                                  <FaEye />
+                              </span>
+                            </>
+                          ) : (
+                            <>
+                              <input
+                                onChange={(e) => setPassword(e.target.value)}
+                                type="password"
+                                name="password"
+                                placeholder="Password "
+                                className="input input-bordered bg-white"
+                              />
+                              <span
+                                onClick={() => setControl(!control)}
+                                className="relative left-64  md:left-72 bottom-8"
+                              >
+                                 <FaEyeSlash />
+                             
                               </span>
                             </>
                           )}
@@ -328,6 +367,23 @@ const Login = () => {
                             <>
                               <input
                                 onChange={(e) => setConfirmPassword(e.target.value)}
+                                type="text"
+                                name="confirmPassword"
+                                placeholder="ConfirmPassword"
+                                className="input input-bordered bg-white"
+                              />
+                              <span
+                                onClick={() => setShow(!show)}
+                                className="relative left-64  md:left-72 bottom-8"
+                              >
+                                 <FaEye />
+                               
+                              </span>
+                            </>
+                          ) : (
+                            <>
+                              <input
+                                onChange={(e) => setConfirmPassword(e.target.value)}
                                 type="password"
                                 name="confirmPassword"
                                 placeholder="ConfirmPassword"
@@ -338,22 +394,6 @@ const Login = () => {
                                 className="relative left-64  md:left-72 bottom-8"
                               >
                                 <FaEyeSlash />
-                              </span>
-                            </>
-                          ) : (
-                            <>
-                              <input
-                                onChange={(e) => setConfirmPassword(e.target.value)}
-                                type="text"
-                                name="confirmPassword"
-                                placeholder="ConfirmPassword"
-                                className="input input-bordered bg-white"
-                              />
-                              <span
-                                onClick={() => setShow(!show)}
-                                className="relative left-64  md:left-72 bottom-8"
-                              >
-                                <FaEye />
                               </span>
                             </>
                           )}
@@ -421,4 +461,3 @@ const Login = () => {
 };
 
 export default Login;
-
