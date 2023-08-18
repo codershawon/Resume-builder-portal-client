@@ -1,12 +1,10 @@
 import "./Navbar.css";
-
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-
-import logo from "../../assets/logo/resume-cv-cover-letter-transparent.png";
-import { FaAngleDown } from "react-icons/fa6";
+import { FaAngleDown, FaDribbble, FaPowerOff } from "react-icons/fa6";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -47,48 +45,92 @@ const Navbar = () => {
     };
   }, []);
 
+  const navOptions = (
+    <>
+      <li className={location.pathname === "" ? "navActive" : "navStyle "}>
+        <Link to="/allresume">Resume Template</Link>
+      </li>
+      <li className={location.pathname === "" ? "navActive" : "navStyle"}>
+        <Link to="/">Cover Letter</Link>
+      </li>
 
-  const navOptions = <>
-    <li className={location.pathname === "" ? "navActive" : "navStyle "}><Link to='/' >Resume Template</Link></li>
-    <li className={location.pathname === "" ? "navActive" : "navStyle"}><Link to="/">Cover Letter</Link></li>
+      <li
+        className={`relative navHover ${
+          location.pathname === "" ? "navActive" : "navStyle"
+        }`}
+      >
+        <Link className="flex items-center gap-1" to="/">
+          Career <FaAngleDown />
+        </Link>
+        {/* Dropdown options */}
+        <ul className="navDropdown">
+          <li
+            className={
+              location.pathname === "/coverletter" ? "navActive" : "navStyle"
+            }
+          >
+            <Link to="/resumeTemplate">Resume Template</Link>
+          </li>
+          <li
+            className={
+              location.pathname === "/coverletter" ? "navActive" : "navStyle"
+            }
+          >
+            <Link to="/coverletter">CoverLetter</Link>
+          </li>
+          
+        </ul>
+      </li>
+        {user && <li className={location.pathname === "" ? "navActive" : "navStyle"}><Link to="/dashboard">Dashboard</Link></li>}
 
-    <li className={`relative navHover ${location.pathname === "" ? "navActive" : "navStyle"}`}>
-      <Link className='flex items-center gap-1' to="/">Career <FaAngleDown/></Link>
-      {/* Dropdown options */}
-      <ul className="navDropdown">
-        <li className={location.pathname === "/coverletter" ? "navActive" : "navStyle"}><Link to='/resumeTemplate' >Resume Template</Link></li>
-        <li className={location.pathname === "/coverletter" ? "navActive" : "navStyle"}><Link to="/coverletter">CoverLetter</Link></li>
-      </ul>
-    </li>
-    <li className={location.pathname === "" ? "navActive" : "navStyle"}><Link to="/dashboard">Dashboard</Link></li>
-
-
-
-    {/* #### TODO #### do uncomment after implement the {authProvider} correctly
       {/* #### TODO #### do uncomment after implement the {authProvider} correctly
-
         {user && <li className="text-xl"><Link to="/dashboard">My Documents</Link></li>} */}
 
       <div>
         {user ? (
           <div className="flex items-center">
             {user.photoURL ? (
-              <img
-                className="w-8 h-8 lg:w-12 lg:h-12 rounded-full mr-2"
-                src={user.photoURL}
-                alt={user.displayName}
-                title={user.displayName}
-              />
+              <div className="dropdown lg:dropdown-end ">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img
+                      className="w-8 h-8 lg:w-12 lg:h-12 rounded-full mr-2"
+                      src={user.photoURL}
+                      alt={user.displayName}
+                      title={user.displayName}
+                    />
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-30 lg:w-52"
+                >
+                  <li>
+                    <Link>
+                      <FaUserCircle></FaUserCircle> Profile
+                    </Link>
+                  </li>
+                  <li>
+                    <Link>
+                      <FaDribbble></FaDribbble> Settings
+                    </Link>
+                  </li>
+                  <hr className="my-3" />
+                  <li>
+                    <button onClick={handleLogout} className="">
+                      <FaPowerOff></FaPowerOff> LogOut
+                    </button>
+                  </li>
+                </ul>
+              </div>
             ) : (
-              <FaUserCircle
-                className="w-8 h-8 lg:w-12 lg:h-12 rounded-full mr-2"
-                title={user.displayName}
-              />
+              <>
+                <FaUserCircle
+                  className="w-8 h-8 lg:w-12 lg:h-12 rounded-full mr-2"
+                  title={user.displayName}
+                />
+              </>
             )}
-
-            <button onClick={handleLogout} className="btn my-btn">
-              LogOut
-            </button>
           </div>
         ) : (
           <div>
@@ -100,23 +142,22 @@ const Navbar = () => {
           </div>
         )}
 
-        {/* {
-          user ? <>
-          <span>{user?.displayName}</span>
-          <div><button onClick={handleLogout} className='btn my-btn'>LogOut</button></div>
-          </> : <>
-          <div><Link to="/login" className="btn my-btn">Login</Link></div>
-          </>
-        } */}
       </div>
     </>
+  );
 
   return (
     <nav className="navBar">
       <div className="rgContainer flex justify-between items-center">
-        <div className="flex items-center">
-          <img src={logo} alt="Resume genius logo" />
+        <div className="flex  items-center">
+         <Link to="/">
+         <img
+            className="w-44 lg:w-full"
+            src="https://i.ibb.co/zhYJKFk/resume-cv-cover-letter-transparent.png"
+            alt="Resume genius logo"
+          /></Link>
         </div>
+
         <ul className="hidden md:flex items-center space-x-4">{navOptions}</ul>
         <div className="md:hidden">
           {/* Mobile menu button */}
@@ -157,4 +198,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar
+export default Navbar;

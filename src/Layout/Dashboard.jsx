@@ -1,5 +1,5 @@
-
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { MdOutlineDashboard } from "react-icons/md";
 import {
   HiMenuAlt3,
   HiUser,
@@ -7,7 +7,6 @@ import {
   HiX,
   HiOutlineUserGroup,
 } from "react-icons/hi";
-import { MdOutlineDashboard } from "react-icons/md";
 import { RiSettings4Line } from "react-icons/ri";
 import { TbReportAnalytics } from "react-icons/tb";
 import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
@@ -19,16 +18,27 @@ import {
   RiUserFill,
   RiContactsBook2Line,
 } from "react-icons/ri";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import "../components/Dashboard.css";
+import useAdmin from "../Hooks/useAdmin";
+import { AuthContext } from "../Providers/AuthProvider";
+import { FaHistory, FaWallet } from "react-icons/fa";
+import { faMessage } from "@fortawesome/free-solid-svg-icons";
+import UseSpinner from "../Hooks/UseSpinner";
 
 const Dashboard = () => {
   const [open, setOpen] = useState(true);
+
+  const { user } = useContext(AuthContext);
+  console.log(user);
+  // const isAdmin = true;
+
   const admin = [
-    { name: "Admin Dashboard", link: "/dashboard", icon: MdOutlineDashboard },
-    { name: "All Users", link: "/", icon: HiOutlineUserGroup },
+    {name: "Admin Dashboard",link: "/dashboard/admin",icon: MdOutlineDashboard,},
+    {name: "All Users",link: "/dashboard/allUsers",icon: HiOutlineUserGroup,},
     { name: "Users resumes and letters", link: "/", icon: RiBookLine },
     { name: "Users Templates", link: "/", icon: HiTemplate },
+    {name : "Feedback", link:"/", icon: HiTemplate},
     { name: "Templates", link: "/", icon: RiContactsBook2Line, margin: true },
     { name: "Home", link: "/", icon: RiHome4Line, margin: true },
     { name: "My Profile", link: "/", icon: HiUser },
@@ -37,20 +47,29 @@ const Dashboard = () => {
     { name: "User Dashboard", link: "/dashboard", icon: MdOutlineDashboard },
     { name: "My resumes and letters", link: "/", icon: RiBookLine },
     { name: "My templates", link: "/", icon: HiTemplate },
+    {name : "Payment", link : "/", icon : FaWallet },
+    {name : "Payment History", link : "/", icon : FaHistory },
     { name: "Templates", link: "/", icon: RiContactsBook2Line, margin: true },
     { name: "Home", link: "/", icon: RiHome4Line, margin: true },
     { name: "My Profile", link: "/", icon: HiUser },
   ];
 
-  const user = false;
+  // const user = true;
+
+  const [isAdmin, isAdminLoading] = useAdmin();
+  //  TODO : add cool loader or spinner
+  if (isAdminLoading) {
+    return <UseSpinner></UseSpinner>
+  }
 
   return (
     // Container Sections
-    <section className="flex gap-4">
+    <section className="flex gap-6">
       <div
-        className={` min-h-screen bg-gradient-to-b from-[#197695] to-[#197685] ${
-          open ? "w-80" : "w-16"
-        } duration-500 text-gray-100 px-4`}>
+        className={` min-h-screen  bg-gradient-to-b from-[#197695] to-[#197685] ${
+          open ? "w-72" : "w-16"
+        } duration-500 text-gray-100 px-4`}
+      >
         <div className="py-3 flex justify-end">
           {open ? (
             <>
@@ -74,17 +93,23 @@ const Dashboard = () => {
         </div>
 
         {/* User Profile */}
-        <Link 
+        <Link
           title="User Profile"
           className={`${
             open ? "avatar onl flex mt-6" : "avatar online flex mt-6"
-          }`}>
+          }`}
+        >
           <div
-            className={`w-20 mx-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2  duration-500 ${
+            className={`w-20 mx-auto rounded-full ring ring-white ring-offset-base-100 ring-offset-2  duration-500 ${
               !open &&
-              "w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
-            }`}>
-            <img src="https://scontent.fjsr8-1.fna.fbcdn.net/v/t39.30808-6/279312602_734737191043200_3706230763934917786_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeF0VlUf7SUo0L93l42p5c43LJlARVmc2HcsmUBFWZzYd-HNi0TY6X19i--yzckcDg1jPQ0zjVf5HNKCR9CkEZAq&_nc_ohc=MZABC4WllXYAX98sIn6&_nc_oc=AQlH8BstuKABO0IWstoTnFTOpiRR1W4XIgfR9BVLYlJnUmfXNpXN13cD0eusWpMmmXE&_nc_ht=scontent.fjsr8-1.fna&oh=00_AfCEPktpVGNaSgAizfo3FeB0TW3UPTuWED8yNmTnvMQI9A&oe=64E0044A" />
+              "w-10 rounded-full ring ring-white ring-offset-base-100 ring-offset-1"
+            }`}
+          >
+            <img
+              src={user?.photoURL}
+              alt={user?.displayName}
+              title={user?.displayName}
+            />
           </div>
         </Link>
 
@@ -94,18 +119,21 @@ const Dashboard = () => {
             <div
               className={`whitespace-pre duration-500 text-center my-5 ${
                 !open && "opacity-0 translate-x-28 overflow-hidden "
-              }`}>
+              }`}
+            >
               <h4
                 className={`text-xl ${
                   !open && "opacity-0 translate-x-28 overflow-hidden "
-                }`}>
-                User Name
+                }`}
+              >
+                {user?.displayName}
               </h4>
               <p
                 className={`text-xs ${
                   !open && "opacity-0 translate-x-28 overflow-hidden "
-                }`}>
-                sssakibhasan997@gmail.com
+                }`}
+              >
+                {user?.email}
               </p>
             </div>
           </>
@@ -114,7 +142,7 @@ const Dashboard = () => {
         )}
 
         <div className="my-8 flex flex-col gap-3 relative duration-500 active-class">
-          {user ? (
+          {isAdmin ? (
             <>
               {/* Admin Dashboard */}
 
@@ -124,7 +152,8 @@ const Dashboard = () => {
                   key={i}
                   className={` ${
                     adminMenu?.margin && "mt-5"
-                  } group flex items-center text-sm  gap-3.5 font-medium p-2 duration-500 hover:bg-gray-800 rounded-md`}>
+                  } group flex items-center text-sm  gap-3.5 font-medium p-2 duration-500 hover:bg-gray-800 rounded-md`}
+                >
                   <div>
                     {React.createElement(adminMenu?.icon, { size: "20" })}
                   </div>
@@ -134,13 +163,15 @@ const Dashboard = () => {
                     }}
                     className={`whitespace-pre duration-500 ${
                       !open && "opacity-0 translate-x-28 overflow-hidden"
-                    }`}>
+                    }`}
+                  >
                     {adminMenu?.name}
                   </h2>
                   <h2
                     className={`${
                       open && "hidden"
-                    } absolute left-48 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}>
+                    } absolute left-48 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
+                  >
                     {adminMenu?.name}
                   </h2>
                 </NavLink>
@@ -155,7 +186,8 @@ const Dashboard = () => {
                   key={i}
                   className={` ${
                     userMenu?.margin && "mt-5"
-                  } group flex items-center text-sm  gap-3.5 font-medium p-2 duration-500  hover:bg-gray-800 rounded-md`}>
+                  } group flex items-center text-sm  gap-3.5 font-medium p-2 duration-500  hover:bg-gray-800 rounded-md`}
+                >
                   <div>
                     {React.createElement(userMenu?.icon, { size: "20" })}
                   </div>
@@ -165,13 +197,15 @@ const Dashboard = () => {
                     }}
                     className={`whitespace-pre duration-500 ${
                       !open && "opacity-0 translate-x-28 overflow-hidden"
-                    }`}>
+                    }`}
+                  >
                     {userMenu?.name}
                   </h2>
                   <h2
                     className={`${
                       open && "hidden"
-                    } absolute left-48 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}>
+                    } absolute left-48 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
+                  >
                     {userMenu?.name}
                   </h2>
                 </NavLink>
@@ -181,11 +215,13 @@ const Dashboard = () => {
         </div>
 
         {/* Logout sections */}
+
         <div
           title="LogOut"
-          className={`mt-32 flex gap-4 cursor-pointer p-2 bg-gray-800 hover:bg-gray-50 hover:text-black rounded-md duration-500 ${
+          className={` flex gap-4 cursor-pointer p-2 bg-gray-800 hover:bg-gray-50 hover:text-black rounded-md duration-500 ${
             !open && "p-2 "
-          } `}>
+          } `}
+        >
           <div className={` duration-500 ${!open && "duration-500"}`}>
             <RiLogoutCircleRLine className="text-2xl" />
           </div>
@@ -193,7 +229,8 @@ const Dashboard = () => {
             <h2
               className={`whitespace-pre duration-500 ${
                 !open && "opacity-0 translate-x-28 overflow-hidden"
-              }`}>
+              }`}
+            >
               LogOut
             </h2>
           </div>
@@ -201,9 +238,8 @@ const Dashboard = () => {
       </div>
 
       {/* Components Start */}
-      <div className="m-3  text-gray-900  ">
-        This is Your Dashboard
-        <p>Lorem ipsum dolor t numquam recusandae non minus aspernatur</p>
+      <div className="m-3 w-full text-gray-900  ">
+        <Outlet />
       </div>
       {/* Components End */}
     </section>
