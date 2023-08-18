@@ -1,5 +1,4 @@
 import "./Navbar.css";
-
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaAngleDown, FaDribbble, FaPowerOff } from "react-icons/fa6";
@@ -79,13 +78,10 @@ const Navbar = () => {
           >
             <Link to="/coverletter">CoverLetter</Link>
           </li>
+          
         </ul>
       </li>
-      {user && (
-        <li className={location.pathname === "" ? "navActive" : "navStyle"}>
-          <Link to="/dashboard">Dashboard</Link>
-        </li>
-      )}
+        {user && <li className={location.pathname === "" ? "navActive" : "navStyle"}><Link to="/dashboard">Dashboard</Link></li>}
 
       {/* #### TODO #### do uncomment after implement the {authProvider} correctly
         {user && <li className="text-xl"><Link to="/dashboard">My Documents</Link></li>} */}
@@ -107,7 +103,7 @@ const Navbar = () => {
                 </label>
                 <ul
                   tabIndex={0}
-                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-30 lg:w-52"
+                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-30 lg:w-52"
                 >
                   <li>
                     <Link>
@@ -145,6 +141,7 @@ const Navbar = () => {
             </div>
           </div>
         )}
+
       </div>
     </>
   );
@@ -153,13 +150,12 @@ const Navbar = () => {
     <nav className="navBar">
       <div className="rgContainer flex justify-between items-center">
         <div className="flex  items-center">
-          <Link to="/">
-            <img
-              className="w-44 lg:w-full"
-              src="https://i.ibb.co/zhYJKFk/resume-cv-cover-letter-transparent.png"
-              alt="Resume genius logo"
-            />
-          </Link>
+         <Link to="/">
+         <img
+            className="w-44 lg:w-full"
+            src="https://i.ibb.co/zhYJKFk/resume-cv-cover-letter-transparent.png"
+            alt="Resume genius logo"
+          /></Link>
         </div>
 
         <ul className="hidden md:flex items-center space-x-4">{navOptions}</ul>
