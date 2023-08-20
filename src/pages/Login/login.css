@@ -8,7 +8,7 @@
       overflow: hidden;
       height: 44px;
       width: 100%;
-      max-width: 238px;
+      max-width: 220px;
       margin: 0 auto;
       padding: 7px 8px;
   }
@@ -28,7 +28,7 @@
       color: #197685;
       border-radius: 25px;
       height: 30px;
-      max-width: 110px;
+      max-width: 100px;
       text-align: center;
       display: inline-block;
       width: 100%;
@@ -43,7 +43,7 @@
       color: #197685;
       border-radius: 25px;
       height: 30px;
-      max-width: 110px;
+      max-width: 95px;
       text-align: center;
       display: inline-block;
       width: 100%;

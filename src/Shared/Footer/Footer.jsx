@@ -6,9 +6,9 @@ import imgLogo from "../../assets/logo/resume-cv-cover-letter-transparent.png";
 
 const Footer = () => {
   return (
-    <footer>
-    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 p-10 bg-[#197685] bg-opacity-10 text-black">
-      <div className="rgContainer">
+    <footer className="bg-[#197685] bg-opacity-10">
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 p-10   text-black">
+      <div className="">
         <div className="gap-4">
           <img className="w-[240px]" src="https://i.ibb.co/zhYJKFk/resume-cv-cover-letter-transparent.png" alt="" />
         </div>
