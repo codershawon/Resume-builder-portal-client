@@ -14,14 +14,11 @@ import { useContext } from "react";
 import SignUp from "../Home/SignUp/SignUp";
 
 const Login = () => {
-  // register
-  // const { createUser, updateUserProfile } = useContext(AuthContext);
+ 
   // eye
   const [control, setControl] = useState(false);
 
   const [password, setPassword] = useState(false);
-  const [confirmPassword, setConfirmPassword] = useState(false);
-  const [show, setShow] = useState(false);
   // Login
 
   const { signInUser, signInWithGoogle, loading, setLoading } =
@@ -127,8 +124,8 @@ const Login = () => {
                           <>
                             <input
                               onChange={(e) => setPassword(e.target.value)}
-                              type="password"
-                              name="password"
+                              type="text"
+                              name="text"
                               placeholder="password "
                               className="input input-bordered bg-white"
                             />
@@ -150,7 +147,7 @@ const Login = () => {
                             />
                             <span
                               onClick={() => setControl(!control)}
-                              className="relative left-[200px] sm:left-72 bottom-8"
+                              className="relative left-[250px] sm:left-72 bottom-8"
                             >
                               <FaEyeSlash />
                             </span>

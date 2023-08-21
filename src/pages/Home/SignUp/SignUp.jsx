@@ -180,7 +180,7 @@ const SignUp = () => {
 
                 <span
                   onClick={() => setControl(!control)}
-                  className="relative left-52  sm:left-72 bottom-8"
+                  className="relative left-52  sm:left-72 md:left-80 bottom-8"
                 >
                   <FaEye />
                 </span>

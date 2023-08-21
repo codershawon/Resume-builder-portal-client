@@ -6,9 +6,9 @@ import imgLogo from "../../assets/logo/resume-cv-cover-letter-transparent.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#197685] bg-opacity-10">
-    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 p-10   text-black">
-      <div className="">
+    <footer>
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 p-10 bg-[#197685] bg-opacity-10 text-black">
+      <div>
         <div className="gap-4">
           <img className="w-[240px]" src="https://i.ibb.co/zhYJKFk/resume-cv-cover-letter-transparent.png" alt="" />
         </div>
@@ -67,7 +67,7 @@ const Footer = () => {
     </div>
     <div className="p-4 bg-[#197685] bg-opacity-20 ">
       <div className="text-center mx-8">
-        <p>Copyright &copy; 2023 - All right reserved by ResumeGenius</p>
+        <p>Copyright © 2023 - All right reserved by ResumeGenius</p>
         
       </div>
       
