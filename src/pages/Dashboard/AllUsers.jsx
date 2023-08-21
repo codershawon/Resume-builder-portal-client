@@ -51,6 +51,7 @@ const AllUsers = () => {
             </tr>
           </thead>
           
+          
 
           <tbody className=" text-gray-600">
             {users.map((user, index) => (
