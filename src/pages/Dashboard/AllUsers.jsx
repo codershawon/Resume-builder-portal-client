@@ -104,7 +104,7 @@ const AllUsers = () => {
 
           <tbody className=" text-gray-600">
             {users.map((user, index) => (
-              <tr key={user._id}>
+              <tr  key={user._id} style={{backgroundColor: "white"}} className="bg-gray-50 border-0">
                 <th>{index + 1}</th>
                 <td className="flex items-center gap-2">
                   <span>
