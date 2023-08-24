@@ -10,6 +10,8 @@ import AdminRoute from "./AdminRoute";
 import AllResume from "../pages/AllResume/AllResume";
 import Contact from "../pages/ContactUs/Contact";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import ResumeBuilder from "../components/ResumeBuilderSection/ResumeBuilder/ResumeBuilder";
+
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +34,10 @@ export const router = createBrowserRouter([
       {
         path: "/resumeTemplate",
         element: <PrivateRoutes><ResumeTemplate /></PrivateRoutes>,
+      },
+      {
+        path: "resumeBuilder",
+        element:<ResumeBuilder/>,
       },
       {
         path: "/login",
