@@ -8,6 +8,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import AllUsers from "../pages/Dashboard/AllUsers";
 import AdminRoute from "./AdminRoute";
 import AllResume from "../pages/AllResume/AllResume";
+import ResumeBuilder from "../components/ResumeBuilderSection/ResumeBuilder/ResumeBuilder";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
       {
         path: "/resumeTemplate",
         element: <PrivateRoutes><ResumeTemplate /></PrivateRoutes>,
+      },
+      {
+        path: "resumeBuilder",
+        element:<ResumeBuilder/>,
       },
       {
         path: "/login",
