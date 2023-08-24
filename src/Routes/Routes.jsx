@@ -8,6 +8,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import AllUsers from "../pages/Dashboard/AllUsers";
 import AdminRoute from "./AdminRoute";
 import AllResume from "../pages/AllResume/AllResume";
+import Profile from "../pages/Dashboard/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -38,8 +39,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "allUsers",
-        // TODO : have to warp around by the adminRoute 
         element : <AdminRoute><AllUsers></AllUsers></AdminRoute>
+      },
+      {
+        path: "profile",
+        element: <Profile></Profile>,
       }
     ]
   }
