@@ -1,16 +1,18 @@
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import "./login.css";
-import { useForm } from "react-hook-form";
-import { AuthContext } from "../../Providers/AuthProvider";
-import Swal from "sweetalert2";
+
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { useLocation, useNavigate } from "react-router-dom";
+
+import { AuthContext } from "../../Providers/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Swal from "sweetalert2";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { FaEye, FaEyeSlash } from "react-icons/fa6";
-import { useState } from "react";
 import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 const Login = () => {
   // eye
@@ -62,35 +64,37 @@ const Login = () => {
       const loggedUser = result.user;
       console.log(loggedUser);
       updateUserProfile(data.name, data.photoURL)
-      .then(() => {
-        const saveUser = { name: data.name, email: data.email, photoURL: data.photoURL };
-        console.log(saveUser)
-        // fetch("http://localhost:5000/users", {
-        fetch("https://resume-builder-portal-server.vercel.app/users", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(saveUser),
-        })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.insertedId) {
-            reset();
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: "User created successfully.",
-              showConfirmButton: false,
-              timer: 1500,
+        .then(() => {
+          const saveUser = {
+            name: data.name,
+            email: data.email,
+            photoURL: data.photoURL,
+          };
+          console.log(saveUser);
+          // fetch("http://localhost:5000/users", {
+          fetch("https://resume-builder-portal-server.vercel.app/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(saveUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                reset();
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "User created successfully.",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate("/");
+              }
             });
-            navigate("/");
-          }
-        });
-      
-      })
+        })
 
-      
         // .then(() => {
         //   console.log("user profile info updated");
         //   reset();
@@ -107,29 +111,30 @@ const Login = () => {
     });
   };
 
+  
   // Google
   const handleGoogleSignIn = () => {
-    signInWithGoogle().then((result) => {
-      const loggedInUser = result.user;
-      console.log(loggedInUser);
-      const saveUser = {
-        name: loggedInUser.displayName,
-        email: loggedInUser.email,
-        photoURL : loggedInUser.photoURL,
-      };
-      //fetch("http://localhost:5000/users", {
-      fetch("https://resume-builder-portal-server.vercel.app/users", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(saveUser),
-      })
-      .then((res) => res.json())
-      .then(() => {
-        navigate(from, { replace: true });
-      })
-      
+    signInWithGoogle()
+      .then((result) => {
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        const saveUser = {
+          name: loggedInUser.displayName,
+          email: loggedInUser.email,
+          photoURL: loggedInUser.photoURL,
+        };
+        //fetch("http://localhost:5000/users", {
+        fetch("https://resume-builder-portal-server.vercel.app/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            navigate(from, { replace: true });
+          });
       })
       .catch((err) => {
         setLoading(false);
@@ -192,7 +197,6 @@ const Login = () => {
                               className="relative left-64  md:left-72 bottom-8"
                             >
                               <FaEye />
-                           
                             </span>
                           </>
                         ) : (
@@ -208,7 +212,7 @@ const Login = () => {
                               onClick={() => setControl(!control)}
                               className="relative left-64  md:left-72 bottom-8"
                             >
-                                 <FaEyeSlash />
+                              <FaEyeSlash />
                             </span>
                           </>
                         )}
@@ -321,7 +325,7 @@ const Login = () => {
                                 onClick={() => setControl(!control)}
                                 className="relative left-64  md:left-72 bottom-8"
                               >
-                                  <FaEye />
+                                <FaEye />
                               </span>
                             </>
                           ) : (
@@ -337,8 +341,7 @@ const Login = () => {
                                 onClick={() => setControl(!control)}
                                 className="relative left-64  md:left-72 bottom-8"
                               >
-                                 <FaEyeSlash />
-                             
+                                <FaEyeSlash />
                               </span>
                             </>
                           )}
@@ -366,7 +369,9 @@ const Login = () => {
                           {show ? (
                             <>
                               <input
-                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                onChange={(e) =>
+                                  setConfirmPassword(e.target.value)
+                                }
                                 type="text"
                                 name="confirmPassword"
                                 placeholder="ConfirmPassword"
@@ -376,14 +381,15 @@ const Login = () => {
                                 onClick={() => setShow(!show)}
                                 className="relative left-64  md:left-72 bottom-8"
                               >
-                                 <FaEye />
-                               
+                                <FaEye />
                               </span>
                             </>
                           ) : (
                             <>
                               <input
-                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                onChange={(e) =>
+                                  setConfirmPassword(e.target.value)
+                                }
                                 type="password"
                                 name="confirmPassword"
                                 placeholder="ConfirmPassword"
