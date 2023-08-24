@@ -10,7 +10,7 @@ const AdminRoute = ({ children }) => {
     const [isAdmin, isAdminLoading] = useAdmin();
     const location = useLocation();
 
-    // TODO : add cool spinner
+  
     if(loading || isAdminLoading){
         return <UseSpinner></UseSpinner>
     }
