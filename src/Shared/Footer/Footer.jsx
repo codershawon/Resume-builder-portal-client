@@ -56,7 +56,7 @@ const Footer = () => {
         <Link to="" className="">About us</Link>
         <Link to="" className="">  Resume Templates </Link>
         <Link to="" className="">  Blog</Link>
-        <Link to="" className="">  Contact Us</Link>
+        <Link to="/contactUs" className="">  Contact Us</Link>
       </div>
       <div className="footerGrid">
         <div className="footer-title">Legal</div>
