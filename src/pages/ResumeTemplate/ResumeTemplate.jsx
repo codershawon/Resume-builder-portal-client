@@ -1,10 +1,12 @@
-import React, { useContext, useState } from "react";
-import { FaStar } from "react-icons/fa";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
 import "./ResumeTemplate.css";
+
+import React, { useContext, useState } from "react";
+
 import { AuthContext } from "../../Providers/AuthProvider";
+import { FaStar } from "react-icons/fa";
+import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 const ResumeTemplate = () => {
   const { user } = useContext(AuthContext);
@@ -35,7 +37,7 @@ const ResumeTemplate = () => {
       email,
     };
 
-    // fetch(`http://localhost:5000/review`, {
+    // fetch(`https://resume-builder-portal-server.vercel.app/review`, {
     fetch(`https://resume-builder-portal-server.vercel.app/review`, {
       method: "POST",
       headers: {

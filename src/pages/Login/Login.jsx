@@ -2,8 +2,10 @@ import "react-tabs/style/react-tabs.css";
 import "./login.css";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 
 import { AuthContext } from "../../Providers/AuthProvider";
+import { FaEyeSlash } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SignUp from "../Home/SignUp/SignUp";
@@ -11,6 +13,7 @@ import Swal from "sweetalert2";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 const Login = () => {
  
@@ -18,6 +21,7 @@ const Login = () => {
   const [control, setControl] = useState(false);
 
   const [password, setPassword] = useState(false);
+  
   // Login
 
   const { signInUser, signInWithGoogle, loading, setLoading } =
@@ -57,7 +61,7 @@ const Login = () => {
           email: loggedInUser.email,
           photoURL: loggedInUser.photoURL,
         };
-        //fetch("http://localhost:5000/users", {
+        //fetch("https://resume-builder-portal-server.vercel.app/users", {
         fetch("https://resume-builder-portal-server.vercel.app/users", {
           method: "POST",
           headers: {

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { FaUpload } from "react-icons/fa";
+
 import { AuthContext } from "../../Providers/AuthProvider";
+import { FaUpload } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const Profile = () => {
@@ -45,8 +46,8 @@ const { user } = useContext(AuthContext);
       // photoURL : image.photoURL
     };
 
-    fetch(`http://localhost:5000/users/${user.email}`, {
-    //fetch(`https://resume-builder-portal-server.vercel.app/users/${user.email}`, {
+    fetch(`https://resume-builder-portal-server.vercel.app/users/${user.email}`, {
+    //fetch(`https://resume-builder-portal-server.vercel.appusers/${user.email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -79,8 +80,8 @@ const { user } = useContext(AuthContext);
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
-    //fetch(`https://resume-builder-portal-server.vercel.app/users/${user.email}`)
+    fetch(`https://resume-builder-portal-server.vercel.app/users/${user.email}`)
+    //fetch(`https://resume-builder-portal-server.vercel.appusers/${user.email}`)
       .then((res) => res.json())
       .then((data) => setProfile(data))
       .catch((error) => console.error(error));
