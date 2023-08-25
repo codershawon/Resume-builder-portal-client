@@ -12,6 +12,7 @@ import Profile from "../pages/Dashboard/Profile";
 import Contact from "../pages/ContactUs/Contact";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ResumeBuilder from "../components/ResumeBuilderSection/ResumeBuilder/ResumeBuilder";
+import AboutUs from "../components/AboutUs/AboutUs";
 
 
 
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/about",
+        element: <AboutUs />,
       },
     ],
   },
