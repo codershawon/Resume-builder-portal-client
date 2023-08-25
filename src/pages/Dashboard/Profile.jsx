@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { FaUpload } from "react-icons/fa";
+
 import { AuthContext } from "../../Providers/AuthProvider";
+import { FaUpload } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const Profile = () => {

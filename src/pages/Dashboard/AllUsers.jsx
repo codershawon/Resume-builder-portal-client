@@ -1,9 +1,9 @@
+import { FaTrash, FaUserCheck, FaUserCircle } from "react-icons/fa";
+
 import React from "react";
+import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
-import { FaTrash, FaUserCheck, FaUserCircle } from "react-icons/fa";
-import Swal from "sweetalert2";
-
 
 const AllUsers = () => {
 
@@ -65,6 +65,7 @@ const AllUsers = () => {
       if (result.isConfirmed) {
         // fetch(`http://localhost:5000/users/${user._id}`, {
         fetch(`https://resume-builder-portal-server.vercel.app/users/${user._id}`, {
+
           method: "DELETE",
         })
           .then((res) => res.json())
