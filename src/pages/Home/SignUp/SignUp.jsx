@@ -175,7 +175,7 @@ const SignUp = () => {
                   })}
                   name="password"
                   placeholder="password"
-                  className="input input-bordered"
+                  className="input input-bordered bg-white"
                 />
 
                 <span
@@ -198,7 +198,7 @@ const SignUp = () => {
                   })}
                   name="password"
                   placeholder="password"
-                  className="input input-bordered"
+                  className="input input-bordered bg-white"
                 />
 
                 <span
@@ -245,7 +245,7 @@ const SignUp = () => {
                   })}
                   name="confirmPassword"
                   placeholder="confirmPassword"
-                  className="input input-bordered"
+                  className="input input-bordered bg-white"
                 />
 
                 <span
@@ -268,7 +268,7 @@ const SignUp = () => {
                   })}
                   name="confirmPassword"
                   placeholder="confirmPassword"
-                  className="input input-bordered"
+                  className="input input-bordered bg-white"
                 />
 
                 <span

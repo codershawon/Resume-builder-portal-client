@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../pages/Home/Home/Home";
-import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
 import Login from "../pages/Login/Login";
 import Dashboard from "../Layout/Dashboard";
 import PrivateRoutes from "./PrivateRoutes";
@@ -13,6 +12,7 @@ import Contact from "../pages/ContactUs/Contact";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ResumeBuilder from "../components/ResumeBuilderSection/ResumeBuilder/ResumeBuilder";
 import AboutUs from "../components/AboutUs/AboutUs";
+import Feedback from "../pages/Feedback/Feedback";
 
 
 
@@ -33,10 +33,6 @@ export const router = createBrowserRouter([
       {
         path:"contactUs",
         element: <Contact/>
-      },
-      {
-        path: "/resumeTemplate",
-        element: <PrivateRoutes><ResumeTemplate /></PrivateRoutes>,
       },
       {
         path: "resumeBuilder",
@@ -64,7 +60,11 @@ export const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile></Profile>,
-      }
+      },
+      {
+        path: "feedback",
+        element: <Feedback/>,
+      },
     ]
   }
 ]);
