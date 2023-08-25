@@ -16,7 +16,7 @@ const TestimonialSlider = () => {
 
   useEffect(() => {
       // Fetch testimonials from the backend
-      // fetch("http://localhost:5000/review")
+      // fetch("https://resume-builder-portal-server.vercel.app/review")
       fetch("https://resume-builder-portal-server.vercel.app/review")
         .then((res) => res.json())
         .then((data) => setTestimonials(data))

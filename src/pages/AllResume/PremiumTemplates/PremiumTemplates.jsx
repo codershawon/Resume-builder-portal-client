@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import { useState } from "react";
 import './PremiumTemplates.css'
 
+import { useEffect } from "react";
+import { useState } from "react";
 
 const PremiumTemplates = () => {
 
@@ -9,7 +9,7 @@ const PremiumTemplates = () => {
     const [resumeCollections, setResumeCollections]= useState([])
     
     useEffect(() => {
-        // fetch('http://localhost:5000/resume')
+        // fetch('https://resume-builder-portal-server.vercel.appresume')
         fetch('https://resume-builder-portal-server.vercel.app/resume')
             .then(res => res.json())
             .then(data => {
