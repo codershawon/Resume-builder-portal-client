@@ -50,7 +50,7 @@ const Login = () => {
     });
   };
 
-  // Google
+ // Google
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {

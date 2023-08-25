@@ -1,6 +1,9 @@
+import { createBrowserRouter } from "react-router-dom";
 import AdminRoute from "./AdminRoute";
 import AllResume from "../pages/AllResume/AllResume";
 import AllUsers from "../pages/Dashboard/AllUsers";
+import Faqs from "../components/FAQ/Faqs";
+import Profile from "../pages/Dashboard/Profile";
 import Contact from "../pages/ContactUs/Contact";
 import Dashboard from "../Layout/Dashboard";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
@@ -10,10 +13,11 @@ import Main from "../Layout/Main";
 import MyTemplates from "../components/Payments/MyTemplates";
 import Payment from "../components/Payments/Payment";
 import PrivateRoutes from "./PrivateRoutes";
-import Profile from "../pages/Dashboard/Profile";
 import ResumeBuilder from "../components/ResumeBuilderSection/ResumeBuilder/ResumeBuilder";
 import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
-import { createBrowserRouter } from "react-router-dom";
+import AboutUs from "../components/AboutUs/AboutUs";
+
+
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +52,13 @@ export const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path:"/faqs",
+        element:<Faqs />
+      },{
+        path: "/about",
+        element: <AboutUs />,
       },
     ],
   },
