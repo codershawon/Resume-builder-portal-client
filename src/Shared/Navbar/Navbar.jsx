@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import { Link, useLoaderData, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaAngleDown, FaDribbble, FaPowerOff } from "react-icons/fa6";
 import { useContext } from "react";
@@ -8,17 +8,18 @@ import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
-  const userData=useLoaderData()
-  console.log(userData)
   console.log(user);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   // logout
   const handleLogout = () => {
     logout()
-      .then(() => {})
+      .then(() => {
+        navigate(from, { replace: true });
+      })
       .catch((error) => console.log(error));
   };
-
-  const location = useLocation();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -78,12 +79,22 @@ const Navbar = () => {
               location.pathname === "/coverletter" ? "navActive" : "navStyle"
             }
           >
+            <Link to="/contactUs">Contact Us</Link>
+          </li>
+          <li
+            className={
+              location.pathname === "/coverletter" ? "navActive" : "navStyle"
+            }
+          >
             <Link to="/coverletter">CoverLetter</Link>
           </li>
-          
         </ul>
       </li>
-        {user && <li className={location.pathname === "" ? "navActive" : "navStyle"}><Link to="/dashboard">Dashboard</Link></li>}
+      {user && (
+        <li className={location.pathname === "" ? "navActive" : "navStyle"}>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+      )}
 
       {/* #### TODO #### do uncomment after implement the {authProvider} correctly
         {user && <li className="text-xl"><Link to="/dashboard">My Documents</Link></li>} */}
@@ -108,7 +119,7 @@ const Navbar = () => {
                   className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-30 lg:w-52"
                 >
                   <li>
-                    <Link to="/profile">
+                    <Link to={`/dashboard/profile`}>
                       <FaUserCircle></FaUserCircle> Profile
                     </Link>
                   </li>
@@ -143,7 +154,6 @@ const Navbar = () => {
             </div>
           </div>
         )}
-
       </div>
     </>
   );
@@ -152,12 +162,13 @@ const Navbar = () => {
     <nav className="navBar">
       <div className="rgContainer flex justify-between items-center">
         <div className="flex  items-center">
-         <Link to="/">
-         <img
-            className="w-44 lg:w-full"
-            src="https://i.ibb.co/zhYJKFk/resume-cv-cover-letter-transparent.png"
-            alt="Resume genius logo"
-          /></Link>
+          <Link to="/">
+            <img
+              className="w-44 lg:w-full"
+              src="https://i.ibb.co/zhYJKFk/resume-cv-cover-letter-transparent.png"
+              alt="Resume genius logo"
+            />
+          </Link>
         </div>
 
         <ul className="hidden md:flex items-center space-x-4">{navOptions}</ul>

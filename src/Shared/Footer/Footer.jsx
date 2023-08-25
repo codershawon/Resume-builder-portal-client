@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer>
     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 p-10 bg-[#197685] bg-opacity-10 text-black">
-      <div className="rgContainer">
+      <div>
         <div className="gap-4">
           <img className="w-[240px]" src="https://i.ibb.co/zhYJKFk/resume-cv-cover-letter-transparent.png" alt="" />
         </div>
@@ -56,7 +56,7 @@ const Footer = () => {
         <Link to="/about" className="">About us</Link>
         <Link to="" className="">  Resume Templates </Link>
         <Link to="" className="">  Blog</Link>
-        <Link to="" className="">  Contact Us</Link>
+        <Link to="/contactUs" className="">  Contact Us</Link>
       </div>
       <div className="footerGrid">
         <div className="footer-title">Legal</div>

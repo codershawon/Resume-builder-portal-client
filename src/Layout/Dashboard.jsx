@@ -7,64 +7,92 @@ import {
   HiX,
   HiOutlineUserGroup,
 } from "react-icons/hi";
-import { RiSettings4Line } from "react-icons/ri";
-import { TbReportAnalytics } from "react-icons/tb";
-import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
-import { FiMessageSquare, FiFolder, FiShoppingCart } from "react-icons/fi";
 import {
   RiLogoutCircleRLine,
   RiHome4Line,
   RiBookLine,
-  RiUserFill,
   RiContactsBook2Line,
 } from "react-icons/ri";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import {
+  Link,
+  NavLink,
+  Navigate,
+  Outlet,
+  useLoaderData,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import "../components/Dashboard.css";
 import useAdmin from "../Hooks/useAdmin";
 import { AuthContext } from "../Providers/AuthProvider";
 import { FaHistory, FaWallet } from "react-icons/fa";
-import { faMessage } from "@fortawesome/free-solid-svg-icons";
+
 import UseSpinner from "../Hooks/UseSpinner";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const Dashboard = () => {
-  const [open, setOpen] = useState(true);
 
-  const { user } = useContext(AuthContext);
+  const [open, setOpen] = useState(true);
+  const { user, logout } = useContext(AuthContext);
   console.log(user);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  
+
+  // logout
+  const handleLogout = () => {
+    logout()
+      .then(() => {
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.log(error));
+  };
   // const isAdmin = true;
 
   const admin = [
-    {name: "Admin Dashboard",link: "/dashboard/admin",icon: MdOutlineDashboard,},
-    {name: "All Users",link: "/dashboard/allUsers",icon: HiOutlineUserGroup,},
+    {
+      name: "Admin Dashboard",
+      link: "/dashboard/admin",
+      icon: MdOutlineDashboard,
+    },
+    {
+      name: "All Users",
+      link: "/dashboard/allUsers",
+      icon: HiOutlineUserGroup,
+    },
     { name: "Users resumes and letters", link: "/", icon: RiBookLine },
     { name: "Users Templates", link: "/", icon: HiTemplate },
-    {name : "Feedback", link:"/", icon: HiTemplate},
+    { name: "Feedback", link: "/", icon: HiTemplate },
     { name: "Templates", link: "/", icon: RiContactsBook2Line, margin: true },
     { name: "Home", link: "/", icon: RiHome4Line, margin: true },
-    { name: "My Profile", link: "/dashboard/profile", icon: HiUser },
+     { name: "My Profile", link: `/dashboard/profile`, icon: HiUser },
   ];
   const users = [
     { name: "User Dashboard", link: "/dashboard", icon: MdOutlineDashboard },
     { name: "My resumes and letters", link: "/", icon: RiBookLine },
     { name: "My templates", link: "/", icon: HiTemplate },
-    {name : "Payment", link : "/", icon : FaWallet },
-    {name : "Payment History", link : "/", icon : FaHistory },
+    { name: "Payment", link: "/", icon: FaWallet },
+    { name: "Payment History", link: "/", icon: FaHistory },
     { name: "Templates", link: "/", icon: RiContactsBook2Line, margin: true },
     { name: "Home", link: "/", icon: RiHome4Line, margin: true },
-    { name: "My Profile", link: "/dashboard/profile", icon: HiUser },
+     //{ name: "My Profile", link: `/dashboard/profile/${user?.email}`, icon: HiUser },
+     { name: "My Profile", link: `/dashboard/profile`, icon: HiUser },
   ];
 
   // const user = true;
 
   const [isAdmin, isAdminLoading] = useAdmin();
-  //  TODO : add cool loader or spinner
+ 
   if (isAdminLoading) {
-    return <UseSpinner></UseSpinner>
+    return <UseSpinner></UseSpinner>;
   }
+
 
   return (
     // Container Sections
-    <section className="flex gap-6">
+    <section className="flex gap-2 md:gap-6">
       <div
         className={` min-h-screen  bg-gradient-to-b from-[#197695] to-[#197685] ${
           open ? "w-72" : "w-16"
@@ -92,8 +120,11 @@ const Dashboard = () => {
           )}
         </div>
 
-        {/* User Profile */}
+        {/* User Pruofile */}
+        
+        
         <Link
+          to={`/dashboard/profile`}
           title="User Profile"
           className={`${
             open ? "avatar onl flex mt-6" : "avatar online flex mt-6"
@@ -113,6 +144,7 @@ const Dashboard = () => {
           </div>
         </Link>
 
+      
         {/* User Information */}
         {open ? (
           <>
@@ -217,6 +249,7 @@ const Dashboard = () => {
         {/* Logout sections */}
 
         <div
+          onClick={handleLogout}
           title="LogOut"
           className={` flex gap-4 cursor-pointer p-2 bg-gray-800 hover:bg-gray-50 hover:text-black rounded-md duration-500 ${
             !open && "p-2 "
