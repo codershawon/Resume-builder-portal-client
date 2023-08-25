@@ -8,6 +8,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import AllUsers from "../pages/Dashboard/AllUsers";
 import AdminRoute from "./AdminRoute";
 import AllResume from "../pages/AllResume/AllResume";
+import Faqs from "../components/FAQ/Faqs";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
       },
+      {
+        path:"/faqs",
+        element:<Faqs />
+      }
     ],
   },
   {
