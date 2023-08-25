@@ -8,6 +8,8 @@ import PrivateRoutes from "./PrivateRoutes";
 import AllUsers from "../pages/Dashboard/AllUsers";
 import AdminRoute from "./AdminRoute";
 import AllResume from "../pages/AllResume/AllResume";
+import MyProfile from "../pages/Dashboard/MyProfile";
+import AboutUs from "../components/AboutUs/AboutUs";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +32,15 @@ export const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
       },
+      {
+        path: "profile/:id",
+        element: <MyProfile></MyProfile>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/users/${params.id}`),
+      },{
+        path:"/about",
+        element:<AboutUs/>
+      }
     ],
   },
   {
@@ -40,7 +51,7 @@ export const router = createBrowserRouter([
         path: "allUsers",
         // TODO : have to warp around by the adminRoute 
         element : <AdminRoute><AllUsers></AllUsers></AdminRoute>
-      }
+      },
     ]
   }
 ]);

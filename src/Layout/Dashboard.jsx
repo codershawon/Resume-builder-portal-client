@@ -41,7 +41,7 @@ const Dashboard = () => {
     {name : "Feedback", link:"/", icon: HiTemplate},
     { name: "Templates", link: "/", icon: RiContactsBook2Line, margin: true },
     { name: "Home", link: "/", icon: RiHome4Line, margin: true },
-    { name: "My Profile", link: "/", icon: HiUser },
+    { name: "My Profile", link: "/dashboard/profile", icon: HiUser },
   ];
   const users = [
     { name: "User Dashboard", link: "/dashboard", icon: MdOutlineDashboard },
@@ -51,7 +51,7 @@ const Dashboard = () => {
     {name : "Payment History", link : "/", icon : FaHistory },
     { name: "Templates", link: "/", icon: RiContactsBook2Line, margin: true },
     { name: "Home", link: "/", icon: RiHome4Line, margin: true },
-    { name: "My Profile", link: "/", icon: HiUser },
+    { name: "My Profile", link: "/dashboard/profile", icon: HiUser },
   ];
 
   // const user = true;

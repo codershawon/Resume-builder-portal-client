@@ -49,13 +49,13 @@ const Login = () => {
   };
 
   // register
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
-  const { createUser, updateUserProfile } = useContext(AuthContext);
   const onSubmit = (data) => {
     console.log(data);
     createUser(data.email, data.password).then((result) => {
@@ -182,7 +182,7 @@ const Login = () => {
                           <>
                             <input
                               onChange={(e) => setPassword(e.target.value)}
-                              type="password"
+                              type="text"
                               name="password"
                               placeholder="Password "
                               className="input input-bordered bg-white"
@@ -191,7 +191,8 @@ const Login = () => {
                               onClick={() => setControl(!control)}
                               className="relative left-64  md:left-72 bottom-8"
                             >
-                              <FaEye />
+                            
+                            <FaEye />
                            
                             </span>
                           </>
@@ -208,7 +209,8 @@ const Login = () => {
                               onClick={() => setControl(!control)}
                               className="relative left-64  md:left-72 bottom-8"
                             >
-                                 <FaEyeSlash />
+                                <FaEyeSlash />
+                                  
                             </span>
                           </>
                         )}

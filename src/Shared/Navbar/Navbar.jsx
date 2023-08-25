@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaAngleDown, FaDribbble, FaPowerOff } from "react-icons/fa6";
 import { useContext } from "react";
@@ -8,6 +8,8 @@ import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
+  const userData=useLoaderData()
+  console.log(userData)
   console.log(user);
   // logout
   const handleLogout = () => {
@@ -106,7 +108,7 @@ const Navbar = () => {
                   className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-30 lg:w-52"
                 >
                   <li>
-                    <Link>
+                    <Link to="/profile">
                       <FaUserCircle></FaUserCircle> Profile
                     </Link>
                   </li>
