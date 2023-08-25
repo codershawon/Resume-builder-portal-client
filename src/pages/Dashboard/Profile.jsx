@@ -34,7 +34,7 @@ const { user } = useContext(AuthContext);
     const city = form.city.value;
     const name = form.name.value;
     const nationality = form.nationality.value;
-    console.log(phone, birthdate, country, city, nationality, profile.photoURL);
+    console.log(phone, birthdate, country, city, nationality, profile?.photoURL);
     const updatedUserInfo = {
       phone,
       birthdate,
@@ -45,8 +45,8 @@ const { user } = useContext(AuthContext);
       // photoURL : image.photoURL
     };
 
-    fetch(`http://localhost:5000/users/${user.email}`, {
-    //fetch(`https://resume-builder-portal-server.vercel.app/users/${user.email}`, {
+    // fetch(`http://localhost:5000/users/${user.email}`, {
+    fetch(`https://resume-builder-portal-server.vercel.app/users/${user?.email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -79,13 +79,13 @@ const { user } = useContext(AuthContext);
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
-    //fetch(`https://resume-builder-portal-server.vercel.app/users/${user.email}`)
+    // fetch(`http://localhost:5000/users/${user.email}`)
+    fetch(`https://resume-builder-portal-server.vercel.app/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setProfile(data))
       .catch((error) => console.error(error));
   }, []);
-  console.log(profile.photoURL)
+  // console.log(profile.photoURL)
 
   return (
     <div className="md:flex justify-between items-center mt-12">
@@ -117,7 +117,7 @@ const { user } = useContext(AuthContext);
         </div>
         {/* <img src={image.photoURL} alt="" /> */}
         <p className="text-xl text-gray-700 pt-1 pb-2 rounded-lg px-3  ">
-          Email : {profile.email}
+          Email : {profile?.email}
         </p>
         <p className="text-xl text-gray-700 pt-1 pb-2 rounded-lg px-3  ">
           Name : <span>{profile.name}</span>
