@@ -8,6 +8,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import AllUsers from "../pages/Dashboard/AllUsers";
 import AdminRoute from "./AdminRoute";
 import AllResume from "../pages/AllResume/AllResume";
+import Faqs from "../components/FAQ/Faqs";
 import Profile from "../pages/Dashboard/Profile";
 import Contact from "../pages/ContactUs/Contact";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
@@ -47,6 +48,9 @@ export const router = createBrowserRouter([
         element: <Login />,
       },
       {
+        path:"/faqs",
+        element:<Faqs />
+      },{
         path: "/about",
         element: <AboutUs />,
       },
