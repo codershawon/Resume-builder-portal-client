@@ -5,6 +5,7 @@ import 'swiper/css/navigation';
 import './BestResume.css';
 import { Autoplay, } from 'swiper/modules';
 import SectionTitle from '../../../Hooks/SectionTitle';
+import { Link } from 'react-router-dom';
 
 const BestResume = () => {
 
@@ -70,7 +71,7 @@ const BestResume = () => {
                         disableOnInteraction: false,
                     }}
                     modules={[Autoplay]}
-                    speed={2500}
+                    speed={5000}
                     loop={true}
                     breakpoints={{
                         450: {
@@ -100,7 +101,8 @@ const BestResume = () => {
                         (<SwiperSlide className='' key={i}>
                             <div className='slider-content'>
                                 <img className='' src={resume?.template} alt="resume" />
-                                <button className='useButton'>Use this template</button>
+                                <Link to="/resumeBuilder"><button className='useButton'>Use this template</button></Link>
+                               
                             </div>
                         </SwiperSlide>))
                     }

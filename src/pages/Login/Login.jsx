@@ -26,7 +26,6 @@ const Login = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-
   const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {
@@ -47,9 +46,7 @@ const Login = () => {
       navigate(from, { replace: true });
     });
   };
-
-
-  // Google
+ // Google
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {

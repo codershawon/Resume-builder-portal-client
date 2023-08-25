@@ -9,11 +9,19 @@ import AllUsers from "../pages/Dashboard/AllUsers";
 import AdminRoute from "./AdminRoute";
 import AllResume from "../pages/AllResume/AllResume";
 import Faqs from "../components/FAQ/Faqs";
+import Profile from "../pages/Dashboard/Profile";
+import Contact from "../pages/ContactUs/Contact";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import ResumeBuilder from "../components/ResumeBuilderSection/ResumeBuilder/ResumeBuilder";
+import AboutUs from "../components/AboutUs/AboutUs";
+
+
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <ErrorPage/>,
     children: [
       {
         path: "/",
@@ -24,8 +32,16 @@ export const router = createBrowserRouter([
         element:<AllResume></AllResume>
       },
       {
+        path:"contactUs",
+        element: <Contact/>
+      },
+      {
         path: "/resumeTemplate",
         element: <PrivateRoutes><ResumeTemplate /></PrivateRoutes>,
+      },
+      {
+        path: "resumeBuilder",
+        element:<ResumeBuilder/>,
       },
       {
         path: "/login",
@@ -34,17 +50,24 @@ export const router = createBrowserRouter([
       {
         path:"/faqs",
         element:<Faqs />
-      }
+      },{
+        path: "/about",
+        element: <AboutUs />,
+      },
     ],
   },
   {
     path: 'dashboard',
     element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
+    errorElement: <ErrorPage/>,
     children: [
       {
         path: "allUsers",
-        // TODO : have to warp around by the adminRoute 
         element : <AdminRoute><AllUsers></AllUsers></AdminRoute>
+      },
+      {
+        path: "profile",
+        element: <Profile></Profile>,
       }
     ]
   }
