@@ -1,15 +1,16 @@
-import React from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa6";
-import { useState } from "react";
-import { useContext } from "react";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import { useForm } from "react-hook-form";
 
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+
 import { AuthContext } from "../../../Providers/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
+import React from "react";
 import Swal from "sweetalert2";
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 const SignUp = () => {
   const {
@@ -51,7 +52,7 @@ const SignUp = () => {
             photoURL: data.photoURL,
           };
           console.log(saveUser);
-          // fetch("http://localhost:5000/users", {
+       
           fetch("https://resume-builder-portal-server.vercel.app/users", {
             method: "POST",
             headers: {
@@ -90,7 +91,7 @@ const SignUp = () => {
           email: loggedInUser.email,
           photoURL: loggedInUser.photoURL,
         };
-        //fetch("http://localhost:5000/users", {
+        //fetch("https://resume-builder-portal-server.vercel.appusers", {
         fetch("https://resume-builder-portal-server.vercel.app/users", {
           method: "POST",
           headers: {

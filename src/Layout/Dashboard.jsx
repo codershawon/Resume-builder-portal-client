@@ -1,9 +1,11 @@
-import React, { useContext, useState } from "react";
-import { MdOutlineDashboard } from "react-icons/md";
+import "../components/Dashboard.css";
+
+import { FaHistory, FaWallet } from "react-icons/fa";
 import {
   HiMenuAlt3,
-  HiUser,
+  HiOutlineUserGroup,
   HiTemplate,
+  HiUser,
   HiX,
   HiOutlineUserGroup,
   HiBookOpen,
@@ -11,12 +13,6 @@ import {
   HiBookmarkAlt,
   HiOutlineBookOpen,
 } from "react-icons/hi";
-import {
-  RiLogoutCircleRLine,
-  RiHome4Line,
-  RiBookLine,
-  RiContactsBook2Line,
-} from "react-icons/ri";
 import {
   Link,
   NavLink,
@@ -26,12 +22,18 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
-import "../components/Dashboard.css";
-import useAdmin from "../Hooks/useAdmin";
-import { AuthContext } from "../Providers/AuthProvider";
-import { FaHistory, FaWallet } from "react-icons/fa";
+import React, { useContext, useState } from "react";
+import {
+  RiBookLine,
+  RiContactsBook2Line,
+  RiHome4Line,
+  RiLogoutCircleRLine,
+} from "react-icons/ri";
 
+import { AuthContext } from "../Providers/AuthProvider";
+import { MdOutlineDashboard } from "react-icons/md";
 import UseSpinner from "../Hooks/UseSpinner";
+import useAdmin from "../Hooks/useAdmin";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 
@@ -60,16 +62,30 @@ const Dashboard = () => {
     {name: "All Users",link: "/dashboard/allUsers",icon: HiOutlineUserGroup,},
     { name: "Blog", link: "/dashboard/blog", icon: HiOutlineBookOpen },
     { name: "Users Templates", link: "/", icon: HiTemplate },
+    {
+      name: "Admin Dashboard",
+      link: "/dashboard/admin",
+      icon: MdOutlineDashboard,
+    },
+    {
+      name: "All Users",
+      link: "/dashboard/allUsers",
+      icon: HiOutlineUserGroup,
+    },
+    { name: "Users resumes and letters", link: "/", icon: RiBookLine },
+    { name: "Users Templates", link: "/dashboard/my-template/:id", icon: HiTemplate },
     { name: "Feedback", link: "/", icon: HiTemplate },
+    { name: "Payment", link: "/dashboard/payment", icon: FaWallet },
     { name: "Templates", link: "/", icon: RiContactsBook2Line, margin: true },
+    
     { name: "Home", link: "/", icon: RiHome4Line, margin: true },
     { name: "My Profile", link: `/dashboard/profile`, icon: HiUser },
   ];
   const users = [
     { name: "User Dashboard", link: "/dashboard", icon: MdOutlineDashboard },
     { name: "My resumes and letters", link: "/", icon: RiBookLine },
-    { name: "My templates", link: "/", icon: HiTemplate },
-    { name: "Payment", link: "/", icon: FaWallet },
+    { name: "My templates", link: "/dashboard/my-template/:id", icon: HiTemplate },
+    { name: "Payment", link: "/dashboard/payment", icon: FaWallet },
     { name: "Payment History", link: "/", icon: FaHistory },
     { name: "Templates", link: "/", icon: RiContactsBook2Line, margin: true },
     { name: "Home", link: "/", icon: RiHome4Line, margin: true },
