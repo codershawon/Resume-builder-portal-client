@@ -9,9 +9,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_Payment);
 
 const Payment = () => {
   const [cart] = useCart();
-  console.log(cart);
-//   const total = cart.reduce((sum, resume) => sum + resume.price, 0);
-//   const price = total.toFixed(2);
+
 const total = cart.reduce((sum, resume) => sum + parseFloat(resume.price || 0), 0);
 const price = total.toFixed(2); // Format total to two decimal places
 
@@ -30,3 +28,5 @@ const price = total.toFixed(2); // Format total to two decimal places
 };
 
 export default Payment;
+
+

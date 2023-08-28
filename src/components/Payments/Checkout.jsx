@@ -4,10 +4,12 @@ import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import useCart from "../../Hooks/useCart";
 import { useNavigate } from "react-router-dom";
 
 const Checkout = ({ cart, price }) => {
   const { user } = useAuth();
+  const { refetch} =useCart();
   const stripe = useStripe();
   const elements = useElements();
   const [axiosSecure] = useAxiosSecure();
@@ -43,9 +45,8 @@ const Checkout = ({ cart, price }) => {
     setProcessing(true);
     setCardError("");
 
-    const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
-      clientSecret,
-      {
+    const { paymentIntent, error: confirmError } =
+      await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: card,
           billing_details: {
@@ -53,8 +54,7 @@ const Checkout = ({ cart, price }) => {
             name: user?.displayName || "unknown",
           },
         },
-      }
-    );
+      });
 
     if (confirmError) {
       setCardError(confirmError.message);
@@ -77,80 +77,74 @@ const Checkout = ({ cart, price }) => {
         status: "service pending",
       };
 
-      axiosSecure.post("/payment", payment).then((res) => {
-        if (res.data?.insertResult?.insertedCount === 1) {
+      axiosSecure.post("/payment", payment)
+      .then((res) => {
+        if(res.data?.updateClass?.modifiedCount > 0 && res.data?.updateInst?.modifiedCount > 0 && res.data?.updateStudent?.modifiedCount > 0 ){
           Swal.fire({
-            position: "top-end",
+            position: "center",
             icon: "success",
             title: "Payment successful paid",
             showConfirmButton: false,
             timer: 1500,
           });
-          // refetch() // If you have a function called refetch, uncomment this line
           refetch()
-              navigate('/dashboard/resumeBuilder/:id', {replace: true})
+          // Navigate to the appropriate route
+          navigate(`/resumeBuilder/${resume._id}`, {replace: true});
         }
       });
     }
   };
 
   return (
-    <div>
-    <form className="w-1/2 mx-auto" onSubmit={handleSubmit}>
-      {/* <CardElement
-        options={{
-          style: {
-            base: {
-              fontSize: "16px",
-              color: "#424770",
-              "::placeholder": {
-                color: "#aab7c4",
-              },
-            },
-            invalid: {
-              color: "#9e2146",
-            },
-          },
-        }}
-        className="p-3 border border-gray-300 rounded"
-      /> */}
-      <CardElement
-        options={{
-          style: {
-            base: {
-              fontSize: "16px",
-              color: "#424770",
-              "::placeholder": {
-                color: "#aab7c4",
-              },
-            },
-            invalid: {
-              color: "#9e2146",
-            },
-          },
-        }}
-        onChange={() => {
-          setCardError("");
-        }}
-        className="p-3  border border-gray-300 rounded"
-      />
-      <button
-        className="btn btn-gradiant mt-4"
-        type="submit"
-        disabled={!stripe || !clientSecret || processing}
-      >
-        Pay with Stripe
-      </button>
-      {cardError && (
-        <p className="container mx-auto text-red-500">{cardError}</p>
-      )}
-      {transactionId && (
-        <p className="container mx-auto text-green-500">
-          Your Transaction ID: {transactionId}
-        </p>
-      )}
-    </form>
-  </div>
+    <div className="w-1/2 mx-auto bg-white rounded-lg shadow-lg p-8">
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div>
+          <label className="block text-gray-700 font-semibold">
+            Cardholder Name
+          </label>
+          <input
+            type="text"
+            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+            placeholder={user?.displayName}
+          />
+        </div>
+
+        <div>
+          <label className="block text-gray-700 font-semibold">
+            Card Number
+          </label>
+          <div className="border border-gray-300 rounded p-2">
+            <CardElement
+              options={{
+                style: {
+                  base: {
+                    fontSize: "16px",
+                    color: "#424770",
+                  },
+                },
+              }}
+              onChange={() => {
+                setCardError("");
+              }}
+            />
+          </div>
+        </div>
+
+        <button
+          className="btn btn-gradient mt-4 hover:shadow-xl transition duration-300 w-full py-2"
+          type="submit"
+          disabled={!stripe || !clientSecret || processing}
+        >
+          Pay with Stripe
+        </button>
+
+        {cardError && <p className="text-red-500">{cardError}</p>}
+
+        {transactionId && (
+          <p className="text-green-500">Your Transaction ID: {transactionId}</p>
+        )}
+      </form>
+    </div>
   );
 };
 
