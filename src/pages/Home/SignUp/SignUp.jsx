@@ -58,7 +58,7 @@ const SignUp = () => {
                 photoURL: imageUrl,
               };
 
-              fetch("http://localhost:5000/users", {
+              fetch("https://resume-builder-portal-server.vercel.app/users", {
                 method: "POST",
                 headers: {
                   "content-type": "application/json",

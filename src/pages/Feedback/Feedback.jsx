@@ -37,7 +37,7 @@ const Feedback = () => {
       email,
     };
 
-    // fetch(`https://resume-builder-portal-server.vercel.app/review`, {
+    
     fetch(`https://resume-builder-portal-server.vercel.app/review`, {
       method: "POST",
       headers: {

@@ -6,7 +6,7 @@ const FreeReume = () => {
     const [showAllTemplates, setShowAllTemplates] = useState(false);
 
     useEffect(() => {
-        // fetch('https://resume-builder-portal-server.vercel.appresume') 
+        
         fetch('https://resume-builder-portal-server.vercel.app/resume') 
             .then(res => res.json())
             .then(data => {

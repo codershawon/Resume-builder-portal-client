@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet-async";
 import ResumeBuilder from "../../../components/ResumeCheck/ResumeBuilder";
 import StepsSection from "../../../components/StepsSection";
 import TestimonialSlider from "../Testimonial/TestimonialSlider";
-import Contact from "../../ContactUs/Contact";
 
 const Home = () => {
   return (
@@ -15,6 +14,7 @@ const Home = () => {
       {/* Banner section */}
       <Banner />
       <ResumeBuilder />
+     
       {/* <Testimonial/> */}
       <StepsSection />
 
@@ -23,7 +23,8 @@ const Home = () => {
 
       {/* Testimonial slider start here */}
       <TestimonialSlider />
-      {/* kdkfdk */}
+     
+     
     </div>
   );
 };
