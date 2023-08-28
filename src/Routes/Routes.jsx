@@ -18,6 +18,7 @@ import ResumeBuilder from "../components/ResumeBuilderSection/ResumeBuilder/Resu
 import { createBrowserRouter } from "react-router-dom";
 import Feedback from "../pages/Feedback/Feedback";
 
+
 export const router = createBrowserRouter([
   {
     path: "/",

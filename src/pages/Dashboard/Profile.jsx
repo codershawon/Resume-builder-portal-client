@@ -33,8 +33,8 @@ const Profile = () => {
             const updatedProfile = { ...profile, photoURL: imageUrl };
             setProfile(updatedProfile);
 
-            // Update the image URL in the profile on the server
-            fetch(`https://resume-builder-portal-server.vercel.app/users/${user?.email}/update-profile`, {
+//             // Update the image URL in the profile on the server
+            fetch(`https://resume-builder-portal-server.vercel.app/users/${user.email}/update-profile`, {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -88,8 +88,8 @@ const Profile = () => {
       // photoURL : image.photoURL
     };
 
-    fetch(`https://resume-builder-portal-server.vercel.app/users/${user.email}`, {
-      //fetch(`https://resume-builder-portal-server.vercel.app/users/${user.email}`, {
+//     fetch(`http://localhost:5000/users/${user.email}`, {
+      fetch(`https://resume-builder-portal-server.vercel.app/users/${user.email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -121,7 +121,7 @@ const Profile = () => {
       });
   };
   useEffect(() => {
-    // fetch(`http://localhost:5000/users/${user.email}`)
+//     fetch(`http://localhost:5000/users/${user.email}`)
       fetch(`https://resume-builder-portal-server.vercel.app/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setProfile(data))

@@ -7,6 +7,11 @@ import {
   HiTemplate,
   HiUser,
   HiX,
+  HiOutlineUserGroup,
+  HiBookOpen,
+  HiBookmark,
+  HiBookmarkAlt,
+  HiOutlineBookOpen,
 } from "react-icons/hi";
 import {
   Link,
@@ -54,6 +59,10 @@ const Dashboard = () => {
   // const isAdmin = true;
 
   const admin = [
+    {name: "Admin Dashboard",link: "/dashboard/admin",icon: MdOutlineDashboard,},
+    {name: "All Users",link: "/dashboard/allUsers",icon: HiOutlineUserGroup,},
+    { name: "Blog", link: "/dashboard/blog", icon: HiOutlineBookOpen },
+    { name: "Users Templates", link: "/", icon: HiTemplate },
     {
       name: "Admin Dashboard",
       link: "/dashboard/admin",
@@ -70,7 +79,7 @@ const Dashboard = () => {
     { name: "Payment", link: "/dashboard/payment", icon: FaWallet },
     { name: "Templates", link: "/", icon: RiContactsBook2Line, margin: true },
     { name: "Home", link: "/", icon: RiHome4Line, margin: true },
-     { name: "My Profile", link: `/dashboard/profile`, icon: HiUser },
+    { name: "My Profile", link: `/dashboard/profile`, icon: HiUser },
   ];
   const users = [
     { name: "User Dashboard", link: "/dashboard", icon: MdOutlineDashboard },
