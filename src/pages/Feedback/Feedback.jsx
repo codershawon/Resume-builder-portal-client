@@ -1,5 +1,5 @@
 import "react-toastify/dist/ReactToastify.css";
-import "./ResumeTemplate.css";
+import "./Feedback.css";
 
 import React, { useContext, useState } from "react";
 

@@ -38,10 +38,6 @@ export const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/feedback",
-        element: <Feedback/>
-      },
-      {
         path: "resumeBuilder/:id",
         element: <ResumeBuilder />,
       },
@@ -86,6 +82,10 @@ export const router = createBrowserRouter([
       {
         path: "payment",
         element: <Payment />,
+      },
+      {
+        path: "feedback",
+        element: <Feedback/>,
       },
     ],
   },

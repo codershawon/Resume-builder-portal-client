@@ -66,10 +66,9 @@ const Dashboard = () => {
     },
     { name: "Users resumes and letters", link: "/", icon: RiBookLine },
     { name: "Users Templates", link: "/dashboard/my-template/:id", icon: HiTemplate },
-    { name: "Feedback", link: "/", icon: HiTemplate },
+    { name: "Feedback", link: "/dashboard/feedback", icon: FcFeedback },
     { name: "Payment", link: "/dashboard/payment", icon: FaWallet },
     { name: "Templates", link: "/", icon: RiContactsBook2Line, margin: true },
-    
     { name: "Home", link: "/", icon: RiHome4Line, margin: true },
      { name: "My Profile", link: `/dashboard/profile`, icon: HiUser },
   ];
@@ -77,6 +76,7 @@ const Dashboard = () => {
     { name: "User Dashboard", link: "/dashboard", icon: MdOutlineDashboard },
     { name: "My resumes and letters", link: "/", icon: RiBookLine },
     { name: "My templates", link: "/dashboard/my-template/:id", icon: HiTemplate },
+    { name: "Feedback", link: "/dashboard/feedback", icon: FcFeedback },
     { name: "Payment", link: "/dashboard/payment", icon: FaWallet },
     { name: "Payment History", link: "/", icon: FaHistory },
     { name: "Templates", link: "/", icon: RiContactsBook2Line, margin: true },
