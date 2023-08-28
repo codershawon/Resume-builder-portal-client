@@ -63,7 +63,7 @@ const AllUsers = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        // fetch(`http://localhost:5000/users/${user._id}`, {
+      
         fetch(`https://resume-builder-portal-server.vercel.app/users/${user._id}`, {
 
           method: "DELETE",

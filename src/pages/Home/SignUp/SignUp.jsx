@@ -52,7 +52,7 @@ const SignUp = () => {
             photoURL: data.photoURL,
           };
           console.log(saveUser);
-          // fetch("https://resume-builder-portal-server.vercel.app/users", {
+       
           fetch("https://resume-builder-portal-server.vercel.app/users", {
             method: "POST",
             headers: {
