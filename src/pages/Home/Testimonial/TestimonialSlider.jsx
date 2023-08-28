@@ -10,7 +10,7 @@ const TestimonialSlider = () => {
   console.log(testimonials)
 
 
-  // When get backend data, use the code and remove static testimonials array.
+  // When get backend data, use the code and remove static testimonials array.//
 
 
 
