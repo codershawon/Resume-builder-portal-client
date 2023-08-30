@@ -3,6 +3,7 @@ import AdminBarChart from '../../../components/AdminBarChart/AdminBarChart';
 import CustomPieChart from '../../../components/CustomPieChart/CustomPieChart';
 
 const AdminHome = () => {
+  //Admin Home
   return (
     <div className='flex flex-col lg:flex-row gap-5 mx-auto p-4 lg:p-0'>
       <div className='w-full lg:w-1/2 mt-5'>
