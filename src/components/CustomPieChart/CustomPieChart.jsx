@@ -60,5 +60,5 @@ const CustomPieChart = () => {
   );
 };
 
-export default CustomPieChart;
 
+export default CustomPieChart;

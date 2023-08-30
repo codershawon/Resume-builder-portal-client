@@ -18,6 +18,7 @@ import ResumeBuilder from "../components/ResumeBuilderSection/ResumeBuilder/Resu
 import { createBrowserRouter } from "react-router-dom";
 import Feedback from "../pages/Feedback/Feedback";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
+import UsersInfo from "../pages/Dashboard/UsersInfo";
 
 
 export const router = createBrowserRouter([
@@ -77,6 +78,14 @@ export const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <AllUsers></AllUsers>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "usersInfo",
+        element: (
+          <AdminRoute>
+            <UsersInfo/>
           </AdminRoute>
         ),
       },
