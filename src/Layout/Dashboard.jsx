@@ -60,6 +60,7 @@ const Dashboard = () => {
   const admin = [
     {name: "Admin Dashboard",link: "/dashboard/adminHome",icon: MdOutlineDashboard,},
     {name: "All Users",link: "/dashboard/allUsers",icon: HiOutlineUserGroup,},
+    {name: "Users Info",link: "/dashboard/usersInfo",icon: HiOutlineUserGroup,},
     { name: "Blog", link: "/dashboard/blog", icon: HiOutlineBookOpen },
     { name: "Users Templates", link: "/", icon: HiTemplate },
     { name: "Feedback", link: "/dashboard/feedback", icon: FcFeedback },

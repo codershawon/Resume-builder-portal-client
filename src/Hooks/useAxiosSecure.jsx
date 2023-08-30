@@ -10,7 +10,7 @@ const useAxiosSecure = () => {
   const navigate = useNavigate(); 
 
   const axiosSecure = axios.create({
-  baseURL: 'http://localhost:4000', 
+  baseURL: 'https://resume-builder-portal-server.vercel.app', 
  
      
   });
