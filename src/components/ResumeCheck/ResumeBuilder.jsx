@@ -11,6 +11,7 @@ const ResumeBuilder = () => {
   const onDrop = async (acceptedFiles) => {
     const file = acceptedFiles[0];
     setUploadedFile(file);
+    
 
     // Simulate AI logic to calculate resultPercentage (replace with actual AI logic)
     const fakeAIResult = Math.floor(Math.random() * 101);
@@ -36,7 +37,7 @@ const ResumeBuilder = () => {
     // You need to set up your routing accordingly
     // Example: history.push('/dashboard');
   };
-  
+
 
   return (
     <div className="rgContainer mb-28">
