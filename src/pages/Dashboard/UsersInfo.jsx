@@ -16,6 +16,7 @@ const UsersInfo = () => {
             <h2 className='text-3xl font-bold text-gray-500 mb-2'>Users Info</h2>
 
             <div className="overflow-x-auto">
+                
                 <table className="table table-xs">
                     <thead>
                         <tr>
