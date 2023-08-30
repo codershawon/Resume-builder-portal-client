@@ -7,7 +7,7 @@ import imgLogo from "../../assets/logo/resume-cv-cover-letter-transparent.png";
 const Footer = () => {
   return (
     <footer>
-    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 p-10 bg-[#197685] bg-opacity-10 text-black">
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 p-10 bg-[#197685] bg-opacity-10  text-black">
       <div>
         <div className="gap-4">
           <img className="w-[240px]" src="https://i.ibb.co/zhYJKFk/resume-cv-cover-letter-transparent.png" alt="" />
@@ -53,7 +53,7 @@ const Footer = () => {
       </div>
       <div className="footerGrid">
         <div className="footer-title">Company</div>
-        <Link to="" className="">About us</Link>
+        <Link to="/about" className="">About us</Link>
         <Link to="" className="">  Resume Templates </Link>
         <Link to="/blogs" className="">  Blog</Link>
         <Link to="/contactUs" className="">  Contact Us</Link>
@@ -62,7 +62,7 @@ const Footer = () => {
         <div className="footer-title">Legal</div>
         <Link to=""> Terms of use</Link>
         <Link to=""> Privacy policy</Link>
-        <Link to=""> Additionally</Link>
+        <Link to="/faqs"> FAQs</Link>
       </div>
     </div>
     <div className="p-4 bg-[#197685] bg-opacity-20 ">

@@ -1,15 +1,12 @@
-import React from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa6";
-import { useState } from "react";
-import { useContext } from "react";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import { useForm } from "react-hook-form";
 
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
+import React, { useContext, useState } from "react";
 import Swal from "sweetalert2";
+import { useForm } from "react-hook-form";
 
 const SignUp = () => {
   const {
@@ -19,16 +16,13 @@ const SignUp = () => {
     loading,
     setLoading,
   } = useContext(AuthContext);
-  // eye
+
   const [control, setControl] = useState(false);
 
   const [password, setPassword] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState(false);
   const [show, setShow] = useState(false);
 
-  //
-
-  // register
   const {
     register,
     handleSubmit,
@@ -38,44 +32,56 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    createUser(data.email, data.password).then((result) => {
-      const loggedUser = result.user;
-      console.log(loggedUser);
-      updateUserProfile(data.name, data.photoURL)
-        .then(() => {
-          const saveUser = {
-            name: data.name,
-            email: data.email,
-            photoURL: data.photoURL,
-          };
-          console.log(saveUser);
-          // fetch("http://localhost:5000/users", {
-          fetch("https://resume-builder-portal-server.vercel.app/users", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(saveUser),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              if (data.insertedId) {
-                reset();
-                Swal.fire({
-                  position: "top-center",
-                  icon: "success",
-                  title: "Login Successfully",
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
-                navigate("/");
-              }
-            });
-        })
+  const onSubmit = (data, event) => {
+    const image = event.target.image.files[0];
+    const formData = new FormData();
+    formData.append('image', image);
+ 
+    const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`;
+    fetch(url, {
+      method: 'POST',
+      body: formData,
+    })
+    .then(res => res.json())
+    .then(imageData => {
+      const imageUrl = imageData.data.display_url;
 
-        .catch((error) => console.log(error));
+      createUser(data.email, data.password)
+        .then((result) => {
+          const loggedUser = result.user;
+          console.log(loggedUser);
+          updateUserProfile(data.name, imageUrl)
+            .then(() => {
+              const saveUser = {
+                name: data.name,
+                email: data.email,
+                photoURL: imageUrl,
+              };
+
+              fetch("https://resume-builder-portal-server.vercel.app/users", {
+                method: "POST",
+                headers: {
+                  "content-type": "application/json",
+                },
+                body: JSON.stringify(saveUser),
+              })
+                .then((res) => res.json())
+                .then((data) => {
+                  if (data.insertedId) {
+                    reset();
+                    Swal.fire({
+                      position: "top-center",
+                      icon: "success",
+                      title: "Login Successfully",
+                      showConfirmButton: false,
+                      timer: 1500,
+                    });
+                    navigate("/");
+                  }
+                });
+            })
+            .catch((error) => console.log(error));
+        });
     });
   };
 
@@ -90,7 +96,7 @@ const SignUp = () => {
           email: loggedInUser.email,
           photoURL: loggedInUser.photoURL,
         };
-        //fetch("http://localhost:5000/users", {
+        //fetch("https://resume-builder-portal-server.vercel.appusers", {
         fetch("https://resume-builder-portal-server.vercel.app/users", {
           method: "POST",
           headers: {
@@ -133,7 +139,10 @@ const SignUp = () => {
               <span className="label-text">PhotoURL</span>
             </label>
             <input
-              type="photoURL"
+              type="file"
+              id='image'
+              name='image'
+              accept='image/*'
               {...register("photoURL", { required: true })}
               placeholder="PhotoURL"
               className="input input-bordered bg-white"
@@ -174,13 +183,13 @@ const SignUp = () => {
                     pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                   })}
                   name="password"
-                  placeholder="password"
-                  className="input input-bordered"
+                  placeholder="Password"
+                  className="input input-bordered bg-white"
                 />
 
                 <span
                   onClick={() => setControl(!control)}
-                  className="relative left-52  sm:left-72 md:left-80 bottom-8"
+                  className="relative left-52  sm:left-72 bottom-8"
                 >
                   <FaEye />
                 </span>
@@ -197,8 +206,8 @@ const SignUp = () => {
                     pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                   })}
                   name="password"
-                  placeholder="password"
-                  className="input input-bordered"
+                  placeholder="Password"
+                  className="input input-bordered bg-white"
                 />
 
                 <span
@@ -244,8 +253,8 @@ const SignUp = () => {
                     pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                   })}
                   name="confirmPassword"
-                  placeholder="confirmPassword"
-                  className="input input-bordered"
+                  placeholder="Confirm Password"
+                  className="input input-bordered bg-white"
                 />
 
                 <span
@@ -267,8 +276,8 @@ const SignUp = () => {
                     pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                   })}
                   name="confirmPassword"
-                  placeholder="confirmPassword"
-                  className="input input-bordered"
+                  placeholder="Confirm Password"
+                  className="input input-bordered bg-white"
                 />
 
                 <span
@@ -298,12 +307,6 @@ const SignUp = () => {
               </p>
             )}
 
-            {/* TODO forget password setup */}
-            <label className="label flex-row-reverse">
-              <a href="#" className="label-text-alt link link-hover">
-                Forget password?
-              </a>
-            </label>
           </div>
           <div className="form-control mt-6 flex-row-reverse">
             <input
