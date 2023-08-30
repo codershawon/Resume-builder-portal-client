@@ -5,6 +5,7 @@ import PaymentsHistory from '../paymentsHistory';
 import CustomPieChart from '../../../components/CustomPieChart/CustomPieChart';
 
 const AdminHome = () => {
+  //Admin Home
   return (
     <div>
       <AdminHeader/>
