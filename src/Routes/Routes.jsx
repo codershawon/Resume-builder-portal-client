@@ -14,10 +14,14 @@ import Payment from "../components/Payments/Payment";
 import PrivateRoutes from "./PrivateRoutes";
 import Profile from "../pages/Dashboard/Profile";
 import ResumeBuilder from "../components/ResumeBuilderSection/ResumeBuilder/ResumeBuilder";
+import Blogs from "../pages/Blogs/Blogs";
+import BlogDetails from "../pages/Blogs/BlogDetails";
+
+
+
 // import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
-import { createBrowserRouter } from "react-router-dom";
 import Feedback from "../pages/Feedback/Feedback";
-import UsersInfo from "../pages/Dashboard/UsersInfo";
+import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 
 
 export const router = createBrowserRouter([
@@ -35,6 +39,18 @@ export const router = createBrowserRouter([
         element: <AllResume></AllResume>,
       },
       {
+        path:"blogs",
+        element: <Blogs/>
+      },
+      {
+       path: "/blogDetails/:id",
+       element: <PrivateRoutes><BlogDetails></BlogDetails></PrivateRoutes>,
+       loader: ({params})=> fetch(`http://localhost:5000/blogs/${params.id}`)
+      },
+      {
+        path: "/resumeTemplate",
+        element: <PrivateRoutes><ResumeTemplate /></PrivateRoutes>,
+},{
         path: "contactUs",
         element: <Contact />,
       },
@@ -42,10 +58,8 @@ export const router = createBrowserRouter([
         path: "resumeBuilder/:id",
         element: <ResumeBuilder />,
       },
-      // {
-      //   path:"resume-form",
-      //   element:<ResumeForm/>,
-      // },
+
+
       {
         path: "/login",
         element: <Login />,
@@ -68,6 +82,10 @@ export const router = createBrowserRouter([
     ),
     errorElement: <ErrorPage />,
     children: [
+      {
+        path:"adminHome",
+        element:<AdminHome/>
+      },
       {
         path: "allUsers",
         element: (

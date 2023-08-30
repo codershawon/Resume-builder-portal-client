@@ -60,18 +60,11 @@ const Dashboard = () => {
   // const isAdmin = true;
 
   const admin = [
-    {name: "Admin Dashboard",link: "/dashboard/admin",icon: MdOutlineDashboard,},
-    
+    {name: "Admin Dashboard",link: "/dashboard/adminHome",icon: MdOutlineDashboard,},
     {name: "All Users",link: "/dashboard/allUsers",icon: HiOutlineUserGroup,},
     { name: "Blog", link: "/dashboard/blog", icon: HiOutlineBookOpen },
     { name: "Users Templates", link: "/", icon: HiTemplate },
-    { name: "Users Info", link: "/dashboard/usersInfo", icon: FaPersonBooth},
-    {
-      name: "Admin Dashboard",
-      link: "/dashboard/admin",
-      icon: MdOutlineDashboard,
-    },
-    
+    { name: "Feedback", link: "/dashboard/feedback", icon: FcFeedback },
     { name: "Home", link: "/", icon: RiHome4Line, margin: true },
     { name: "My Profile", link: `/dashboard/profile`, icon: HiUser },
   ];
