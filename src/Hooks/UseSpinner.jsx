@@ -1,20 +1,8 @@
 import React from 'react';
-// import { ColorRing } from 'react-loader-spinner';
 import { ScaleLoader } from 'react-spinners';
 
 const UseSpinner = () => {
     return (
-      //   <div className="my-w my-32 ml-[150px] lg:ml-[750px]">
-      //   <ColorRing
-      //     visible={true}
-      //     height="80"
-      //     width="80"
-      //     ariaLabel="blocks-loading"
-      //     wrapperStyle={{}}
-      //     wrapperClass="blocks-wrapper"
-      //     colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
-      //   />
-      // </div>
       <div
       className='
       h-[70vh]
