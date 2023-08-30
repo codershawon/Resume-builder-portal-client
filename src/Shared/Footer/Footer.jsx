@@ -112,6 +112,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
       <div className="p-4 bg-[#197685] bg-opacity-20 justify-center items-center md:flex md:justify-between md:items-end">
         <div className="md:text-start ms-10 md:ms-20">
           <p>Copyright &copy; 2023 - Resume Genius</p>
@@ -123,6 +124,32 @@ const Footer = () => {
             <Link className="hover:text-[#0dcaf0]" to="/support">Support</Link>
           </div>
         </div>
+
+      <div className="footerGrid">
+        <div className="footer-title">Services</div>
+        <Link to=""> Branding </Link>
+        <Link to=""> Design</Link>
+        <Link to=""> Marketing</Link>
+        <Link to="">  Advertisement</Link>
+      </div>
+      <div className="footerGrid">
+        <div className="footer-title">Company</div>
+        <Link to="/about" className="">About us</Link>
+        <Link to="" className="">  Resume Templates </Link>
+        <Link to="/blogs" className="">  Blog</Link>
+        <Link to="/contactUs" className="">  Contact Us</Link>
+      </div>
+      <div className="footerGrid">
+        <div className="footer-title">Legal</div>
+        <Link to=""> Terms of use</Link>
+        <Link to=""> Privacy policy</Link>
+        <Link to="/faqs"> FAQs</Link>
+      </div>
+    </div>
+    <div className="p-4 bg-[#197685] bg-opacity-20 ">
+      <div className="text-center mx-8">
+        <p>Copyright © 2023 - All right reserved by ResumeGenius</p>
+        
       </div>
     </footer>
   );

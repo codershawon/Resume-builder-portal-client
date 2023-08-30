@@ -1,25 +1,33 @@
-import { createBrowserRouter } from "react-router-dom";
+import AboutUs from "../components/AboutUs/AboutUs";
 import AdminRoute from "./AdminRoute";
 import AllResume from "../pages/AllResume/AllResume";
 import AllUsers from "../pages/Dashboard/AllUsers";
-import Faqs from "../components/FAQ/Faqs";
-import Profile from "../pages/Dashboard/Profile";
 import Contact from "../pages/ContactUs/Contact";
 import Dashboard from "../Layout/Dashboard";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import Faqs from "../components/FAQ/Faqs";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Main from "../Layout/Main";
 import MyTemplates from "../components/Payments/MyTemplates";
 import Payment from "../components/Payments/Payment";
 import PrivateRoutes from "./PrivateRoutes";
+import Profile from "../pages/Dashboard/Profile";
 import ResumeBuilder from "../components/ResumeBuilderSection/ResumeBuilder/ResumeBuilder";
 import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
 import AboutUs from "../components/AboutUs/AboutUs";
 import Privacypolicy from "../components/Privacypolicy/Privacypolicy";
 import Terms from "../components/Terms/Terms";
 
+import Blogs from "../pages/Blogs/Blogs";
+import BlogDetails from "../pages/Blogs/BlogDetails";
 
+
+
+
+// import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
+import Feedback from "../pages/Feedback/Feedback";
+import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 
 
 export const router = createBrowserRouter([
@@ -37,21 +45,27 @@ export const router = createBrowserRouter([
         element: <AllResume></AllResume>,
       },
       {
-        path: "contactUs",
-        element: <Contact />,
+        path:"blogs",
+        element: <Blogs/>
+      },
+      {
+       path: "/blogDetails/:id",
+       element: <PrivateRoutes><BlogDetails></BlogDetails></PrivateRoutes>,
+       loader: ({params})=> fetch(`http://localhost:5000/blogs/${params.id}`)
       },
       {
         path: "/resumeTemplate",
-        element: (
-          <PrivateRoutes>
-            <ResumeTemplate />
-          </PrivateRoutes>
-        ),
+        element: <PrivateRoutes><ResumeTemplate /></PrivateRoutes>,
+},{
+        path: "contactUs",
+        element: <Contact />,
       },
       {
         path: "resumeBuilder/:id",
         element: <ResumeBuilder />,
       },
+
+
       {
         path: "/login",
         element: <Login />,
@@ -85,6 +99,10 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
+        path:"adminHome",
+        element:<AdminHome/>
+      },
+      {
         path: "allUsers",
         element: (
           <AdminRoute>
@@ -103,6 +121,10 @@ export const router = createBrowserRouter([
       {
         path: "payment",
         element: <Payment />,
+      },
+      {
+        path: "feedback",
+        element: <Feedback/>,
       },
     ],
   },

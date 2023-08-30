@@ -1,19 +1,16 @@
 import "react-tabs/style/react-tabs.css";
 import "./login.css";
-
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
-
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FaEyeSlash } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SignUp from "../Home/SignUp/SignUp";
 import Swal from "sweetalert2";
-import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { useContext } from "react";
-import { useForm } from "react-hook-form";
+import { useContext, useRef } from "react";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+
 
 const Login = () => {
  
@@ -21,10 +18,11 @@ const Login = () => {
   const [control, setControl] = useState(false);
 
   const [password, setPassword] = useState(false);
+  const emailRef=useRef()
   
   // Login
 
-  const { signInUser, signInWithGoogle, loading, setLoading } =
+  const { signInUser, signInWithGoogle, loading, setLoading,resetPassword } =
     useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -61,7 +59,7 @@ const Login = () => {
           email: loggedInUser.email,
           photoURL: loggedInUser.photoURL,
         };
-        //fetch("https://resume-builder-portal-server.vercel.app/users", {
+     
         fetch("https://resume-builder-portal-server.vercel.app/users", {
           method: "POST",
           headers: {
@@ -80,6 +78,23 @@ const Login = () => {
         toast.error(err.message);
       });
   };
+  
+//Handle Reset
+const handleReset = () => {
+  const email = emailRef.current.value;
+
+  resetPassword(email)
+    .then(() => {
+      toast.success("Please check your email for reset link");
+    })
+    .catch(err => {
+      setLoading(false);
+      console.log(err.message);
+      toast.error(err.message);
+    });
+
+  return console.log(email);
+};
 
   return (
     <div className="hero min-h-screen bg-white">
@@ -110,6 +125,7 @@ const Login = () => {
                           <span className="label-text">Email</span>
                         </label>
                         <input
+                          ref={emailRef}
                           type="email"
                           name="email"
                           placeholder="Email"
@@ -127,7 +143,7 @@ const Login = () => {
                               onChange={(e) => setPassword(e.target.value)}
                               type="text"
                               name="text"
-                              placeholder="password "
+                              placeholder="Password"
                               className="input input-bordered bg-white"
                             />
                             <span
@@ -143,7 +159,7 @@ const Login = () => {
                               onChange={(e) => setPassword(e.target.value)}
                               type="password"
                               name="password"
-                              placeholder="password "
+                              placeholder="Password "
                               className="input input-bordered bg-white"
                             />
                             <span
@@ -157,7 +173,7 @@ const Login = () => {
                         {/* ToDo forget password */}
                         <label className="label flex-row-reverse">
                           <Link
-                            href="#"
+                            onClick={handleReset}
                             className="label-text-alt link link-hover"
                           >
                             Forget password?
@@ -199,6 +215,7 @@ const Login = () => {
                     </div>
                   </TabPanel>
                 </Tabs>
+                <ToastContainer/>
               </div>
             </div>
           </div>
