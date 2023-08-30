@@ -65,7 +65,7 @@ const TestimonialSlider = () => {
 
   return (
     <FixedWidth>
-      <section className="py-14">
+      <section className="my-28">
         <div className="max-w-screen-xl mx-auto px-4 md:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h3 className="text-Black-400 text-5xl font-bold pb-6">
@@ -77,7 +77,7 @@ const TestimonialSlider = () => {
                   <li key={item.id}>
                     <figure>
                       <blockquote>
-                        <p className="text-gray-500 text-xl font-semibold sm:text-2xl">
+                        <p className="text-gray-600 text-base font-semibold sm:text-lg">
                           “{item.reviewText}“
                         </p>
                       </blockquote>

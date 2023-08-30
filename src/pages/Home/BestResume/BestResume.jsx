@@ -42,6 +42,9 @@ const BestResume = () => {
   };
 
 
+    return (
+        <div className='rgContainer mt-28'>
+
   const handleAddToCart = (resume) => {
     // console.log(resume);
     if (user && user.email) {
@@ -98,6 +101,23 @@ const BestResume = () => {
                 <h2>Our best resume</h2>
                 <h2>templates available</h2>
             </div> */}
+
+            <div className='text-center mt-8'>
+                <button onClick={() => { setResume(resumeCollections); setActiveButton('all') }}
+                    className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold ${activeButton === 'all' ? 'active-button' : ''}`}>
+                    All
+                </button>
+                <button
+                    onClick={() => { filterItem('photo'); setActiveButton('photo') }}
+                    className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${activeButton === 'photo' ? 'active-button' : ''}`}>
+                    With Photo
+                </button>
+                <button
+                    onClick={() => { filterItem('noPhoto'); setActiveButton('noPhoto') }}
+                    className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${activeButton === 'noPhoto' ? 'active-button' : ''}`}>
+                    No Photo
+                </button>
+            </div>
 
       <div className="text-center my-8">
         <button
