@@ -36,6 +36,7 @@ const ResumeBuilder = () => {
     // You need to set up your routing accordingly
     // Example: history.push('/dashboard');
   };
+  
 
   return (
     <div className="rgContainer mb-28">
