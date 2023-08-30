@@ -16,6 +16,7 @@ const Home = () => {
       {/* Banner section */}
       <Banner />
       <ResumeBuilder />
+     
       {/* <Testimonial/> */}
       <StepsSection />
       {/* Best Resume */}
@@ -27,7 +28,8 @@ const Home = () => {
         pageId="113136445219095"
         appId="2415529851988519"
       />
-      ,
+     
+     
     </div>
   );
 };

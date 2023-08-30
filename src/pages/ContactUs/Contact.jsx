@@ -6,6 +6,7 @@ import "./Contact.css";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
+
 // import 'aos/dist/aos.css'
 
 const Contact = () => {
