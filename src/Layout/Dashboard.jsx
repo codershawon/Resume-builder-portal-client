@@ -1,13 +1,12 @@
 import "../components/Dashboard.css";
 
-import { FaHistory, FaWallet } from "react-icons/fa";
+import { FaHistory, FaPersonBooth, FaWallet } from "react-icons/fa";
 import {
   HiMenuAlt3,
   HiOutlineUserGroup,
   HiTemplate,
   HiUser,
   HiX,
-  HiOutlineUserGroup,
   HiBookOpen,
   HiBookmark,
   HiBookmarkAlt,
@@ -37,6 +36,8 @@ import useAdmin from "../Hooks/useAdmin";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { FcFeedback } from "react-icons/fc";
+import AdminDashboard from "../pages/Dashboard/Admin/AdminDashboard";
+import PaymentsHistory from "../pages/Dashboard/PaymentsHistory";
 
 const Dashboard = () => {
 
@@ -60,24 +61,17 @@ const Dashboard = () => {
 
   const admin = [
     {name: "Admin Dashboard",link: "/dashboard/admin",icon: MdOutlineDashboard,},
+    
     {name: "All Users",link: "/dashboard/allUsers",icon: HiOutlineUserGroup,},
     { name: "Blog", link: "/dashboard/blog", icon: HiOutlineBookOpen },
     { name: "Users Templates", link: "/", icon: HiTemplate },
+    { name: "Users Info", link: "/dashboard/usersInfo", icon: FaPersonBooth},
     {
       name: "Admin Dashboard",
       link: "/dashboard/admin",
       icon: MdOutlineDashboard,
     },
-    {
-      name: "All Users",
-      link: "/dashboard/allUsers",
-      icon: HiOutlineUserGroup,
-    },
-    { name: "Users resumes and letters", link: "/", icon: RiBookLine },
-    { name: "Users Templates", link: "/dashboard/my-template/:id", icon: HiTemplate },
-    { name: "Feedback", link: "/dashboard/feedback", icon: FcFeedback },
-    { name: "Payment", link: "/dashboard/payment", icon: FaWallet },
-    { name: "Templates", link: "/", icon: RiContactsBook2Line, margin: true },
+    
     { name: "Home", link: "/", icon: RiHome4Line, margin: true },
     { name: "My Profile", link: `/dashboard/profile`, icon: HiUser },
   ];
@@ -285,6 +279,8 @@ const Dashboard = () => {
 
       {/* Components Start */}
       <div className="m-3 w-full text-gray-900  ">
+        <AdminDashboard/>
+        <PaymentsHistory/>
         <Outlet />
       </div>
       {/* Components End */}
