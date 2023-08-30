@@ -36,8 +36,6 @@ import useAdmin from "../Hooks/useAdmin";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { FcFeedback } from "react-icons/fc";
-import AdminDashboard from "../pages/Dashboard/Admin/AdminDashboard";
-import PaymentsHistory from "../pages/Dashboard/PaymentsHistory";
 
 const Dashboard = () => {
 
@@ -272,8 +270,6 @@ const Dashboard = () => {
 
       {/* Components Start */}
       <div className="m-3 w-full text-gray-900  ">
-        <AdminDashboard/>
-        <PaymentsHistory/>
         <Outlet />
       </div>
       {/* Components End */}
