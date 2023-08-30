@@ -16,6 +16,9 @@ import PrivateRoutes from "./PrivateRoutes";
 import ResumeBuilder from "../components/ResumeBuilderSection/ResumeBuilder/ResumeBuilder";
 import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
 import AboutUs from "../components/AboutUs/AboutUs";
+import Privacypolicy from "../components/Privacypolicy/Privacypolicy";
+import Terms from "../components/Terms/Terms";
+
 
 
 
@@ -56,10 +59,20 @@ export const router = createBrowserRouter([
       {
         path:"/faqs",
         element:<Faqs />
-      },{
+      },
+      {
+        path:"/privacyPolicy",
+        element:<Privacypolicy />
+      },
+      {
+        path:"/terms",
+        element:<Terms />
+      },
+      {
         path: "/about",
         element: <AboutUs />,
       },
+      
     ],
   },
   {

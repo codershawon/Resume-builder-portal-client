@@ -23,13 +23,7 @@ const Faqs = () => {
       <div className="curve container-xs  text-center">
             <div className="container">
                   <div className="editor-content py-10 ">
-                        <h2 className="text-5xl">Resume and Cover Letter Frequently Asked Questions</h2>
-                        <p className="text-xl my-8">Find all the answers you need to know about how to use My Perfect Resume to easily create professional resumes and cover letters.</p>
-                        
-                        <Link >
-                        <button className="my-btn ">Build my resume</button>
-                        </Link>
-                       
+                        <h2 className="text-5xl">Resume and Cover Letter Frequently Asked Questions</h2> 
                   </div>
             </div>
             
