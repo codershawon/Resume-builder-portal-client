@@ -21,6 +21,7 @@ import BlogDetails from "../pages/Blogs/BlogDetails";
 
 // import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
 import Feedback from "../pages/Feedback/Feedback";
+import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 
 
 export const router = createBrowserRouter([
@@ -81,6 +82,10 @@ export const router = createBrowserRouter([
     ),
     errorElement: <ErrorPage />,
     children: [
+      {
+        path:"adminHome",
+        element:<AdminHome/>
+      },
       {
         path: "allUsers",
         element: (
