@@ -22,7 +22,7 @@ const BestResume = () => {
   const [activeButton, setActiveButton] = useState("all");
   const [resumeCollections, setResumeCollections] = useState([]);
   const [allResume, setResume] = useState(resumeCollections);
-//   console.log(allResume);
+  console.log(allResume);
 
   useEffect(() => {
     fetch("https://resume-builder-portal-server.vercel.app/resume")

@@ -1,6 +1,6 @@
 import "../components/Dashboard.css";
 
-import { FaHistory, FaWallet } from "react-icons/fa";
+import { FaHistory, FaPersonBooth, FaWallet } from "react-icons/fa";
 import {
   HiMenuAlt3,
   HiOutlineUserGroup,
