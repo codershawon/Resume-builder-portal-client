@@ -12,6 +12,8 @@ import Profile from "../pages/Dashboard/Profile";
 import Contact from "../pages/ContactUs/Contact";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ResumeBuilder from "../components/ResumeBuilderSection/ResumeBuilder/ResumeBuilder";
+import Blogs from "../pages/Blogs/Blogs";
+import BlogDetails from "../pages/Blogs/BlogDetails";
 
 
 
@@ -33,6 +35,15 @@ export const router = createBrowserRouter([
       {
         path:"contactUs",
         element: <Contact/>
+      },
+      {
+        path:"blogs",
+        element: <Blogs/>
+      },
+      {
+       path: "/blogDetails/:id",
+       element: <PrivateRoutes><BlogDetails></BlogDetails></PrivateRoutes>,
+       loader: ({params})=> fetch(`http://localhost:5000/blogs/${params.id}`)
       },
       {
         path: "/resumeTemplate",
