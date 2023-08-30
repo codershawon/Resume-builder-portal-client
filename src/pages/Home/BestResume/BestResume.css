@@ -43,7 +43,7 @@
 }
 
 .useButton {
-    @apply -z-40 btn btn-sm bg-[#197685] rounded-md text-white w-[80%] absolute bottom-2 right-0  
+    @apply -z-40 btn btn-sm bg-[#197685] rounded-md text-white w-[80%] absolute bottom-2 right-0 
 }
 
 .useButton:hover {

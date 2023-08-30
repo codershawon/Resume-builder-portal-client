@@ -33,7 +33,7 @@ const BestResume = () => {
 
 
     return (
-        <div className='rgContainer'>
+        <div className='rgContainer mt-28'>
 
             <SectionTitle
                 subHeading={"Our Host template"}
@@ -45,7 +45,7 @@ const BestResume = () => {
                 <h2>templates available</h2>
             </div> */}
 
-            <div className='text-center my-8'>
+            <div className='text-center mt-8'>
                 <button onClick={() => { setResume(resumeCollections); setActiveButton('all') }}
                     className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold ${activeButton === 'all' ? 'active-button' : ''}`}>
                     All

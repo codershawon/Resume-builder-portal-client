@@ -8,7 +8,7 @@ import SectionTitle from "../Hooks/SectionTitle";
 const StepsSection = () => {
   return (
    
-      <div className="rgContainer bg-[#fff]">
+      <div className="rgContainer bg-[#fff] mt-28">
         {/* SubTile Section Start */}
         <SectionTitle
           subHeading={"HOW IT WORKS"}

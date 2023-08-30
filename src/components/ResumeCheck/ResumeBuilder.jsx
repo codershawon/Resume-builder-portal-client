@@ -38,7 +38,7 @@ const ResumeBuilder = () => {
   };
 
   return (
-    <div className="rgContainer my-[80px]">
+    <div className="rgContainer mb-28">
       {/* SubTile Section Start */}
       <SectionTitle
           subHeading={"Resume Checker"}

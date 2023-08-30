@@ -173,7 +173,7 @@ const Dashboard = () => {
           <></>
         )}
 
-        <div className="my-8 flex flex-col gap-3 relative duration-500 active-class">
+        <div className=" my-8 flex flex-col gap-3 relative duration-500 active-class">
           {isAdmin ? (
             <>
               {/* Admin Dashboard */}
