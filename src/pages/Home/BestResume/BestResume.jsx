@@ -22,7 +22,7 @@ const BestResume = () => {
   const [activeButton, setActiveButton] = useState("all");
   const [resumeCollections, setResumeCollections] = useState([]);
   const [allResume, setResume] = useState(resumeCollections);
-//   console.log(allResume);
+  console.log(allResume);
 
   useEffect(() => {
     fetch("https://resume-builder-portal-server.vercel.app/resume")
@@ -89,7 +89,7 @@ const BestResume = () => {
   };
 
   return (
-    <div className="rgContainer">
+    <div className="rgContainer mt-28">
       <SectionTitle
         subHeading={"Our Host template"}
         heading={"Our best resume templates available"}
@@ -213,3 +213,4 @@ const BestResume = () => {
 };
 
 export default BestResume;
+

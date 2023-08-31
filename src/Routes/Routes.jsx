@@ -20,6 +20,8 @@ import Feedback from "../pages/Feedback/Feedback";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import Terms from "../components/Terms/Terms";
 import Privacypolicy from "../components/Privacypolicy/Privacypolicy";
+import UsersInfo from "../pages/Dashboard/UsersInfo";
+
 
 
 export const router = createBrowserRouter([
@@ -87,6 +89,14 @@ export const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <AllUsers></AllUsers>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "usersInfo",
+        element: (
+          <AdminRoute>
+            <UsersInfo/>
           </AdminRoute>
         ),
       },

@@ -11,6 +11,7 @@ const ResumeBuilder = () => {
   const onDrop = async (acceptedFiles) => {
     const file = acceptedFiles[0];
     setUploadedFile(file);
+    
 
     // Simulate AI logic to calculate resultPercentage (replace with actual AI logic)
     const fakeAIResult = Math.floor(Math.random() * 101);
@@ -37,8 +38,9 @@ const ResumeBuilder = () => {
     // Example: history.push('/dashboard');
   };
 
+
   return (
-    <div className="rgContainer my-[80px]">
+    <div className="rgContainer mb-28">
       {/* SubTile Section Start */}
       <SectionTitle
           subHeading={"Resume Checker"}

@@ -21,22 +21,22 @@ const Banner = () => {
   }, [images.length]);
 
   return (
-    <div className="rgContainer">
-      <div className="banner-section overflow-hidden grid md:grid-cols-1 lg:grid-cols-2 text-center md:text-left lg:items-start mt-10 lg:mt-0 mb-20 ">
-        <div className="banner-content mb-8 lg:mb-0 lg:mr-20">
+    <div className="h-screen max-w-[1400px] mx-auto">
+      <div className="banner-section overflow-hidden grid md:grid-cols-1 lg:grid-cols-2 text-center md:text-left lg:items-start mt-10 lg:mt-0 ">
+        <div className="banner-content ">
           <h1 className="text-sm uppercase font-semibold text-gray-500 mb-2 lg:pt-36">
             Unlock Your Potential with Resume Genius
           </h1>
-          <h2 className="text-4xl w-full lg:w-96 font-bold mb-2">
+          <h2 className="text-4xl w-full lg:w-full font-bold mb-2">
             Create an Impressive Resume in Minutes
           </h2>
-          <p className="w-full md:w-full lg:max-w-md text-base font-medium mb-2">
+          <p className="w-full md:w-full lg:w-full hidden lg:block text-base font-medium mb-2">
             Welcome to Resume Genius, your ultimate destination for crafting
             professional and eye-catching resumes effortlessly. Our intuitive
             resume builder empowers you to stand out from the crowd and showcase
             your unique skills and experiences.
           </p>
-          <p className="text-gray-600 font-medium mb-2 w-full lg:max-w-md">
+          <p className="text-gray-600 font-medium mb-2 hidden lg:block w-full lg:w-full">
             Join Resume Genius today and take your career to the next level.
             Your dream job is just a resume away.
           </p>
