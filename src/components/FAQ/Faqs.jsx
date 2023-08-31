@@ -33,7 +33,7 @@ const Faqs = () => {
       
       <Faquesction></Faquesction>
       <div className="my-6 ">
-        <h2 className="text-center text-3xl font-bold my-6">As seen in:</h2>
+        <h2 className="text-center text-4xl font-bold my-6">As seen in:</h2>
         <div className=" px-6 md:px-20 lg:px-0">
           <ul className="grid px-4 md:px-0 md:justify-items-center grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6 mx-auto">
             <li>

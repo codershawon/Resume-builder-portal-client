@@ -18,7 +18,7 @@ const Footer = () => {
       style={{ backgroundImage: "url(https://i.ibb.co/K0XHbpd/35.png)" }}
     >
       <div className="">
-        <div className="pt-28 ps-10 md:ps-24 lg:ps-0 pb-32 md:max-w-6xl  mx-auto">
+        <div className="pt-28  ps-10 md:ps-24 lg:ps-0 pb-32 md:max-w-6xl  mx-auto">
           <div className="flex-wrap lg:grid  md:grid-col-4 lg:grid-cols-4 gap-6 justify-items-center">
             <div className="">
               <div className="gap-4">
