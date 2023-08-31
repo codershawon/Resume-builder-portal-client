@@ -3,6 +3,7 @@
     background-size: contain; 
     background-position: center;
     padding: 20px;
+    /* height: 100%; */
 }
 .rotating-images {
     display: flex;

@@ -23,7 +23,7 @@ const BlogDetails = () => {
   } = blogDetails;
   console.log(blogDetails);
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
+    fetch(`https://resume-builder-portal-server.vercel.app/users/${user.email}`)
       //fetch(`https://resume-builder-portal-server.vercel.app/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setProfile(data))
