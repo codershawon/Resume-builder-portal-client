@@ -1,25 +1,25 @@
-import { createBrowserRouter } from "react-router-dom";
+import AboutUs from "../components/AboutUs/AboutUs";
 import AdminRoute from "./AdminRoute";
 import AllResume from "../pages/AllResume/AllResume";
 import AllUsers from "../pages/Dashboard/AllUsers";
-import Faqs from "../components/FAQ/Faqs";
-import Profile from "../pages/Dashboard/Profile";
 import Contact from "../pages/ContactUs/Contact";
 import Dashboard from "../Layout/Dashboard";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import Faqs from "../components/FAQ/Faqs";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Main from "../Layout/Main";
 import MyTemplates from "../components/Payments/MyTemplates";
 import Payment from "../components/Payments/Payment";
 import PrivateRoutes from "./PrivateRoutes";
+import Profile from "../pages/Dashboard/Profile";
 import ResumeBuilder from "../components/ResumeBuilderSection/ResumeBuilder/ResumeBuilder";
-import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
-import AboutUs from "../components/AboutUs/AboutUs";
-import Privacypolicy from "../components/Privacypolicy/Privacypolicy";
+// import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
+import { createBrowserRouter } from "react-router-dom";
+import Feedback from "../pages/Feedback/Feedback";
+import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import Terms from "../components/Terms/Terms";
-
-
+import Privacypolicy from "../components/Privacypolicy/Privacypolicy";
 
 
 export const router = createBrowserRouter([
@@ -41,17 +41,13 @@ export const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/resumeTemplate",
-        element: (
-          <PrivateRoutes>
-            <ResumeTemplate />
-          </PrivateRoutes>
-        ),
-      },
-      {
         path: "resumeBuilder/:id",
         element: <ResumeBuilder />,
       },
+      // {
+      //   path:"resume-form",
+      //   element:<ResumeForm/>,
+      // },
       {
         path: "/login",
         element: <Login />,
@@ -59,20 +55,18 @@ export const router = createBrowserRouter([
       {
         path:"/faqs",
         element:<Faqs />
-      },
-      {
-        path:"/privacyPolicy",
-        element:<Privacypolicy />
+      },{
+        path: "/about",
+        element: <AboutUs />,
       },
       {
         path:"/terms",
         element:<Terms />
       },
       {
-        path: "/about",
-        element: <AboutUs />,
-      },
-      
+        path:"/privacyPolicy",
+        element:<Privacypolicy />
+      }
     ],
   },
   {
@@ -84,6 +78,10 @@ export const router = createBrowserRouter([
     ),
     errorElement: <ErrorPage />,
     children: [
+      {
+        path:"adminHome",
+        element:<AdminHome/>
+      },
       {
         path: "allUsers",
         element: (
@@ -103,6 +101,10 @@ export const router = createBrowserRouter([
       {
         path: "payment",
         element: <Payment />,
+      },
+      {
+        path: "feedback",
+        element: <Feedback/>,
       },
     ],
   },

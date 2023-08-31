@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       console.log("current user", currentUser);
       if(currentUser){
-        // axios.post('https://resume-builder-portal-server.vercel.app/jwt', {email: currentUser.email})
+   
         axios.post('https://resume-builder-portal-server.vercel.app/jwt', {email: currentUser.email})
         .then(data =>{
            console.log(data)

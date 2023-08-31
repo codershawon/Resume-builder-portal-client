@@ -7,6 +7,10 @@ import {
   HiTemplate,
   HiUser,
   HiX,
+  HiBookOpen,
+  HiBookmark,
+  HiBookmarkAlt,
+  HiOutlineBookOpen,
 } from "react-icons/hi";
 import {
   Link,
@@ -31,6 +35,7 @@ import UseSpinner from "../Hooks/UseSpinner";
 import useAdmin from "../Hooks/useAdmin";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { FcFeedback } from "react-icons/fc";
 
 const Dashboard = () => {
 
@@ -53,29 +58,19 @@ const Dashboard = () => {
   // const isAdmin = true;
 
   const admin = [
-    {
-      name: "Admin Dashboard",
-      link: "/dashboard/admin",
-      icon: MdOutlineDashboard,
-    },
-    {
-      name: "All Users",
-      link: "/dashboard/allUsers",
-      icon: HiOutlineUserGroup,
-    },
-    { name: "Users resumes and letters", link: "/", icon: RiBookLine },
-    { name: "Users Templates", link: "/dashboard/my-template/:id", icon: HiTemplate },
-    { name: "Feedback", link: "/", icon: HiTemplate },
-    { name: "Payment", link: "/dashboard/payment", icon: FaWallet },
-    { name: "Templates", link: "/", icon: RiContactsBook2Line, margin: true },
-    
+    {name: "Admin Dashboard",link: "/dashboard/adminHome",icon: MdOutlineDashboard,},
+    {name: "All Users",link: "/dashboard/allUsers",icon: HiOutlineUserGroup,},
+    { name: "Blog", link: "/dashboard/blog", icon: HiOutlineBookOpen },
+    { name: "Users Templates", link: "/", icon: HiTemplate },
+    { name: "Feedback", link: "/dashboard/feedback", icon: FcFeedback },
     { name: "Home", link: "/", icon: RiHome4Line, margin: true },
-     { name: "My Profile", link: `/dashboard/profile`, icon: HiUser },
+    { name: "My Profile", link: `/dashboard/profile`, icon: HiUser },
   ];
   const users = [
     { name: "User Dashboard", link: "/dashboard", icon: MdOutlineDashboard },
     { name: "My resumes and letters", link: "/", icon: RiBookLine },
     { name: "My templates", link: "/dashboard/my-template/:id", icon: HiTemplate },
+    { name: "Feedback", link: "/dashboard/feedback", icon: FcFeedback },
     { name: "Payment", link: "/dashboard/payment", icon: FaWallet },
     { name: "Payment History", link: "/", icon: FaHistory },
     { name: "Templates", link: "/", icon: RiContactsBook2Line, margin: true },

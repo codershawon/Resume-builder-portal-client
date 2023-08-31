@@ -1,5 +1,5 @@
 import "react-toastify/dist/ReactToastify.css";
-import "./ResumeTemplate.css";
+import "./Feedback.css";
 
 import React, { useContext, useState } from "react";
 
@@ -8,7 +8,7 @@ import { FaStar } from "react-icons/fa";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 
-const ResumeTemplate = () => {
+const Feedback = () => {
   const { user } = useContext(AuthContext);
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
@@ -37,7 +37,7 @@ const ResumeTemplate = () => {
       email,
     };
 
-    // fetch(`https://resume-builder-portal-server.vercel.app/review`, {
+    
     fetch(`https://resume-builder-portal-server.vercel.app/review`, {
       method: "POST",
       headers: {
@@ -61,6 +61,9 @@ const ResumeTemplate = () => {
         } else if (data.message) {
           toast.error("User already exists. Cannot submit multiple reviews.");
         }
+      })
+      .catch((error) => {
+        console.error(error);
       });
   };
 
@@ -103,9 +106,15 @@ const ResumeTemplate = () => {
           <div>
             <button
               className="btn my-btn w-full"
+              disabled={isReviewSubmitted}
             >
-              Submit
+              {isReviewSubmitted ? "Submitting..." : "Submit"}
             </button>
+            {isReviewSubmitted && (
+              <p className="text-sm text-gray-500 mt-2">
+                Review submitted. Redirecting...
+              </p>
+            )}
           </div>
         </div>
         <ToastContainer />
@@ -114,5 +123,4 @@ const ResumeTemplate = () => {
   );
 };
 
-export default ResumeTemplate;
-
+export default Feedback;
