@@ -30,32 +30,7 @@ body{
   align-content: space-between;
   justify-items: start;
 }
-.breadcrumb-wrap {
-  background-color: #394d6b;
-  color: #fff;
-  font-size: 1rem;
-  line-height: 2.4rem;
-  min-height: 45px;
-  display: flex;
-  align-items: center;
- 
-}
 
-.breadcrumbs {
-  width: 1170px;
-  margin: 0 auto;
-  padding: 12px 15px;
-}
-
-.curve {
-  background: #092347;
-  position: relative;
-  border-radius: 0 0 0 110px;
-  color: #fff;
-}
-.redus {
-  border-radius: 50px 0;
-}
 
 
 .my-btn {
