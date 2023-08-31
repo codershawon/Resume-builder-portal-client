@@ -7,7 +7,7 @@ import TotalSoldTemplate from './TotalSoldTemplate';
 const AdminHeader = () => {
     return (
         <div>
-            <div className='flex justify-center gap-5  mt-10 flex-wrap'>
+            <div className='grid grid-cols-2 md:grid-cols-4  gap-5  my-10 '>
                 <TotalSale />
                 <PremiumTemplateUsers />
                 <TotalSoldTemplate/>
