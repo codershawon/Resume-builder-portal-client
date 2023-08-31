@@ -85,10 +85,11 @@ const Footer = () => {
             <div >
              
               <div className="footerGrid  mt-10 md:mt-5 lg:mt-0">
-              <h2 className="text-2xl">Legal</h2>
-            <Link className="hover:text-[#0dcaf0] mt-2" to="/terms">Terms </Link>
-            <Link className="hover:text-[#0dcaf0] mt-2" to="/privacyPolicy">Privacy </Link>
-            <Link className="hover:text-[#0dcaf0] mt-2" to="/support">Support</Link>
+              <h2 className="text-2xl">SERVICES</h2>
+            <Link className="hover:text-[#0dcaf0] " to="/">Design </Link>
+            <Link className="hover:text-[#0dcaf0] " to="/">Marketing </Link>
+            <Link className="hover:text-[#0dcaf0] " to="/">Branding</Link>
+            <Link className="hover:text-[#0dcaf0] " to="/">Advertisement</Link>
           </div>
               
             </div>
