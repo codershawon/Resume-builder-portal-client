@@ -68,6 +68,8 @@ const Faqs = () => {
             </li>
           </ul>
         </div>
+
+        
       </div>
     
 
