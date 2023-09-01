@@ -14,6 +14,9 @@ import Payment from "../components/Payments/Payment";
 import PrivateRoutes from "./PrivateRoutes";
 import Profile from "../pages/Dashboard/Profile";
 import ResumeBuilder from "../components/ResumeBuilderSection/ResumeBuilder/ResumeBuilder";
+import ResumeForm from "../components/ResumeCheck/ResumeForm";
+import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
+=======
 // import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
 import { createBrowserRouter } from "react-router-dom";
 import Feedback from "../pages/Feedback/Feedback";
@@ -50,6 +53,9 @@ export const router = createBrowserRouter([
         element: <ResumeBuilder />,
       },
       {
+        path:"/resume-form",
+        element:<ResumeForm/>,
+      },
         path:"/blogs",
         element:<Blogs/>
       },

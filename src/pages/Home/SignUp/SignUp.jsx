@@ -96,7 +96,7 @@ const SignUp = () => {
           email: loggedInUser.email,
           photoURL: loggedInUser.photoURL,
         };
-        //fetch("https://resume-builder-portal-server.vercel.appusers", {
+        //fetch("http://localhost:5000users", {
         fetch("https://resume-builder-portal-server.vercel.app/users", {
           method: "POST",
           headers: {

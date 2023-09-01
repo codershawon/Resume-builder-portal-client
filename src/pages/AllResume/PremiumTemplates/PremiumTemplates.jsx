@@ -9,7 +9,7 @@ const PremiumTemplates = () => {
     const [resumeCollections, setResumeCollections]= useState([])
     
     useEffect(() => {
-        // fetch('https://resume-builder-portal-server.vercel.appresume')
+        // fetch('http://localhost:5000resume')
         fetch('https://resume-builder-portal-server.vercel.app/resume')
             .then(res => res.json())
             .then(data => {
