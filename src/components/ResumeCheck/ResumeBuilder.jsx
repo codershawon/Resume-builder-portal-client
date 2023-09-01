@@ -28,6 +28,7 @@ const ResumeBuilder = () => {
 
     const file = acceptedFiles[0];
     setUploadedFile(file);
+    
 
     const fileContent = await readFileContents(file);
     const aiResult = await analyzeResumeWithAI(fileContent);
@@ -96,8 +97,13 @@ const ResumeBuilder = () => {
     setShowResumeForm(true);
   };
 
+
   return (
+
     <div className="rgContainer my-[80px]">
+
+    <div className="rgContainer mb-28">
+      {/* SubTile Section Start */}
       <SectionTitle
         subHeading={"Resume Checker"}
         heading={"Check your resume"}

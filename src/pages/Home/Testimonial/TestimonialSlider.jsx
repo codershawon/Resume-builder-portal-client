@@ -3,6 +3,7 @@ import { faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
 
 import FixedWidth from "../../../components/fixedwidth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import SectionTitle from "../../../Hooks/SectionTitle";
 
 const TestimonialSlider = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -10,7 +11,7 @@ const TestimonialSlider = () => {
   console.log(testimonials)
 
 
-  // When get backend data, use the code and remove static testimonials array.
+  // When get backend data, use the code and remove static testimonials array.//
 
 
 
@@ -65,19 +66,20 @@ const TestimonialSlider = () => {
 
   return (
     <FixedWidth>
-      <section className="py-14">
+      <section className="my-28">
         <div className="max-w-screen-xl mx-auto px-4 md:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h3 className="text-Black-400 text-5xl font-bold pb-6">
-              What students are saying
-            </h3>
+          <SectionTitle
+        subHeading={"What Our Users Say"}
+        heading={"User Reviews & Testimonials"}
+      ></SectionTitle>
             <ul>
               {testimonials.map((item, idx) =>
                 currentTestimonial === idx ? (
                   <li key={item.id}>
                     <figure>
                       <blockquote>
-                        <p className="text-gray-500 text-xl font-semibold sm:text-2xl">
+                        <p className="text-gray-600 text-base font-semibold sm:text-lg">
                           “{item.reviewText}“
                         </p>
                       </blockquote>
@@ -126,3 +128,5 @@ const TestimonialSlider = () => {
 };
 
 export default TestimonialSlider;
+
+

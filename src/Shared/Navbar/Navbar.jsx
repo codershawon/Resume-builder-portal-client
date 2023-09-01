@@ -72,7 +72,7 @@ const Navbar = () => {
               location.pathname === "/coverletter" ? "navActive" : "navStyle"
             }
           >
-            <Link to="/resumeTemplate">Resume Template</Link>
+            <Link to="/blogs">Blogs</Link>
           </li>
           <li
             className={

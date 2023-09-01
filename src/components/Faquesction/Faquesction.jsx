@@ -1,16 +1,17 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
 const Faquesction = () => {
   return (
-    <div className="mx-8">
-      <div className="my-8">
-        <h2 className="text-4xl font-bold">Frequently Asked Questions</h2>
-        <p className="font-bold text-gray-600 mt-2">
-          Answers to commonly asked questions about My Resume Format
-        </p>
+    <div className="mx-8 flex-grow px-2 md:px-20 lg:px-36">
+      <div className="my-10">
+        <div>
+          <h2 className="text-4xl font-samibold mb-3">Full Resume</h2>
+          <p>Answers to commonly asked questions about Resume Format</p>
+        </div>
       </div>
-      <div tabIndex={0} className="collapse collapse-plus bg-base-200 mb-2">
-        <div className="collapse-title text-xl font-medium ">
+      <div tabIndex={0} className="collapse collapse-plus bg-base-200">
+        <div className="collapse-title text-xl font-medium mb-2">
           What is Resume Page, and why should I use it?
         </div>
         <hr />
@@ -28,7 +29,7 @@ const Faquesction = () => {
           </p>
         </div>
       </div>
-      <div tabIndex={0} className="collapse collapse-plus bg-base-200 mb-2">
+      <div tabIndex={0} className="collapse collapse-plus bg-base-200 my-2">
         <div className="collapse-title text-xl font-medium">
           What does Resume Page provide you?
         </div>
@@ -41,94 +42,195 @@ const Faquesction = () => {
           </p>
         </div>
       </div>
+
       <div tabIndex={0} className="collapse collapse-plus bg-base-200 mb-2">
         <div className="collapse-title text-xl font-medium">
-          How much does Resume Pagecost?
+          How do I change my template?
         </div>
         <div className="collapse-content">
           <p>
-            We offer free services and a range of paid options, which you can
-            learn more about here (link to products & services). You can choose
-            from free resume templates to create a professionally designed
-            resume or paid services for a more specialized service.
+            A preview of the document is displayed in the template you selected
+            in the editor. At the bottom of the example, you can select another
+            template in the menu bar by clicking on the 'Template' icon. Colour,
+            font 'Aa', font size 'tT' and line spacing '↕' can also be changed
+            here.
           </p>
         </div>
       </div>
       <div tabIndex={0} className="collapse collapse-plus bg-base-200 mb-2">
         <div className="collapse-title text-xl font-medium">
-          What kind of membership subscriptions do you offer?
+          How can I edit my resume or cover letter?
         </div>
         <div className="collapse-content">
           <p>
-            We offer 3levels of services: You can see the breakdown of the
-            services and services here (link to products & services).
+            Select the document you wish to edit under the ‘Resumes’ or ‘Cover
+            letters’ tab and then click ‘Edit’. You can edit the content in the
+            editor. Based on the data you have entered, a preview of the
+            document will be shown immediately. The font 'Aa', font size 'tT',
+            line spacing '↕', colour and template can be changed in the menu bar
+            at the bottom of the preview.
           </p>
         </div>
       </div>
       <div tabIndex={0} className="collapse collapse-plus bg-base-200 mb-2">
         <div className="collapse-title text-xl font-medium">
-          Where can I see the resume templates available?
+          How do I change the status of an application?
         </div>
         <div className="collapse-content">
           <p>
-            You can preview the template designs we offer here (link) and choose
-            the one that suits you best..
+            You can change the status of an application by dragging it to the
+            appropriate column under the 'Applications' tab.
           </p>
         </div>
       </div>
       <div tabIndex={0} className="collapse collapse-plus bg-base-200 mb-2">
         <div className="collapse-title text-xl font-medium">
-          How can I share my resume?
+          How do I cancel my subscription?
         </div>
         <div className="collapse-content">
           <p>
-            Once you have completed the selected template, you can download or
-            share your link with others via email or on social media networks
-            like LinkedIn, Facebook, Twitter, and more. All users can save their
-            personalized resumein a PDF format; premium users can also save it
-            as a Word document.
+            Log in and click on your profile icon and go to 'Settings'. Use the
+            'Cancellation' button to cancel your subscription. You will
+            automatically receive a confirmation by email.
           </p>
         </div>
       </div>
       <div tabIndex={0} className="collapse collapse-plus bg-base-200 mb-2">
         <div className="collapse-title text-xl font-medium">
-          How can I download my resume?
+          How do I import a resume?
         </div>
         <div className="collapse-content">
           <p>
-            After completing the filling of your preferred resume template, the
-            next step is to click on the button that displays Download. You will
-            have to choose whether to download your resume in a PDF or TXT
-            format before proceeding.
+            You can import an existing resume by using the 'Import' button in
+            the top right corner of the editor. Select a resume (PDF or Word)
+            and the file will automatically be copied into the fields. Filled
+            out fields will automatically be overwritten with the content of the
+            imported document. The fields must be checked afterwards for
+            completeness and correctness.
           </p>
         </div>
       </div>
 
-      <div className="my-16">
-        <div
-          className="container redus py-10"
-          style={{
-            backgroundImage:
-              "url(https://www.myperfectresume.com/wp-content/uploads/2022/05/blue-lines.png)",
-          }}
-        >
-          <div className="hero-overlay bg-opacity-60"></div>
-          <div className="hero-content text-center text-neutral-content ">
-            <div className="max-w-md ">
-              <h1 className=" text-3xl  font-bold text-[#002d6b] py-50">
-              
-                We’ll help you write every kind of cover letter
-              </h1>
-            </div>
-          </div>
+      <div tabIndex={0} className="collapse collapse-plus bg-base-200 mb-2">
+        <div className="collapse-title text-xl font-medium">
+          Where can I view my receipt?
+        </div>
+        <div className="collapse-content">
+          <p>
+            Login and click on your profile icon to go to 'Settings'. Click on
+            'Payment History' to view your payment receipts. The receipt also
+            serves as your invoice.
+          </p>
         </div>
       </div>
-      <div>
-        <div className="my-8">
-          <h2 className="text-4xl font-bold">Frequently Asked Questions</h2>
-          <p className="font-bold text-gray-600 mt-2">
-            Answers to commonly asked questions about My CoverLetter Format
+      <div tabIndex={0} className="collapse collapse-plus bg-base-200 mb-2">
+        <div className="collapse-title text-xl font-medium">
+          How do I delete my data?
+        </div>
+        <div className="collapse-content">
+          <p>
+            Login and click on the profile icon to go to 'Settings'. Click on
+            'Delete account' to permanently delete your account. If you have not
+            activated an account and only entered your details, these will
+            automatically be deleted within 30 days.
           </p>
+        </div>
+      </div>
+      <div tabIndex={0} className="collapse collapse-plus bg-base-200 mb-2">
+        <div className="collapse-title text-xl font-medium">
+          How can I download my resume or cover letter?
+        </div>
+        <div className="collapse-content">
+          <p>
+            How can I download my resume or cover letter? Click on ‘download’ in
+            the editor or in your account under the tab ‘Resumes’ or ‘Cover
+            letters’. In case you do not yet have a paid account, or you have
+            not yet logged in, you will need to first follow all the steps on
+            the screen. You will then be able to download the document as a pdf.
+            At this time, Word is not available.
+          </p>
+        </div>
+      </div>
+      <div tabIndex={0} className="collapse collapse-plus bg-base-200 mb-2">
+        <div className="collapse-title text-xl font-medium">
+          How can I add a page break?
+        </div>
+        <div className="collapse-content">
+          <p>
+            Open the item under which you want to add a page break. Then click
+            on the three dots, select 'Add page break' and drag it to the
+            desired position within the item.
+          </p>
+        </div>
+      </div>
+
+      <div tabIndex={0} className="collapse collapse-plus bg-base-200 mb-2">
+        <div className="collapse-title text-xl font-medium">
+          How can I sort the sections on my resume?
+        </div>
+        <div className="collapse-content">
+          <p>
+            You can change the order of the (sub)items by clicking on the six
+            dots to the left of the item in question and then dragging it. You
+            can move an item to the left or right column by opening the item,
+            clicking on the button with the three dots and selecting the option
+            'Move to left/right column'.
+          </p>
+        </div>
+      </div>
+      <div tabIndex={0} className="collapse collapse-plus bg-base-200 mb-2">
+        <div className="collapse-title text-xl font-medium">
+          How do I change my job search?
+        </div>
+        <div className="collapse-content">
+          <p>
+            You can change your search by entering the desired function, city
+            and radius under the 'Vacancies' tab and then clicking on 'Search'.
+          </p>
+        </div>
+      </div>
+      <div tabIndex={0} className="collapse collapse-plus bg-base-200 mb-2">
+        <div className="collapse-title text-xl font-medium">
+          How can I delete an item?
+        </div>
+        <div className="collapse-content">
+          <p>
+            If you want to delete an entire section, you have to select the
+            section and click on the three dots after which the option 'Delete
+            section' will appear. You can undo the deleting of sections with the
+            arrows on the top right corner of the editor.
+          </p>
+        </div>
+      </div>
+      <div tabIndex={0} className="collapse collapse-plus bg-base-200 mb-2">
+        <div className="collapse-title text-xl font-medium">
+          How can I add or remove a photo?
+        </div>
+        <div className="collapse-content">
+          <p>
+            You can upload a photo in the designated block in the top left
+            corner of the editor. You can drag the photo, zoom in or out and
+            rotate it to the desired position. Adding a photo is not mandatory
+            and you can always change or delete it afterwards.
+          </p>
+        </div>
+      </div>
+
+      <div
+        className=" text-center py-10 my-12"
+        style={{
+          backgroundImage: "url(https://i.ibb.co/K0XHbpd/35.png)",
+        }}
+      >
+        <h1 className=" text-3xl flex justify-center items-center  font-bold text-gray-700 py-50">
+          We’ll help you write every kind of cover letter
+        </h1>
+      </div>
+
+      <div>
+        <div className="my-10">
+          <h2 className="text-4xl font-samibold mb-3">Full Cover Letter</h2>
+          <p>Answers to commonly asked questions about Cover Letter Format</p>
         </div>
         <div tabIndex={0} className="collapse collapse-plus bg-base-200 mb-2">
           <div className="collapse-title text-xl font-medium ">
@@ -235,36 +337,38 @@ const Faquesction = () => {
         </div>
       </div>
 
-      <div className="my-16">
-        <div
-          className="container redus py-14"
-          style={{
-            backgroundImage:
-              "url(https://www.myperfectresume.com/wp-content/uploads/2022/05/blue-lines.png)",
-          }}
-        >
-          <div className="hero-overlay bg-opacity-60"></div>
-          <div className="hero-content text-center text-neutral-content ">
-            <div className="max-w-md ">
-              <h1 className=" text-3xl font-bold text-[#002d6b] py-50">
-                Contact Us
-              </h1>
-            </div>
-          </div>
-        </div>
+      
+          
+      <div
+        className=" text-center py-6 my-8"
+        style={{
+          backgroundImage: "url(https://i.ibb.co/K0XHbpd/35.png)",
+        }}
+      >
+        <h1 className=" text-3xl flex justify-center items-center  font-bold text-gray-700 py-50">
+          Contact Us
+        </h1>
       </div>
+       
 
-      <div className= "my-10 ms-4">
-          <p className="text-xl">
-          Didn’t find the answer you were looking for? Our customer care support team is ready to help you!
-          </p>
-            <br />
-          
-            <p className="text-xl">
-            Visit our <Link className="font-bold text-sky-500 underline" to="/contactUs">Contact Us</Link> page if you want to chat or send an email.
-            </p>
-          
-        </div>
+      <div className="my-10 ms-4">
+        <p className="text-xl">
+          Didn’t find the answer you were looking for? Our customer care support
+          team is ready to help you!
+        </p>
+        <br />
+
+        <p className="text-xl">
+          Visit our{" "}
+          <Link
+            className="text-[#197685] cursor-pointer hover:underline font-bold"
+            to="/contactUs"
+          >
+            Contact Us
+          </Link>{" "}
+          page if you want to chat or send an email.
+        </p>
+      </div>
     </div>
   );
 };

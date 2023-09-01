@@ -16,7 +16,19 @@ import Profile from "../pages/Dashboard/Profile";
 import ResumeBuilder from "../components/ResumeBuilderSection/ResumeBuilder/ResumeBuilder";
 import ResumeForm from "../components/ResumeCheck/ResumeForm";
 import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
+=======
+// import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
 import { createBrowserRouter } from "react-router-dom";
+import Feedback from "../pages/Feedback/Feedback";
+import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
+import Terms from "../components/Terms/Terms";
+import Privacypolicy from "../components/Privacypolicy/Privacypolicy";
+import UsersInfo from "../pages/Dashboard/UsersInfo";
+import Blogs from "../pages/Blogs/Blogs";
+import BlogDetails from "../pages/Blogs/BlogDetails";
+
+
+
 
 export const router = createBrowserRouter([
   {
@@ -37,20 +49,21 @@ export const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/resumeTemplate",
-        element: (
-          <PrivateRoutes>
-            <ResumeTemplate />
-          </PrivateRoutes>
-        ),
-      },
-      {
         path: "resumeBuilder/:id",
         element: <ResumeBuilder />,
       },
       {
         path:"/resume-form",
         element:<ResumeForm/>,
+      },
+        path:"/blogs",
+        element:<Blogs/>
+      },
+      {
+        path:"/blogDetails/:id",
+        element:<BlogDetails/>,
+        loader: ({ params }) =>
+          fetch(`https://resume-builder-portal-server.vercel.app/blogs/${params.id}`),
       },
       {
         path: "/login",
@@ -63,6 +76,14 @@ export const router = createBrowserRouter([
         path: "/about",
         element: <AboutUs />,
       },
+      {
+        path:"/terms",
+        element:<Terms />
+      },
+      {
+        path:"/privacyPolicy",
+        element:<Privacypolicy />
+      }
     ],
   },
   {
@@ -75,10 +96,22 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
+        path:"adminHome",
+        element:<AdminHome/>
+      },
+      {
         path: "allUsers",
         element: (
           <AdminRoute>
             <AllUsers></AllUsers>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "usersInfo",
+        element: (
+          <AdminRoute>
+            <UsersInfo/>
           </AdminRoute>
         ),
       },
@@ -93,6 +126,10 @@ export const router = createBrowserRouter([
       {
         path: "payment",
         element: <Payment />,
+      },
+      {
+        path: "feedback",
+        element: <Feedback/>,
       },
     ],
   },
