@@ -89,7 +89,7 @@ const Profile = () => {
     };
 
 //     fetch(`http://localhost:5000/users/${user.email}`, {
-      fetch(`https://resume-builder-portal-server.vercel.app/users/${user.email}`, {
+      fetch(`https://resume-builder-portal-server.vercel.app/users/${user?.email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -122,7 +122,7 @@ const Profile = () => {
   };
   useEffect(() => {
 //     fetch(`http://localhost:5000/users/${user.email}`)
-      fetch(`https://resume-builder-portal-server.vercel.app/users/${user.email}`)
+      fetch(`https://resume-builder-portal-server.vercel.app/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setProfile(data))
       .catch((error) => console.error(error));
