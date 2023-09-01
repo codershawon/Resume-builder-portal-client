@@ -21,6 +21,9 @@ import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import Terms from "../components/Terms/Terms";
 import Privacypolicy from "../components/Privacypolicy/Privacypolicy";
 import UsersInfo from "../pages/Dashboard/UsersInfo";
+import Blogs from "../pages/Blogs/Blogs";
+import BlogDetails from "../pages/Blogs/BlogDetails";
+
 
 
 
@@ -46,10 +49,16 @@ export const router = createBrowserRouter([
         path: "resumeBuilder/:id",
         element: <ResumeBuilder />,
       },
-      // {
-      //   path:"resume-form",
-      //   element:<ResumeForm/>,
-      // },
+      {
+        path:"/blogs",
+        element:<Blogs/>
+      },
+      {
+        path:"/blogDetails/:id",
+        element:<BlogDetails/>,
+        loader: ({ params }) =>
+          fetch(`https://resume-builder-portal-server.vercel.app/blogs/${params.id}`),
+      },
       {
         path: "/login",
         element: <Login />,
