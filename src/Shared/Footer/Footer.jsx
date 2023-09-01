@@ -18,7 +18,7 @@ const Footer = () => {
       style={{ backgroundImage: "url(https://i.ibb.co/K0XHbpd/35.png)" }}
     >
       <div className="">
-        <div className="pt-28  ps-10 md:ps-24 lg:ps-0 pb-32 md:max-w-6xl  mx-auto">
+        <div className="pt-28  ps-10 md:ps-24 lg:ps-0 pb-32 md:max-w-[1400px]  mx-auto">
           <div className="flex-wrap lg:grid  md:grid-col-4 lg:grid-cols-4 gap-6 justify-items-center">
             <div className="">
               <div className="gap-4">
@@ -27,8 +27,7 @@ const Footer = () => {
               <div>
                 <div>
           <p className="py-2">
-            There are many variations of <br /> pass of Lorem Ipsum
-            available.
+          Resume Genius is a career site fueled by the best career experts and a community of millions of readers yearly. We share knowledge, tips, and tools to help everyone find their dream job.
           </p>
           <span className="flex gap-2">
                   <Link
@@ -61,22 +60,22 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="footerGrid  mt-10 md:mt-5 lg:mt-0">
-              <h2 className="text-2xl">Our Services</h2>
-              <Link to="/about" className="hover:text-[#0dcaf0]">About us</Link>
-              <Link className="hover:text-[#0dcaf0]" to="">
+            <div className="footerGrid mt-10 md:mt-5 lg:mt-0">
+              <h2 className="text-2xl uppercase mb-6">Our Services</h2>
+              <Link to="/about" className="hover:text-[#0dcaf0] mb-1">About us</Link>
+              <Link className="hover:text-[#0dcaf0] mb-1 " to="">
                 {" "}
                 Resume Templates
               </Link>
-              <Link className="hover:text-[#0dcaf0]" to="/faqs">
+              <Link className="hover:text-[#0dcaf0] mb-1 " to="/faqs">
                 {" "}
                 FAQs
               </Link>
-              <Link className="hover:text-[#0dcaf0]" to="">
+              <Link className="hover:text-[#0dcaf0] mb-1 " to="/blogs">
                 {" "}
                 Blog
               </Link>
-              <Link className="hover:text-[#0dcaf0]" to="/contactUs">
+              <Link className="hover:text-[#0dcaf0] mb-1 " to="/contactUs">
                 {" "}
                 Contact Us
               </Link>
@@ -85,19 +84,19 @@ const Footer = () => {
             <div >
              
               <div className="footerGrid  mt-10 md:mt-5 lg:mt-0">
-              <h2 className="text-2xl">SERVICES</h2>
-            <Link className="hover:text-[#0dcaf0] " to="/">Design </Link>
-            <Link className="hover:text-[#0dcaf0] " to="/">Marketing </Link>
-            <Link className="hover:text-[#0dcaf0] " to="/">Branding</Link>
-            <Link className="hover:text-[#0dcaf0] " to="/">Advertisement</Link>
+              <h2 className="text-2xl mb-6">SERVICES</h2>
+            <Link className="hover:text-[#0dcaf0] mb-1 " to="/">Design </Link>
+            <Link className="hover:text-[#0dcaf0] mb-1 " to="/">Marketing </Link>
+            <Link className="hover:text-[#0dcaf0] mb-1 " to="/">Branding</Link>
+            <Link className="hover:text-[#0dcaf0] mb-1 " to="/">Advertisement</Link>
           </div>
               
             </div>
             
             
             <div className="footerGrid mt-8 md:mt-5 lg:mt-0">
-              <h3 className="text-2xl">Official Info</h3>
-              <div className="flex items-center justify-center gap-2">
+              <h3 className="text-2xl uppercase">Official Info</h3>
+             <div className="flex items-center justify-center gap-2">
                 <FaAddressCard></FaAddressCard>
                 <p>Dhaka, Bangladesh</p>
               </div>

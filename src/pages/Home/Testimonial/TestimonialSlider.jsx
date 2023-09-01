@@ -3,6 +3,7 @@ import { faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
 
 import FixedWidth from "../../../components/fixedwidth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import SectionTitle from "../../../Hooks/SectionTitle";
 
 const TestimonialSlider = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -68,9 +69,10 @@ const TestimonialSlider = () => {
       <section className="my-28">
         <div className="max-w-screen-xl mx-auto px-4 md:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h3 className="text-Black-400 text-5xl font-bold pb-6">
-              What students are saying
-            </h3>
+          <SectionTitle
+        subHeading={"What Our Users Say"}
+        heading={"User Reviews & Testimonials"}
+      ></SectionTitle>
             <ul>
               {testimonials.map((item, idx) =>
                 currentTestimonial === idx ? (
@@ -126,3 +128,5 @@ const TestimonialSlider = () => {
 };
 
 export default TestimonialSlider;
+
+
