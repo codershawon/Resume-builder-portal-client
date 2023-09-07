@@ -5,6 +5,7 @@ import { FaAngleDown, FaDribbble, FaPowerOff } from "react-icons/fa6";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FaUserCircle } from "react-icons/fa";
+import useAdmin from "../../Hooks/useAdmin";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -21,6 +22,8 @@ const Navbar = () => {
       .catch((error) => console.log(error));
   };
 
+  const [isAdmin, isAdminLoading] = useAdmin();
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -30,6 +33,9 @@ const Navbar = () => {
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
   // Listen for changes in viewport size
   useEffect(() => {
@@ -50,7 +56,8 @@ const Navbar = () => {
 
   const navOptions = (
     <>
-      <li className={location.pathname === "" ? "navActive" : "navStyle "}>
+      
+      <li className={location.pathname === "" ? "navActive" : "navStyle"}>
         <Link to="/allresume">Resume Template</Link>
       </li>
       <li className={location.pathname === "" ? "navActive" : "navStyle"}>
@@ -60,8 +67,7 @@ const Navbar = () => {
       <li
         className={`relative navHover ${
           location.pathname === "" ? "navActive" : "navStyle"
-        }`}
-      >
+        }`}>
         <Link className="flex items-center gap-1" to="/">
           Career <FaAngleDown />
         </Link>
@@ -70,29 +76,26 @@ const Navbar = () => {
           <li
             className={
               location.pathname === "/coverletter" ? "navActive" : "navStyle"
-            }
-          >
+            }>
             <Link to="/blogs">Blogs</Link>
           </li>
           <li
             className={
               location.pathname === "/coverletter" ? "navActive" : "navStyle"
-            }
-          >
+            }>
             <Link to="/contactUs">Contact Us</Link>
           </li>
           <li
             className={
               location.pathname === "/coverletter" ? "navActive" : "navStyle"
-            }
-          >
+            }>
             <Link to="/coverletter">CoverLetter</Link>
           </li>
         </ul>
       </li>
       {user && (
         <li className={location.pathname === "" ? "navActive" : "navStyle"}>
-          <Link to="/dashboard">Dashboard</Link>
+          {isAdmin ? <><Link to='/dashboard/adminHome'>Dashboard</Link></>:<><Link to='/dashboard/profile'>Dashboard</Link></>}
         </li>
       )}
 
@@ -116,8 +119,7 @@ const Navbar = () => {
                 </label>
                 <ul
                   tabIndex={0}
-                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-30 lg:w-52"
-                >
+                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-30 lg:w-52">
                   <li>
                     <Link to={`/dashboard/profile`}>
                       <FaUserCircle></FaUserCircle> Profile
@@ -159,7 +161,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="navBar">
+    <nav className="navBar ">
       <div className="rgContainer flex justify-between items-center">
         <div className="flex  items-center">
           <Link to="/">
@@ -171,7 +173,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <ul className="hidden md:flex items-center space-x-4">{navOptions}</ul>
+        <ul className="hidden  md:flex items-center space-x-2">{navOptions}</ul>
         <div className="md:hidden">
           {/* Mobile menu button */}
           <button onClick={toggleMobileMenu} className="">
@@ -180,15 +182,9 @@ const Navbar = () => {
               className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
+              stroke="currentColor">
               {isMobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
+                <></>
               ) : (
                 <path
                   strokeLinecap="round"
@@ -203,9 +199,27 @@ const Navbar = () => {
       </div>
       {/* Mobile menu options */}
       <div
-        className={`mobile-menu ${isMobileMenuOpen ? "mobile-menu-open" : ""}`}
-      >
-        <ul>{navOptions}</ul>
+        className={`mobile-menu ${isMobileMenuOpen ? "mobile-menu-open" : ""}`}>
+          <button onClick={toggleMobileMenu} className="w-full flex justify-end pb-12 mt-[-25px]">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+          {isMobileMenuOpen ? (
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
+          ) : (
+            <></>
+          )}
+        </svg>
+      </button>
+        <ul className="flex flex-col justify-center items-center">{navOptions}</ul>
       </div>
     </nav>
   );
