@@ -24,6 +24,7 @@ import Privacypolicy from "../components/Privacypolicy/Privacypolicy";
 import UsersInfo from "../pages/Dashboard/UsersInfo";
 import Blogs from "../pages/Blogs/Blogs";
 import BlogDetails from "../pages/Blogs/BlogDetails";
+import BlogPage from "../pages/Dashboard/Blog/BlogPage";
 
 
 
@@ -96,6 +97,10 @@ export const router = createBrowserRouter([
       {
         path:"adminHome",
         element:<AdminHome/>
+      },
+      {
+        path: "blog",
+        element: <BlogPage></BlogPage>,
       },
       {
         path: "allUsers",

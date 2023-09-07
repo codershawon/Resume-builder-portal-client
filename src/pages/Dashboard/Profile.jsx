@@ -114,17 +114,14 @@ const Profile = () => {
       // photoURL : image.photoURL
     };
 
-    //     fetch(`http://localhost:5000/users/${user.email}`, {
-    fetch(
-      `https://resume-builder-portal-server.vercel.app/users/${user?.email}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updatedUserInfo),
-      }
-    )
+//     fetch(`http://localhost:4000/users/${user.email}`, {
+      fetch(`https://resume-builder-portal-server.vercel.app/users/${user?.email}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedUserInfo),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
