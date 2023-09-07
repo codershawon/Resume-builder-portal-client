@@ -13,6 +13,8 @@ const BlogDetails = () => {
   const { user } = useContext(AuthContext);
   const {
     _id,
+    authorUrl,
+    bloggerImage,
     bloggerName,
     bloggerTitle,
     date,
@@ -47,9 +49,13 @@ const BlogDetails = () => {
         <p className="md:text-3xl py-2 font-semibold">{blogTitle}</p>
         <div className="flex justify-between items-center md:mt-5 mt-4">
           <div className="flex gap-3 items-center">
-            <div>
-              {/* <img src={bloggerImage} className='pe-2 rounded-full w-18' alt="" /> */}
+            <div className="flex gap-2 ">
+              {authorUrl? <img src={authorUrl} className='rounded-full w-12 h-12' alt="Author Image" />: ''}
+              
+              <div>
               <p className="font-medium text-lg">{bloggerName}</p>
+              <p className="font-medium text-base text-gray-600 pb-3">{bloggerTitle}</p>
+              </div>
             </div>
             <p className=""> {date}</p>
           </div>
@@ -57,7 +63,7 @@ const BlogDetails = () => {
             <FaStopwatch className="text-[#197685]"></FaStopwatch> {readingTime}
           </div>
         </div>
-        <p className="text-base pb-3">{bloggerTitle}</p>
+        
         <p className="pt-5 pb-12 text-gray-700">{blogDescription}</p>
       </div>
       {/* comment section */}
@@ -69,7 +75,7 @@ const BlogDetails = () => {
             name="comments"
             placeholder="Add a comment..."
             className="w-full px-3 py-2 border rounded-md resize-none focus:outline-[#197685] focus:border-[#197685]"
-            style={{ border: "1px solid #ccc" }} // Add this line to set the border
+            style={{ border: "1px solid #ccc" }} 
           ></textarea>
           <button
             type="submit"
