@@ -1,0 +1,107 @@
+/* .swiper-client-msg {
+    padding: 2rem 2rem;
+    background-color: white;
+    position: relative;
+    border-radius: 1rem;
+    text-align: left;
+    
+    
+  } */
+
+  .swiper-client-msg {
+    padding: 2rem 2rem;
+    background-color: white;
+    position: relative;
+    border-radius: 1rem;
+    text-align: left;
+    /* height: 300px;  */
+}
+
+  
+  .swiper-client-msg::before {
+    content: "";
+    position: absolute;
+    bottom: -4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2rem solid white;
+    border-color: transparent;
+    border-top-color: #8bb7be;
+  }
+  .quoteLeft{
+    top: 2;
+    position: absolute;
+    left: 2rem;
+    font-size: 23px;
+    font-weight: 500;
+    color: #8bb7be;
+  }
+
+  .quoteRight{
+    bottom: 0;
+    position: absolute;
+    right: 2rem;
+    font-size: 23px;
+    font-weight: 500;
+    color: #8bb7be;
+  }
+
+.swiper-client-data{
+    align-items: center;
+    margin-top: 3.2rem;
+    gap: 12px;
+}
+.client-image{
+    
+   
+}
+
+.client-data-details{
+
+}
+
+.client-image img{
+  max-width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  
+}
+
+/* .swiper {
+    width: 100%;
+    height: 100%;
+  } */
+  .swiperr{
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+ 
+
+  .swiper-pagination {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 27px; /* Adjust as needed */
+    width: 7rem;
+    
+  }
+  .swiper-container .swiper-pagination {
+    width: auto !important; /* Set to auto or the width you desire */
+    margin: 0 auto; /* Center the pagination horizontally */
+  }
+  
+  
+  /* .swiper-slide img {
+    
+  } */
