@@ -1,7 +1,7 @@
 import "react-toastify/dist/ReactToastify.css";
 import "./Feedback.css";
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FaStar } from "react-icons/fa";
@@ -14,7 +14,15 @@ const Feedback = () => {
   const [hover, setHover] = useState(null);
   const [reviewText, setReviewText] = useState("");
   const [isReviewSubmitted, setIsReviewSubmitted] = useState(false);
-
+  const [profile, setProfile] = useState([]);
+  useEffect(() => {
+    //     fetch(`http://localhost:5000/users/${user.email}`)
+          fetch(`https://resume-builder-portal-server.vercel.app/users/${user?.email}`)
+          .then((res) => res.json())
+          .then((data) => setProfile(data))
+          .catch((error) => console.error(error));
+      }, []);
+  
   const handleRatingChange = (ratingValue) => {
     setRating(ratingValue);
   };
@@ -28,13 +36,15 @@ const Feedback = () => {
     const form = e.target;
     const rating = form.rating.value;
     const reviewText = form.reviewText.value;
-    const image = user?.photoURL;
+    const image = profile?.photoURL || user?.photoURL;
     const email = user?.email;
+    const name = profile?.name;
     const data = {
       rating,
       reviewText,
       image,
       email,
+      name
     };
 
     
@@ -66,6 +76,8 @@ const Feedback = () => {
         console.error(error);
       });
   };
+
+ 
 
   return (
     <div className="min-h-screen flex items-center justify-center">
