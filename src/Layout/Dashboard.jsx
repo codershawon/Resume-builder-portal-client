@@ -65,10 +65,9 @@ const Dashboard = () => {
     { name: "Users Templates", link: "/", icon: HiTemplate },
     { name: "Feedback", link: "/dashboard/feedback", icon: FcFeedback },
     { name: "Home", link: "/", icon: RiHome4Line, margin: true },
-    { name: "My Profile", link: `/dashboard/profile`, icon: HiUser },
   ];
   const users = [
-    { name: "User Dashboard", link: "/dashboard", icon: MdOutlineDashboard },
+    { name: "User Dashboard", link: "/dashboard/profile", icon: MdOutlineDashboard },
     { name: "My resumes and letters", link: "/", icon: RiBookLine },
     { name: "My templates", link: "/dashboard/my-template/:id", icon: HiTemplate },
     { name: "Feedback", link: "/dashboard/feedback", icon: FcFeedback },
@@ -76,8 +75,6 @@ const Dashboard = () => {
     { name: "Payment History", link: "/", icon: FaHistory },
     { name: "Templates", link: "/", icon: RiContactsBook2Line, margin: true },
     { name: "Home", link: "/", icon: RiHome4Line, margin: true },
-     //{ name: "My Profile", link: `/dashboard/profile/${user?.email}`, icon: HiUser },
-     { name: "My Profile", link: `/dashboard/profile`, icon: HiUser },
   ];
 
   // const user = true;
