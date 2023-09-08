@@ -39,7 +39,7 @@ const ResumeForm = ({ initialResumeText, onSubmit }) => {
   };
 
   return (
-    <form className="max-w-lg mx-auto p-6 shadow-lg rounded-lg bg-white" onSubmit={handleSubmit}>
+    <form className="max-w-lg mx-auto p-6 shadow-lg rounded-lg bg-white mt-7 mb-7" onSubmit={handleSubmit}>
       <div className="mb-4">
         <label htmlFor="name" className="block font-semibold mb-2">Name</label>
         <input

@@ -4,14 +4,26 @@ import { useEffect, useState } from "react";
 import { FaAngleDown, FaDribbble, FaPowerOff } from "react-icons/fa6";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { FaUserCircle } from "react-icons/fa";
+import { FaLanguage, FaUserCircle } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
-  console.log(user);
+  const { t, i18n } = useTranslation(["navbar"]);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+
+  useEffect(() => {
+		if (localStorage.getItem("i18nextLng")?.length > 2) {
+			i18next.changeLanguage("en");
+		}
+	}, []);
+
+	const handleLanguageChange = (e) => {
+		i18n.changeLanguage(e.target.value);
+	};
   // logout
   const handleLogout = () => {
     logout()
@@ -30,7 +42,6 @@ const Navbar = () => {
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
-
   // Listen for changes in viewport size
   useEffect(() => {
     const handleResize = () => {
@@ -51,10 +62,10 @@ const Navbar = () => {
   const navOptions = (
     <>
       <li className={location.pathname === "" ? "navActive" : "navStyle "}>
-        <Link to="/allresume">Resume Template</Link>
+        <Link to="/allresume">{t("resumeTemplate")}</Link>
       </li>
       <li className={location.pathname === "" ? "navActive" : "navStyle"}>
-        <Link to="/">Cover Letter</Link>
+        <Link to="/">{t("coverLetter")}</Link>
       </li>
 
       <li
@@ -63,7 +74,7 @@ const Navbar = () => {
         }`}
       >
         <Link className="flex items-center gap-1" to="/">
-          Career <FaAngleDown />
+          {t("career")} <FaAngleDown />
         </Link>
         {/* Dropdown options */}
         <ul className="navDropdown">
@@ -72,27 +83,40 @@ const Navbar = () => {
               location.pathname === "/coverletter" ? "navActive" : "navStyle"
             }
           >
-            <Link to="/blogs">Blogs</Link>
+            <Link to="/blogs">{t("blogs")}</Link>
           </li>
           <li
             className={
               location.pathname === "/coverletter" ? "navActive" : "navStyle"
             }
           >
-            <Link to="/contactUs">Contact Us</Link>
+            <Link to="/contactUs">{t("contactUs")}</Link>
           </li>
           <li
             className={
               location.pathname === "/coverletter" ? "navActive" : "navStyle"
             }
           >
-            <Link to="/coverletter">CoverLetter</Link>
+            <Link to="/coverletter">{t("coverLetter")}</Link>
           </li>
         </ul>
       </li>
+          <li>
+         <div className="flex items-center gap-2">
+         <FaLanguage className="text-4xl"/><select
+							className="bg-white font-bold"
+							value={localStorage.getItem("i18nextLng")}
+							onChange={handleLanguageChange}
+						>
+							<option value="en">English</option>
+							<option value="fr">Français</option>
+							<option value="es">Español</option>
+						</select>
+         </div>
+          </li>
       {user && (
         <li className={location.pathname === "" ? "navActive" : "navStyle"}>
-          <Link to="/dashboard">Dashboard</Link>
+          <Link to="/dashboard">{t("dashboard")}</Link>
         </li>
       )}
 
@@ -120,18 +144,18 @@ const Navbar = () => {
                 >
                   <li>
                     <Link to={`/dashboard/profile`}>
-                      <FaUserCircle></FaUserCircle> Profile
+                      <FaUserCircle></FaUserCircle> {t("profile")}
                     </Link>
                   </li>
                   <li>
                     <Link>
-                      <FaDribbble></FaDribbble> Settings
+                      <FaDribbble></FaDribbble> {t("settings")}
                     </Link>
                   </li>
                   <hr className="my-3" />
                   <li>
                     <button onClick={handleLogout} className="">
-                      <FaPowerOff></FaPowerOff> LogOut
+                      <FaPowerOff></FaPowerOff> {t("logout")}
                     </button>
                   </li>
                 </ul>

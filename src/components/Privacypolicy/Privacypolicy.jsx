@@ -22,7 +22,7 @@ const Privacypolicy = () => {
       {/* TODO  */}
       <div>
         <div className=" mt-16 mb-20 text-center text-gray-700 ">
-          <h2 className="text-3xl lg:text-5xl font-semibold border-b-2 w-72 lg:w-96 border-gray-800 pb-2 mx-auto">Privacy Police</h2>
+          <h2 className="text-3xl lg:text-5xl font-semibold border-b-2 w-72 lg:w-96 border-gray-800 pb-2 mx-auto">Privacy Policy</h2>
           <p className="mx-5 mt-3">
             Published August 1, 2023. Effective as of November 1, 2023.{" "}
             <br className="hidden md:block" />

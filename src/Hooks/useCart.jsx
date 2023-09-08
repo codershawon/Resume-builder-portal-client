@@ -1,6 +1,7 @@
-import useAuth from './useAuth';
+
 import useAxiosSecure from './useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
+import useAuth from './useAuth';
 
 const useCart = () => {
     const { user, loading } = useAuth(); // Access the user and loading state from the useAuth custom hook

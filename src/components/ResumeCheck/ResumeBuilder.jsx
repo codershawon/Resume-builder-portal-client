@@ -9,12 +9,14 @@ import SectionTitle from "../../Hooks/SectionTitle";
 import mammoth from "mammoth";
 import openai from "openai";
 import { pdfjs } from "react-pdf";
+import { useTranslation } from "react-i18next";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 openai.apiKey = "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";
 
 const ResumeBuilder = () => {
+  const { t } = useTranslation(["resumeBuilder"]);
   const [uploadedFile, setUploadedFile] = useState(null);
   const [resultPercentage, setResultPercentage] = useState(0);
 
@@ -101,75 +103,54 @@ const ResumeBuilder = () => {
   return (
 
     <div className="rgContainer my-[80px]">
-
-    <div className="rgContainer mb-28">
-      {/* SubTile Section Start */}
-      <SectionTitle
-        subHeading={"Resume Checker"}
-        heading={"Check your resume"}
-      />
-      <div className="p-8 bg-gray-50">
-        <Dropzone onDrop={onDrop} accept=".pdf,.doc,.docx,.txt,.htm,.rtf">
-          {({ getRootProps, getInputProps }) => (
-            <div
-              {...getRootProps()}
-              className="border-dashed border-2 border-[#197685] p-8 rounded-lg cursor-pointer"
-            >
-              <input {...getInputProps()} />
-              <div className="text-center">
-                <i className="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-2"></i>
-                <p className="text-gray-500">
-                  Drag and drop a resume file here, or click to select a file
-                  <br />
-                  Acceptable file types: DOC, DOCX, PDF, HTM, RTF, TXT
-                </p>
+      <div className="rgContainer mb-28">
+        {/* SubTile Section Start */}
+        <SectionTitle subHeading= {t("resumeBuilder:subHeading")} heading={t("resumeBuilder:heading")} />
+        <div className="p-8 bg-gray-50">
+          <Dropzone onDrop={onDrop} accept=".pdf,.doc,.docx,.txt,.htm,.rtf">
+            {({ getRootProps, getInputProps }) => (
+              <div
+                {...getRootProps()}
+                className="border-dashed border-2 border-[#197685] p-8 rounded-lg cursor-pointer"
+              >
+                <input {...getInputProps()} />
+                <div className="text-center">
+                  <i className="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-2"></i>
+                  <p className="text-gray-500">
+                  {t("resumeBuilder:dragAndDropFile")}
+                    <br />
+                    {t("resumeBuilder:acceptableFileTypes")}
+                  </p>
+                </div>
+              </div>
+            )}
+          </Dropzone>
+          {uploadedFile && (
+            <div className="mt-6">
+              <p className="text-lg font-semibold">{t("resumeBuilder:uploadedFile")}: {uploadedFile.name}</p>
+              <div className="mt-4">
+                <p className="text-lg font-semibold">{t("resumeBuilder:resultPercentage")}: {resultPercentage}%</p>
+                <div className="bg-blue-200 h-4 rounded-full mt-2">
+                  <div
+                    className="bg-[#197685] h-full rounded-full"
+                    style={{ width: `${resultPercentage}%` }}
+                  ></div>
+                </div>
+              </div>
+              <div className="flex gap-10 text-center justify-center pt-6">
+                <Link to="/resumeBuilder/:id">
+                  <button className="my-btn">{t("resumeBuilder:createNewResume")}</button>
+                </Link>
+                <Link to="/resume-form">
+                  <button className="my-btn" onClick={handleContinueEditing}>
+                  {t("resumeBuilder:continueEditing")}
+                  </button>
+                </Link>
               </div>
             </div>
           )}
-        </Dropzone>
-        {uploadedFile && (
-          <div className="mt-6">
-            <p className="text-lg font-semibold">
-              Uploaded File: {uploadedFile.name}
-            </p>
-            <div className="mt-4">
-              <p className="text-lg font-semibold">
-                Result Percentage: {resultPercentage}%
-              </p>
-              <div className="bg-blue-200 h-4 rounded-full mt-2">
-                <div
-                  className="bg-[#197685] h-full rounded-full"
-                  style={{ width: `${resultPercentage}%` }}
-                ></div>
-              </div>
-            </div>
-
-            {/* <div className="flex gap-10 text-center justify-center pt-6">
-              <button className="my-btn" onClick={handleContinueEditing}>
-                Continue Editing
-              </button>
-            </div> */}
-            <div className="flex gap-10 text-center justify-center pt-6">
-              <Link to="/resumeBuilder/:id">
-                <button className="my-btn">Create New Resume</button>
-              </Link>
-
-              {/* <button className="my-btn" onClick={handleContinueEditing}>
-                    Continue Editing
-                  </button> */}
-                  <Link to="/resume-form">
-          <button className="my-btn" onClick={handleContinueEditing}>
-            Continue Editing
-          </button>
-        </Link>
-            </div>
-          </div>
-        )}
+        </div>
       </div>
-      {/* {showResumeForm && (
-        <ResumeForm initialResumeText={resumeText} onSubmit={handleSubmitForm} />
-      )} */}
-     
     </div>
   );
 };

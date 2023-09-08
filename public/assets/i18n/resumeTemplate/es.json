@@ -1,0 +1,24 @@
+{
+  "header": {
+    "title1": "CV gratuitos",
+    "title2": "para descargar en 2023",
+    "description": "Explore docenas de plantillas de currículum populares, probadas y gratuitas. Agregue habilidades profesionales preescritas, personalice su diseño y descárguelo en el formato que necesite."
+  },
+  "premiumTemplates": {
+    "title1": "Profesionales",
+    "title2": "Plantillas de currículum",
+    "description": "Las plantillas profesionales son ideales para los negocios. Los candidatos que soliciten puestos de nivel superior en las industrias de la construcción, ventas, tecnología de la información e industria farmacéutica encontrarán una gran selección de plantillas de currículum premium y gratuitas en esta colección.",
+    "useTemplate": "Usar esta plantilla"
+  },
+  "freeResume": {
+    "title1": "Plantillas",
+    "title2": "de currículum gratuitas",
+    "description": "Las plantillas gratuitas son un negocio serio. Los candidatos que solicitan puestos de nivel superior en las industrias de la construcción, ventas, tecnología de la información e industria farmacéutica encontrarán una gran selección de plantillas de currículum premium y gratuitas en esta colección.",
+    "useTemplate": "Usar esta plantilla",
+    "seeMoreTemplates": "Ver más plantillas"
+  },
+  "aboutResumeBuilder": {
+    "title": "Constructor de Currículum",
+    "description": "Dile adiós a los formatos de columnas defectuosos, al espacio de texto restrictivo para tu historial laboral y logros, o a las descargas complicadas. Te ayudamos a completar tu currículum con una herramienta premium que cubre todo lo mencionado anteriormente. Nuestro Constructor de Currículum ofrece docenas de plantillas de currículum personalizables para ayudarte a personalizar tus solicitudes; sugiere contenido aprobado por reclutadores para miles de puestos de trabajo diferentes para acompañarte en cada capítulo de tu carrera y formatea automáticamente todo el contenido de tu currículum por ti."
+  }
+}

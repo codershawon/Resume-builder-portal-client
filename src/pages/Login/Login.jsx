@@ -159,7 +159,7 @@ const handleReset = () => {
                               onChange={(e) => setPassword(e.target.value)}
                               type="password"
                               name="password"
-                              placeholder="Password "
+                              placeholder="Password"
                               className="input input-bordered bg-white"
                             />
                             <span
@@ -170,7 +170,6 @@ const handleReset = () => {
                             </span>
                           </>
                         )}
-                        {/* ToDo forget password */}
                         <label className="label flex-row-reverse">
                           <Link
                             onClick={handleReset}
