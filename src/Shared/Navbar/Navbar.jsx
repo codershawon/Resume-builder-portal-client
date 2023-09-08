@@ -4,15 +4,28 @@ import { useEffect, useState } from "react";
 import { FaAngleDown, FaDribbble, FaPowerOff } from "react-icons/fa6";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { FaUserCircle } from "react-icons/fa";
+import { FaLanguage, FaUserCircle } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 import useAdmin from "../../Hooks/useAdmin";
 
+//navbar
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
-  console.log(user);
+  const { t, i18n } = useTranslation(["navbar"]);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+
+  useEffect(() => {
+		if (localStorage.getItem("i18nextLng")?.length > 2) {
+			i18next.changeLanguage("en");
+		}
+	}, []);
+
+	const handleLanguageChange = (e) => {
+		i18n.changeLanguage(e.target.value);
+	};
   // logout
   const handleLogout = () => {
     logout()
@@ -33,9 +46,11 @@ const Navbar = () => {
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
+
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
+
 
   // Listen for changes in viewport size
   useEffect(() => {
@@ -56,12 +71,12 @@ const Navbar = () => {
 
   const navOptions = (
     <>
+      <li className={location.pathname === "" ? "navActive" : "navStyle "}>
+        <Link to="/allresume">{t("resumeTemplate")}</Link>
       
-      <li className={location.pathname === "" ? "navActive" : "navStyle"}>
-        <Link to="/allresume">Resume Template</Link>
       </li>
       <li className={location.pathname === "" ? "navActive" : "navStyle"}>
-        <Link to="/">Cover Letter</Link>
+        <Link to="/">{t("coverLetter")}</Link>
       </li>
 
       <li
@@ -69,33 +84,57 @@ const Navbar = () => {
           location.pathname === "" ? "navActive" : "navStyle"
         }`}>
         <Link className="flex items-center gap-1" to="/">
-          Career <FaAngleDown />
+          {t("career")} <FaAngleDown />
         </Link>
         {/* Dropdown options */}
         <ul className="navDropdown">
           <li
             className={
               location.pathname === "/coverletter" ? "navActive" : "navStyle"
+            }
+          >
+            <Link to="/blogs">{t("blogs")}</Link>
+
             }>
-            <Link to="/blogs">Blogs</Link>
+       
           </li>
           <li
             className={
               location.pathname === "/coverletter" ? "navActive" : "navStyle"
+            }
+          >
+            <Link to="/contactUs">{t("contactUs")}</Link>
             }>
-            <Link to="/contactUs">Contact Us</Link>
+           
           </li>
           <li
             className={
               location.pathname === "/coverletter" ? "navActive" : "navStyle"
+            }
+          >
+            <Link to="/coverletter">{t("coverLetter")}</Link>
+
             }>
-            <Link to="/coverletter">CoverLetter</Link>
+           
           </li>
         </ul>
       </li>
-      {user && (
+          <li>
+         <div className="flex items-center gap-2">
+         <FaLanguage className="text-4xl"/><select
+							className="bg-white font-bold"
+							value={localStorage.getItem("i18nextLng")}
+							onChange={handleLanguageChange}
+						>
+							<option value="en">English</option>
+							<option value="fr">Français</option>
+							<option value="es">Español</option>
+						</select>
+         </div>
+          </li>
+       {user && (
         <li className={location.pathname === "" ? "navActive" : "navStyle"}>
-          {isAdmin ? <><Link to='/dashboard/adminHome'>Dashboard</Link></>:<><Link to='/dashboard/profile'>Dashboard</Link></>}
+          <Link to="/dashboard">{t("dashboard")}</Link>
         </li>
       )}
 
@@ -122,18 +161,18 @@ const Navbar = () => {
                   className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-30 lg:w-52">
                   <li>
                     <Link to={`/dashboard/profile`}>
-                      <FaUserCircle></FaUserCircle> Profile
+                      <FaUserCircle></FaUserCircle> {t("profile")}
                     </Link>
                   </li>
                   <li>
                     <Link>
-                      <FaDribbble></FaDribbble> Settings
+                      <FaDribbble></FaDribbble> {t("settings")}
                     </Link>
                   </li>
                   <hr className="my-3" />
                   <li>
                     <button onClick={handleLogout} className="">
-                      <FaPowerOff></FaPowerOff> LogOut
+                      <FaPowerOff></FaPowerOff> {t("logout")}
                     </button>
                   </li>
                 </ul>

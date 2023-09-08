@@ -1,0 +1,20 @@
+{
+    "step1": {
+        "heading":"Build your job-winning resume in three simple steps",
+        "subHeading":"HOW IT WORKS",
+        "title": "Step 01",
+        "description": "You are given the liberty to choose a template",
+        "content": "Choose from thousands of professionally designed templates! No matter who you are, our Resume Builder will automatically format them onto your favorite resume templates."
+
+      },
+      "step2": {
+        "title": "Step 02",
+        "description": "Fill in your details using our simple form",
+        "content": "We guide you through the process of writing each section, step-by-step, down to the smallest part. Our resume builder does all of the hard work. Remember, your work experiences and education are unique. Our online Resume Builder features will help you create a resume that reflects your greatest strengths."
+      },
+      "step3": {
+        "title": "Step 03",
+        "description": "Download and start applying for jobs today",
+        "content": "Create, save, and download your resume to apply for any job position in any organization. Our resume generator will make sure the layout stays intact. You can download your resume in PDF any time you desire. Make and download your resume with no compromises."
+      }
+}

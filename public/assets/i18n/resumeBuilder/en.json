@@ -1,0 +1,12 @@
+{
+    "subHeading":"RESUME CHECKER",
+    "heading":"Check your resume",
+    "uploadFile": "Upload a file",
+    "dragAndDropFile": "Drag and drop a file here, or click to select a file",
+    "acceptableFileTypes": "Acceptable file types: DOC, DOCX, PDF, HTM, RTF, TXT",
+    "uploadedFile": "Uploaded File",
+    "resultPercentage": "Result Percentage",
+    "createNewResume": "Create New Resume",
+    "continueEditing": "Continue Editing"
+  }
+  

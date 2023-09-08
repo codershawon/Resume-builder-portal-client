@@ -1,0 +1,48 @@
+{
+    "userDashboard": {
+      "name": "Perfil de usuario"
+    },
+    "adminDashboard": {
+      "name": "Tablero de administrador"
+    },
+    "allUsers": {
+      "name": "Todos los usuarios"
+    },
+    "usersInfo": {
+      "name": "Información de usuarios"
+    },
+    "blog": {
+      "name": "Blog"
+    },
+    "usersTemplates": {
+      "name": "Plantillas de usuarios"
+    },
+    "feedback": {
+      "name": "Comentarios"
+    },
+    "home": {
+      "name": "Inicio"
+    },
+    "myProfile": {
+      "name": "Mi perfil"
+    },
+    "myResumesAndLetters": {
+      "name": "Mis currículos y cartas"
+    },
+    "myTemplates": {
+      "name": "Mis plantillas"
+    },
+    "payment": {
+      "name": "Pago"
+    },
+    "paymentHistory": {
+      "name": "Historial de pagos"
+    },
+    "templates": {
+      "name": "Plantillas"
+    },
+    "logOut": {
+      "name": "Cerrar sesión"
+    }
+  }
+  
