@@ -18,6 +18,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 // // Import Swiper styles
 import 'swiper/css';
  import 'swiper/css/pagination';
+import { useTranslation } from "react-i18next";
 
 
 
@@ -30,6 +31,7 @@ const TestimonialSlider = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [testimonials, setTestimonials] = useState([]);
   const [showFullTextArray, setShowFullTextArray] = useState([]);
+  const { t } = useTranslation(["testimonialSlider"]);
 
   const toggleShowFullText = (index) => {
     const newArray = [...showFullTextArray];
@@ -92,16 +94,14 @@ const TestimonialSlider = () => {
         <div className="max-w-screen-xl mx-auto px-4 md:px-8">
           <div className=" text-center">
             <SectionTitle
-              subHeading={"What Our Users Say"}
-              heading={"Happy Client Feedbacks"}
+              subHeading={t("testimonialSlider:subHeading")}
+              heading={t("testimonialSlider:heading")}
             ></SectionTitle>
             <div>
               <Swiper
                  slidesPerView={1}
                  spaceBetween={30}
-                 pagination={{
-                   clickable: true,
-                 }}
+                 pagination={{ el: ".swiper-pagination", clickable: true }}
                  modules={[Pagination]}
                 
                  className="mySwiper swiperr"
@@ -163,10 +163,9 @@ const TestimonialSlider = () => {
                       </div>
                     </div>
                   </SwiperSlide>
+                  
                 ))}
               </Swiper>
-
-
             </div>
           </div>
         </div>
