@@ -3,7 +3,7 @@ import "./login.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { FaEyeSlash } from "react-icons/fa6";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import SignUp from "../Home/SignUp/SignUp";
 import Swal from "sweetalert2";

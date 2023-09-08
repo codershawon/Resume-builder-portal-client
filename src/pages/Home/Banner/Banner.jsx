@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Banner.css";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   const { t } = useTranslation(["banner"]);
@@ -37,7 +38,7 @@ const Banner = () => {
           <p className="text-gray-600 font-medium mb-2 hidden lg:block w-full lg:w-full">
           {t('banner:bannerDescription2')}
           </p>
-          <button className="my-btn">{t('banner:bannerCTA')}</button>
+          <Link to="/allResume"><button className="my-btn">{t('banner:bannerCTA')}</button></Link>
         </div>
 
         <div className="overflow-clip h-full">

@@ -101,9 +101,7 @@ const TestimonialSlider = () => {
               <Swiper
                  slidesPerView={1}
                  spaceBetween={30}
-                 pagination={{
-                   clickable: true,
-                 }}
+                 pagination={{ el: ".swiper-pagination", clickable: true }}
                  modules={[Pagination]}
                 
                  className="mySwiper swiperr"
@@ -165,10 +163,10 @@ const TestimonialSlider = () => {
                       </div>
                     </div>
                   </SwiperSlide>
+                  
                 ))}
+             <div className="swiper-pagination"></div>
               </Swiper>
-
-
             </div>
           </div>
         </div>

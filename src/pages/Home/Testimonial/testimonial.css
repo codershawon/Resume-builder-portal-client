@@ -1,12 +1,4 @@
-/* .swiper-client-msg {
-    padding: 2rem 2rem;
-    background-color: white;
-    position: relative;
-    border-radius: 1rem;
-    text-align: left;
-    
-    
-  } */
+
 
   .swiper-client-msg {
     padding: 2rem 2rem;
@@ -51,14 +43,6 @@
     margin-top: 3.2rem;
     gap: 12px;
 }
-.client-image{
-    
-   
-}
-
-.client-data-details{
-
-}
 
 .client-image img{
   max-width: 5rem;
@@ -67,10 +51,6 @@
   
 }
 
-/* .swiper {
-    width: 100%;
-    height: 100%;
-  } */
   .swiperr{
     width: 100%;
     height: 100%;
@@ -87,21 +67,17 @@
   }
   
  
-
   .swiper-pagination {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin-top: 27px; /* Adjust as needed */
-    width: 7rem;
-    
-  }
-  .swiper-container .swiper-pagination {
-    width: auto !important; /* Set to auto or the width you desire */
-    margin: 0 auto; /* Center the pagination horizontally */
+    position: relative;
+    width: 15rem !important;
+    bottom: 1rem;
   }
   
+  .swiper-pagination .swiper-pagination-bullet {
+    filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+  }
   
-  /* .swiper-slide img {
-    
-  } */
+  .swiper-pagination .swiper-pagination-bullet-active {
+    background: #197685;
+  }
+  
