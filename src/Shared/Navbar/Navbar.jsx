@@ -8,6 +8,7 @@ import { FaLanguage, FaUserCircle } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 
+//navbar
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const { t, i18n } = useTranslation(["navbar"]);
