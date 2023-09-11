@@ -339,6 +339,7 @@ const Profile = () => {
             </div>
           </dialog>
         </div>
+        
 
         <div className="w-[80%] lg:w-[58%] mx-10 overflow-hidden">
           
