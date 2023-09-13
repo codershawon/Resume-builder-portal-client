@@ -15,7 +15,7 @@ import React from "react";
 const Footer = () => {
   return (
     <footer
-      className="bg-slate-50  text-white "
+      className="bg-slate-50 font  text-white "
       style={{ backgroundImage: "url(https://i.ibb.co/K0XHbpd/35.png)" }}
     >
       <div className="">
