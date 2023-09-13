@@ -95,7 +95,7 @@ const Navbar = () => {
           >
             <Link to="/blogs">{t("blogs")}</Link>
 
-            }>
+        
        
           </li>
           <li
@@ -104,7 +104,7 @@ const Navbar = () => {
             }
           >
             <Link to="/contactUs">{t("contactUs")}</Link>
-            }>
+       
            
           </li>
           <li
@@ -114,7 +114,7 @@ const Navbar = () => {
           >
             <Link to="/coverletter">{t("coverLetter")}</Link>
 
-            }>
+      
            
           </li>
         </ul>
@@ -190,7 +190,7 @@ const Navbar = () => {
           <div>
             <div>
               <Link to="/login" className="btn my-btn">
-                Login
+              {t("login")}
               </Link>
             </div>
           </div>
