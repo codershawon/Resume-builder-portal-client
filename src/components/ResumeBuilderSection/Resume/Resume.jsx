@@ -6,10 +6,12 @@ import {
   Linkedin,
   MapPin,
   Paperclip,
-  Phone,
+  
 } from "react-feather";
 
+
 import styles from "./Resume.module.css";
+import { useAllTemplates } from "../../../Hooks/useAllTemplates";
 
 const Resume = forwardRef((props, ref) => {
   const information = props.information;
@@ -37,6 +39,9 @@ const Resume = forwardRef((props, ref) => {
     return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
   };
 
+
+
+
   const sectionDiv = {
     [sections.workExp]: (
       <div
@@ -44,11 +49,9 @@ const Resume = forwardRef((props, ref) => {
         draggable
         onDragOver={() => seTarget(info.workExp?.id)}
         onDragEnd={() => setSource(info.workExp?.id)}
-        className={`${styles.section} ${
-          info.workExp?.sectionTitle ? "" : styles.hidden
-        }`}
+        className={`${styles.section} ${info.workExp?.sectionTitle ? "" : styles.hidden
+          }`}
       >
-        <div className={styles.sectionTitle}>{info.workExp.sectionTitle}</div>
         <div className={styles.content}>
           {info.workExp?.details?.map((item) => (
             <div className={styles.item} key={item.title}>
@@ -107,11 +110,9 @@ const Resume = forwardRef((props, ref) => {
         draggable
         onDragOver={() => seTarget(info.project?.id)}
         onDragEnd={() => setSource(info.project?.id)}
-        className={`${styles.section} ${
-          info.project?.sectionTitle ? "" : styles.hidden
-        }`}
+        className={`${styles.section} ${info.project?.sectionTitle ? "" : styles.hidden
+          }`}
       >
-        <div className={styles.sectionTitle}>{info.project.sectionTitle}</div>
         <div className={styles.content}>
           {info.project?.details?.map((item) => (
             <div key={item.title} className={styles.item}>
@@ -163,13 +164,10 @@ const Resume = forwardRef((props, ref) => {
         draggable
         onDragOver={() => seTarget(info.education?.id)}
         onDragEnd={() => setSource(info.education?.id)}
-        className={`${styles.section} ${
-          info.education?.sectionTitle ? "" : styles.hidden
-        }`}
+        className={`${styles.section} ${info.education?.sectionTitle ? "" : styles.hidden
+          }`}
       >
-        <div className={styles.sectionTitle}>
-          {info.education?.sectionTitle}
-        </div>
+
         <div className={styles.content}>
           {info.education?.details?.map((item) => (
             <div key={item.title} className={styles.item}>
@@ -202,13 +200,10 @@ const Resume = forwardRef((props, ref) => {
         draggable
         onDragOver={() => seTarget(info.achievement?.id)}
         onDragEnd={() => setSource(info.achievement?.id)}
-        className={`${styles.section} ${
-          info.achievement?.sectionTitle ? "" : styles.hidden
-        }`}
+        className={`${styles.section} ${info.achievement?.sectionTitle ? "" : styles.hidden
+          }`}
       >
-        <div className={styles.sectionTitle}>
-          {info.achievement?.sectionTitle}
-        </div>
+
         <div className={styles.content}>
           {info.achievement?.points?.length > 0 ? (
             <ul className={styles.numbered}>
@@ -230,11 +225,10 @@ const Resume = forwardRef((props, ref) => {
         draggable
         onDragOver={() => seTarget(info.summary?.id)}
         onDragEnd={() => setSource(info.summary?.id)}
-        className={`${styles.section} ${
-          info.summary?.sectionTitle ? "" : styles.hidden
-        }`}
+        className={`${styles.section} ${info.summary?.sectionTitle ? "" : styles.hidden
+          }`}
       >
-        <div className={styles.sectionTitle}>{info.summary?.sectionTitle}</div>
+
         <div className={styles.content}>
           <p className={styles.overview}>{info.summary?.detail}</p>
         </div>
@@ -246,17 +240,18 @@ const Resume = forwardRef((props, ref) => {
         draggable
         onDragOver={() => seTarget(info.other?.id)}
         onDragEnd={() => setSource(info.other?.id)}
-        className={`${styles.section} ${
-          info.other?.sectionTitle ? "" : styles.hidden
-        }`}
+        className={`${styles.section} ${info.other?.sectionTitle ? "" : styles.hidden
+          }`}
       >
-        <div className={styles.sectionTitle}>{info.other?.sectionTitle}</div>
+        <div></div>
         <div className={styles.content}>
           <p className={styles.overview}>{info?.other?.detail}</p>
         </div>
       </div>
     ),
   };
+
+  const { [sections.summary]: summarySection, [sections.achievement]: achievementSection, [sections.other]: otherSection, [sections.education]: educationSection, [sections.project]: projectSection, [sections.workExp]: workExpSection } = sectionDiv;
 
   const swapSourceTarget = (source, target) => {
     if (!source || !target) return;
@@ -303,58 +298,18 @@ const Resume = forwardRef((props, ref) => {
     container.style.setProperty("--color", props.activeColor);
   }, [props.activeColor]);
 
+
+
+  const templates = useAllTemplates(info, sectionDiv, styles, columns, summarySection, achievementSection, workExpSection, projectSection, educationSection, otherSection, containerRef);
+
+
   return (
     <div ref={ref}>
-      <div ref={containerRef} className={styles.container}>
-        <div className={styles.header}>
-          <p className={styles.heading}>{info.basicInfo?.detail?.name}</p>
-          <p className={styles.subHeading}>{info.basicInfo?.detail?.title}</p>
-
-          <div className={styles.links}>
-            {info.basicInfo?.detail?.email ? (
-              <a className={styles.link} type="email">
-                <AtSign /> {info.basicInfo?.detail?.email}
-              </a>
-            ) : (
-              <span />
-            )}
-            {info.basicInfo?.detail?.phone ? (
-              <a className={styles.link}>
-                <Phone /> {info.basicInfo?.detail?.phone}
-              </a>
-            ) : (
-              <span />
-            )}
-            {info.basicInfo?.detail?.linkedin ? (
-              <a className={styles.link}>
-                <Linkedin /> {info.basicInfo?.detail?.linkedin}
-              </a>
-            ) : (
-              <span />
-            )}
-            {info.basicInfo?.detail?.github ? (
-              <a className={styles.link}>
-                <GitHub /> {info.basicInfo?.detail?.github}
-              </a>
-            ) : (
-              <span />
-            )}
-          </div>
-        </div>
-
-        <div className={styles.main}>
-          <div className={styles.col1}>
-            {columns[0].map((item) => sectionDiv[item])}
-          </div>
-          <div className={styles.col2}>
-            {columns[1].map((item) => sectionDiv[item])}
-          </div>
-        </div>
-      </div>
+        {templates}
     </div>
   );
 });
 
-Resume.displayName = 'Resume'; 
+Resume.displayName = 'Resume';
 
 export default Resume;
