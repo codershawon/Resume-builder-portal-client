@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Steps.css";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import FixedWidth from "./fixedwidth";
+
 import SectionTitle from "../Hooks/SectionTitle";
 
 const StepsSection = () => {

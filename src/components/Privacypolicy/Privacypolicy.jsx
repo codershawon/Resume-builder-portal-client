@@ -43,7 +43,7 @@ const Privacypolicy = () => {
 
       <div className="my-10 flex-grow px-6 md:px-20 lg:px-36">
         <div>
-          <h2 className="text-4xl font-samibold mb-3">Full Privacy Policy</h2>
+          <h2 className="text-4xl font-samibold mb-3">Privacy Policy</h2>
           <p>Last Updated: November 01, 2023</p>
         </div>
       </div>
@@ -278,7 +278,7 @@ const Privacypolicy = () => {
             our practices, please contact us at{" "}
             <Link
               to="/contactUs"
-              className="hover:underline font-bold text-[#197685]"
+              className="hover:underline  font-bold text-[#197685]"
             >
               Contact Us
             </Link>

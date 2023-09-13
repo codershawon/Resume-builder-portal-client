@@ -21,6 +21,7 @@ import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import Terms from "../components/Terms/Terms";
 import Privacypolicy from "../components/Privacypolicy/Privacypolicy";
 import UsersInfo from "../pages/Dashboard/UsersInfo";
+import WatchVideo from "../components/Watchvideo/WatchVideo";
 
 
 
@@ -68,6 +69,10 @@ export const router = createBrowserRouter([
       {
         path:"/privacyPolicy",
         element:<Privacypolicy />
+      },
+      {
+        path:"/watchVideo",
+        element:<WatchVideo />
       }
     ],
   },

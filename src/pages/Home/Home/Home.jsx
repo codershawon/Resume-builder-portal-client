@@ -5,6 +5,7 @@ import ResumeBuilder from "../../../components/ResumeCheck/ResumeBuilder";
 import StepsSection from "../../../components/StepsSection";
 import TestimonialSlider from "../Testimonial/TestimonialSlider";
 import Contact from "../../ContactUs/Contact";
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 const Home = () => {
   return (
