@@ -14,6 +14,7 @@ import Payment from "../components/Payments/Payment";
 import PrivateRoutes from "./PrivateRoutes";
 import Profile from "../pages/Dashboard/Profile";
 import ResumeBuilder from "../components/ResumeBuilderSection/ResumeBuilder/ResumeBuilder";
+import ResumeForm from "../components/ResumeCheck/ResumeForm";
 // import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
 import { createBrowserRouter } from "react-router-dom";
 import Feedback from "../pages/Feedback/Feedback";
@@ -21,7 +22,13 @@ import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import Terms from "../components/Terms/Terms";
 import Privacypolicy from "../components/Privacypolicy/Privacypolicy";
 import UsersInfo from "../pages/Dashboard/UsersInfo";
+
 import WatchVideo from "../components/Watchvideo/WatchVideo";
+import Blogs from "../pages/Blogs/Blogs";
+import BlogDetails from "../pages/Blogs/BlogDetails";
+import BlogPage from "../pages/Dashboard/Blog/BlogPage";
+
+
 
 
 
@@ -47,10 +54,19 @@ export const router = createBrowserRouter([
         path: "resumeBuilder/:id",
         element: <ResumeBuilder />,
       },
-      // {
-      //   path:"resume-form",
-      //   element:<ResumeForm/>,
-      // },
+      {
+        path:"/resume-form",
+        element:<ResumeForm/>,
+      },{
+        path:"/blogs",
+        element:<Blogs/>
+      },
+      {
+        path:"/blogDetails/:id",
+        element:<BlogDetails/>,
+        loader: ({ params }) =>
+          fetch(`https://resume-builder-portal-server.vercel.app/blogs/${params.id}`),
+      },
       {
         path: "/login",
         element: <Login />,
@@ -88,6 +104,10 @@ export const router = createBrowserRouter([
       {
         path:"adminHome",
         element:<AdminHome/>
+      },
+      {
+        path: "blog",
+        element: <BlogPage></BlogPage>,
       },
       {
         path: "allUsers",

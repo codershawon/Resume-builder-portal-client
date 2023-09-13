@@ -199,7 +199,7 @@ const BestResume = () => {
           </button>
         ) : (
           <button className="useButton">
-            Use this template  <span>Free</span>
+            Use this template  <span className="ml-2"> Free</span>
           </button>
         )}
       </Link>

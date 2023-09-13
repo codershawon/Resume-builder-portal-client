@@ -5,7 +5,7 @@ const UseSpinner = () => {
     return (
       <div
       className='
-      h-[70vh]
+      h-[100vh]
       flex 
       flex-col 
       justify-center 

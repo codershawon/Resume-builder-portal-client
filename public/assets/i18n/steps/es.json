@@ -1,0 +1,18 @@
+{
+    "step1": {
+        "heading":"Crea tu currículum ganador en tres simples pasos",
+        "subHeading":"CÓMO FUNCIONA",
+        "title": "Paso 01",
+        "description": "Tienes la libertad de elegir una plantilla",
+        "content": "¡Elige entre miles de plantillas diseñadas profesionalmente! No importa quién seas, nuestro Creador de Currículums lo formateará automáticamente en tus plantillas de currículum favoritas."
+      },
+      "step2": {
+        "title": "Paso 02",
+        "content": "Te guiamos a través del proceso de redacción de cada sección, paso a paso, hasta el más mínimo detalle. Nuestro constructor de currículums hace todo el trabajo duro. Recuerda, tus experiencias laborales y tu educación son únicas. Las características de nuestro Creador de Currículums en línea te ayudarán a crear un currículum que refleje tus mayores fortalezas."
+      },
+      "step3": {
+        "title": "Paso 03",
+        "description": "¡Descarga y comienza a solicitar empleos hoy mismo!",
+        "content": "Crea, guarda y descarga tu currículum para solicitar cualquier puesto en cualquier organización. Nuestro generador de currículums se asegurará de que el diseño se mantenga intacto. Puedes descargar tu currículum en PDF en cualquier momento. Crea y descarga tu currículum sin compromisos."
+      }
+}
