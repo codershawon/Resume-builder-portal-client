@@ -3,7 +3,7 @@ import { FaEdit, FaUpload } from "react-icons/fa";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import ReactPaginate from "react-paginate";
-import BestResume from "../Home/BestResume/BestResume";
+// import BestResume from "../Home/BestResume/BestResume";
 import ProfileContain from "../../components/userProfile/ProfileContain";
 import { Link } from "react-router-dom";
 console.log(import.meta.env.VITE_IMGBB_KEY);

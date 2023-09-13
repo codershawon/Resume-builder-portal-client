@@ -65,21 +65,20 @@ const MyTemplates = () => {
       <SectionTitle heading="My Templates" />
 
       <div className="overflow-x-auto w-full">
-        <table className="table table-zebra w-full shadow-lg">
-          <thead className="text-black text-md">
+        <table className="table table-zebra w-full shadow-l">
+          <thead className="text-black text-md bg-white">
             <tr>
               <th className="px-4 py-2">#</th>
-              <th className="px-4 py-2">Template Image</th>
-              {/* <th className="px-4 py-2">Class Name</th> */}
+              <th className="px-4 py-">Template Image</th>
               <th className="px-4 py-2">Price</th>
               <th className="px-4 py-2">Action</th>
             </tr>
           </thead>
           <tbody>
             {currentPageItems.map((resume, index) => (
-              <tr key={resume._id}>
-                <td className="px-4 py-2">{offset + index + 1}</td>
-                <td className="px-4 py-2">
+              <tr key={resume._id} >
+                <td className="px-4 py-2 bg-white">{offset + index + 1}</td>
+                <td className="px-4 py-2 bg-white">
                   <div className="avatar">
                     <div className="mask mask-squircle w-12 h-12">
                       <img src={resume.template} alt="Avatar" />
@@ -87,8 +86,8 @@ const MyTemplates = () => {
                   </div>
                 </td>
                 {/* <td className="px-4 py-2">{item.template}</td> */}
-                <td className="px-4 py-2">${resume.price}</td>
-                <td className="px-4 py-2">
+                <td className="px-4 py-2 bg-white">${resume.price}</td>
+                <td className="px-4 py-2 bg-white">
                   <button
                     onClick={() => handleDelete(resume)}
                     className="btn btn-ghost bg-red-600 text-white"
