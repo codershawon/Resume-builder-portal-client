@@ -25,18 +25,6 @@ const Privacypolicy = () => {
               subHeading={"Understanding Your Rights, Data Security, and More"}
               heading={"Navigating Our Privacy Policy"}
             ></SectionTitle>
-      {/* <div>
-        <div className=" mt-16 mb-20 text-center text-gray-700 ">
-          <h2 className="text-3xl lg:text-5xl font-semibold border-b-2 w-72 lg:w-96 border-gray-800 pb-2 mx-auto">
-            Privacy Policy
-          </h2>
-          <p className="mx-5 mt-3">
-            Published August 1, 2023. Effective as of November 1, 2023.{" "}
-            <br className="hidden md:block" />
-            These General Terms of Use replace and supersede all prior versions.
-          </p>
-        </div>
-      </div> */}
 
       <div className="my-10 px-6 md:px-20 lg:px-36 text-justify">
         <p className=" mb-1">

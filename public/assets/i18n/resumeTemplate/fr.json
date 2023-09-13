@@ -1,0 +1,25 @@
+{
+    "header": {
+      "title1": "CV gratuits",
+      "title2": "à télécharger en 2023",
+      "description": "Parcourez des dizaines de modèles de CV gratuits, populaires et éprouvés. Ajoutez des compétences professionnelles pré-écrites, personnalisez votre design et téléchargez-le dans le format dont vous avez besoin."
+    },
+    "premiumTemplates": {
+        "title1": "Professionnels",
+        "title2":"Modèles de CV",
+        "description": "Les modèles professionnels sont destinés aux entreprises. Les candidats postulant à des postes de direction dans les secteurs de la construction, des ventes, de la technologie de l'information et de l'industrie pharmaceutique trouveront une excellente sélection de modèles de CV premium et gratuits dans cette collection.",
+        "useTemplate": "Utiliser ce modèle"
+      },
+      "freeResume": {
+        "title1": "Modèles",
+        "title2":"de CV gratuits",
+        "description": "Les modèles gratuits sont une affaire sérieuse. Les candidats postulant à des postes de direction dans les secteurs de la construction, des ventes, de la technologie de l'information et de l'industrie pharmaceutique trouveront une excellente sélection de modèles de CV premium et gratuits dans cette collection.",
+        "useTemplate": "Utiliser ce modèle",
+        "seeMoreTemplates": "Voir plus de modèles"
+      },
+      "aboutResumeBuilder": {
+        "title": "Générateur de CV",
+        "description": "Dites adieu aux formats de colonnes défectueux, à l'espace de texte restrictif pour votre historique professionnel et vos réalisations, ou aux téléchargements compliqués. Nous vous aidons à franchir la ligne d'arrivée de votre CV avec un outil premium couvrant tous les aspects mentionnés ci-dessus. Notre générateur de CV propose des dizaines de modèles de CV personnalisables pour vous aider à personnaliser vos candidatures ; il suggère du contenu approuvé par les recruteurs pour des milliers de postes différents afin de vous accompagner à chaque étape de votre carrière et met automatiquement en forme tout le contenu de votre CV pour vous."
+      }
+
+  }

@@ -1,3 +1,4 @@
+
 import {
   FaAddressCard,
   FaDribbble,
@@ -14,12 +15,12 @@ import React from "react";
 const Footer = () => {
   return (
     <footer
-      className="bg-[#03112d]  text-white "
+      className="bg-slate-50  text-white "
       style={{ backgroundImage: "url(https://i.ibb.co/K0XHbpd/35.png)" }}
     >
       <div className="">
-        <div className="pt-28  ps-10 md:ps-24 lg:ps-0 pb-32 md:max-w-[1400px]  mx-auto">
-          <div className="flex-wrap lg:grid  md:grid-col-4 lg:grid-cols-4 gap-6 justify-items-center">
+        <div className="pt-28  ps-10 md:ps-24 lg:ps-0 pb-32 w-full md:max-w-[1400px]  mx-auto">
+          <div className="flex-wrap lg:grid  md:grid-col-4 lg:grid-cols-4 gap-6 justify-items-center text-black font-normal">
             <div className="">
               <div className="gap-4">
           <img className="w-[240px] " src="https://i.ibb.co/zhYJKFk/resume-cv-cover-letter-transparent.png" alt="" />
@@ -32,25 +33,25 @@ const Footer = () => {
           <span className="flex gap-2">
                   <Link
                     to=""
-                    className="  shadow-lg font-normal  bg-[#197685] bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-lg outline-none focus:outline-none mr-2 hover:bg-white hover:text-black"
+                    className="  shadow-lg font-normal  bg-[#197685] bg-opacity-50  flex h-10 w-10 items-center justify-center align-center rounded-lg outline-none focus:outline-none mr-2 hover:bg-white hover:text-black"
                   >
                     <FaFacebook></FaFacebook>
                   </Link>
                   <Link
                     to=""
-                    className="  shadow-lg font-normal  bg-[#197685] bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-lg outline-none focus:outline-none mr-2 hover:bg-white hover:text-black"
+                    className="  shadow-lg font-normal  bg-[#197685] bg-opacity-50  flex h-10 w-10 items-center justify-center align-center rounded-lg outline-none focus:outline-none mr-2 hover:bg-white hover:text-black"
                   >
                     <FaGithub></FaGithub>
                   </Link>
                   <Link
                     to=""
-                    className="  shadow-lg font-normal  bg-[#197685] bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-lg outline-none focus:outline-none mr-2 hover:bg-white hover:text-black"
+                    className="  shadow-lg font-normal  bg-[#197685] bg-opacity-50  flex h-10 w-10 items-center justify-center align-center rounded-lg outline-none focus:outline-none mr-2 hover:bg-white hover:text-black"
                   >
                     <FaDribbble></FaDribbble>
                   </Link>
                   <Link
                     to=""
-                    className="  shadow-lg font-normal  bg-[#197685] bg-opacity-30  flex h-10 w-10 items-center justify-center align-center rounded-lg outline-none focus:outline-none mr-2 hover:bg-white hover:text-black"
+                    className="shadow-lg font-normal  bg-[#197685] bg-opacity-50  flex h-10 w-10 items-center justify-center align-center rounded-lg outline-none focus:outline-none mr-2 hover:bg-white hover:text-black"
                   >
                     <FaTwitter></FaTwitter>
                   </Link>
@@ -112,8 +113,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="p-4 bg-[#197685] bg-opacity-20 justify-center items-center md:flex md:justify-between md:items-end">
-        <div className="md:text-start ms-10 md:ms-20">
+      <div className="p-4 bg-[#197685] bg-opacity-20 justify-center items-center md:flex md:justify-between md:items-end text-black font-normal">
+        <div className="ml-60">
           <p>Copyright &copy; 2023 - Resume Genius</p>
         </div>
         <div className="md:me-20">

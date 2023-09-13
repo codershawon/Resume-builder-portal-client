@@ -1,0 +1,13 @@
+{
+    "subHeading": "VÉRIFICATEUR DE CV",
+    "heading": "Vérifiez votre CV",
+    "uploadFile": "Télécharger un fichier",
+    "dragAndDropFile": "Glissez-déposez un fichier ici ou cliquez pour en sélectionner un",
+    "acceptableFileTypes": "Types de fichiers acceptés : DOC, DOCX, PDF, HTM, RTF, TXT",
+    "uploadedFile": "Fichier téléchargé",
+    "resultPercentage": "Pourcentage de résultat",
+    "createNewResume": "Créer un nouveau CV",
+    "continueEditing": "Continuer l'édition"
+}
+
+  
