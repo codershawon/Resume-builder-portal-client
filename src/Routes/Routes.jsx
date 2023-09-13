@@ -25,6 +25,7 @@ import UsersInfo from "../pages/Dashboard/UsersInfo";
 import Blogs from "../pages/Blogs/Blogs";
 import BlogDetails from "../pages/Blogs/BlogDetails";
 import BlogPage from "../pages/Dashboard/Blog/BlogPage";
+import ChatSystem from "../pages/VideoCall/ChatSystem";
 
 
 
@@ -84,6 +85,10 @@ export const router = createBrowserRouter([
         element:<Privacypolicy />
       }
     ],
+  },
+  {
+    path: "/chatSystem",
+    element: <ChatSystem/>
   },
   {
     path: "dashboard",

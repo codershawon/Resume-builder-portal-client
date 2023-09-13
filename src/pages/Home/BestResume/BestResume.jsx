@@ -9,11 +9,11 @@ import { useEffect, useState } from "react";
 import { Autoplay } from "swiper/modules";
 import SectionTitle from "../../../Hooks/SectionTitle";
 import Swal from "sweetalert2";
+import useAuth from "../../../Hooks/useAuth";
 import useCart from "../../../Hooks/useCart";
-import { useTranslation } from "react-i18next";
 
 const BestResume = () => {
-  const { t } = useTranslation(["bestResume"]);
+  const { user } = useAuth();
   const [, refetch] = useCart();
 
   const navigate = useNavigate();
@@ -90,11 +90,12 @@ const BestResume = () => {
   return (
     <div className="rgContainer mt-28">
       <SectionTitle
-
-        subHeading=  {t("bestResume:subHeading")}
-        heading=  {t("bestResume:heading")}
-      ></SectionTitle>
-
+        subHeading={"Our Host template"}
+        heading={"Our best resume templates available"}></SectionTitle>
+      {/* <div className='text-center font-bold text-3xl sm:text-5xl mt-10'>
+                <h2>Our best resume</h2>
+                <h2>templates available</h2>
+            </div> */}
 
       <div className="text-center my-8">
         <button
@@ -104,10 +105,8 @@ const BestResume = () => {
           }}
           className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold ${
             activeButton === "all" ? "active-button" : ""
-
-          }`}
-        >
-          {t("bestResume:all")}
+          }`}>
+          All
         </button>
         <button
           onClick={() => {
@@ -116,10 +115,8 @@ const BestResume = () => {
           }}
           className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${
             activeButton === "photo" ? "active-button" : ""
-
-          }`}
-        >
-         {t("bestResume:withPhoto")}
+          }`}>
+          With Photo
         </button>
         <button
           onClick={() => {
@@ -128,10 +125,8 @@ const BestResume = () => {
           }}
           className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${
             activeButton === "noPhoto" ? "active-button" : ""
-
-          }`}
-        >
-          {t("bestResume:noPhoto")}
+          }`}>
+          No Photo
         </button>
       </div>
 
@@ -180,32 +175,6 @@ const BestResume = () => {
             </SwiperSlide>
           ))} */}
           {allResume.map((resume) => (
-  <SwiperSlide className="" key={resume._id}>
-    <div className="slider-content">
-      <img className="" src={resume.template} alt="resume" />
-      <Link
-        to={
-          parseFloat(resume.price) === 0
-            ? `/resumeBuilder/${resume._id}`
-            : `/dashboard/my-template/${resume._id}`
-        }
-      >
-        {/* Render the button conditionally */}
-        {parseFloat(resume.price) > 0 ? (
-          <button onClick={() => handleAddToCart(resume)} className="useButton">
-            {t("bestResume:useThisTemplate")}
-            <span className="ml-2 text-sm font-semibold">${parseFloat(resume.price)}</span>
-          </button>
-        ) : (
-          <button className="useButton">
-             {t("bestResume:useThisTemplate")}  <span> {t("bestResume:free")}</span>
-          </button>
-        )}
-      </Link>
-    </div>
-  </SwiperSlide>
-))}
-
             <SwiperSlide className="" key={resume._id}>
               <div className="slider-content">
                 <img className="" src={resume.template} alt="resume" />
@@ -227,7 +196,7 @@ const BestResume = () => {
                     </button>
                   ) : (
                     <button className="useButton">
-                      Use this template <span>Free</span>
+                      Use this template <span className="ml-2"> Free</span>
                     </button>
                   )}
                 </Link>

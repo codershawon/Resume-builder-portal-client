@@ -94,8 +94,6 @@ const Navbar = () => {
             }
           >
             <Link to="/blogs">{t("blogs")}</Link>
-
-            }>
        
           </li>
           <li
@@ -104,7 +102,6 @@ const Navbar = () => {
             }
           >
             <Link to="/contactUs">{t("contactUs")}</Link>
-            }>
            
           </li>
           <li
@@ -113,8 +110,6 @@ const Navbar = () => {
             }
           >
             <Link to="/coverletter">{t("coverLetter")}</Link>
-
-            }>
            
           </li>
         </ul>
