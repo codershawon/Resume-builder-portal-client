@@ -8,6 +8,7 @@
     "dashboard": "Panel de control",
     "profile": "Perfil",
     "settings": "Configuración",
-    "logout": "Cerrar sesión"
+    "logout": "Cerrar sesión",
+    "login":"acceso"
   }
   

@@ -67,10 +67,9 @@ const Dashboard = () => {
     { name: `${t('usersTemplates.name')}`, link: "/", icon: HiTemplate },
     { name: `${t('feedback.name')}`, link: "/dashboard/feedback", icon: FcFeedback },
     { name: `${t('home.name')}`, link: "/", icon: RiHome4Line, margin: true },
-    { name: `${t('myProfile.name')}`, link: `/dashboard/profile`, icon: HiUser },
   ];
   const users = [
-    { name: `${t('userDashboard.name')}`, link: "/dashboard", icon: MdOutlineDashboard },
+    { name: `${t('userDashboard.name')}`, link: "/dashboard/profile", icon: MdOutlineDashboard },
     { name: `${t('myResumesAndLetters.name')}`, link: "/", icon: RiBookLine },
     { name: `${t('myTemplates.name')}`, link: "/dashboard/my-template/:id", icon: HiTemplate },
     { name: `${t('feedback.name')}`, link: "/dashboard/feedback", icon: FcFeedback },
@@ -78,8 +77,6 @@ const Dashboard = () => {
     { name: `${t('paymentHistory.name')}`, link: "/", icon: FaHistory },
     { name: `${t('templates.name')}`, link: "/", icon: RiContactsBook2Line, margin: true },
     { name: `${t('home.name')}`, link: "/", icon: RiHome4Line, margin: true },
-     //{ name: "My Profile", link: `/dashboard/profile/${user?.email}`, icon: HiUser },
-     { name: `${t('myProfile.name')}`, link: `/dashboard/profile`, icon: HiUser },
   ];
 
   // const user = true;

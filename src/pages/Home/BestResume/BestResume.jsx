@@ -41,6 +41,7 @@ const BestResume = () => {
     setResume(filteredResume);
   };
 
+
   const handleAddToCart = (resume) => {
     // console.log(resume);
     if (user && user.email) {
@@ -91,7 +92,8 @@ const BestResume = () => {
     <div className="rgContainer mt-28">
       <SectionTitle
         subHeading={"Our Host template"}
-        heading={"Our best resume templates available"}></SectionTitle>
+        heading={"Our best resume templates available"}
+      ></SectionTitle>
       {/* <div className='text-center font-bold text-3xl sm:text-5xl mt-10'>
                 <h2>Our best resume</h2>
                 <h2>templates available</h2>
@@ -105,7 +107,8 @@ const BestResume = () => {
           }}
           className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold ${
             activeButton === "all" ? "active-button" : ""
-          }`}>
+          }`}
+        >
           All
         </button>
         <button
@@ -115,7 +118,8 @@ const BestResume = () => {
           }}
           className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${
             activeButton === "photo" ? "active-button" : ""
-          }`}>
+          }`}
+        >
           With Photo
         </button>
         <button
@@ -125,7 +129,8 @@ const BestResume = () => {
           }}
           className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${
             activeButton === "noPhoto" ? "active-button" : ""
-          }`}>
+          }`}
+        >
           No Photo
         </button>
       </div>
@@ -163,7 +168,8 @@ const BestResume = () => {
               spaceBetween: 20,
             },
           }}
-          className="mySwiper">
+          className="mySwiper"
+        >
           {/* {allResume.map((resume, i) => (
             <SwiperSlide className="" key={i}>
               <div className="slider-content">
@@ -175,34 +181,31 @@ const BestResume = () => {
             </SwiperSlide>
           ))} */}
           {allResume.map((resume) => (
-            <SwiperSlide className="" key={resume._id}>
-              <div className="slider-content">
-                <img className="" src={resume.template} alt="resume" />
-                <Link
-                  to={
-                    parseFloat(resume.price) === 0
-                      ? `/resumeBuilder/${resume._id}`
-                      : `/dashboard/my-template/${resume._id}`
-                  }>
-                  {/* Render the button conditionally */}
-                  {parseFloat(resume.price) > 0 ? (
-                    <button
-                      onClick={() => handleAddToCart(resume)}
-                      className="useButton">
-                      Use this template
-                      <span className="ml-2 text-sm font-semibold">
-                        ${parseFloat(resume.price)}
-                      </span>
-                    </button>
-                  ) : (
-                    <button className="useButton">
-                      Use this template <span className="ml-2"> Free</span>
-                    </button>
-                  )}
-                </Link>
-              </div>
-            </SwiperSlide>
-          ))}
+  <SwiperSlide className="" key={resume._id}>
+    <div className="slider-content">
+      <img className="" src={resume.template} alt="resume" />
+      <Link
+        to={
+          parseFloat(resume.price) === 0
+            ? `/resumeBuilder/${resume._id}`
+            : `/dashboard/my-template/${resume._id}`
+        }
+      >
+        {/* Render the button conditionally */}
+        {parseFloat(resume.price) > 0 ? (
+          <button onClick={() => handleAddToCart(resume)} className="useButton">
+            Use this template
+            <span className="ml-2 text-sm font-semibold">${parseFloat(resume.price)}</span>
+          </button>
+        ) : (
+          <button className="useButton">
+            Use this template  <span className="ml-2"> Free</span>
+          </button>
+        )}
+      </Link>
+    </div>
+  </SwiperSlide>
+))}
         </Swiper>
       </>
     </div>
@@ -210,3 +213,4 @@ const BestResume = () => {
 };
 
 export default BestResume;
+
