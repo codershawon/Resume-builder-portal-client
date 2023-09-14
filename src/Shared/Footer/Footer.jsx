@@ -113,8 +113,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="p-4 bg-[#197685] bg-opacity-20 justify-center items-center md:flex md:justify-between md:items-end text-black font-normal">
-        <div className="ml-60">
+      <div className="p-4 bg-[#197685] bg-opacity-20 justify-center items-center sm:flex sm:justify-between  text-black font-normal">
+        <div className=" text-center md:ps-24 lg:ps-12">
           <p>Copyright &copy; 2023 - Resume Genius</p>
         </div>
         <div className="md:me-20">
@@ -122,7 +122,7 @@ const Footer = () => {
             <Link className="hover:text-[#0dcaf0]" to="/terms">Terms </Link>
             <Link className="hover:text-[#0dcaf0]" to="/privacyPolicy">Privacy 
             </Link>
-            <Link className="hover:text-[#0dcaf0]" to="/contactUs">Support</Link>
+            <Link className="hover:text-[#0dcaf0]" o="/contactUs">Support</Link>
           </div>
         </div>
       </div>
