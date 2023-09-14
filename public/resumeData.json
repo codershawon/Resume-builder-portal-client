@@ -1,0 +1,80 @@
+[
+    {
+        "name" : "template1",
+        "type" :"noPhoto",
+        "price": 0,
+        "image": "https://i.ibb.co/pnbYQHm/de9a0816b40a701f4d625bef109edc76.jpg"
+    },
+    {
+        "name" : "template3",
+        "type" :"noPhoto",
+        "price": 0,
+        "image": "https://i.ibb.co/rcwPSJj/cascade-3-duo-blue-navy-21-3x.png"
+    },
+    {
+        "name" : "template4",
+        "type" :"noPhoto",
+        "price": 0,
+        "image": "https://i.ibb.co/QbjWDFG/noimg.png"
+    },
+    {
+        "name" : "template5",
+        "type" :"noPhoto",
+        "price": 0,
+        "image": "https://i.ibb.co/yP9dqnh/Word-template-3-768x994.jpg"
+    },
+    {
+        "name" : "template6",
+        "type" :"noPhoto",
+        "price": 0,
+        "image": "https://i.ibb.co/Q67Dx1c/best-online-resume-builders-zety-us-12.jpg"
+    },
+    {
+        "name" : "template7",
+        "type" :"photo",
+        "price": 15,
+        "image": "https://i.ibb.co/8zLt24p/1131w-NXs7x-Sf0-K8-I.webp"
+    },
+    {
+        "name" : "template8",
+        "type" :"photo",
+        "price": 12,
+        "image": "https://i.ibb.co/fvvJQ6P/student-resume-example.jpg"
+    },
+    {
+        "name" : "template9",
+        "type" :"photo",
+        "price": 12,
+        "image": "https://i.ibb.co/C7pmhNf/best-cv-resume-templates-design-3636812b19c6d153d0f493057323ea84-screen.jpg"
+    },
+    {
+        "name" : "template10",
+        "type" :"noPhoto",
+        "price": 0,
+        "image": "https://i.ibb.co/SymhSd6/bookkeeper-whitespace-resume-template.png"
+    },
+    {
+        "name" : "template11",
+        "type" :"noPhoto",
+        "price": 0,
+        "image": "https://i.ibb.co/bmqmc7y/paralegal-professional-resume-template.png"
+    },
+    {
+        "name" : "template12",
+        "type" :"noPhoto",
+        "price": 0 ,
+        "image": "https://i.ibb.co/myg0LbF/tax-preparer-executive-resume-template.png"
+    },
+    {
+        "name" : "template13",
+        "type" :"photo",
+        "price": 0,
+        "image": "https://i.ibb.co/YR8SKf3/professional-resume-template.jpg"
+    },
+    {
+        "name" : "template14",
+        "type" :"photo",
+        "price": 0,
+        "image": "https://i.ibb.co/jTxkybx/Resume-CV-Format-Download-3-1-min.jpg"
+    }
+]
