@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import ResumeBuilder from "../../../components/ResumeCheck/ResumeBuilder";
 import StepsSection from "../../../components/StepsSection";
 import TestimonialSlider from "../Testimonial/TestimonialSlider";
-import Contact from "../../ContactUs/Contact";
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 const Home = () => {
   return (
@@ -15,6 +15,7 @@ const Home = () => {
       {/* Banner section */}
       <Banner />
       <ResumeBuilder />
+      {/* <ResumebuilderCheck/> */}
      
       {/* <Testimonial/> */}
       <StepsSection />
@@ -23,7 +24,12 @@ const Home = () => {
       {/* Testimonial slider start here */}
       <TestimonialSlider />
       {/* kdkfdk */}
-      
+      <MessengerCustomerChat
+        pageId="113136445219095"
+        appId="837323987759806"
+      />
+     
+    
     </div>
   );
 };

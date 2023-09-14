@@ -2,19 +2,21 @@ import React, { useState } from "react";
 import "./Steps.css";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import FixedWidth from "./fixedwidth";
+
 import SectionTitle from "../Hooks/SectionTitle";
+import { useTranslation } from "react-i18next";
 
 const StepsSection = () => {
+  const { t } = useTranslation(["steps"]);
   return (
    
       <div className="rgContainer bg-[#fff] mt-28">
         {/* SubTile Section Start */}
         <SectionTitle
-          subHeading={"HOW IT WORKS"}
-          heading={
-            " Build your job-winning resume in three simple steps"
-          }></SectionTitle>
+          subHeading= {t("steps:step1.subHeading")}
+          heading=
+            {t("steps:step1.heading")}
+          ></SectionTitle>
         {/* SubTile Section End */}
 
         {/* Step Card Sections Start */}
@@ -32,9 +34,9 @@ const StepsSection = () => {
                       />
                     </div>
                     <div className="text-gray-700  text-colors">
-                      <h2 className="font-bold text-2xl ">Step 01</h2>
+                      <h2 className="font-bold text-2xl ">{t("steps:step1.title")}</h2>
                       <p className="text-base mt-2">
-                        You are given a liberty to choose a template
+                      {t("steps:step1.description")}
                       </p>
                     </div>
                   </div>
@@ -52,9 +54,9 @@ const StepsSection = () => {
                       />
                     </div>
                     <div className="text-gray-700  text-colors">
-                      <h2 className="font-bold text-2xl ">Step 02</h2>
+                      <h2 className="font-bold text-2xl ">{t("steps:step2.title")}</h2>
                       <p className="text-base mt-2">
-                        Fill in your details using our simple form.
+                      {t("steps:step2.description")}
                       </p>
                     </div>
                   </div>
@@ -72,9 +74,9 @@ const StepsSection = () => {
                       />
                     </div>
                     <div className="text-gray-700  text-colors">
-                      <h2 className="font-bold text-2xl ">Step 03</h2>
+                      <h2 className="font-bold text-2xl ">{t("steps:step3.title")}</h2>
                       <p className="text-base mt-2">
-                        Download & start applying for jobs today!
+                      {t("steps:step3.description")}
                       </p>
                     </div>
                   </div>
@@ -97,12 +99,10 @@ const StepsSection = () => {
                     01
                   </p>
                   <h3 className="text-2xl lg:text-3xl font-bold mb-5">
-                    You are given a liberty to choose a template
+                  {t("steps:step1.description")}
                   </h3>
                   <p>
-                    Choose from thousands of professionally designed templates!
-                    No matter who you are, our Resume Builder will automatically
-                    format them onto your favorite resume templates.
+                  {t("steps:step1.content")}
                   </p>
                 </div>
                 <div className="">
@@ -134,15 +134,10 @@ const StepsSection = () => {
                     02
                   </p>
                   <h3 className="text-2xl lg:text-3xl font-bold mb-5">
-                    Fill in your details using our simple form.
+                  {t("steps:step2.description")}
                   </h3>
                   <p>
-                    We guide you through the process of writing each section,
-                    step-by-step, down to the smallest part. Our resume builder
-                    does all of the hard work. Remember, your work experiences
-                    and education are unique. Our online Resume Builder features
-                    will help you create a resume that reflects your greatest
-                    strengths.
+                  {t("steps:step2.content")}
                   </p>
                 </div>
               </section>
@@ -161,14 +156,10 @@ const StepsSection = () => {
                     03
                   </p>
                   <h3 className="text-2xl lg:text-3xl font-bold mb-5">
-                    Save and download your design on demand with one click
+                  {t("steps:step3.description")}
                   </h3>
                   <p>
-                    Create, save, and download your resume to apply for any job
-                    position in any organization. Our resume generator will make
-                    sure the layout stays intact. You can download your resume
-                    in PDF any time you desire. Make and download your resume
-                    with no compromises.
+                  {t("steps:step3.content")}
                   </p>
                 </div>
                 <div className="">

@@ -5,14 +5,14 @@ const PremiumTemplateUsers = () => {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:5000/usersHistory")
+        fetch("https://resume-builder-portal-server.vercel.app/usersHistory")
             .then((res) => res.json())
             .then((data) => {
                 setUsers(data);
             })
             .catch((error) => console.error(error));
     }, []);
-    // console.log(users);
+    console.log(users);
 
     const uniqueUserEmails = new Set(users.map(user => user.email));
     const totalUniqueUsers = uniqueUserEmails.size;

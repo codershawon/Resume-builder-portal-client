@@ -1,0 +1,19 @@
+{
+    "step1": {
+        "heading":"Créez votre CV gagnant en trois étapes simples",
+        "subHeading":"COMMENT ÇA MARCHE",
+        "title": "Étape 01",
+        "description": "Vous avez la liberté de choisir un modèle",
+        "content": "Choisissez parmi des milliers de modèles conçus par des professionnels ! Peu importe qui vous êtes, notre créateur de CV les formatera automatiquement sur vos modèles de CV préférés."
+      },
+      "step2": {
+        "title": "Étape 02",
+        "description": "Remplissez vos coordonnées à l'aide de notre formulaire simple",
+        "content": "Nous vous guidons tout au long du processus d'écriture de chaque section, étape par étape, jusqu'au moindre détail. Notre constructeur de CV fait tout le travail difficile. N'oubliez pas, vos expériences de travail et votre éducation sont uniques. Les fonctionnalités de notre constructeur de CV en ligne vous aideront à créer un CV qui reflète vos plus grandes forces."
+      },
+      "step3": {
+        "title": "Étape 03",
+        "description": "Téléchargez et commencez à postuler pour des emplois dès aujourd'hui",
+        "content": "Créez, enregistrez et téléchargez votre CV pour postuler à n'importe quel poste dans n'importe quelle organisation. Notre générateur de CV garantira que la mise en page reste intacte. Vous pouvez télécharger votre CV en PDF à tout moment. Créez et téléchargez votre CV sans compromis."
+      }
+}

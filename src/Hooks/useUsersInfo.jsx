@@ -5,7 +5,7 @@ const useUsersInfo = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://resume-builder-portal-server.vercel.app/users')
             .then((res) => res.json())
             .then((data) => {
                 setUsers(data);
