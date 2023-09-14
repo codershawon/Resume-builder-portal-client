@@ -27,6 +27,7 @@ import WatchVideo from "../components/Watchvideo/WatchVideo";
 import Blogs from "../pages/Blogs/Blogs";
 import BlogDetails from "../pages/Blogs/BlogDetails";
 import BlogPage from "../pages/Dashboard/Blog/BlogPage";
+import ChatSystem from "../pages/VideoCall/ChatSystem";
 
 
 
@@ -91,6 +92,10 @@ export const router = createBrowserRouter([
         element:<WatchVideo />
       }
     ],
+  },
+  {
+    path: "/chatSystem",
+    element: <ChatSystem/>
   },
   {
     path: "dashboard",

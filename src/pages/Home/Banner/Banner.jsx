@@ -23,7 +23,7 @@ const Banner = () => {
   }, [images.length]);
 
   return (
-    <div className="h-screen max-w-[1400px] mx-auto">
+    <div className="lg:h-screen max-w-[1400px] mx-auto">
      <div className="banner-section overflow-hidden grid md:grid-cols-1 lg:grid-cols-2 text-center md:text-left lg:items-start mt-10 lg:mt-0 ">
         <div className="banner-content ">
           <h1 className="text-sm uppercase font-semibold text-gray-500 mb-2 lg:pt-36">
