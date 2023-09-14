@@ -116,7 +116,7 @@ const TestimonialSlider = () => {
                   <SwiperSlide key={idx}>
                     <div
                       className={`swiper-client-msg shadow-md shadow-[#8bb7be] w-[100%] h-[${
-                        showFullTextArray[idx] ? "auto" : "150px"
+                        showFullTextArray[idx] ? "auto" : "350px"
                       }]`}
                     >
                       <FaQuoteLeft className="quoteLeft"></FaQuoteLeft>
@@ -124,8 +124,8 @@ const TestimonialSlider = () => {
                       <p className="text-gray-600 md:text-lg font-medium text-base">
                         {showFullTextArray[idx]
                           ? item?.reviewText
-                          : item?.reviewText.slice(0, 108)}
-                        {item?.reviewText.length > 108 &&
+                          : item?.reviewText.slice(0, 208)}
+                        {item?.reviewText.length > 208 &&
                           !showFullTextArray[idx] && (
                             <span>
                               <button

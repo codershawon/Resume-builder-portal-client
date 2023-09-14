@@ -6,7 +6,7 @@ import ReactToPrint from "react-to-print";
 import ResumeEditor from "../ResumeEditor/ResumeEditor";
 import Resume from "../Resume/Resume";
 
-const ResumeBody = () => {
+const ResumeBody = ({name}) => {
 
   const colors = ["#239ce2", "#48bb78", "#0bc5ea", "#a0aec0", "#ed8936"];
   const sections = {
@@ -14,6 +14,7 @@ const ResumeBody = () => {
     workExp: "Work Experience",
     project: "Projects",
     education: "Education",
+    skills: "Skills",
     achievement: "Achievements",
     summary: "Summary",
     other: "Other",
@@ -26,6 +27,11 @@ const ResumeBody = () => {
     [sections.basicInfo]: {
       id: sections.basicInfo,
       sectionTitle: sections.basicInfo,
+      detail: {},
+    },
+    [sections.skills]: {
+      id: sections.skills,
+      sectionTitle: sections.skills,
       detail: {},
     },
     [sections.workExp]: {
@@ -93,6 +99,7 @@ const ResumeBody = () => {
         />
         <Resume
           ref={resumeRef}
+          name={name}
           sections={sections}
           information={resumeInformation}
           activeColor={activeColor}
