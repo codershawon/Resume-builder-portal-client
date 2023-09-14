@@ -1,4 +1,9 @@
 import React, { forwardRef, useEffect, useRef, useState } from "react";
+import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
+import { IoCallSharp } from "react-icons/io5";
+import { TiLocationArrow } from "react-icons/ti";
+import { FaUserCircle } from "react-icons/fa";
+// import { TiLocationArrow } from "react-icons/tb";
 import {
   AtSign,
   Calendar,
@@ -10,8 +15,13 @@ import {
 } from "react-feather";
 
 import styles from "./Resume.module.css";
+import { useAllTemplates } from "../../../Hooks/useAllTemplates";
+import { useParams } from "react-router-dom";
 
 const Resume = forwardRef((props, ref) => {
+
+  const { name } = useParams();
+
   const information = props.information;
   const sections = props.sections;
   const containerRef = useRef();
@@ -37,18 +47,19 @@ const Resume = forwardRef((props, ref) => {
     return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
   };
 
+
+
+
   const sectionDiv = {
     [sections.workExp]: (
       <div
-        key={"workexp"}
+        key={"workExp"}
         draggable
         onDragOver={() => seTarget(info.workExp?.id)}
         onDragEnd={() => setSource(info.workExp?.id)}
-        className={`${styles.section} ${
-          info.workExp?.sectionTitle ? "" : styles.hidden
-        }`}
+        className={`${styles.section} ${info.workExp?.sectionTitle ? "" : styles.hidden
+          }`}
       >
-        <div className={styles.sectionTitle}>{info.workExp.sectionTitle}</div>
         <div className={styles.content}>
           {info.workExp?.details?.map((item) => (
             <div className={styles.item} key={item.title}>
@@ -107,11 +118,9 @@ const Resume = forwardRef((props, ref) => {
         draggable
         onDragOver={() => seTarget(info.project?.id)}
         onDragEnd={() => setSource(info.project?.id)}
-        className={`${styles.section} ${
-          info.project?.sectionTitle ? "" : styles.hidden
-        }`}
+        className={`${styles.section} ${info.project?.sectionTitle ? "" : styles.hidden
+          }`}
       >
-        <div className={styles.sectionTitle}>{info.project.sectionTitle}</div>
         <div className={styles.content}>
           {info.project?.details?.map((item) => (
             <div key={item.title} className={styles.item}>
@@ -163,13 +172,10 @@ const Resume = forwardRef((props, ref) => {
         draggable
         onDragOver={() => seTarget(info.education?.id)}
         onDragEnd={() => setSource(info.education?.id)}
-        className={`${styles.section} ${
-          info.education?.sectionTitle ? "" : styles.hidden
-        }`}
+        className={`${styles.section} ${info.education?.sectionTitle ? "" : styles.hidden
+          }`}
       >
-        <div className={styles.sectionTitle}>
-          {info.education?.sectionTitle}
-        </div>
+
         <div className={styles.content}>
           {info.education?.details?.map((item) => (
             <div key={item.title} className={styles.item}>
@@ -202,13 +208,10 @@ const Resume = forwardRef((props, ref) => {
         draggable
         onDragOver={() => seTarget(info.achievement?.id)}
         onDragEnd={() => setSource(info.achievement?.id)}
-        className={`${styles.section} ${
-          info.achievement?.sectionTitle ? "" : styles.hidden
-        }`}
+        className={`${styles.section} ${info.achievement?.sectionTitle ? "" : styles.hidden
+          }`}
       >
-        <div className={styles.sectionTitle}>
-          {info.achievement?.sectionTitle}
-        </div>
+
         <div className={styles.content}>
           {info.achievement?.points?.length > 0 ? (
             <ul className={styles.numbered}>
@@ -230,11 +233,10 @@ const Resume = forwardRef((props, ref) => {
         draggable
         onDragOver={() => seTarget(info.summary?.id)}
         onDragEnd={() => setSource(info.summary?.id)}
-        className={`${styles.section} ${
-          info.summary?.sectionTitle ? "" : styles.hidden
-        }`}
+        className={`${styles.section} ${info.summary?.sectionTitle ? "" : styles.hidden
+          }`}
       >
-        <div className={styles.sectionTitle}>{info.summary?.sectionTitle}</div>
+
         <div className={styles.content}>
           <p className={styles.overview}>{info.summary?.detail}</p>
         </div>
@@ -246,17 +248,18 @@ const Resume = forwardRef((props, ref) => {
         draggable
         onDragOver={() => seTarget(info.other?.id)}
         onDragEnd={() => setSource(info.other?.id)}
-        className={`${styles.section} ${
-          info.other?.sectionTitle ? "" : styles.hidden
-        }`}
+        className={`${styles.section} ${info.other?.sectionTitle ? "" : styles.hidden
+          }`}
       >
-        <div className={styles.sectionTitle}>{info.other?.sectionTitle}</div>
+        <div></div>
         <div className={styles.content}>
           <p className={styles.overview}>{info?.other?.detail}</p>
         </div>
       </div>
     ),
   };
+
+  const { [sections.summary]: summarySection, [sections.achievement]: achievementSection, [sections.other]: otherSection, [sections.education]: educationSection, [sections.project]: projectSection, [sections.workExp]: workExpSection } = sectionDiv;
 
   const swapSourceTarget = (source, target) => {
     if (!source || !target) return;
@@ -303,58 +306,120 @@ const Resume = forwardRef((props, ref) => {
     container.style.setProperty("--color", props.activeColor);
   }, [props.activeColor]);
 
+
+
+  const templates = useAllTemplates(info, sectionDiv, styles, columns, summarySection, achievementSection, workExpSection, projectSection, educationSection, otherSection, containerRef, FaUserCircle);
+  console.log("name", name);
+
+  const selectedTemplate = templates.find((template) => template.key === name);
+  console.log(selectedTemplate);
+
+
+  console.log("photo", info.basicInfo?.detail?.photo);
+
   return (
     <div ref={ref}>
-      <div ref={containerRef} className={styles.container}>
-        <div className={styles.header}>
-          <p className={styles.heading}>{info.basicInfo?.detail?.name}</p>
-          <p className={styles.subHeading}>{info.basicInfo?.detail?.title}</p>
+      {/* {templates}
+     {templates} */}
+      {selectedTemplate}
 
-          <div className={styles.links}>
-            {info.basicInfo?.detail?.email ? (
-              <a className={styles.link} type="email">
-                <AtSign /> {info.basicInfo?.detail?.email}
-              </a>
-            ) : (
-              <span />
-            )}
-            {info.basicInfo?.detail?.phone ? (
-              <a className={styles.link}>
-                <Phone /> {info.basicInfo?.detail?.phone}
-              </a>
-            ) : (
-              <span />
-            )}
-            {info.basicInfo?.detail?.linkedin ? (
-              <a className={styles.link}>
-                <Linkedin /> {info.basicInfo?.detail?.linkedin}
-              </a>
-            ) : (
-              <span />
-            )}
-            {info.basicInfo?.detail?.github ? (
-              <a className={styles.link}>
-                <GitHub /> {info.basicInfo?.detail?.github}
-              </a>
-            ) : (
-              <span />
-            )}
+      {/* <div key="template7">
+        <div ref={containerRef} className={styles.container}>
+          <div className={`flex gap-5 mt-14 bg-[#c6a68dbb] relative ${styles.topStyle}`}>
+            <div className="w-[40%] bg-[#6C999A] z-20 ms-12">
+              <div className=" rounded-full border-4 border-white mx-auto  h-48 w-48 bg-cover bg-center" style={{
+                backgroundImage: `url(${info.basicInfo?.detail?.photo || 'https://i.ibb.co/9bnpr9K/ins1.jpg'})`,
+              }}>
+              </div>
+            </div>
+
+            <div className="flex items-center ">
+              <div>
+                <p className="font-semibold text-4xl">{info.basicInfo?.detail?.name}</p>
+                <p className="">{info.basicInfo?.detail?.title}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className=" flex gap-3">
+            <div className="bg-[#6C999A] text-white w-[40%] min-h-[100%] ms-12 px-5 ">
+
+              <div className=" mt-16">
+                <h5 className="uppercase font-semibold">Profile</h5>
+                <p>{summarySection}</p>
+              </div>
+
+              <div className=" mt-20">
+                <p className=" text-xl font-semibold mb-2">Contact Me</p>
+                <div className="flex flex-col ps-3">
+                  {info.basicInfo?.detail?.email ? (
+                    <a className="flex gap-x-1 items-center mb-2" type="email">
+                      <AiOutlineMail />
+                      {info.basicInfo?.detail?.email}
+                    </a>
+                  ) : (
+                    <span />
+                  )}
+                  {info.basicInfo?.detail?.phone ? (
+                    <a className="flex gap-x-1 items-center mb-2">
+                      <IoCallSharp />
+                      {info.basicInfo?.detail?.phone}
+                    </a>
+                  ) : (
+                    <span />
+                  )}
+                  {info.basicInfo?.detail?.linkedin ? (
+                    <a className="flex gap-x-1 items-center mb-2">
+                      <AiFillLinkedin />
+                      {info.basicInfo?.detail?.linkedin}
+                    </a>
+                  ) : (
+                    <span />
+                  )}
+                  {info.basicInfo?.detail?.github ? (
+                    <a className="flex gap-x-1 items-center mb-2">
+                      <AiFillGithub />
+                      {info.basicInfo?.detail?.github}
+                    </a>
+                  ) : (
+                    <span />
+                  )}
+                </div>
+              </div>
+            </div>
+            <div className="w-[50%] mt-16 ms-auto">
+
+              <div>
+                <h5 className="uppercase font-bold flex items-center gap-3">  Education</h5>
+
+                <p className="">{educationSection}</p>
+              </div>
+              <div>
+                <h5 className="uppercase font-bold flex items-center gap-3">  Skills</h5>
+                <p className="">{workExpSection}</p>
+              </div>
+              <div>
+                <h5 className="uppercase font-bold flex items-center gap-3">  Project</h5>
+                <p className="">{projectSection}</p>
+              </div>
+              <div className=" my-10">
+                <h5 className="uppercase font-bold flex items-center gap-3">  Achievement</h5>
+                {achievementSection}
+              </div>
+
+              <div>
+                <h5 className="uppercase font-bold flex items-center gap-3">  Others</h5>
+                {otherSection}
+              </div>
+            </div>
           </div>
         </div>
+      </div> */}
 
-        <div className={styles.main}>
-          <div className={styles.col1}>
-            {columns[0].map((item) => sectionDiv[item])}
-          </div>
-          <div className={styles.col2}>
-            {columns[1].map((item) => sectionDiv[item])}
-          </div>
-        </div>
-      </div>
     </div>
   );
 });
 
-Resume.displayName = 'Resume'; 
+Resume.displayName = 'Resume';
 
 export default Resume;

@@ -40,9 +40,13 @@ export const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "resumeBuilder/:id",
+        path: "templates/:name",
         element: <ResumeBuilder />,
       },
+      // {
+      //   path: "resumeBuilder/:id",
+      //   element: <ResumeBuilder />,
+      // },
       // {
       //   path:"resume-form",
       //   element:<ResumeForm/>,
