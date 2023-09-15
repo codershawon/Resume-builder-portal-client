@@ -25,7 +25,7 @@ const BestResume = () => {
   console.log(resumeCollections);
 
   useEffect(() => {
-    fetch("resumeData.json")
+    fetch("http://localhost:4000/resume")
       .then((res) => res.json())
       .then((data) => {
         setResumeCollections(data);

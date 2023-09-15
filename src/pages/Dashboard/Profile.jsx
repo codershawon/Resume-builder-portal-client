@@ -156,7 +156,7 @@ const Profile = () => {
       .catch((error) => console.error(error));
   }, []);
   useEffect(() => {
-    fetch("https://resume-builder-portal-server.vercel.app/resume")
+    fetch("http://localhost:4000/resume")
       .then((res) => res.json())
       .then((data) => {
         setResume(data);
@@ -346,7 +346,7 @@ const Profile = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3   gap-6">
             {currentPageItems.map((resume) => (
               <div className="mx-auto relative" key={resume._id}>
-                <img className="w-full" src={resume.template} alt="" />
+                <img className="w-full" src={resume.image} alt="" />
                 {/* <button className="">hello</button> */}
                 <Link
                 className="absolute bottom-0 w-full"

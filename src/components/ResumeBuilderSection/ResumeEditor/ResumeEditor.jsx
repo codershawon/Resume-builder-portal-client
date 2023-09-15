@@ -29,6 +29,7 @@ function ResumeEditor(props) {
     github: activeInformation?.detail?.github || "",
     phone: activeInformation?.detail?.phone || "",
     email: activeInformation?.detail?.email || "",
+    address: activeInformation?.detail?.address || "",
   });
 
   const handlePointUpdate = (value, index) => {
@@ -333,6 +334,14 @@ function ResumeEditor(props) {
             setValues((prev) => ({ ...prev, phone: event.target.value }))
           }
         />
+        <InputControl
+          label="Address"
+          value={values.address}
+          placeholder="Enter your phone number"
+          onChange={(event) =>
+            setValues((prev) => ({ ...prev, address: event.target.value }))
+          }
+        />
       </div>
     </div>
   );
@@ -387,7 +396,6 @@ function ResumeEditor(props) {
       />
     </div>
   );
-
   const skillsBody = (
     <div className={styles.detail}>
       <div className={styles.row}>
@@ -403,10 +411,24 @@ function ResumeEditor(props) {
       <div className={styles.row}>
         <InputControl
           label="Experience Level"
-          value={values.level}
+          value={values.experience}
           placeholder="Enter experience level"
           onChange={(event) =>
-            setValues((prev) => ({ ...prev, level: event.target.value }))
+            setValues((prev) => ({ ...prev, experience: event.target.value }))
+          }
+        />
+      </div>
+    </div>
+  );
+  const languageBody = (
+    <div className={styles.detail}>
+      <div className={styles.row}>
+        <InputControl
+          label="Language"
+          value={values.language}
+          placeholder="Enter language name"
+          onChange={(event) =>
+            setValues((prev) => ({ ...prev, language: event.target.value }))
           }
         />
       </div>
@@ -427,8 +449,10 @@ function ResumeEditor(props) {
         return achievementsBody;
       case sections.summary:
         return summaryBody;
-        case sections.skills:
-          return skillsBody;
+      case sections.skills:
+        return skillsBody;
+      case sections.language:
+        return languageBody;
       case sections.other:
         return otherBody;
       default:
@@ -482,27 +506,6 @@ function ResumeEditor(props) {
         }));
         break;
       }
-
-      // case sections.skills: {
-      //   const tempDetail = {
-      //     title: values.title,
-      //     level: values.level,
-      //   };
-      
-      //   const tempDetails = [...information[sections.skills]?.details];
-      //   tempDetails[activeDetailIndex] = tempDetail;
-      
-      //   props.setInformation((prev) => ({
-      //     ...prev,
-      //     [sections.skills]: {
-      //       ...prev[sections.skills],
-      //       details: tempDetails,
-      //       sectionTitle,
-      //     },
-      //   }));
-      //   break;
-      // }
-      
       case sections.project: {
         const tempDetail = {
           link: values.link,
@@ -570,28 +573,43 @@ function ResumeEditor(props) {
         }));
         break;
       }
-
       case sections.skills: {
-        // Extract skills data from the values object
         const tempDetail = {
           title: values.title,
-          points: values.points,
+          name: values.name,
+          experience: values.experience,
         };
+        const tempDetails = [...information[sections.skills]?.details];
+        tempDetails[activeDetailIndex] = tempDetail;
 
-        // Update the skills in the information state
         props.setInformation((prev) => ({
           ...prev,
           [sections.skills]: {
             ...prev[sections.skills],
-            details: [tempDetail], // Store skills data in the same format as work experience
+            details: tempDetails,
             sectionTitle,
           },
         }));
         break;
       }
+      case sections.language: {
+        const tempDetail = {
+          title: values.title,
+          language: values.language,
+        };
+        const tempDetails = [...information[sections.language]?.details];
+        tempDetails[activeDetailIndex] = tempDetail;
 
-
-
+        props.setInformation((prev) => ({
+          ...prev,
+          [sections.language]: {
+            ...prev[sections.language],
+            details: tempDetails,
+            sectionTitle,
+          },
+        }));
+        break;
+      }
       case sections.other: {
         const tempDetail = values.other;
 

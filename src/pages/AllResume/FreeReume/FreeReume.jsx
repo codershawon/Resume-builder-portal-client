@@ -8,7 +8,7 @@ const FreeReume = () => {
 
     useEffect(() => {
         
-        fetch('resumeData.json') 
+        fetch('http://localhost:4000/resume') 
             .then(res => res.json())
             .then(data => {
                 setResumeCollections(data);
@@ -48,16 +48,6 @@ const FreeReume = () => {
                             onClick={handleSeeMoreClick}
                         >
                             See More Templates
-                        </button>
-                    </div>
-                )}
-            </div>
-        </div>
-    );
-};
-
-export default FreeReume;
-
                         </button>
                     </div>
                 )}

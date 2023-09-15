@@ -11,12 +11,13 @@ const ResumeBody = ({name}) => {
   const colors = ["#239ce2", "#48bb78", "#0bc5ea", "#a0aec0", "#ed8936"];
   const sections = {
     basicInfo: "Basic Info",
+    summary: "Summary",
+    education: "Education",
     workExp: "Work Experience",
     project: "Projects",
-    education: "Education",
-    skills: "Skills",
+    skills: "Skill",
+    language: "Language",
     achievement: "Achievements",
-    summary: "Summary",
     other: "Other",
   };
 
@@ -32,7 +33,12 @@ const ResumeBody = ({name}) => {
     [sections.skills]: {
       id: sections.skills,
       sectionTitle: sections.skills,
-      detail: {},
+      details: [],
+    },
+    [sections.language]: {
+      id: sections.language,
+      sectionTitle: sections.language,
+      details: [],
     },
     [sections.workExp]: {
       id: sections.workExp,
