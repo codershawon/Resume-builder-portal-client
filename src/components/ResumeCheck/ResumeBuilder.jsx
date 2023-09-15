@@ -205,7 +205,7 @@ const ResumeBuilder = () => {
 
         
             <div className="flex gap-10 text-center justify-center pt-6">
-              <Link to="/resumeBuilder/:id">
+              <Link to="/allresume">
                 <button className="my-btn">{t("resumeBuilder:createNewResume")}</button>
               </Link>
 

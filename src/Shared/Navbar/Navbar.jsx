@@ -137,9 +137,8 @@ const Navbar = () => {
               location.pathname === "/coverletter" ? "navActive" : "navStyle"
             }
           >
-            <Link to="/coverletter">{t("coverLetter")}</Link>
-
-      
+            <Link to="/watchVideo">{t("watch video")}</Link>
+       
            
           </li>
         </ul>
