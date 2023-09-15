@@ -135,9 +135,9 @@ const Navbar = () => {
               location.pathname === "/coverletter" ? "navActive" : "navStyle"
             }
           >
+
             <Link to="/coverletter">{t("coverLetter")}</Link>
-
-
+       
 
           </li>
         </ul>

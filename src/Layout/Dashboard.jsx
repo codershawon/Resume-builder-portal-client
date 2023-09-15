@@ -64,18 +64,15 @@ const Dashboard = () => {
     {name: `${t('allUsers.name')}`,link: "/dashboard/allUsers",icon: HiOutlineUserGroup,},
     {name: `${t('usersInfo.name')}`,link: "/dashboard/usersInfo",icon: HiOutlineUserGroup,},
     { name: `${t('blog.name')}`, link: "/dashboard/blog", icon: HiOutlineBookOpen },
-    { name: `${t('usersTemplates.name')}`, link: "/", icon: HiTemplate },
-    { name: `${t('feedback.name')}`, link: "/dashboard/feedback", icon: FcFeedback },
     { name: `${t('home.name')}`, link: "/", icon: RiHome4Line, margin: true },
   ];
   const users = [
     { name: `${t('userDashboard.name')}`, link: "/dashboard/profile", icon: MdOutlineDashboard },
-    { name: `${t('myResumesAndLetters.name')}`, link: "/", icon: RiBookLine },
     { name: `${t('myTemplates.name')}`, link: "/dashboard/my-template/:id", icon: HiTemplate },
     { name: `${t('feedback.name')}`, link: "/dashboard/feedback", icon: FcFeedback },
     { name: `${t('payment.name')}`, link: "/dashboard/payment", icon: FaWallet },
     { name: `${t('paymentHistory.name')}`, link: "/", icon: FaHistory },
-    { name: `${t('templates.name')}`, link: "/", icon: RiContactsBook2Line, margin: true },
+    { name: `${t('templates.name')}`, link: "/allresume", icon: RiContactsBook2Line, margin: true },
     { name: `${t('home.name')}`, link: "/", icon: RiHome4Line, margin: true },
   ];
 
