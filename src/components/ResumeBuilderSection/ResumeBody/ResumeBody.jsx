@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import styles from "./ResumeBody.module.css";
-import { FaArrowDown } from "react-icons/fa6";
 import { ArrowDown } from "react-feather";
 import ReactToPrint from "react-to-print";
 import ResumeEditor from "../ResumeEditor/ResumeEditor";
@@ -91,6 +90,7 @@ const ResumeBody = ({name}) => {
           content={() => resumeRef.current}
         />
       </div>
+      
       <div className={styles.main}>
         <ResumeEditor
           sections={sections}

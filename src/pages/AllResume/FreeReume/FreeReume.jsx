@@ -57,13 +57,3 @@ const FreeReume = () => {
 };
 
 export default FreeReume;
-
-                        </button>
-                    </div>
-                )}
-            </div>
-        </div>
-    );
-};
-
-export default FreeReume;

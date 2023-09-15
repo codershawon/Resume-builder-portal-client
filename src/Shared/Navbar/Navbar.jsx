@@ -75,8 +75,33 @@ const Navbar = () => {
         <Link to="/allresume">{t("resumeTemplate")}</Link>
       
       </li>
-      <li className={location.pathname === "" ? "navActive" : "navStyle"}>
-        <Link to="/">{t("coverLetter")}</Link>
+      <li
+        className={`relative navHover ${
+          location.pathname === "" ? "navActive" : "navStyle"
+        }`}>
+        <Link className="flex items-center gap-1" to="/">
+          {t("coverLetter")} <FaAngleDown />
+        </Link>
+        {/* Dropdown options */}
+        <ul className="navDropdown">
+          <li
+            className={
+              location.pathname === "/coverLetterChecker" ? "navActive" : "navStyle"
+            }
+          >
+            <Link to="/coverLetterChecker">{t("cover letter checker")}</Link>
+       
+          </li>
+          <li
+            className={
+              location.pathname === "/coverLetterBuilder" ? "navActive" : "navStyle"
+            }
+          >
+            <Link to="/coverLetterBuilder">{t("cover letter builder")}</Link>
+
+       
+          </li>
+        </ul>
       </li>
 
       <li
