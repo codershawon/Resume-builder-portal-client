@@ -156,7 +156,7 @@ const Profile = () => {
       .catch((error) => console.error(error));
   }, []);
   useEffect(() => {
-    fetch("http://localhost:4000/resume")
+    fetch("https://resume-builder-portal-server.vercel.app/resume")
       .then((res) => res.json())
       .then((data) => {
         setResume(data);

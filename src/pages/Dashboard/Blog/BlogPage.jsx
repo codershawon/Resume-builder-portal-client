@@ -22,7 +22,7 @@ const BlogPage = () => {
 
         
 
-        fetch(`http://localhost:4000/blogs`,{
+        fetch(`https://resume-builder-portal-server.vercel.app/blogs`,{
             method:"POST",
         headers:{
             "Content-Type":"application/json"

@@ -4,6 +4,8 @@ import { ArrowDown } from "react-feather";
 import ReactToPrint from "react-to-print";
 import ResumeEditor from "../ResumeEditor/ResumeEditor";
 import Resume from "../Resume/Resume";
+import { Link } from "react-router-dom";
+import { FaMessage } from "react-icons/fa6";
 
 const ResumeBody = ({name}) => {
 
@@ -85,6 +87,9 @@ const ResumeBody = ({name}) => {
             />
           ))}
         </div>
+     <Link to="/chatSystem">   <button>
+                Chat <FaMessage/>
+              </button></Link>
         <ReactToPrint
           trigger={() => {
             return (

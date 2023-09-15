@@ -32,10 +32,10 @@ const Banner = () => {
           <h2 className="text-4xl w-full lg:w-full font-bold mb-2">
             {t("banner:bannerTitle")}
           </h2>
-          <p className="w-full md:w-full lg:w-full hidden lg:block text-base font-medium mb-2">
+          <p className="w-full md:w-full lg:w-full lg:block text-base font-medium mb-2">
             {t('banner:bannerDescription')}
           </p>
-          <p className="text-gray-600 font-medium mb-2 hidden lg:block w-full lg:w-full">
+          <p className="text-gray-600 font-medium mb-2 lg:block w-full lg:w-full">
           {t('banner:bannerDescription2')}
           </p>
           <Link to="/allResume"><button className="my-btn">{t('banner:bannerCTA')}</button></Link>

@@ -115,8 +115,8 @@ const Footer = () => {
         </div>
       </div>
       <div className="p-4 bg-[#197685] bg-opacity-20 justify-center items-center md:flex md:justify-between md:items-end text-black font-normal">
-        <div className="ml-60">
-          <p>Copyright &copy; 2023 - Resume Genius</p>
+        <div className="md:ml-60 ">
+          <p className="text-right ">Copyright &copy; 2023 - Resume Genius</p>
         </div>
         <div className="md:me-20">
           <div className="flex gap-4 justify-center">
