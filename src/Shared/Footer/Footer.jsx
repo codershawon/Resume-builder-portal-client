@@ -8,7 +8,7 @@ import {
   FaPhone,
   FaTwitter,
   FaMessage
-} from "react-icons/fa";
+} from "react-icons/fa6";
 
 import { Link } from "react-router-dom";
 import React from "react";

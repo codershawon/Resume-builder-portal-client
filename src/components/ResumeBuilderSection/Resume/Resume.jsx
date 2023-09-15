@@ -37,6 +37,8 @@ const Resume = forwardRef((props, ref) => {
     education: information[sections.education],
     basicInfo: information[sections.basicInfo],
     summary: information[sections.summary],
+    skills: information[sections.skills],
+    language: information[sections.language],
     other: information[sections.other],
   };
 
@@ -51,14 +53,14 @@ const Resume = forwardRef((props, ref) => {
 
 
   const sectionDiv = {
-    [sections.workExp]: (
+
+    [sections.workExp]: info.workExp ? (
       <div
         key={"workExp"}
         draggable
-        onDragOver={() => seTarget(info.workExp?.id)}
-        onDragEnd={() => setSource(info.workExp?.id)}
-        className={`${styles.section} ${info.workExp?.sectionTitle ? "" : styles.hidden
-          }`}
+        onDragOver={() => seTarget(info.workExp.id)}
+        onDragEnd={() => setSource(info.workExp.id)}
+        className={`${styles.section} ${info.workExp.sectionTitle ? "" : styles.hidden}`}
       >
         <div className={styles.content}>
           {info.workExp?.details?.map((item) => (
@@ -111,7 +113,68 @@ const Resume = forwardRef((props, ref) => {
           ))}
         </div>
       </div>
-    ),
+    ) : null,
+    // [sections.workExp]: (
+    //   <div
+    //     key={"workExp"}
+    //     draggable
+    //     onDragOver={() => seTarget(info.workExp?.id)}
+    //     onDragEnd={() => setSource(info.workExp?.id)}
+    //     className={`${styles.section} ${info.workExp?.sectionTitle ? "" : styles.hidden
+    //       }`}
+    //   >
+    //     <div className={styles.content}>
+    //       {info.workExp?.details?.map((item) => (
+    //         <div className={styles.item} key={item.title}>
+    //           {item.title ? (
+    //             <p className={styles.title}>{item.title}</p>
+    //           ) : (
+    //             <span />
+    //           )}
+    //           {item.companyName ? (
+    //             <p className={styles.subTitle}>{item.companyName}</p>
+    //           ) : (
+    //             <span />
+    //           )}
+    //           {item.certificationLink ? (
+    //             <a className={styles.link} href={item.certificationLink}>
+    //               <Paperclip />
+    //               {item.certificationLink}
+    //             </a>
+    //           ) : (
+    //             <span />
+    //           )}
+    //           {item.startDate && item.endDate ? (
+    //             <div className={styles.date}>
+    //               <Calendar /> {getFormattedDate(item.startDate)}-
+    //               {getFormattedDate(item.endDate)}
+    //             </div>
+    //           ) : (
+    //             <div />
+    //           )}
+    //           {item.location ? (
+    //             <p className={styles.date}>
+    //               <MapPin /> Remote
+    //             </p>
+    //           ) : (
+    //             <span />
+    //           )}
+    //           {item.points?.length > 0 ? (
+    //             <ul className={styles.points}>
+    //               {item.points?.map((elem, index) => (
+    //                 <li className={styles.point} key={elem + index}>
+    //                   {elem}
+    //                 </li>
+    //               ))}
+    //             </ul>
+    //           ) : (
+    //             <span />
+    //           )}
+    //         </div>
+    //       ))}
+    //     </div>
+    //   </div>
+    // ),
     [sections.project]: (
       <div
         key={"project"}
@@ -227,6 +290,67 @@ const Resume = forwardRef((props, ref) => {
         </div>
       </div>
     ),
+    [sections.skills]: (
+      <div
+        key={"skills"}
+        draggable
+        onDragOver={() => seTarget(info.achievement?.id)}
+        onDragEnd={() => setSource(info.achievement?.id)}
+        className={`${styles.section} ${info.achievement?.sectionTitle ? "" : styles.hidden
+          }`}
+      >
+
+        <div>
+          {info.skills?.details?.map((item) => (
+            <div key={item.title} className={styles.item}>
+              {item.title ? (
+                <p className={styles.title}>{item.title}</p>
+              ) : (
+                <span />
+              )}
+              {item.name ? (
+                <p className={styles.overview}>{item.name} </p>
+              ) : (
+                <span />
+              )}
+              {item.experience ? (
+                <p className={styles.overview}>{item.experience} </p>
+              ) : (
+                <span />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    ),
+    [sections.language]: (
+      <div
+        key={"language"}
+        draggable
+        onDragOver={() => seTarget(info.language?.id)}
+        onDragEnd={() => setSource(info.language?.id)}
+        className={`${styles.section} ${info.language?.sectionTitle ? "" : styles.hidden
+          }`}
+      >
+
+        <div>
+          {info.language?.details?.map((item) => (
+            <div key={item.title} className={styles.item}>
+              {item.title ? (
+                <p className={styles.title}>{item.title}</p>
+              ) : (
+                <span />
+              )}
+              {item.language ? (
+                <p className={styles.overview}>{item.language} </p>
+              ) : (
+                <span />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    ),
     [sections.summary]: (
       <div
         key={"summary"}
@@ -242,6 +366,7 @@ const Resume = forwardRef((props, ref) => {
         </div>
       </div>
     ),
+
     [sections.other]: (
       <div
         key={"other"}
@@ -259,7 +384,7 @@ const Resume = forwardRef((props, ref) => {
     ),
   };
 
-  const { [sections.summary]: summarySection, [sections.achievement]: achievementSection, [sections.other]: otherSection, [sections.education]: educationSection, [sections.project]: projectSection, [sections.workExp]: workExpSection } = sectionDiv;
+  const { [sections.summary]: summarySection, [sections.achievement]: achievementSection, [sections.other]: otherSection, [sections.education]: educationSection, [sections.project]: projectSection, [sections.workExp]: workExpSection, [sections.skills]: skillSection, [sections.language]:languageSection } = sectionDiv;
 
   const swapSourceTarget = (source, target) => {
     if (!source || !target) return;
@@ -315,15 +440,15 @@ const Resume = forwardRef((props, ref) => {
   console.log(selectedTemplate);
 
 
-  console.log("photo", info.basicInfo?.detail?.photo);
+  console.log("photo", skillSection);
 
   return (
     <div ref={ref}>
       {/* {templates}
      {templates} */}
-      {selectedTemplate}
+      {/* {selectedTemplate} */}
 
-      {/* <div key="template7">
+      <div key="template7">
         <div ref={containerRef} className={styles.container}>
           <div className={`flex gap-5 mt-14 bg-[#c6a68dbb] relative ${styles.topStyle}`}>
             <div className="w-[40%] bg-[#6C999A] z-20 ms-12">
@@ -335,7 +460,7 @@ const Resume = forwardRef((props, ref) => {
 
             <div className="flex items-center ">
               <div>
-                <p className="font-semibold text-4xl">{info.basicInfo?.detail?.name}</p>
+                <p className="font-semibold text-4xl">{info.basicInfo?.detail?.address}</p>
                 <p className="">{info.basicInfo?.detail?.title}</p>
               </div>
             </div>
@@ -396,7 +521,7 @@ const Resume = forwardRef((props, ref) => {
               </div>
               <div>
                 <h5 className="uppercase font-bold flex items-center gap-3">  Skills</h5>
-                <p className="">{workExpSection}</p>
+                <p className="">{languageSection}</p>
               </div>
               <div>
                 <h5 className="uppercase font-bold flex items-center gap-3">  Project</h5>
@@ -407,15 +532,16 @@ const Resume = forwardRef((props, ref) => {
                 {achievementSection}
               </div>
 
-              <div>
-                <h5 className="uppercase font-bold flex items-center gap-3">  Others</h5>
-                {otherSection}
-              </div>
+              {otherSection && otherSection !== "" && (
+                <div>
+                  <h5 className="uppercase font-bold flex items-center gap-3">  Others</h5>
+                  {otherSection}
+                </div>
+              )}
             </div>
           </div>
         </div>
-      </div> */}
-
+      </div>
     </div>
   );
 });
