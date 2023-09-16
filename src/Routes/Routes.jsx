@@ -4,8 +4,11 @@ import AdminRoute from "./AdminRoute";
 import AllResume from "../pages/AllResume/AllResume";
 import AllUsers from "../pages/Dashboard/AllUsers";
 import BlogDetails from "../pages/Blogs/BlogDetails";
+import BlogPage from "../pages/Dashboard/Blog/BlogPage";
 import Blogs from "../pages/Blogs/Blogs";
+import ChatSystem from "../pages/VideoCall/ChatSystem";
 import Contact from "../pages/ContactUs/Contact";
+import CoverLetterChecker from "../pages/CoverLetter/CoverLetterChecker";
 import CoverLetterFormBuilder from "../pages/CoverLetter/CoverLetterFormBuilder";
 import Dashboard from "../Layout/Dashboard";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
@@ -23,9 +26,28 @@ import ResumeBuilder from "../components/ResumeBuilderSection/ResumeBuilder/Resu
 import ResumeForm from "../components/ResumeCheck/ResumeForm";
 import Terms from "../components/Terms/Terms";
 import UsersInfo from "../pages/Dashboard/UsersInfo";
+import WatchVideo from "../components/Watchvideo/WatchVideo";
 import { createBrowserRouter } from "react-router-dom";
 
 // import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const router = createBrowserRouter([
   {
@@ -46,51 +68,68 @@ export const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "resumeBuilder/:id",
+        path: "templates/:name",
         element: <ResumeBuilder />,
       },
-    
+
+      // {
+      //   path: "resumeBuilder/:id",
+      //   element: <ResumeBuilder />,
+      // },
+      // {
+      //   path:"resume-form",
+      //   element:<ResumeForm/>,
+      // },
       {
         path: "/coverLetterBuilder/:id",
         element: <CoverLetterFormBuilder />,
       },
       {
-        path: "/resume-form",
-        element: <ResumeForm />,
+        path: "/coverLetterChecker",
+        element: <CoverLetterChecker/>,
+      },
+
+      {
+        path:"/resume-form",
+        element:<ResumeForm/>,
+      },{
+        path:"/blogs",
+        element:<Blogs/>
       },
       {
-        path: "/blogs",
-        element: <Blogs />,
-      },
-      {
-        path: "/blogDetails/:id",
-        element: <BlogDetails />,
+        path:"/blogDetails/:id",
+        element:<BlogDetails/>,
         loader: ({ params }) =>
-          fetch(
-            `https://resume-builder-portal-server.vercel.app/blogs/${params.id}`
-          ),
+          fetch(`https://resume-builder-portal-server.vercel.app/blogs/${params.id}`),
       },
       {
         path: "/login",
         element: <Login />,
       },
       {
-        path: "/faqs",
-        element: <Faqs />,
-      },
-      {
+        path:"/faqs",
+        element:<Faqs />
+      },{
         path: "/about",
         element: <AboutUs />,
       },
       {
-        path: "/terms",
-        element: <Terms />,
+        path:"/terms",
+        element:<Terms />
       },
       {
-        path: "/privacyPolicy",
-        element: <Privacypolicy />,
+        path:"/privacyPolicy",
+        element:<Privacypolicy />
       },
+      {
+        path:"/watchVideo",
+        element:<WatchVideo />
+      }
     ],
+  },
+  {
+    path: "/chatSystem",
+    element: <ChatSystem/>
   },
   {
     path: "dashboard",
@@ -102,8 +141,12 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "adminHome",
-        element: <AdminHome />,
+        path:"adminHome",
+        element:<AdminHome/>
+      },
+      {
+        path: "blog",
+        element: <BlogPage></BlogPage>,
       },
       {
         path: "allUsers",
@@ -117,7 +160,7 @@ export const router = createBrowserRouter([
         path: "usersInfo",
         element: (
           <AdminRoute>
-            <UsersInfo />
+            <UsersInfo/>
           </AdminRoute>
         ),
       },
@@ -135,7 +178,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "feedback",
-        element: <Feedback />,
+        element: <Feedback/>,
       },
     ],
   },

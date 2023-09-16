@@ -1,0 +1,24 @@
+{
+  "header": {
+    "title1": "Free Resume",
+    "title2": "Templates for Download in 2023",
+    "description": "Browse dozens of popular, proven, and free resume templates. Add pre-written professional skills, customize your design, and download in the format you need."
+  },
+  "premiumTemplates": {
+    "title1": "Professional",
+    "title2": "Resume Templates",
+    "description": "Professional templates mean business. Candidates applying for senior positions in construction, sales, information technology, and pharmaceutical industries will find a great selection of premium and free resume templates in this collection.",
+    "useTemplate": "Use this template"
+  },
+  "freeResume": {
+    "title1": "Free",
+    "title2":"Resume Templates",
+    "description": "Free templates mean business. Candidates applying for senior positions in construction, sales, information technology, and pharmaceutical industries will find a great selection of premium and free resume templates in this collection.",
+    "useTemplate": "Use this template",
+    "seeMoreTemplates": "See More Templates"
+  },
+  "aboutResumeBuilder": {
+    "title": "Resume Builder",
+    "description": "Say goodbye to glitchy column formats, restrictive text space for your work history and accomplishments, or complicated downloads. We help you cross the resume finish line with a premium tool covering all the above. Our Resume Builder offers dozens of customizable resume templates to help you personalize your applications; it suggests recruiter-approved content for thousands of different job positions to help you through every chapter of your career and auto-formats all of your resume content for you."
+  }
+}

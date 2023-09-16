@@ -28,7 +28,7 @@
 }
 .swiper-slide:hover .useButton {
     z-index: 0;
-    transform: translate(-12%);
+    /* transform: translate(-5%); */
     transition: transform 0.9s ;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .useButton {
-    @apply -z-40 btn btn-sm bg-[#197685] rounded-md text-white w-[80%] absolute bottom-2 right-0 
+    @apply -z-40 bg-[#197685] rounded-md text-white w-[100%] h-8 flex justify-center items-center absolute bottom-2 right-0  text-xs
 }
 
 .useButton:hover {

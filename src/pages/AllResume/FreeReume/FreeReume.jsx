@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const FreeReume = () => {
     const [resumeCollections, setResumeCollections] = useState([]);
@@ -15,7 +16,8 @@ const FreeReume = () => {
             .catch((error) => console.error(error));
     }, []);
 
-    const freeResumes = resumeCollections.filter(resume => resume.profile !== 'premium');
+    const freeResumes = resumeCollections.filter(resume => resume.price === 0);
+    console.log(freeResumes);
 
     const visibleTemplates = showAllTemplates ? freeResumes : freeResumes.slice(0, templatesToShow);
     const remainingTemplates = freeResumes.length - templatesToShow;
@@ -34,14 +36,14 @@ const FreeReume = () => {
                 <div className="grid gird-cols sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 my-10">
                     {visibleTemplates.map((resume, index) => (
                         <div key={index} className="p-5 resumeContents relative bg-slate-100">
-                            <img className="w-full h-full" src={resume.template} alt={`Premium Resume ${index + 1}`} />
-                            <button className='useButton'>Use this template</button>
+                            <img className="w-full h-full" src={resume.image} alt={`Premium Resume ${index + 1}`} />
+                            <Link className='my-btn absolute top-[75%] left-0 w-full md:hidden text-center' to={`/templates/${resume.name}`}>Use this template</Link>
                         </div>
                     ))}
                 </div>
                 {!showAllTemplates && remainingTemplates > 0 && (
                     <div className='text-center'>
-                        <button
+                        <button 
                             className='my-btn'
                             onClick={handleSeeMoreClick}
                         >

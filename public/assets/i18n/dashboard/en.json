@@ -1,0 +1,49 @@
+{
+      "userDashboard": {
+        "name": "User Dashboard"
+      },
+      "adminDashboard": {
+        "name": "Admin Dashboard"
+      },
+      "allUsers": {
+        "name": "All Users"
+      },
+      "usersInfo": {
+        "name": "Users Info"
+      },
+      "blog": {
+        "name": "Blog"
+      },
+      "usersTemplates": {
+        "name": "Users Templates"
+      },
+      "feedback": {
+        "name": "Feedback"
+      },
+      "home": {
+        "name": "Home"
+      },
+      "myProfile": {
+        "name": "My Profile"
+      },
+      "myResumesAndLetters": {
+        "name": "My Resumes and Letters"
+      },
+      "myTemplates": {
+        "name": "My Templates"
+      },
+      "payment": {
+        "name": "Payment"
+      },
+      "paymentHistory": {
+        "name": "Payment History"
+      },
+      "templates": {
+        "name": "Templates"
+      },
+      "logOut": {
+        "name": "LogOut"
+      }
+
+  }
+  

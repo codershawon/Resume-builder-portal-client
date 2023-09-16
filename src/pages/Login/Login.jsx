@@ -3,7 +3,7 @@ import "./login.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { FaEyeSlash } from "react-icons/fa6";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import SignUp from "../Home/SignUp/SignUp";
 import Swal from "sweetalert2";
@@ -159,7 +159,7 @@ const handleReset = () => {
                               onChange={(e) => setPassword(e.target.value)}
                               type="password"
                               name="password"
-                              placeholder="Password "
+                              placeholder="Password"
                               className="input input-bordered bg-white"
                             />
                             <span
@@ -170,7 +170,6 @@ const handleReset = () => {
                             </span>
                           </>
                         )}
-                        {/* ToDo forget password */}
                         <label className="label flex-row-reverse">
                           <Link
                             onClick={handleReset}

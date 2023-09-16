@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./Banner.css";
-import FixedWidth from "../../../components/fixedwidth";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
+  const { t } = useTranslation(["banner"]);
   const images = [
     "https://i.ibb.co/R7mFPB6/Pink-Simple-Profile-Resume.jpg",
     "https://i.ibb.co/jwgMDLx/Pink-Simple-Profile-Resume-1.jpg",
@@ -21,26 +23,22 @@ const Banner = () => {
   }, [images.length]);
 
   return (
-    <div className="h-screen max-w-[1400px] mx-auto">
-      <div className="banner-section overflow-hidden grid md:grid-cols-1 lg:grid-cols-2 text-center md:text-left lg:items-start mt-10 lg:mt-0 ">
+    <div className="lg:h-screen max-w-[1400px] mx-auto">
+     <div className="banner-section overflow-hidden grid md:grid-cols-1 lg:grid-cols-2 text-center md:text-left lg:items-start mt-10 lg:mt-0 ">
         <div className="banner-content ">
           <h1 className="text-sm uppercase font-semibold text-gray-500 mb-2 lg:pt-36">
-            Unlock Your Potential with Resume Genius
+            {t("banner:unlockPotential")}
           </h1>
           <h2 className="text-4xl w-full lg:w-full font-bold mb-2">
-            Create an Impressive Resume in Minutes
+            {t("banner:bannerTitle")}
           </h2>
-          <p className="w-full md:w-full lg:w-full hidden lg:block text-base font-medium mb-2">
-            Welcome to Resume Genius, your ultimate destination for crafting
-            professional and eye-catching resumes effortlessly. Our intuitive
-            resume builder empowers you to stand out from the crowd and showcase
-            your unique skills and experiences.
+          <p className="w-full md:w-full lg:w-full lg:block text-base font-medium mb-2">
+            {t('banner:bannerDescription')}
           </p>
-          <p className="text-gray-600 font-medium mb-2 hidden lg:block w-full lg:w-full">
-            Join Resume Genius today and take your career to the next level.
-            Your dream job is just a resume away.
+          <p className="text-gray-600 font-medium mb-2 lg:block w-full lg:w-full">
+          {t('banner:bannerDescription2')}
           </p>
-          <button className="my-btn">Get Started Now</button>
+          <Link to="/allResume"><button className="my-btn">{t('banner:bannerCTA')}</button></Link>
         </div>
 
         <div className="overflow-clip h-full">

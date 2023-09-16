@@ -36,8 +36,10 @@ import useAdmin from "../Hooks/useAdmin";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { FcFeedback } from "react-icons/fc";
+import { useTranslation } from "react-i18next";
 
 const Dashboard = () => {
+  const { t } = useTranslation(["dashboard"]);
 
   const [open, setOpen] = useState(true);
   const { user, logout } = useContext(AuthContext);
@@ -58,26 +60,20 @@ const Dashboard = () => {
   // const isAdmin = true;
 
   const admin = [
-    {name: "Admin Dashboard",link: "/dashboard/adminHome",icon: MdOutlineDashboard,},
-    {name: "All Users",link: "/dashboard/allUsers",icon: HiOutlineUserGroup,},
-    {name: "Users Info",link: "/dashboard/usersInfo",icon: HiOutlineUserGroup,},
-    { name: "Blog", link: "/dashboard/blog", icon: HiOutlineBookOpen },
-    { name: "Users Templates", link: "/", icon: HiTemplate },
-    { name: "Feedback", link: "/dashboard/feedback", icon: FcFeedback },
-    { name: "Home", link: "/", icon: RiHome4Line, margin: true },
-    { name: "My Profile", link: `/dashboard/profile`, icon: HiUser },
+    {name: `${t('adminDashboard.name')}`,link: "/dashboard/adminHome",icon: MdOutlineDashboard,},
+    {name: `${t('allUsers.name')}`,link: "/dashboard/allUsers",icon: HiOutlineUserGroup,},
+    {name: `${t('usersInfo.name')}`,link: "/dashboard/usersInfo",icon: HiOutlineUserGroup,},
+    { name: `${t('blog.name')}`, link: "/dashboard/blog", icon: HiOutlineBookOpen },
+    { name: `${t('home.name')}`, link: "/", icon: RiHome4Line, margin: true },
   ];
   const users = [
-    { name: "User Dashboard", link: "/dashboard", icon: MdOutlineDashboard },
-    { name: "My resumes and letters", link: "/", icon: RiBookLine },
-    { name: "My templates", link: "/dashboard/my-template/:id", icon: HiTemplate },
-    { name: "Feedback", link: "/dashboard/feedback", icon: FcFeedback },
-    { name: "Payment", link: "/dashboard/payment", icon: FaWallet },
-    { name: "Payment History", link: "/", icon: FaHistory },
-    { name: "Templates", link: "/", icon: RiContactsBook2Line, margin: true },
-    { name: "Home", link: "/", icon: RiHome4Line, margin: true },
-     //{ name: "My Profile", link: `/dashboard/profile/${user?.email}`, icon: HiUser },
-     { name: "My Profile", link: `/dashboard/profile`, icon: HiUser },
+    { name: `${t('userDashboard.name')}`, link: "/dashboard/profile", icon: MdOutlineDashboard },
+    { name: `${t('myTemplates.name')}`, link: "/dashboard/my-template/:id", icon: HiTemplate },
+    { name: `${t('feedback.name')}`, link: "/dashboard/feedback", icon: FcFeedback },
+    { name: `${t('payment.name')}`, link: "/dashboard/payment", icon: FaWallet },
+    { name: `${t('paymentHistory.name')}`, link: "/", icon: FaHistory },
+    { name: `${t('templates.name')}`, link: "/allresume", icon: RiContactsBook2Line, margin: true },
+    { name: `${t('home.name')}`, link: "/", icon: RiHome4Line, margin: true },
   ];
 
   // const user = true;
@@ -118,7 +114,6 @@ const Dashboard = () => {
             </>
           )}
         </div>
-        
 
         {/* User Pruofile */}
         
@@ -264,7 +259,7 @@ const Dashboard = () => {
                 !open && "opacity-0 translate-x-28 overflow-hidden"
               }`}
             >
-              LogOut
+             {t('logOut.name')}
             </h2>
           </div>
         </div>

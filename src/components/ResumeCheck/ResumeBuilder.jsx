@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import SectionTitle from "../../Hooks/SectionTitle";
 import mammoth from "mammoth";
 import { pdfjs } from "react-pdf";
+import { useTranslation } from "react-i18next";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
@@ -19,6 +20,9 @@ const ResumeBuilder = () => {
   const [resumeText, setResumeText] = useState("");
   const [resumeTextExtracted, setResumeTextExtracted] = useState("");
   const [showResumeForm, setShowResumeForm] = useState(false);
+  const { t } = useTranslation(["resumeBuilder"]);
+
+  
 
      // Define your list of resume keywords
      const resumeKeywords = [
@@ -164,10 +168,7 @@ const ResumeBuilder = () => {
 
     <div className="rgContainer mb-28">
       {/* SubTile Section Start */}
-      <SectionTitle
-        subHeading={"Resume Checker"}
-        heading={"Check your resume"}
-      />
+      <SectionTitle subHeading= {t("resumeBuilder:subHeading")} heading={t("resumeBuilder:heading")} />
       <div className="p-8 bg-gray-50">
         <Dropzone onDrop={onDrop} accept=".pdf,.doc,.docx,.txt,.htm,.rtf">
           {({ getRootProps, getInputProps }) => (
@@ -179,9 +180,9 @@ const ResumeBuilder = () => {
               <div className="text-center">
                 <i className="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-2"></i>
                 <p className="text-gray-500">
-                  Drag and drop a resume file here, or click to select a file
-                  <br />
-                  Acceptable file types: DOC, DOCX, PDF, HTM, RTF, TXT
+                {t("resumeBuilder:dragAndDropFile")}
+                    <br />
+                    {t("resumeBuilder:acceptableFileTypes")}
                 </p>
               </div>
             </div>
@@ -190,11 +191,11 @@ const ResumeBuilder = () => {
         {uploadedFile && (
           <div className="mt-6">
             <p className="text-lg font-semibold">
-              Uploaded File: {uploadedFile.name}
+            {t("resumeBuilder:uploadedFile")}: {uploadedFile.name}
             </p>
             <div className="mt-4">
               <p className="text-lg font-semibold">
-                Result Percentage: {resultPercentage}%
+              {t("resumeBuilder:resultPercentage")}: {resultPercentage}%
               </p>
               <div className="bg-blue-200 h-4 rounded-full mt-2">
                 <div
@@ -206,16 +207,10 @@ const ResumeBuilder = () => {
 
         
             <div className="flex gap-10 text-center justify-center pt-6">
-              <Link to="/resumeBuilder/:id">
-                <button className="my-btn">Create New Resume</button>
+              <Link to="/allresume">
+                <button className="my-btn">{t("resumeBuilder:createNewResume")}</button>
               </Link>
 
-             
-                  {/* <Link to="/resume-form">
-          <button className="my-btn" onClick={handleContinueEditing}>
-            Continue Editing
-          </button>
-        </Link> */}
             </div>
           </div>
         )}
