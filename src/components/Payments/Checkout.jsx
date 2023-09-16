@@ -4,20 +4,26 @@ import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import useCart from "../../Hooks/useCart";
+import useCartResume from "../../Hooks/useCartResume";
 import { useNavigate } from "react-router-dom";
 
-const Checkout = ({ cart, price }) => {
+// import useCart from "../../Hooks/useCart";
+
+
+
+const Checkout = ({ cart, price, resumeId  }) => {
   const { user } = useAuth();
-  const { refetch} =useCart();
+  // const { refetch} =useCart();
+  const {resume, refetch} = useCartResume();
   const stripe = useStripe();
   const elements = useElements();
   const [axiosSecure] = useAxiosSecure();
-  const navigate = useNavigate();
+
   const [cardError, setCardError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [processing, setProcessing] = useState(false);
   const [transactionId, setTransactionId] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (price > 0) {
@@ -87,9 +93,10 @@ const Checkout = ({ cart, price }) => {
             showConfirmButton: false,
             timer: 1500,
           });
-          refetch()
-          // Navigate to the appropriate route
-          navigate(`/resumeBuilder/${resume._id}`, {replace: true});
+          refetch();
+          console.log("Redirecting to:", `/resumeBuilder/${resume._id}`);
+          // Redirect to the appropriate route based on resumeId
+          navigate(`/resumeBuilder/${resume._id}`, { replace: true });
         }
       });
     }

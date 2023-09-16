@@ -1,4 +1,3 @@
-import React, { forwardRef, useEffect, useRef, useState } from "react";
 import {
   AtSign,
   Calendar,
@@ -8,18 +7,44 @@ import {
   Paperclip,
   Phone,
 } from "react-feather";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 
+import TemplateSelection from "../TemplateSelection";
 import styles from "./Resume.module.css";
+import { useAllTemplates } from "../../../Hooks/useAllTemplates";
+
+// import AllResume from "../../Page/AllResume";
+// import Resume1 from "./Resume1";
 
 const Resume = forwardRef((props, ref) => {
+
   const information = props.information;
   const sections = props.sections;
   const containerRef = useRef();
 
   const [columns, setColumns] = useState([[], []]);
   const [source, setSource] = useState("");
-  const [target, seTarget] = useState("");
+  const [target, setTarget] = useState("");
+  const [selectedTemplate, setSelectedTemplate] = useState(null); // Added state for selected template
+  const [selectedTemplateId, setSelectedTemplateId] = useState(null); // Added state for selected template _id
 
+  const templateImages = [
+    "https://i.ibb.co/pnbYQHm/de9a0816b40a701f4d625bef109edc76.jpg",
+    "https://i.ibb.co/rcwPSJj/cascade-3-duo-blue-navy-21-3x.png",
+    "https://i.ibb.co/QbjWDFG/noimg.png",
+    "https://i.ibb.co/yP9dqnh/Word-template-3-768x994.jpg",
+    "https://i.ibb.co/Q67Dx1c/best-online-resume-builders-zety-us-12.jpg",
+  ]; // Define your template images here
+
+  // const info = {
+  //   workExp: information[sections.workExp]?.id || null,
+  //   project: information[sections.project]?.id || null,
+  //   achievement: information[sections.achievement]?.id || null,
+  //   education: information[sections.education]?.id || null,
+  //   basicInfo: information[sections.basicInfo]?.id || null,
+  //   summary: information[sections.summary]?.id || null,
+  //   other: information[sections.other]?.id || null,
+  // };
   const info = {
     workExp: information[sections.workExp],
     project: information[sections.project],
@@ -38,17 +63,17 @@ const Resume = forwardRef((props, ref) => {
   };
 
   const sectionDiv = {
-    [sections.workExp]: (
+    [sections.workExpSection]: (
       <div
-        key={"workexp"}
+        key={"workExp"}
         draggable
-        onDragOver={() => seTarget(info.workExp?.id)}
+        onDragOver={() => setTarget(info.workExp?.id)}
         onDragEnd={() => setSource(info.workExp?.id)}
         className={`${styles.section} ${
           info.workExp?.sectionTitle ? "" : styles.hidden
         }`}
       >
-        <div className={styles.sectionTitle}>{info.workExp.sectionTitle}</div>
+        <div className={styles.sectionTitle}>{info.workExp?.sectionTitle}</div>
         <div className={styles.content}>
           {info.workExp?.details?.map((item) => (
             <div className={styles.item} key={item.title}>
@@ -101,11 +126,12 @@ const Resume = forwardRef((props, ref) => {
         </div>
       </div>
     ),
+
     [sections.project]: (
       <div
         key={"project"}
         draggable
-        onDragOver={() => seTarget(info.project?.id)}
+        onDragOver={() => setTarget(info.project?.id)}
         onDragEnd={() => setSource(info.project?.id)}
         className={`${styles.section} ${
           info.project?.sectionTitle ? "" : styles.hidden
@@ -157,11 +183,12 @@ const Resume = forwardRef((props, ref) => {
         </div>
       </div>
     ),
+
     [sections.education]: (
       <div
         key={"education"}
         draggable
-        onDragOver={() => seTarget(info.education?.id)}
+        onDragOver={() => setTarget(info.education?.id)}
         onDragEnd={() => setSource(info.education?.id)}
         className={`${styles.section} ${
           info.education?.sectionTitle ? "" : styles.hidden
@@ -196,11 +223,12 @@ const Resume = forwardRef((props, ref) => {
         </div>
       </div>
     ),
+
     [sections.achievement]: (
       <div
         key={"achievement"}
         draggable
-        onDragOver={() => seTarget(info.achievement?.id)}
+        onDragOver={() => setTarget(info.achievement?.id)}
         onDragEnd={() => setSource(info.achievement?.id)}
         className={`${styles.section} ${
           info.achievement?.sectionTitle ? "" : styles.hidden
@@ -224,11 +252,12 @@ const Resume = forwardRef((props, ref) => {
         </div>
       </div>
     ),
+
     [sections.summary]: (
       <div
         key={"summary"}
         draggable
-        onDragOver={() => seTarget(info.summary?.id)}
+        onDragOver={() => setTarget(info.summary?.id)}
         onDragEnd={() => setSource(info.summary?.id)}
         className={`${styles.section} ${
           info.summary?.sectionTitle ? "" : styles.hidden
@@ -240,11 +269,12 @@ const Resume = forwardRef((props, ref) => {
         </div>
       </div>
     ),
+
     [sections.other]: (
       <div
         key={"other"}
         draggable
-        onDragOver={() => seTarget(info.other?.id)}
+        onDragOver={() => setTarget(info.other?.id)}
         onDragEnd={() => setSource(info.other?.id)}
         className={`${styles.section} ${
           info.other?.sectionTitle ? "" : styles.hidden
@@ -257,6 +287,15 @@ const Resume = forwardRef((props, ref) => {
       </div>
     ),
   };
+
+  const {
+    [sections.summary]: summarySection,
+    [sections.achievement]: achievementSection,
+    [sections.other]: otherSection,
+    [sections.education]: educationSection,
+    [sections.project]: projectSection,
+    [sections.workExp]: workExpSection,
+  } = sectionDiv;
 
   const swapSourceTarget = (source, target) => {
     if (!source || !target) return;
@@ -303,58 +342,49 @@ const Resume = forwardRef((props, ref) => {
     container.style.setProperty("--color", props.activeColor);
   }, [props.activeColor]);
 
+  const templates = useAllTemplates(
+    info,
+    sectionDiv,
+    styles,
+    columns,
+    summarySection,
+    achievementSection,
+    workExpSection,
+    projectSection,
+    educationSection,
+    otherSection,
+    containerRef
+  );
+  const templateId = props.templateId;
+
   return (
     <div ref={ref}>
-      <div ref={containerRef} className={styles.container}>
-        <div className={styles.header}>
-          <p className={styles.heading}>{info.basicInfo?.detail?.name}</p>
-          <p className={styles.subHeading}>{info.basicInfo?.detail?.title}</p>
-
-          <div className={styles.links}>
-            {info.basicInfo?.detail?.email ? (
-              <a className={styles.link} type="email">
-                <AtSign /> {info.basicInfo?.detail?.email}
-              </a>
-            ) : (
-              <span />
-            )}
-            {info.basicInfo?.detail?.phone ? (
-              <a className={styles.link}>
-                <Phone /> {info.basicInfo?.detail?.phone}
-              </a>
-            ) : (
-              <span />
-            )}
-            {info.basicInfo?.detail?.linkedin ? (
-              <a className={styles.link}>
-                <Linkedin /> {info.basicInfo?.detail?.linkedin}
-              </a>
-            ) : (
-              <span />
-            )}
-            {info.basicInfo?.detail?.github ? (
-              <a className={styles.link}>
-                <GitHub /> {info.basicInfo?.detail?.github}
-              </a>
-            ) : (
-              <span />
-            )}
-          </div>
-        </div>
-
-        <div className={styles.main}>
-          <div className={styles.col1}>
-            {columns[0].map((item) => sectionDiv[item])}
-          </div>
-          <div className={styles.col2}>
-            {columns[1].map((item) => sectionDiv[item])}
-          </div>
-        </div>
-      </div>
+      {!selectedTemplateId ? (
+        <TemplateSelection
+          templateImages={templateImages} // Pass templateImages as a prop
+          onSelectTemplate={(templateId) => {
+            setSelectedTemplateId(templateId);
+          }}
+        />
+      ) : (
+        useAllTemplates(
+          info,
+          sectionDiv,
+          styles,
+          columns,
+          summarySection,
+          achievementSection,
+          workExpSection,
+          projectSection,
+          educationSection,
+          otherSection,
+          containerRef
+        )
+      )}
     </div>
   );
 });
 
-Resume.displayName = 'Resume'; 
+Resume.displayName = "Resume";
 
 export default Resume;

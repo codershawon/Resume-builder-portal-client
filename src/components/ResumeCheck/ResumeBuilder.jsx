@@ -4,15 +4,13 @@ import React, { useState } from "react";
 
 import Dropzone from "react-dropzone";
 import { Link } from "react-router-dom";
-import ResumeForm from "./ResumeForm";
 import SectionTitle from "../../Hooks/SectionTitle";
 import mammoth from "mammoth";
-import openai from "openai";
 import { pdfjs } from "react-pdf";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
-openai.apiKey = "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";
+
 
 const ResumeBuilder = () => {
   const [uploadedFile, setUploadedFile] = useState(null);
@@ -22,17 +20,39 @@ const ResumeBuilder = () => {
   const [resumeTextExtracted, setResumeTextExtracted] = useState("");
   const [showResumeForm, setShowResumeForm] = useState(false);
 
+     // Define your list of resume keywords
+     const resumeKeywords = [
+      "name",
+      "objective",
+      "address",
+      "education",
+      "skills",
+      "hobbies",
+      "languages",
+      "projects",
+      "experience",
+      "image",
+      "certifications",
+      "awards",
+      "publications",
+      // Add more keywords as needed
+    ];
+
   const onDrop = async (acceptedFiles) => {
-    localStorage.removeItem("resumeText");
-    localStorage.removeItem("resumeFormData");
+  
 
     const file = acceptedFiles[0];
     setUploadedFile(file);
-    
 
     const fileContent = await readFileContents(file);
-    const aiResult = await analyzeResumeWithAI(fileContent);
-    setResultPercentage(aiResult);
+    setResultPercentage(calculateProgressPercentage(fileContent));
+
+    // Extract and store the text associated with keywords
+    const keywordTextMap = extractKeywordText(fileContent);
+    setResumeTextExtracted(keywordTextMap);
+
+    // Store the entire extracted resume text in local storage
+    localStorage.setItem("resumeTextExtracted", JSON.stringify(keywordTextMap));
 
     if (file.type === "application/pdf") {
       const pdfText = await extractPdfText(file);
@@ -55,6 +75,48 @@ const ResumeBuilder = () => {
     setResumeText(fileContent);
   };
 
+
+  const extractKeywordText = (resumeText) => {
+    const lowerCaseText = resumeText.toLowerCase();
+    const keywordTextMap = {};
+
+    resumeKeywords.forEach((keyword) => {
+      const startIndex = lowerCaseText.indexOf(keyword);
+      if (startIndex !== -1) {
+        const endIndex = lowerCaseText.indexOf(keyword, startIndex + 1);
+        if (endIndex !== -1) {
+          const keywordText = resumeText.substring(startIndex, endIndex);
+          keywordTextMap[keyword] = keywordText;
+        }
+      }
+    });
+
+    return keywordTextMap;
+  };
+
+  const calculateProgressPercentage = (resumeText) => {
+    const lowerCaseText = resumeText.toLowerCase();
+    const totalKeywords = resumeKeywords.length;
+    let foundKeywords = 0;
+  
+    resumeKeywords.forEach((keyword) => {
+      if (lowerCaseText.includes(keyword)) {
+        foundKeywords++;
+      }
+    });
+  
+    // Calculate the percentage based on the keywords found
+    const keywordPercentage = (foundKeywords / totalKeywords) * 50; // You have 60% to add to the minimum 40%
+  
+    // Add the keyword percentage to the minimum 40%
+    const totalPercentage = Math.min(100, 50 + keywordPercentage); // Ensure it doesn't exceed 100%
+  
+    // Round the total percentage to the nearest whole number
+    const roundedPercentage = Math.round(totalPercentage);
+  
+    return roundedPercentage;
+  };
+
   const readFileContents = async (file) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -64,9 +126,7 @@ const ResumeBuilder = () => {
     });
   };
 
-  const analyzeResumeWithAI = async (resumeText) => {
-    return Math.floor(Math.random() * 101);
-  };
+
 
   const extractPdfText = async (pdfFile) => {
     const fileBuffer = await pdfFile.arrayBuffer();
@@ -92,10 +152,10 @@ const ResumeBuilder = () => {
     localStorage.setItem("resumeFormData", JSON.stringify(formData));
   };
 
-  const handleContinueEditing = () => {
-    localStorage.setItem("resumeText", resumeTextExtracted);
-    setShowResumeForm(true);
-  };
+  // const handleContinueEditing = () => {
+  //   localStorage.setItem("resumeText", resumeTextExtracted);
+  //   setShowResumeForm(true);
+  // };
 
 
   return (
@@ -144,33 +204,27 @@ const ResumeBuilder = () => {
               </div>
             </div>
 
-            {/* <div className="flex gap-10 text-center justify-center pt-6">
-              <button className="my-btn" onClick={handleContinueEditing}>
-                Continue Editing
-              </button>
-            </div> */}
+        
             <div className="flex gap-10 text-center justify-center pt-6">
               <Link to="/resumeBuilder/:id">
                 <button className="my-btn">Create New Resume</button>
               </Link>
 
-              {/* <button className="my-btn" onClick={handleContinueEditing}>
-                    Continue Editing
-                  </button> */}
-                  <Link to="/resume-form">
+             
+                  {/* <Link to="/resume-form">
           <button className="my-btn" onClick={handleContinueEditing}>
             Continue Editing
           </button>
-        </Link>
+        </Link> */}
             </div>
           </div>
         )}
       </div>
-      {/* {showResumeForm && (
-        <ResumeForm initialResumeText={resumeText} onSubmit={handleSubmitForm} />
-      )} */}
+     
      
     </div>
+    </div>
+
   );
 };
 
