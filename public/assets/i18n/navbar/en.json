@@ -8,6 +8,7 @@
     "dashboard": "Dashboard",
     "profile": "Profile",
     "settings": "Settings",
-    "logout": "Log Out"
+    "logout": "Log Out",
+    "login":"Login"
   }
   

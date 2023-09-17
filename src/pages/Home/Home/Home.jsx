@@ -27,9 +27,7 @@ const Home = () => {
       <MessengerCustomerChat
         pageId="113136445219095"
         appId="837323987759806"
-      />
-     
-    
+      /> 
     </div>
   );
 };

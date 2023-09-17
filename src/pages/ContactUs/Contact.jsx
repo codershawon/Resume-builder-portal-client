@@ -50,13 +50,12 @@ const Contact = () => {
     <>
     <section className="contact section rgContainer mb-20">
       <div className="mt-10 ">
-        <h3 className="contact__title">Don't be Shy !</h3>
-
+        <h3 className="contact__title">Contact Us | <span className="text-[#0dcaf0]">Resume</span> <span className="text-[#197685]">Genius</span></h3>
         <p className="">
-          Feel free to get in touch with me. I am always open to discussing new
-          projects, <br /> creative ideas or opportunities to be part of your
-          visions.
-        </p>
+        Exceptional resume guidance and top-tier customer support. <br /> We take great pride in assisting you through every stage of the process.
+</p>
+
+
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 items-center">

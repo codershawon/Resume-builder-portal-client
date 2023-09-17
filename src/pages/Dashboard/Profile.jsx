@@ -3,7 +3,7 @@ import { FaEdit, FaUpload } from "react-icons/fa";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import ReactPaginate from "react-paginate";
-import BestResume from "../Home/BestResume/BestResume";
+// import BestResume from "../Home/BestResume/BestResume";
 import ProfileContain from "../../components/userProfile/ProfileContain";
 import { Link } from "react-router-dom";
 console.log(import.meta.env.VITE_IMGBB_KEY);
@@ -167,9 +167,9 @@ const Profile = () => {
 
   return (
     <>
-      <div className="w-full h-full lg:flex gap-4">
+      <div className="w-full  lg:flex gap-4">
         <div
-          className="w-[80%] lg:w-[38%]  text-white "
+          className="w-[80%] lg:w-[38%]  text-white mx-auto "
           style={{ backgroundImage: "url(https://i.ibb.co/K0XHbpd/35.png)" }}>
           <div className="py-14 md:px-6 lg:px-10 px-2 h-full border-4 border-[#197685]  rounded-e-3xl">
             <div className="flex justify-center ">
@@ -341,13 +341,13 @@ const Profile = () => {
         </div>
         
 
-        <div className="w-[80%] lg:w-[58%] mx-10 overflow-hidden">
+         <div className="w-[80%] lg:w-[58%] mx-10 overflow-hidden">
           
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3   gap-6">
             {currentPageItems.map((resume) => (
               <div className="mx-auto relative" key={resume._id}>
                 <img className="w-full" src={resume.template} alt="" />
-                {/* <button className="">hello</button> */}
+               
                 <Link
                 className="absolute bottom-0 w-full"
                   to={
@@ -390,7 +390,7 @@ const Profile = () => {
               activeLinkClassName="active"
             />
           </div>
-        </div>
+        </div> 
       </div>
     </>
   );
