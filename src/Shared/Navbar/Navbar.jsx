@@ -134,7 +134,9 @@ const Navbar = () => {
           </li>
        {user && (
         <li className={location.pathname === "" ? "navActive" : "navStyle"}>
-          <Link to="/dashboard">{t("dashboard")}</Link>
+          {
+            isAdmin ? <><Link to="/dashboard/adminHome" >{t("dashboard")}</Link></> : <><Link to="/dashboard/profile">{t("dashboard")}</Link></>
+          }
         </li>
       )}
 
