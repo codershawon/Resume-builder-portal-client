@@ -126,7 +126,7 @@ const Dashboard = () => {
           }`}
         >
           <div
-            className={`w-20 mx-auto rounded-full ring ring-white ring-offset-base-100 ring-offset-2  duration-500 ${
+            className={`w-20 mx-auto rounded-full ring ring-white ring-offset-base-100 ring-offset-2 duration-500 ${
               !open &&
               "w-10 rounded-full ring ring-white ring-offset-base-100 ring-offset-1"
             }`}
