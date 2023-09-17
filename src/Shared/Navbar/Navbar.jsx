@@ -130,16 +130,6 @@ const Navbar = () => {
 
 
           </li>
-          <li
-            className={
-              location.pathname === "/coverletter" ? "navActive" : "navStyle"
-            }
-          >
-
-            <Link to="/coverletter">{t("coverLetter")}</Link>
-       
-
-          </li>
         </ul>
       </li>
       <li>
@@ -157,7 +147,7 @@ const Navbar = () => {
       </li>
       {user && (
         <li className={location.pathname === "" ? "navActive" : "navStyle"}>
-          <Link to="/dashboard">{t("dashboard")}</Link>
+          <Link to="/dashboard/adminHome">{t("dashboard")}</Link>
         </li>
       )}
 

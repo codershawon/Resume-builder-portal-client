@@ -30,6 +30,8 @@ import BlogPage from "../pages/Dashboard/Blog/BlogPage";
 import ChatSystem from "../pages/VideoCall/ChatSystem";
 import CoverLetterFormBuilder from "../pages/CoverLetter/CoverLetterFormBuilder";
 import CoverLetterChecker from "../pages/CoverLetter/CoverLetterChecker";
+import Video from "../pages/Video/Video";
+import RoomPage from "../pages/RoomPage/RoomPage";
 
 
 
@@ -111,6 +113,7 @@ export const router = createBrowserRouter([
         path:"/watchVideo",
         element:<WatchVideo />
       }
+      
     ],
   },
   {
