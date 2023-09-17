@@ -13,6 +13,8 @@ const Main = () => {
       setLoading(false);
     }, 1000);
   }, []);
+  const noHeaderFooter =
+    location.pathname.includes("login") ;
   return (
     <>
       {loading ? (
@@ -33,6 +35,9 @@ const Main = () => {
       ) : (
         <>
           <div className="mx-w-[1600px] mx-auto">
+            {/* {noHeaderFooter || <Navbar />}
+            <Outlet />
+            {noHeaderFooter || <Footer />} */}
             <Navbar />
             <Outlet />
             <Footer />

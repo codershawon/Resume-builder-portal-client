@@ -1,16 +1,12 @@
 import React from "react";
-import { useState } from "react";
+
 import { FaCalendar, FaCalendarCheck, FaStopwatch } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
-import { AuthContext } from "../../Providers/AuthProvider";
-import { useContext } from "react";
-import { useEffect } from "react";
+
 
 const BlogDetails = () => {
   const blogDetails = useLoaderData();
-  const [profile, setProfile] = useState([]);
   
-  const { user } = useContext(AuthContext);
   const {
     _id,
     authorUrl,
@@ -24,26 +20,15 @@ const BlogDetails = () => {
     imageUrl,
   } = blogDetails;
   console.log(blogDetails);
-  useEffect(() => {
-    fetch(`https://resume-builder-portal-server.vercel.app/users/${user.email}`)
-      //fetch(`https://resume-builder-portal-server.vercel.app/users/${user.email}`)
-      .then((res) => res.json())
-      .then((data) => setProfile(data))
-      .catch((error) => console.error(error));
-
-  }, []);
-
-
-
 
 
 
   return (
-    <div className="w-[70%] mx-auto">
+    <div className="w-[70%] mx-auto text-justify">
       <div>
         <img
           src={imageUrl}
-          className="h-[200px] md:h-[300px] lg:h-[430px] w-full mb-7 lg:mb-8 mt-12"
+          className="h-[200px] md:h-[300px] lg:h-[500px] rounded-md w-full mb-7 lg:mb-8 mt-12"
           alt="Blog image"
         />
         <p className="md:text-3xl py-2 font-semibold">{blogTitle}</p>
@@ -57,10 +42,13 @@ const BlogDetails = () => {
               <p className="font-medium text-base text-gray-600 pb-3">{bloggerTitle}</p>
               </div>
             </div>
-            <p className=""> {date}</p>
+            
           </div>
-          <div className="flex gap-1 items-center text-[#197685]">
+          <div>
+          <p className=""> {date}</p>
+          <div className="flex gap-3 items-center text-[#197685]">
             <FaStopwatch className="text-[#197685]"></FaStopwatch> {readingTime}
+          </div>
           </div>
         </div>
         
