@@ -254,6 +254,7 @@ const Profile = () => {
               )}
             </div>
           </div>
+          
 
           {/* Put this part before </body> tag */}
           <dialog className="modal modal-middle " id="my_modal_8">
