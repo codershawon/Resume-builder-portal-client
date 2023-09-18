@@ -1,7 +1,7 @@
 import React from "react";
 import errorPage from "./errorPage.json";
 import Lottie from "lottie-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const ErrorPage = () => {
   const goBack = () => {

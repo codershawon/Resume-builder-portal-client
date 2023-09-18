@@ -32,6 +32,7 @@ const Faqs = () => {
         </div>
       </div>
 
+
       {/* <div className="my-6 ">
         <h2 className="text-center text-4xl font-bold my-6">As seen in:</h2>
         <div className=" px-6 md:px-20 lg:px-0">

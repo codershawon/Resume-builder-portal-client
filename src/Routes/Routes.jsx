@@ -111,6 +111,7 @@ export const router = createBrowserRouter([
         path:"/watchVideo",
         element:<WatchVideo />
       }
+      
     ],
   },
   {
