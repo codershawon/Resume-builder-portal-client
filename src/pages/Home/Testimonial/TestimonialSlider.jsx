@@ -43,7 +43,10 @@ const TestimonialSlider = () => {
     // Fetch testimonials from the backend
     fetch("https://resume-builder-portal-server.vercel.app/review")
       .then((res) => res.json())
-      .then((data) => setTestimonials(data))
+      .then((data) => {
+        const approvedTestimonials = data.filter((item) => item.status === "approved");
+        setTestimonials(approvedTestimonials);
+      })
       .catch((error) => console.error(error));
   }, []);
 

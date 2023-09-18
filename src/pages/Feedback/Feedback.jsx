@@ -39,12 +39,14 @@ const Feedback = () => {
     const image = profile?.photoURL || user?.photoURL;
     const email = user?.email;
     const name = profile?.name;
+    const status = "pending";
     const data = {
       rating,
       reviewText,
       image,
       email,
-      name
+      name,
+      status
     };
 
 

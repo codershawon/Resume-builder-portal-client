@@ -30,6 +30,7 @@ import BlogPage from "../pages/Dashboard/Blog/BlogPage";
 import ChatSystem from "../pages/VideoCall/ChatSystem";
 import CoverLetterFormBuilder from "../pages/CoverLetter/CoverLetterFormBuilder";
 import CoverLetterChecker from "../pages/CoverLetter/CoverLetterChecker";
+import Review from "../pages/Dashboard/Review";
 
 
 
@@ -147,6 +148,14 @@ export const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <UsersInfo/>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "review",
+        element: (
+          <AdminRoute>
+            <Review/>
           </AdminRoute>
         ),
       },
