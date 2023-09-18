@@ -33,7 +33,7 @@ const Faqs = () => {
           ></SectionTitle>
         </div>
       </div>
-      
+
 
       {/* <div className="my-6 ">
         <h2 className="text-center text-4xl font-bold my-6">As seen in:</h2>
