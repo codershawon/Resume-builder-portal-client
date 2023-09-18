@@ -446,8 +446,8 @@ const Resume = forwardRef((props, ref) => {
     <div ref={ref}>
       {/* {templates}
      {templates} */}
-      {/* {selectedTemplate} */}
-
+      {selectedTemplate}
+{/* 
       <div key="template13" className=''>
           <div ref={containerRef} className={styles.container}>
             <div className="flex gap-5">
@@ -513,7 +513,7 @@ const Resume = forwardRef((props, ref) => {
   
             </div>
           </div>
-        </div>
+        </div> */}
     </div>
   );
 });
