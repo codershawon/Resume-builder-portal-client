@@ -57,7 +57,7 @@ const MyTemplates = () => {
     });
   };
   return (
-    <div className="w-full">
+    <div className="w-full h-full relative">
       {/* Page Title
         <Helmet>
         <title> Resume-Genius | MyTemplates</title>
@@ -107,24 +107,23 @@ const MyTemplates = () => {
           <button className="btn ">PAY</button>
         </Link>
       </div>
-      <div className="flex justify-center mt-4">
-        <ReactPaginate
-          previousLabel={"Previous"}
-          nextLabel={"Next"}
-          breakLabel={"..."}
-          breakClassName={"break-me"}
-          pageCount={pageCount}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          onPageChange={handlePageChange}
-          containerClassName={"flex"}
-          previousLinkClassName={"p-2 border rounded-md m-1 bg-gray-200"}
-          nextLinkClassName={"p-2 border rounded-md m-1 bg-gray-200"}
-          pageClassName={"p-2 border rounded-md m-1 bg-gray-200"}
-          pageLinkClassName={"text-blue-500"}
-          activeClassName={"bg-bg-[#93DB1F] text-white"}
-        />
-      </div>
+      <div className="flex justify-center mt-8 absolute bottom-0 left-1/3">
+            <ReactPaginate
+              previousLabel={"Previous"}
+              nextLabel={"Next"}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={pageCount}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={handlePageChange}
+              containerClassName="pagination"
+              previousLinkClassName="page-num"
+              nextLinkClassName="page-num"
+              pageLinkClassName="page-num"
+              activeLinkClassName="active"
+            />
+          </div>
     </div>
   );
 };

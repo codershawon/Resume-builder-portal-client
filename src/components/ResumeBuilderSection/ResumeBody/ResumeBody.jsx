@@ -1,21 +1,24 @@
 import { useRef, useState } from "react";
 import styles from "./ResumeBody.module.css";
-import { FaArrowDown } from "react-icons/fa6";
 import { ArrowDown } from "react-feather";
 import ReactToPrint from "react-to-print";
 import ResumeEditor from "../ResumeEditor/ResumeEditor";
 import Resume from "../Resume/Resume";
+import { Link } from "react-router-dom";
+import { FaMessage } from "react-icons/fa6";
 
-const ResumeBody = () => {
+const ResumeBody = ({name}) => {
 
   const colors = ["#239ce2", "#48bb78", "#0bc5ea", "#a0aec0", "#ed8936"];
   const sections = {
     basicInfo: "Basic Info",
+    summary: "Summary",
+    education: "Education",
     workExp: "Work Experience",
     project: "Projects",
-    education: "Education",
+    skills: "Skill",
+    language: "Language",
     achievement: "Achievements",
-    summary: "Summary",
     other: "Other",
   };
 
@@ -27,6 +30,16 @@ const ResumeBody = () => {
       id: sections.basicInfo,
       sectionTitle: sections.basicInfo,
       detail: {},
+    },
+    [sections.skills]: {
+      id: sections.skills,
+      sectionTitle: sections.skills,
+      details: [],
+    },
+    [sections.language]: {
+      id: sections.language,
+      sectionTitle: sections.language,
+      details: [],
     },
     [sections.workExp]: {
       id: sections.workExp,
@@ -74,6 +87,9 @@ const ResumeBody = () => {
             />
           ))}
         </div>
+     <Link to="/chatSystem">   <button>
+                Chat <FaMessage/>
+              </button></Link>
         <ReactToPrint
           trigger={() => {
             return (
@@ -85,6 +101,7 @@ const ResumeBody = () => {
           content={() => resumeRef.current}
         />
       </div>
+      
       <div className={styles.main}>
         <ResumeEditor
           sections={sections}
@@ -93,6 +110,7 @@ const ResumeBody = () => {
         />
         <Resume
           ref={resumeRef}
+          name={name}
           sections={sections}
           information={resumeInformation}
           activeColor={activeColor}

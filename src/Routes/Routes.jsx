@@ -28,6 +28,9 @@ import Blogs from "../pages/Blogs/Blogs";
 import BlogDetails from "../pages/Blogs/BlogDetails";
 import BlogPage from "../pages/Dashboard/Blog/BlogPage";
 import ChatSystem from "../pages/VideoCall/ChatSystem";
+import CoverLetterFormBuilder from "../pages/CoverLetter/CoverLetterFormBuilder";
+import CoverLetterChecker from "../pages/CoverLetter/CoverLetterChecker";
+
 
 
 
@@ -52,9 +55,27 @@ export const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "resumeBuilder/:id",
+        path: "templates/:name",
         element: <ResumeBuilder />,
       },
+
+      // {
+      //   path: "resumeBuilder/:id",
+      //   element: <ResumeBuilder />,
+      // },
+      // {
+      //   path:"resume-form",
+      //   element:<ResumeForm/>,
+      // },
+      {
+        path: "/coverLetterBuilder/:id",
+        element: <CoverLetterFormBuilder />,
+      },
+      {
+        path: "/coverLetterChecker",
+        element: <CoverLetterChecker/>,
+      },
+
       {
         path:"/resume-form",
         element:<ResumeForm/>,

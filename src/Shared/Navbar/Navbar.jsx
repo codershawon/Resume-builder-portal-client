@@ -18,14 +18,14 @@ const Navbar = () => {
   const from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
-		if (localStorage.getItem("i18nextLng")?.length > 2) {
-			i18next.changeLanguage("en");
-		}
-	}, []);
+    if (localStorage.getItem("i18nextLng")?.length > 2) {
+      i18next.changeLanguage("en");
+    }
+  }, []);
 
-	const handleLanguageChange = (e) => {
-		i18n.changeLanguage(e.target.value);
-	};
+  const handleLanguageChange = (e) => {
+    i18n.changeLanguage(e.target.value);
+  };
   // logout
   const handleLogout = () => {
     logout()
@@ -72,17 +72,40 @@ const Navbar = () => {
   const navOptions = (
     <>
       <li className={location.pathname === "" ? "navActive" : "navStyle "}>
-        <Link to="/allresume">{t("resumeTemplate")}</Link>
-      
+        <Link to="/allresume">{t("Resume")}</Link>
+
       </li>
-      <li className={location.pathname === "" ? "navActive" : "navStyle"}>
-        <Link to="/">{t("coverLetter")}</Link>
+      <li
+        className={`relative navHover ${location.pathname === "" ? "navActive" : "navStyle"
+          }`}>
+        <Link className="flex items-center gap-1" to="/">
+          {t("coverLetter")} <FaAngleDown />
+        </Link>
+        {/* Dropdown options */}
+        <ul className="navDropdown">
+          <li
+            className={
+              location.pathname === "/coverLetterChecker" ? "navActive" : "navStyle"
+            }
+          >
+            <Link to="/coverLetterChecker">{t("cover letter checker")}</Link>
+
+          </li>
+          <li
+            className={
+              location.pathname === "/coverLetterBuilder" ? "navActive" : "navStyle"
+            }
+          >
+            <Link to="/coverLetterBuilder">{t("cover letter builder")}</Link>
+
+
+          </li>
+        </ul>
       </li>
 
       <li
-        className={`relative navHover ${
-          location.pathname === "" ? "navActive" : "navStyle"
-        }`}>
+        className={`relative navHover ${location.pathname === "" ? "navActive" : "navStyle"
+          }`}>
         <Link className="flex items-center gap-1" to="/">
           {t("career")} <FaAngleDown />
         </Link>
@@ -95,8 +118,8 @@ const Navbar = () => {
           >
             <Link to="/blogs">{t("blogs")}</Link>
 
-        
-       
+
+
           </li>
           <li
             className={
@@ -104,37 +127,39 @@ const Navbar = () => {
             }
           >
             <Link to="/contactUs">{t("contactUs")}</Link>
-       
-           
+
+
           </li>
           <li
             className={
               location.pathname === "/coverletter" ? "navActive" : "navStyle"
             }
           >
-            <Link to="/coverletter">{t("coverLetter")}</Link>
 
-      
-           
+            <Link to="/coverletter">{t("coverLetter")}</Link>
+       
+
           </li>
         </ul>
       </li>
-          <li>
-         <div className="flex items-center gap-2">
-         <FaLanguage className="text-4xl"/><select
-							className="bg-white font-bold"
-							value={localStorage.getItem("i18nextLng")}
-							onChange={handleLanguageChange}
-						>
-							<option value="en">English</option>
-							<option value="fr">Français</option>
-							<option value="es">Español</option>
-						</select>
-         </div>
-          </li>
-       {user && (
+      <li>
+        <div className="flex items-center gap-2">
+          <FaLanguage className="text-4xl" /><select
+            className="bg-white font-bold"
+            value={localStorage.getItem("i18nextLng")}
+            onChange={handleLanguageChange}
+          >
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+          </select>
+        </div>
+      </li>
+      {user && (
         <li className={location.pathname === "" ? "navActive" : "navStyle"}>
-          <Link to="/dashboard">{t("dashboard")}</Link>
+          {
+            isAdmin ? <><Link to="/dashboard/adminHome" >{t("dashboard")}</Link></> : <><Link to="/dashboard/profile">{t("dashboard")}</Link></>
+          }
         </li>
       )}
 
@@ -190,7 +215,7 @@ const Navbar = () => {
           <div>
             <div>
               <Link to="/login" className="btn my-btn">
-              {t("login")}
+                {t("login")}
               </Link>
             </div>
           </div>
@@ -212,7 +237,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <ul className="hidden  md:flex items-center space-x-2">{navOptions}</ul>
+        <ul className="hidden  md:flex items-center xl:space-x-2">{navOptions}</ul>
         <div className="md:hidden">
           {/* Mobile menu button */}
           <button onClick={toggleMobileMenu} className="">
@@ -239,25 +264,25 @@ const Navbar = () => {
       {/* Mobile menu options */}
       <div
         className={`mobile-menu ${isMobileMenuOpen ? "mobile-menu-open" : ""}`}>
-          <button onClick={toggleMobileMenu} className="w-full flex justify-end pb-12 mt-[-25px]">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor">
-          {isMobileMenuOpen ? (
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
-          ) : (
-            <></>
-          )}
-        </svg>
-      </button>
+        <button onClick={toggleMobileMenu} className="w-full flex justify-end pb-12 mt-[-25px]">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor">
+            {isMobileMenuOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <></>
+            )}
+          </svg>
+        </button>
         <ul className="flex flex-col justify-center items-center">{navOptions}</ul>
       </div>
     </nav>

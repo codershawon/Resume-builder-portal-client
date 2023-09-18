@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from './ResumeEditor.module.css'
 import InputControl from "../InputControl/InputControl";
 import { FaCircleXmark } from "react-icons/fa6";
 
 function ResumeEditor(props) {
+  const inputRef = useRef(null);
 
   const sections = props.sections;
   const information = props.information;
+  const [profile, setProfile] = useState([]);
+
 
   const [activeSectionKey, setActiveSectionKey] = useState(
     Object.keys(sections)[0]
@@ -19,12 +22,14 @@ function ResumeEditor(props) {
     sections[Object.keys(sections)[0]]
   );
   const [values, setValues] = useState({
+    photo: profile || "",
     name: activeInformation?.detail?.name || "",
     title: activeInformation?.detail?.title || "",
     linkedin: activeInformation?.detail?.linkedin || "",
     github: activeInformation?.detail?.github || "",
     phone: activeInformation?.detail?.phone || "",
     email: activeInformation?.detail?.email || "",
+    address: activeInformation?.detail?.address || "",
   });
 
   const handlePointUpdate = (value, index) => {
@@ -33,6 +38,47 @@ function ResumeEditor(props) {
     tempValues.points[index] = value;
     setValues(tempValues);
   };
+
+  // image upload 
+
+  const handleImageChange = async () => {
+    if (inputRef.current) {
+      const selectedImage = inputRef.current.files[0];
+      if (selectedImage) {
+        const formData = new FormData();
+        formData.append("image", selectedImage);
+
+        const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`;
+
+        try {
+          const response = await fetch(url, {
+            method: "POST",
+            body: formData,
+          });
+
+          if (response.ok) {
+            const imageData = await response.json();
+            const imageUrl = imageData.data.display_url;
+
+            const updatedProfile = { ...profile, photoURL: imageUrl };
+            setProfile(updatedProfile);
+
+            // Update the 'values' state with the photo URL
+            setValues((prevValues) => ({
+              ...prevValues,
+              photo: imageUrl,
+            }));
+          } else {
+            // Handle error
+          }
+        } catch (error) {
+          // Handle error
+          console.log(error);
+        }
+      }
+    }
+  };
+
 
   const workExpBody = (
     <div className={styles.detail}>
@@ -223,6 +269,18 @@ function ResumeEditor(props) {
   );
   const basicInfoBody = (
     <div className={styles.detail}>
+      <div className="flex flex-col gap-2">
+        <label htmlFor="ProfilePhoto">Photo</label>
+        <input
+          type="file"
+          label="ProfilePhoto"
+
+          accept="image/*"
+          // style={{ display: "none" }}
+          ref={inputRef}
+          onChange={handleImageChange}
+        />
+      </div>
       <div className={styles.row}>
         <InputControl
           label="Name"
@@ -274,6 +332,14 @@ function ResumeEditor(props) {
           placeholder="Enter your phone number"
           onChange={(event) =>
             setValues((prev) => ({ ...prev, phone: event.target.value }))
+          }
+        />
+        <InputControl
+          label="Address"
+          value={values.address}
+          placeholder="Enter your phone number"
+          onChange={(event) =>
+            setValues((prev) => ({ ...prev, address: event.target.value }))
           }
         />
       </div>
@@ -330,6 +396,44 @@ function ResumeEditor(props) {
       />
     </div>
   );
+  const skillsBody = (
+    <div className={styles.detail}>
+      <div className={styles.row}>
+        <InputControl
+          label="Skill Title"
+          value={values.title}
+          placeholder="Enter skill title"
+          onChange={(event) =>
+            setValues((prev) => ({ ...prev, title: event.target.value }))
+          }
+        />
+      </div>
+      <div className={styles.row}>
+        <InputControl
+          label="Experience Level"
+          value={values.experience}
+          placeholder="Enter experience level"
+          onChange={(event) =>
+            setValues((prev) => ({ ...prev, experience: event.target.value }))
+          }
+        />
+      </div>
+    </div>
+  );
+  const languageBody = (
+    <div className={styles.detail}>
+      <div className={styles.row}>
+        <InputControl
+          label="Language"
+          value={values.language}
+          placeholder="Enter language name"
+          onChange={(event) =>
+            setValues((prev) => ({ ...prev, language: event.target.value }))
+          }
+        />
+      </div>
+    </div>
+  );
 
   const generateBody = () => {
     switch (sections[activeSectionKey]) {
@@ -345,6 +449,10 @@ function ResumeEditor(props) {
         return achievementsBody;
       case sections.summary:
         return summaryBody;
+      case sections.skills:
+        return skillsBody;
+      case sections.language:
+        return languageBody;
       case sections.other:
         return otherBody;
       default:
@@ -356,6 +464,7 @@ function ResumeEditor(props) {
     switch (sections[activeSectionKey]) {
       case sections.basicInfo: {
         const tempDetail = {
+          photo: values.photo,
           name: values.name,
           title: values.title,
           linkedin: values.linkedin,
@@ -464,6 +573,43 @@ function ResumeEditor(props) {
         }));
         break;
       }
+      case sections.skills: {
+        const tempDetail = {
+          title: values.title,
+          name: values.name,
+          experience: values.experience,
+        };
+        const tempDetails = [...information[sections.skills]?.details];
+        tempDetails[activeDetailIndex] = tempDetail;
+
+        props.setInformation((prev) => ({
+          ...prev,
+          [sections.skills]: {
+            ...prev[sections.skills],
+            details: tempDetails,
+            sectionTitle,
+          },
+        }));
+        break;
+      }
+      case sections.language: {
+        const tempDetail = {
+          title: values.title,
+          language: values.language,
+        };
+        const tempDetails = [...information[sections.language]?.details];
+        tempDetails[activeDetailIndex] = tempDetail;
+
+        props.setInformation((prev) => ({
+          ...prev,
+          [sections.language]: {
+            ...prev[sections.language],
+            details: tempDetails,
+            sectionTitle,
+          },
+        }));
+        break;
+      }
       case sections.other: {
         const tempDetail = values.other;
 
@@ -547,8 +693,11 @@ function ResumeEditor(props) {
           ? [...activeInfo.details[0]?.points]
           : ""
         : activeInfo?.points
-        ? [...activeInfo.points]
-        : "",
+          ? [...activeInfo.points]
+          : "",
+      photo: activeInfo?.details
+        ? activeInfo.details[0]?.photo || ""
+        : activeInfo?.detail?.photo || "",
       title: activeInfo?.details
         ? activeInfo.details[0]?.title || ""
         : activeInfo?.detail?.title || "",
@@ -589,39 +738,37 @@ function ResumeEditor(props) {
     });
   }, [activeDetailIndex]);
 
-
+  console.log(profile);
   return (
-    
+
     <div className={styles.container}>
-    <div className={styles.header}>
-      {Object.keys(sections)?.map((key) => (
-        <div
-          className={`${styles.section} ${
-            activeSectionKey === key ? styles.active : ""
-          }`}
-          key={key}
-          onClick={() => setActiveSectionKey(key)}
-        >
-          {sections[key]}
-        </div>
-      ))}
-    </div>
+      <div className={styles.header}>
+        {Object.keys(sections)?.map((key) => (
+          <div
+            className={`${styles.section} ${activeSectionKey === key ? styles.active : ""
+              }`}
+            key={key}
+            onClick={() => setActiveSectionKey(key)}
+          >
+            {sections[key]}
+          </div>
+        ))}
+      </div>
 
-    <div className={styles.body}>
-      <InputControl
-        label="Title"
-        placeholder="Enter section title"
-        value={sectionTitle}
-        onChange={(event) => setSectionTitle(event.target.value)}
-      />
+      <div className={styles.body}>
+        <InputControl
+          label="Title"
+          placeholder="Enter section title"
+          value={sectionTitle}
+          onChange={(event) => setSectionTitle(event.target.value)}
+        />
 
-      <div className={styles.chips}>
-        {activeInformation?.details
-          ? activeInformation?.details?.map((item, index) => (
+        <div className={styles.chips}>
+          {activeInformation?.details
+            ? activeInformation?.details?.map((item, index) => (
               <div
-                className={`${styles.chip} ${
-                  activeDetailIndex === index ? styles.active : ""
-                }`}
+                className={`${styles.chip} ${activeDetailIndex === index ? styles.active : ""
+                  }`}
                 key={item.title + index}
                 onClick={() => setActiveDetailIndex(index)}
               >
@@ -636,22 +783,22 @@ function ResumeEditor(props) {
                 />
               </div>
             ))
-          : ""}
-        {activeInformation?.details &&
-        activeInformation?.details?.length > 0 ? (
-          <div className={styles.new} onClick={handleAddNew}>
-            +New
-          </div>
-        ) : (
-          ""
-        )}
+            : ""}
+          {activeInformation?.details &&
+            activeInformation?.details?.length > 0 ? (
+            <div className={styles.new} onClick={handleAddNew}>
+              +New
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+
+        {generateBody()}
+
+        <button onClick={handleSubmission}>Save</button>
       </div>
-
-      {generateBody()}
-
-      <button onClick={handleSubmission}>Save</button>
     </div>
-  </div>
   );
 }
 
