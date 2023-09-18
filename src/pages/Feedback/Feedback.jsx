@@ -1,68 +1,92 @@
-import "react-toastify/dist/ReactToastify.css";
-import "./Feedback.css";
-import React, { useContext, useEffect, useState } from "react";
-import { useForm, Controller } from "react-hook-form";
-import { AuthContext } from "../../Providers/AuthProvider";
-import { FaStar } from "react-icons/fa";
-import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";  // Import CSS for toast notifications
+import "./Feedback.css";  // Import custom CSS for this component
+import React, { useContext, useEffect, useState } from "react";  // Import React and necessary hooks
+import { useForm, Controller } from "react-hook-form";  // Import form handling hooks
+import { useDispatch, useSelector } from 'react-redux';  // Import Redux hooks
+import { AuthContext } from "../../Providers/AuthProvider";  // Import AuthContext
+import { FaStar } from "react-icons/fa";  // Import star icon from FontAwesome
+import { ToastContainer, toast } from "react-toastify";  // Import ToastContainer for toast notifications
+import 'react-toastify/dist/ReactToastify.css';  // Import CSS for toast notifications
+import { setHover, setRating, setReviewSubmitted, setReviewText } from "../../redux/features/feedback/feedbackSlice";  // Import actions from feedbackSlice
 
 const Feedback = () => {
-  const { user } = useContext(AuthContext);
-  const [rating, setRating] = useState(null);
-  const [hover, setHover] = useState(null);
-  const [isReviewSubmitted, setIsReviewSubmitted] = useState(false);
-  const { register,control, handleSubmit, setValue } = useForm();
-  const [profile, setProfile] = useState([]);
+  const dispatch = useDispatch();  // Initialize dispatch function to dispatch actions
+  const { rating, hover, isReviewSubmitted } = useSelector((state) => state.feedback);  // Select state properties from the Redux store
+  const { user } = useContext(AuthContext);  // Get user info from the AuthContext
+  const { register, control, handleSubmit, setValue } = useForm();  // Initialize form handling functions
+  const [profile, setProfile] = useState([]);  // Initialize profile state to hold user data
 
+  // Function to fetch user data from the database based on email
+  const fetchUserDataFromDatabase = async (email) => {
+    try {
+      const response = await fetch(`https://resume-builder-portal-server.vercel.app/users/${email}`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch user data');
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+      throw new Error('Failed to fetch user data');
+    }
+  };
+  
   useEffect(() => {
-    fetch(`https://resume-builder-portal-server.vercel.app/users/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setProfile(data))
-      .catch((error) => console.error(error));
-  }, []);
 
+    if (user?.email) {
+      fetchUserDataFromDatabase(user.email)
+        .then((data) => {
+          setProfile(data);
+        })
+        .catch((error) => console.error('Error loading user data:', error));
+    }
+  }, [user?.email]);
+
+  // Function to handle rating change
   const handleRatingChange = (value) => {
-    setValue("rating", value);
+    dispatch(setRating(value)); 
   };
 
+  // Function to handle form submission
   const onSubmit = (data) => {
-    if (data.isReviewSubmitted) {
+    if (isReviewSubmitted) {
       return;
     }
 
-    const rating = data.rating;
-    const reviewText = data.reviewText;
-    const image = profile?.photoURL || user?.photoURL;
-    const email = user?.email;
-    const name = profile?.name;
+    const { reviewText } = data;
+
+    // Prepare the data to be posted
     const postData = {
       rating,
       reviewText,
-      image,
-      email,
-      name
+      image: profile?.photoURL || user?.photoURL,
+      email: user?.email,
+      name: profile?.name,
     };
 
-    fetch("https://resume-builder-portal-server.vercel.app/review", {
-      method: "POST",
+    // Send a POST request to submit the feedback
+    fetch('https://resume-builder-portal-server.vercel.app/review', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(postData)
+      body: JSON.stringify(postData),
     })
       .then((res) => {
         if (res.ok) {
           return res.json();
         } else {
-          throw new Error("Failed to submit review and rating.");
+          throw new Error('Failed to submit review and rating.');
         }
       })
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
-          toast.success("Review submitted successfully!");
+          toast.success('Review submitted successfully!');  // Show success toast
+          dispatch(setReviewText(''));  // Reset the review text
+          dispatch(setReviewSubmitted(true));  // Set review as submitted in the Redux store
         } else if (data.message) {
-          toast.error("User already exists. Cannot submit multiple reviews.");
+          toast.error('User already exists. Cannot submit multiple reviews.');  // Show error toast
         }
       })
       .catch((error) => {
@@ -70,12 +94,10 @@ const Feedback = () => {
       });
   };
 
+  // Return the JSX for the component
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="w-full max-w-md"
-      >
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md">
         <div className="px-4 py-8 bg-white rounded-lg shadow-2xl">
           <h1 className="font-bold text-lg mb-3">Your overall rating</h1>
           <div className="flex mb-4">
@@ -86,14 +108,18 @@ const Feedback = () => {
                   <Controller
                     name="rating"
                     control={control}
-                    render={() => (
+                    render={({ field }) => (
                       <input
                         type="radio"
                         value={ratingValue}
-                        onClick={() => handleRatingChange(ratingValue)}
+                        onChange={() => {
+                          field.onChange(ratingValue);
+                          handleRatingChange(ratingValue);
+                        }}
                       />
                     )}
                   />
+
                   <FaStar
                     className="star ml-1"
                     color={
@@ -134,3 +160,4 @@ const Feedback = () => {
 };
 
 export default Feedback;
+

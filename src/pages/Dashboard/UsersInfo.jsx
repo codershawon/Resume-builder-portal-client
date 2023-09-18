@@ -28,7 +28,7 @@ const UsersInfo = () => {
       </h3>
       <div className="overflow-x-auto">
        <div style={{ maxWeight: "50px", overflowX: "auto" }}>
-       <table className="table  table-lg     ">
+       <table className="table table-lg ">
           <thead>
             <tr>
               <th >S.L</th>
