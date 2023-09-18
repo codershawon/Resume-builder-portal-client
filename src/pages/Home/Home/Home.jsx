@@ -6,7 +6,7 @@ import StepsSection from "../../../components/StepsSection";
 import TestimonialSlider from "../Testimonial/TestimonialSlider";
 import MessengerCustomerChat from 'react-messenger-customer-chat';
 
-const Home = () => {
+const Home = () => { 
   return (
     <div className="teal">
       <Helmet>
@@ -22,7 +22,7 @@ const Home = () => {
       {/* Best Resume */}
       <BestResume />
       {/* Testimonial slider start here */}
-      <TestimonialSlider />
+      <TestimonialSlider />     
       {/* kdkfdk */}
       <MessengerCustomerChat
         pageId="113136445219095"

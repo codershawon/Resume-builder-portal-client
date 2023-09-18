@@ -80,10 +80,15 @@ const Feedback = () => {
  
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <form onSubmit={handleReviewSubmit} className="w-full max-w-md">
-        <div className="px-4 py-8 bg-white rounded-lg shadow-2xl">
-          <h1 className="font-bold text-lg mb-3">Your overall rating</h1>
+    <div 
+    //className="feedback-modal"
+     className="min-h-screen mb-20 feedback-modal flex items-center justify-center"
+    >
+      <form onSubmit={handleReviewSubmit} className="w-full max-w-fit  ">
+        <div className="px-4 py-8 w-[400px] bg-white rounded-lg shadow-2xl">
+        
+          <div className="flex justify-between items-center  ">
+          <h1 className="font-bold text-lg mb-3">Your overall rating</h1>         </div>
           <div className="flex mb-4">
             {[...Array(5)].map((star, i) => {
               const ratingValue = i + 1;
@@ -128,9 +133,8 @@ const Feedback = () => {
               </p>
             )}
           </div>
-        </div>
-        <ToastContainer />
-      </form>
+        </div></form>
+      <ToastContainer />
     </div>
   );
 };
