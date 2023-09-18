@@ -79,7 +79,7 @@ const CoverLetter = ({
   return (
     <>
       <div className="">
-        <div   id="cover-letter-pdf" className="w-8.27in h-11.69in mx-auto p-6 mt-10 bg-white rounded-lg shadow-md  ">
+        <div id="cover-letter-pdf" className="w-8.27in h-11.69in mx-auto p-6 mt-10 bg-white rounded-lg shadow-md  ">
           <div className="text-center">
             <h1 className="text-3xl font-semibold text-gray-800">
               Cover Letter

@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import "./Faqs.css";
 import Faquesction from "../Faquesction/Faquesction";
-import FixedWidth from "../FixedWidth";
+
 import SectionTitle from "../../Hooks/SectionTitle";
+import FixedWidth from "../fixedwidth";
 
 const Faqs = () => {
   return (
@@ -17,27 +18,20 @@ const Faqs = () => {
             </li>
             <li>
               <span>Check Our FAQ</span>
-              
             </li>
           </ul>
         </nav>
       </div>
 
       <div>
-        {/* <div className=" mt-16 mb-20 text-center text-gray-700 ">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold border-b-2 w-80 lg:w-96 border-gray-800 pb-2 mx-auto">
-            Check Our FAQ
-          </h2>
-          <p className="mx-5 mt-3 md:text-xl"> Get answers to commonly asked questions</p>
-        </div> */}
-        <div>
-        <SectionTitle
-
+        <div className="mt-6">
+          <SectionTitle
             subHeading={"Check our FAQ "}
             heading={" Get answers to commonly asked questions"}
           ></SectionTitle>
         </div>
       </div>
+
 
       {/* <div className="my-6 ">
         <h2 className="text-center text-4xl font-bold my-6">As seen in:</h2>
