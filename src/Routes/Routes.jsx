@@ -35,7 +35,6 @@ import CoverLetterChecker from "../pages/CoverLetter/CoverLetterChecker";
 
 
 
-
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -112,6 +111,7 @@ export const router = createBrowserRouter([
         path:"/watchVideo",
         element:<WatchVideo />
       }
+      
     ],
   },
   {
