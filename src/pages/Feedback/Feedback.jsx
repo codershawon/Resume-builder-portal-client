@@ -120,6 +120,7 @@ const Feedback = () => {
                     )}
                   />
 
+
                   <FaStar
                     className="star ml-1"
                     color={
