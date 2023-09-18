@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import FixedWidth from "../FixedWidth";
+
 
 const Faquesction = () => {
   return (
     
       <div className="mb-32  ">
-        <div className="my-5 ">
+        <div className="my-5 "> 
+
           <div className="ms-4">
             <h2 className="text-3xl font-semibold">Resume</h2>
             <p>Answers to commonly asked questions about Resume Format</p>
