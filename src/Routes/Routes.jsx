@@ -28,6 +28,9 @@ import Blogs from "../pages/Blogs/Blogs";
 import BlogDetails from "../pages/Blogs/BlogDetails";
 import BlogPage from "../pages/Dashboard/Blog/BlogPage";
 import ChatSystem from "../pages/VideoCall/ChatSystem";
+import VideoCall from "../components/VideoCall/VideoCall";
+import CorverLetter from "../components/Faquesction/CoverLetter/CorverLetter";
+import Faquesction from "../components/Faquesction/Faquesction";
 
 
 
@@ -90,7 +93,20 @@ export const router = createBrowserRouter([
       {
         path:"/watchVideo",
         element:<WatchVideo />
-      }
+      },
+      {
+        path:"/videoCall",
+        element:<VideoCall />
+      },
+      {
+        path:"/coverLetter",
+        element:<CorverLetter />
+      },
+      {
+        path:"/faquesction",
+        element:<Faquesction />
+      },
+     
     ],
   },
   {
