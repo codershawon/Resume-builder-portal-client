@@ -35,11 +35,21 @@ const BlogDetails = () => {
         <div className="flex justify-between items-center md:mt-5 mt-4">
           <div className="flex gap-3 items-center">
             <div className="flex gap-2 ">
-              {authorUrl? <img src={authorUrl} className='rounded-full w-12 h-12' alt="Author Image" />: ''}
-              
+              {authorUrl ? (
+                <img
+                  src={authorUrl}
+                  className="rounded-full w-12 h-12"
+                  alt="Author Image"
+                />
+              ) : (
+                ""
+              )}
+
               <div>
-              <p className="font-medium text-lg">{bloggerName}</p>
-              <p className="font-medium text-base text-gray-600 pb-3">{bloggerTitle}</p>
+                <p className="font-medium text-lg">{bloggerName}</p>
+                <p className="font-medium text-base text-gray-600 pb-3">
+                  {bloggerTitle}
+                </p>
               </div>
             </div>
             
@@ -51,29 +61,27 @@ const BlogDetails = () => {
           </div>
           </div>
         </div>
-        
+
         <p className="pt-5 pb-12 text-gray-700">{blogDescription}</p>
       </div>
       {/* comment section */}
       <div className="mt-8">
         <h2 className="text-xl font-semibold mb-4">Comments</h2>
-        <form className="mb-4" >
+        <form onSubmit={handleSubmit} className="mb-4">
           <textarea
             rows="2"
+            type="text"
             name="comments"
             placeholder="Add a comment..."
             className="w-full px-3 py-2 border rounded-md resize-none focus:outline-[#197685] focus:border-[#197685]"
-            style={{ border: "1px solid #ccc" }} 
-          ></textarea>
+            style={{ border: "1px solid #ccc" }}></textarea>
           <button
             type="submit"
-            className="bg-[#197685]  btn btn-sm hover:bg-white hover:text-[#197685] hover:border-[#197685]  hover:shadow-xl text-white h-10 px-4 rounded"
-          >
+            className="bg-[#197685]  btn btn-sm hover:bg-white hover:text-[#197685] hover:border-[#197685]  hover:shadow-xl text-white h-10 px-4 rounded">
             post
           </button>
         </form>
       </div>
-      
     </div>
   );
 };

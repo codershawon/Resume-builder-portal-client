@@ -11,8 +11,9 @@ import {
   Linkedin,
   MapPin,
   Paperclip,
-  Phone,
+  
 } from "react-feather";
+
 
 import styles from "./Resume.module.css";
 import { useAllTemplates } from "../../../Hooks/useAllTemplates";
