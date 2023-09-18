@@ -81,8 +81,7 @@ const Feedback = () => {
 
   return (
     <div 
-    //className="feedback-modal"
-     className="min-h-screen mb-20 feedback-modal flex items-center justify-center"
+     className="min-h-screen mb-20 flex items-center justify-center"
     >
       <form onSubmit={handleReviewSubmit} className="w-full max-w-fit  ">
         <div className="px-4 py-8 w-[400px] bg-white rounded-lg shadow-2xl">
