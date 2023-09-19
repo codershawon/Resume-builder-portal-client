@@ -8,6 +8,7 @@ import { FaLanguage, FaUserCircle } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 import useAdmin from "../../Hooks/useAdmin";
+import Swal from "sweetalert2";
 
 //navbar
 const Navbar = () => {
@@ -28,11 +29,25 @@ const Navbar = () => {
   };
   // logout
   const handleLogout = () => {
-    logout()
-      .then(() => {
+    Swal.fire({
+      title: "Do you want to LogOut?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      cancelButtonText: "No!",
+      confirmButtonText: "Yes!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logout()
+        .then(() => {
+          navigate(from, { replace: true });
+        })
+        .catch((error) => console.log(error));
+        Swal.fire("LogOut successfully");
         navigate(from, { replace: true });
-      })
-      .catch((error) => console.log(error));
+      }
+    });
   };
 
   const [isAdmin, isAdminLoading] = useAdmin();
@@ -50,7 +65,6 @@ const Navbar = () => {
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
-
 
   // Listen for changes in viewport size
   useEffect(() => {
@@ -73,11 +87,11 @@ const Navbar = () => {
     <>
       <li className={location.pathname === "" ? "navActive" : "navStyle "}>
         <Link to="/allresume">{t("Resume")}</Link>
-
       </li>
       <li
-        className={`relative navHover ${location.pathname === "" ? "navActive" : "navStyle"
-          }`}>
+        className={`relative navHover ${
+          location.pathname === "" ? "navActive" : "navStyle"
+        }`}>
         <Link className="flex items-center gap-1" to="/">
           {t("coverLetter")} <FaAngleDown />
         </Link>
@@ -85,27 +99,27 @@ const Navbar = () => {
         <ul className="navDropdown">
           <li
             className={
-              location.pathname === "/coverLetterChecker" ? "navActive" : "navStyle"
-            }
-          >
+              location.pathname === "/coverLetterChecker"
+                ? "navActive"
+                : "navStyle"
+            }>
             <Link to="/coverLetterChecker">{t("cover letter checker")}</Link>
-
           </li>
           <li
             className={
-              location.pathname === "/coverLetterBuilder" ? "navActive" : "navStyle"
-            }
-          >
+              location.pathname === "/coverLetterBuilder"
+                ? "navActive"
+                : "navStyle"
+            }>
             <Link to="/coverLetterBuilder">{t("cover letter builder")}</Link>
-
-
           </li>
         </ul>
       </li>
 
       <li
-        className={`relative navHover ${location.pathname === "" ? "navActive" : "navStyle"
-          }`}>
+        className={`relative navHover ${
+          location.pathname === "" ? "navActive" : "navStyle"
+        }`}>
         <Link className="flex items-center gap-1" to="/">
           {t("career")} <FaAngleDown />
         </Link>
@@ -114,42 +128,41 @@ const Navbar = () => {
           <li
             className={
               location.pathname === "/coverletter" ? "navActive" : "navStyle"
-            }
-          >
+            }>
             <Link to="/blogs">{t("blogs")}</Link>
-
-
-
           </li>
           <li
             className={
               location.pathname === "/coverletter" ? "navActive" : "navStyle"
-            }
-          >
+            }>
             <Link to="/contactUs">{t("contactUs")}</Link>
-
-
           </li>
         </ul>
       </li>
       <li>
         <div className="flex items-center gap-2">
-          <FaLanguage className="text-4xl" /><select
+          <FaLanguage className="text-4xl" />
+          <select
             className="bg-white font-bold"
             value={localStorage.getItem("i18nextLng")}
-            onChange={handleLanguageChange}
-          >
+            onChange={handleLanguageChange}>
             <option value="en">English</option>
             <option value="fr">Français</option>
             <option value="es">Español</option>
           </select>
         </div>
       </li>
-     {user && (
+      {user && (
         <li className={location.pathname === "" ? "navActive" : "navStyle"}>
-          {
-            isAdmin ? <><Link to="/dashboard/adminHome" >{t("dashboard")}</Link></> : <><Link to="/dashboard/profile">{t("dashboard")}</Link></>
-          }
+          {isAdmin ? (
+            <>
+              <Link to="/dashboard/adminHome">{t("dashboard")}</Link>
+            </>
+          ) : (
+            <>
+              <Link to="/dashboard/profile">{t("dashboard")}</Link>
+            </>
+          )}
         </li>
       )}
 
@@ -177,11 +190,6 @@ const Navbar = () => {
                   <li>
                     <Link to={`/dashboard/profile`}>
                       <FaUserCircle></FaUserCircle> {t("profile")}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link>
-                      <FaDribbble></FaDribbble> {t("settings")}
                     </Link>
                   </li>
                   <hr className="my-3" />
@@ -227,7 +235,9 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <ul className="hidden  md:flex items-center xl:space-x-2">{navOptions}</ul>
+        <ul className="hidden  md:flex items-center xl:space-x-2">
+          {navOptions}
+        </ul>
         <div className="md:hidden">
           {/* Mobile menu button */}
           <button onClick={toggleMobileMenu} className="">
@@ -254,7 +264,9 @@ const Navbar = () => {
       {/* Mobile menu options */}
       <div
         className={`mobile-menu ${isMobileMenuOpen ? "mobile-menu-open" : ""}`}>
-        <button onClick={toggleMobileMenu} className="w-full flex justify-end pb-12 mt-[-25px]">
+        <button
+          onClick={toggleMobileMenu}
+          className="w-full flex justify-end pb-12 mt-[-25px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -273,7 +285,9 @@ const Navbar = () => {
             )}
           </svg>
         </button>
-        <ul className="flex flex-col justify-center items-center">{navOptions}</ul>
+        <ul className="flex flex-col justify-center items-center">
+          {navOptions}
+        </ul>
       </div>
     </nav>
   );
