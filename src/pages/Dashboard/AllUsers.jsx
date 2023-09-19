@@ -93,7 +93,7 @@ const AllUsers = () => {
 
   return (
     <div>
-      <h3 className="text-3xl text-center font-semibold my-8">
+      <h3 className="w-full h-full text-3xl text-center font-semibold my-8 relative">
         Manage Users : {users.length}
       </h3>
       
@@ -197,7 +197,7 @@ const AllUsers = () => {
           </tbody>
         </table>
       </div>
-      <div className="flex justify-center mt-12">
+      <div className="flex justify-center mt-12 absolute bottom-0 left-1/3">
         <ReactPaginate
           previousLabel={"Previous"}
           nextLabel={"Next"}
