@@ -11,8 +11,9 @@ import {
   Linkedin,
   MapPin,
   Paperclip,
-  Phone,
+  
 } from "react-feather";
+
 
 import styles from "./Resume.module.css";
 import { useAllTemplates } from "../../../Hooks/useAllTemplates";
@@ -446,102 +447,74 @@ const Resume = forwardRef((props, ref) => {
     <div ref={ref}>
       {/* {templates}
      {templates} */}
-      {/* {selectedTemplate} */}
-
-      <div key="template7">
-        <div ref={containerRef} className={styles.container}>
-          <div className={`flex gap-5 mt-14 bg-[#c6a68dbb] relative ${styles.topStyle}`}>
-            <div className="w-[40%] bg-[#6C999A] z-20 ms-12">
-              <div className=" rounded-full border-4 border-white mx-auto  h-48 w-48 bg-cover bg-center" style={{
-                backgroundImage: `url(${info.basicInfo?.detail?.photo || 'https://i.ibb.co/9bnpr9K/ins1.jpg'})`,
-              }}>
-              </div>
-            </div>
-
-            <div className="flex items-center ">
-              <div>
-                <p className="font-semibold text-4xl">{info.basicInfo?.detail?.address}</p>
-                <p className="">{info.basicInfo?.detail?.title}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className=" flex gap-3">
-            <div className="bg-[#6C999A] text-white w-[40%] min-h-[100%] ms-12 px-5 ">
-
-              <div className=" mt-16">
-                <h5 className="uppercase font-semibold">Profile</h5>
-                <p>{summarySection}</p>
-              </div>
-
-              <div className=" mt-20">
-                <p className=" text-xl font-semibold mb-2">Contact Me</p>
-                <div className="flex flex-col ps-3">
-                  {info.basicInfo?.detail?.email ? (
-                    <a className="flex gap-x-1 items-center mb-2" type="email">
-                      <AiOutlineMail />
-                      {info.basicInfo?.detail?.email}
-                    </a>
-                  ) : (
-                    <span />
-                  )}
-                  {info.basicInfo?.detail?.phone ? (
-                    <a className="flex gap-x-1 items-center mb-2">
-                      <IoCallSharp />
-                      {info.basicInfo?.detail?.phone}
-                    </a>
-                  ) : (
-                    <span />
-                  )}
-                  {info.basicInfo?.detail?.linkedin ? (
-                    <a className="flex gap-x-1 items-center mb-2">
-                      <AiFillLinkedin />
-                      {info.basicInfo?.detail?.linkedin}
-                    </a>
-                  ) : (
-                    <span />
-                  )}
-                  {info.basicInfo?.detail?.github ? (
-                    <a className="flex gap-x-1 items-center mb-2">
-                      <AiFillGithub />
-                      {info.basicInfo?.detail?.github}
-                    </a>
-                  ) : (
-                    <span />
-                  )}
+      {selectedTemplate}
+{/* 
+      <div key="template13" className=''>
+          <div ref={containerRef} className={styles.container}>
+            <div className="flex gap-5">
+  
+              <div
+                className=" p-4 text-start bg-gray-700 text-white h-full w-[40%] "
+              >
+                <div className="flex justify-center mt-4 mb-7">
+                  <div className=" rounded-full border-4 border-white mx-auto  h-48 w-48 bg-cover bg-center" style={{
+                    backgroundImage: `url(${info.basicInfo?.detail?.photo || 'https://i.ibb.co/KGnMKN0/user.png'})`,
+                  }}>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="w-[50%] mt-16 ms-auto">
-
-              <div>
-                <h5 className="uppercase font-bold flex items-center gap-3">  Education</h5>
-
-                <p className="">{educationSection}</p>
-              </div>
-              <div>
-                <h5 className="uppercase font-bold flex items-center gap-3">  Skills</h5>
-                <p className="">{languageSection}</p>
-              </div>
-              <div>
-                <h5 className="uppercase font-bold flex items-center gap-3">  Project</h5>
-                <p className="">{projectSection}</p>
-              </div>
-              <div className=" my-10">
-                <h5 className="uppercase font-bold flex items-center gap-3">  Achievement</h5>
+                <p className="mb-2 text-start text-yellow-50 font-base text-[26px] uppercase ">{info.basicInfo?.detail?.name}</p>
+                <p className="text-[14px] text-yellow-50 font-thin mb-4 uppercase">{info.basicInfo?.detail?.title}</p>
+  
+                <p className="border-t-[2px] mt-9 mb-5 border-yellow-50"></p>
+                <p className=" text-[16px] uppercase text-yellow-50 font-medium mt-4 mb-3">About me</p>
+                <p className="h-full w-full mb-4    text-justify">{summarySection}</p>
+  
+  
+  
+  
+                <p className=" text-[27px] uppercase font-medium mt-4 mb-3">Skills</p>
                 {achievementSection}
+  
+                <p className="text-[27px] uppercase font-medium mt-4 mb-3">contact</p>
+                {info.basicInfo?.detail?.phone ? (
+                  <a className="flex text-[14px] mb-2 gap-1">
+                    <span className="">Phone  </span><span>:</span>
+                    {info.basicInfo?.detail?.phone}
+                  </a>
+                ) : (
+                  <span />
+                )}
+                {info.basicInfo?.detail?.email ? (
+                  <a className="flex w-full h-full text-[14px] mb-2 gap-1" type="email">
+                    <span className="">Email </span><span>:</span>
+                    {info.basicInfo?.detail?.email}
+                  </a>
+                ) : (
+                  <span />
+                )}
+  
               </div>
-
-              {otherSection && otherSection !== "" && (
-                <div>
-                  <h5 className="uppercase font-bold flex items-center gap-3">  Others</h5>
-                  {otherSection}
-                </div>
-              )}
+  
+  
+  
+  
+              <div className="h-full w-[60%] ps-4 mt-4 text-black ">
+                <p className="uppercase bg-yellow-100 w-full ps-2 pt-1 pb-1 font-medium my-2 text-gray-700 text-[17px] ">Work EXPERIENCE</p>
+                <p className="">{workExpSection}</p>
+  
+  
+                <p className="uppercase bg-yellow-100 w-full ps-2 pt-1 pb-1 font-medium my-2 text-gray-700 text-[17px] ">Education</p>
+                <p>{educationSection}</p>
+                <p className="uppercase bg-yellow-100 w-full ps-2 pt-1 pb-1 font-medium my-2 text-gray-700 text-[17px] ">Language</p>
+  
+  
+  
+              </div>
+  
+  
             </div>
           </div>
-        </div>
-      </div>
+        </div> */}
     </div>
   );
 });

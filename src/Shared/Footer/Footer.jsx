@@ -20,7 +20,7 @@ const Footer = () => {
       style={{ backgroundImage: "url(https://i.ibb.co/K0XHbpd/35.png)" }}
     >
       <div className="">
-        <div className="rgContainer">
+        <div className="rgContainer py-6">
           <div className="flex-wrap lg:grid  md:grid-col-4 lg:grid-cols-4 gap-6 justify-items-center text-black font-normal">
             <div className="">
               <div className="gap-4">
@@ -114,9 +114,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
-      <div className="p-4 bg-[#197685] bg-opacity-20 flex flex-wrap items-center justify-between text-black font-normal">
-        <div className="">
+      <div className="bg-[#197685] bg-opacity-20">
+      <div className="rgContainer p-4   flex flex-wrap items-center justify-between text-black font-normal">
+       <div className="">
           <p>Copyright &copy; 2023 - Resume Genius</p>
         </div>
         <div className="">
@@ -130,6 +130,7 @@ const Footer = () => {
             <Link className="hover:text-[#0dcaf0]" to="/contactUs">Support</Link>
           </div>
         </div>
+       </div>
       </div>
     </footer>
   );

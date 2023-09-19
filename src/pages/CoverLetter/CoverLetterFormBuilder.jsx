@@ -89,8 +89,8 @@ const CoverLetterFormBuilder = () => {
   };
 
   return (
-    <div className="flex">
-      <div className="w-1/2 p-4">
+    <div className="flex mb-10 md:px-20">
+      <div className="w-1/2 p-4 h-screen overflow-y-auto">
       
          {/* Progress Bar */}
     <div className="mb-4 ">
