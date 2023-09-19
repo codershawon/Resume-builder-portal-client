@@ -72,7 +72,7 @@ const Footer = () => {
               <Link to="/about" className="hover:text-[#0dcaf0] mb-1">
                 About us
               </Link>
-              <Link className="hover:text-[#0dcaf0] mb-1 " to="">
+              <Link className="hover:text-[#0dcaf0] mb-1 " to="/allresume">
                 {" "}
                 Resume Templates
               </Link>
