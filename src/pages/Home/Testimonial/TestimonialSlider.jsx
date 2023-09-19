@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
  import { faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
  import "./testimonial.css";
-import FixedWidth from "../../../components/fixedwidth";
+
 import SectionTitle from "../../../Hooks/SectionTitle";
 
 import { SwiperSlide ,Swiper} from "swiper/react";
@@ -19,6 +19,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import 'swiper/css';
  import 'swiper/css/pagination';
 import { useTranslation } from "react-i18next";
+import FixedWidth from "../../../components/FixedWidth";
 
 
 
@@ -43,7 +44,10 @@ const TestimonialSlider = () => {
     // Fetch testimonials from the backend
     fetch("https://resume-builder-portal-server.vercel.app/review")
       .then((res) => res.json())
-      .then((data) => setTestimonials(data))
+      .then((data) => {
+        const approvedTestimonials = data.filter((item) => item.status === "approved");
+        setTestimonials(approvedTestimonials);
+      })
       .catch((error) => console.error(error));
   }, []);
 

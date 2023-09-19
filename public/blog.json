@@ -1,39 +1,70 @@
 [
   {
-    "bloggerName": "Jane Smith",
-    "bloggerTitle": "Career Coach",  
-    "date": "2023-08-29",
-    "readingTime": "10 mins",
-    "blogTitle": "Crafting the Perfect Resume: A Comprehensive Guide",
-    "blogDescription": "Embarking on a job search journey? Look no further. Our in-depth guide is your ultimate companion to creating a resume that captivates employers from the first glance. In this comprehensive resource, we delve into every aspect of resume crafting, revealing the strategies that turn mundane documents into powerful self-marketing tools.\n\nNavigate through the intricate landscape of resume design, format selection, and content optimization. Gain insights into tailoring your resume for specific industries, effectively showcasing your accomplishments, and using keywords to pass the digital gatekeepers.Whether you're a recent graduate stepping into the professional world or a seasoned expert seeking new horizons, our guide offers a wealth of practical advice.\n\n Filled with real-life examples, actionable tips, and guidance from career experts, this guide guarantees to transform your resume from ordinary to outstanding.Carve out just 10 minutes to immerse yourself in this guide, and empower yourself with skills that will last a lifetime. Your dream job is within reach – let's embark on this journey to resume excellence together.",
-    "imageUrl": "https://images.unsplash.com/photo-1600492515568-8868f609511e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1550&q=80"
-    
+  "_id": "64edf30a6a6969db2aa89bf4",
+  "bloggerName": "John Doe",
+  "bloggerTitle": "HR Specialist",
+  "date": "2023-08-30",
+  "readingTime": "8 mins",
+  "blogTitle": "Top Resume Mistakes to Avoid",
+  "blogDescription": "Embarking on a job search journey? Look no further. Our in-depth guide is your ultimate companion to creating a resume that captivates employers from the first glance.\n\n In this comprehensive resource, we delve into every aspect of resume crafting, revealing the strategies that turn mundane documents into powerful self-marketing tools.Navigate through the intricate landscape of resume design, format selection, and content optimization.\n\n Gain insights into tailoring your resume for specific industries, effectively showcasing your accomplishments, and using keywords to pass the digital gatekeepers.Whether you're a recent graduate stepping into the professional world or a seasoned expert seeking new horizons, our guide offers a wealth of practical advice. Filled with real-life examples, actionable tips, and guidance from career experts, this guide guarantees to transform your resume from ordinary to outstanding.\n\nCarve out just 8 minutes to immerse yourself in this guide, and empower yourself with skills that will last a lifetime. Your dream job is within reach – let's embark on this journey to resume excellence together.",
+  "imageUrl": "https://images.unsplash.com/photo-1506702315536-dd8b83e2dcf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+  "comments":[]
   },
   {
-    "bloggerName": "John Doe",
-    "bloggerTitle": "HR Specialist",
-    "date": "2023-08-30",
-    "readingTime": "8 mins",
-    "blogTitle": "Top Resume Mistakes to Avoid",
-    "blogDescription": "Embarking on a job search journey? Look no further. Our in-depth guide is your ultimate companion to creating a resume that captivates employers from the first glance.\n\n In this comprehensive resource, we delve into every aspect of resume crafting, revealing the strategies that turn mundane documents into powerful self-marketing tools.Navigate through the intricate landscape of resume design, format selection, and content optimization.\n\n Gain insights into tailoring your resume for specific industries, effectively showcasing your accomplishments, and using keywords to pass the digital gatekeepers.Whether you're a recent graduate stepping into the professional world or a seasoned expert seeking new horizons, our guide offers a wealth of practical advice. Filled with real-life examples, actionable tips, and guidance from career experts, this guide guarantees to transform your resume from ordinary to outstanding.\n\nCarve out just 8 minutes to immerse yourself in this guide, and empower yourself with skills that will last a lifetime. Your dream job is within reach – let's embark on this journey to resume excellence together.",
-    "imageUrl": "https://images.unsplash.com/photo-1506702315536-dd8b83e2dcf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+  "_id": "64edf30a6a6969db2aa89bf3",
+  "bloggerName": "Jane Smith",
+  "bloggerTitle": "Career Coach",
+  "date": "2023-08-29",
+  "readingTime": "10 mins",
+  "blogTitle": "Crafting the Perfect Resume: A Comprehensive Guide",
+  "blogDescription": "Embarking on a job search journey? Look no further. Our in-depth guide is your ultimate companion to creating a resume that captivates employers from the first glance. In this comprehensive resource, we delve into every aspect of resume crafting, revealing the strategies that turn mundane documents into powerful self-marketing tools.\n\nNavigate through the intricate landscape of resume design, format selection, and content optimization. Gain insights into tailoring your resume for specific industries, effectively showcasing your accomplishments, and using keywords to pass the digital gatekeepers.Whether you're a recent graduate stepping into the professional world or a seasoned expert seeking new horizons, our guide offers a wealth of practical advice.\n\n Filled with real-life examples, actionable tips, and guidance from career experts, this guide guarantees to transform your resume from ordinary to outstanding.Carve out just 10 minutes to immerse yourself in this guide, and empower yourself with skills that will last a lifetime. Your dream job is within reach – let's embark on this journey to resume excellence together.",
+  "imageUrl": "https://images.unsplash.com/photo-1600492515568-8868f609511e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1550&q=80",
+  "comments":[]
   },
   {
-    "bloggerName": "Emily Johnson",
-    "bloggerTitle": "Freelance Writer",
-    "date": "2023-08-31",
-    "readingTime": "6 mins",
-    "blogTitle": "The Power of Keywords in Your Resume",
-    "blogDescription": "Uncover the hidden potential of keywords and revolutionize your resume's impact. In this insightful guide, we decode the significance of strategically placed keywords in the modern job search. Learn how keywords can make your resume more visible to both hiring managers and applicant tracking systems (ATS).\n\nDiscover the art of weaving keywords into your content without sacrificing clarity and professionalism. We'll delve into industry-specific keyword research, explore the do's and don'ts of keyword usage, and share tips to avoid the dreaded 'keyword stuffing.'\n\nWhether you're a tech-savvy professional or someone new to the world of job applications, understanding the power of keywords can set you apart. This guide empowers you to create a resume that aligns with the digital age of hiring and gets you noticed.\n\nDedicate just 6 minutes to unlocking this crucial knowledge. Your next career move starts with harnessing the potential of keywords – join us on this transformative journey!",
-    "imageUrl": "https://images.unsplash.com/photo-1593626242377-14fcff197583?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+  "_id": "64edf30a6a6969db2aa89bf6",
+  "bloggerName": "Michael Anderson",
+  "bloggerTitle": "Career Consultant",
+  "date": "2023-09-02",
+  "readingTime": "7 mins",
+  "blogTitle": "Showcasing Achievements: Elevate Your Resume",
+  "blogDescription": "Ready to take your resume to the next level? Join us on a journey of highlighting achievements for maximum impact. In this comprehensive guide, we'll walk you through the art of showcasing your accomplishments in a way that captivates employers.\n\nLearn how to transform your responsibilities into results, creating a vivid picture of your contributions. Discover the STAR (Situation, Task, Action, Result) method to craft compelling accomplishment statements that leave a lasting impression.\n\nWhether you're a seasoned professional with years of experience or a newcomer to the job market, the ability to effectively present your achievements is a game-changer. Our guide is packed with real examples, actionable insights, and proven strategies that make your resume a compelling story of success.\n\nInvest just 7 minutes in reading this guide and equip yourself with the skills to craft a resume that resonates. Your achievements deserve the spotlight – let's turn your career journey into a narrative of excellence.",
+  "imageUrl": "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+  "comments":[]
   },
   {
-    "bloggerName": "Michael Anderson",
-    "bloggerTitle": "Career Consultant",
-    "date": "2023-09-02",
-    "readingTime": "7 mins",
-    "blogTitle": "Showcasing Achievements: Elevate Your Resume",
-    "blogDescription": "Ready to take your resume to the next level? Join us on a journey of highlighting achievements for maximum impact. In this comprehensive guide, we'll walk you through the art of showcasing your accomplishments in a way that captivates employers.\n\nLearn how to transform your responsibilities into results, creating a vivid picture of your contributions. Discover the STAR (Situation, Task, Action, Result) method to craft compelling accomplishment statements that leave a lasting impression.\n\nWhether you're a seasoned professional with years of experience or a newcomer to the job market, the ability to effectively present your achievements is a game-changer. Our guide is packed with real examples, actionable insights, and proven strategies that make your resume a compelling story of success.\n\nInvest just 7 minutes in reading this guide and equip yourself with the skills to craft a resume that resonates. Your achievements deserve the spotlight – let's turn your career journey into a narrative of excellence.",
-    "imageUrl": "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-  } 
-]
+  "_id": "64edf30a6a6969db2aa89bf5",
+  "bloggerName": "Emily Johnson",
+  "bloggerTitle": "Freelance Writer",
+  "date": "2023-08-31",
+  "readingTime": "6 mins",
+  "blogTitle": "The Power of Keywords in Your Resume",
+  "blogDescription": "Uncover the hidden potential of keywords and revolutionize your resume's impact. In this insightful guide, we decode the significance of strategically placed keywords in the modern job search. Learn how keywords can make your resume more visible to both hiring managers and applicant tracking systems (ATS).\n\nDiscover the art of weaving keywords into your content without sacrificing clarity and professionalism. We'll delve into industry-specific keyword research, explore the do's and don'ts of keyword usage, and share tips to avoid the dreaded 'keyword stuffing.'\n\nWhether you're a tech-savvy professional or someone new to the world of job applications, understanding the power of keywords can set you apart. This guide empowers you to create a resume that aligns with the digital age of hiring and gets you noticed.\n\nDedicate just 6 minutes to unlocking this crucial knowledge. Your next career move starts with harnessing the potential of keywords – join us on this transformative journey!",
+  "imageUrl": "https://images.unsplash.com/photo-1593626242377-14fcff197583?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+  "comments":[]
+  },
+  {
+  "_id": "64f9e03be9b8a46647375e88",
+  "bloggerName": "Mr. Josh Pitter",
+  "bloggerTitle": "Career Coach",
+  "date": "2023-09-01",
+  "blogTitle": "Mastering the Art of Resume Creation: Your Path to Professional Success.",
+  "blogDescription": "In today's fiercely competitive job market, your resume serves as your first impression to potential employers, making the art of crafting an exceptional resume a critical skill for career success. This comprehensive guide takes you on a journey from grasping the resume's fundamental purpose to selecting the optimal format, effectively highlighting your qualifications, and customizing it for specific job applications. Whether you're a recent graduate seeking your first job or a seasoned professional aiming to advance your career, this guide will empower you to create a resume that not only captures immediate attention but also persuades employers that you are the perfect fit for their organization. Beyond being a mere document, your resume is your gateway to professional success, and by following these steps, you can unlock a realm of exciting career opportunities and fulfill your ambitions. \\n\\n Ensure your contact information is up to date and easy to find. Include your name, phone number, email address, and optionally, your LinkedIn profile or personal website. \\n\\n This brief section at the beginning of your resume should provide a snapshot of your qualifications and career goals. Use it to hook the reader's attention and make them want to learn more about you.\\n\\n Crafting a great resume is a skill that can significantly impact your career trajectory. It's not just about listing your qualifications; it's about showcasing your value to potential employers. By following the steps outlined in this guide, you can create a resume that not only gets noticed but also opens doors to exciting career opportunities. Remember, your resume is your ticket to professional success, so invest the time and effort to make it shine.",
+  "readingTime": "10 mins",
+  "authorUrl": "https://images.generated.photos/D3HtEfCimXkz3xRrBstVD7U4NLzXPVVHnr6LxWdt0FM/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/NDgyNjU2LmpwZw.jpg",
+  "imageUrl": "https://i.pinimg.com/736x/76/5c/fa/765cfa771e26a81acd7819bbefce5124.jpg",
+  "comments":[]
+  },
+  {
+  "_id": "64fa0d74027fd20d4c4efb5c",
+  "bloggerName": "John Doe",
+  "bloggerTitle": "Career Coach",
+  "date": "2023-09-06",
+  "blogTitle": "Understanding the Purpose of a Resume",
+  "blogDescription": "In today's fiercely competitive job market, your resume serves as your first impression to potential employers, making the art of crafting an exceptional resume a critical skill for career success. This comprehensive guide takes you on a journey from grasping the resume's fundamental purpose to selecting the optimal format, effectively highlighting your qualifications, and customizing it for specific job applications. Whether you're a recent graduate seeking your first job or a seasoned professional aiming to advance your career, this guide will empower you to create a resume that not only captures immediate attention but also persuades employers that you are the perfect fit for their organization. Beyond being a mere document, your resume is your gateway to professional success, and by following these steps, you can unlock a realm of exciting career opportunities and fulfill your ambitions.",
+  "readingTime": "4 mins",
+  "authorUrl": "data:image/jpeg;base64,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",
+  "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwFqdERdHcIum19PTth7JOlH9iWPUdUEPgjg&usqp=CAU",
+  "comments":[]
+  }
+  ]

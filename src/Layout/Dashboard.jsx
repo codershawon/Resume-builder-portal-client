@@ -74,27 +74,14 @@ const Dashboard = () => {
   // const isAdmin = true;
 
   const admin = [
-    {
-      name: `${t("adminDashboard.name")}`,
-      link: "/dashboard/adminHome",
-      icon: MdOutlineDashboard,
-    },
-    {
-      name: `${t("allUsers.name")}`,
-      link: "/dashboard/allUsers",
-      icon: HiOutlineUserGroup,
-    },
-    {
-      name: `${t("usersInfo.name")}`,
-      link: "/dashboard/usersInfo",
-      icon: HiOutlineUserGroup,
-    },
-    {
-      name: `${t("blog.name")}`,
-      link: "/dashboard/blog",
-      icon: HiOutlineBookOpen,
-    },
-    { name: `${t("home.name")}`, link: "/", icon: RiHome4Line, margin: true },
+   
+
+    {name: `${t('adminDashboard.name')}`,link: "/dashboard/adminHome",icon: MdOutlineDashboard,},
+    {name: `${t('allUsers.name')}`,link: "/dashboard/allUsers",icon: HiOutlineUserGroup,},
+    {name: `${t('usersInfo.name')}`,link: "/dashboard/usersInfo",icon: HiOutlineUserGroup,},
+    { name: `${t('blog.name')}`, link: "/dashboard/blog", icon: HiOutlineBookOpen },
+    { name: `${t('Review')}`, link: "/dashboard/review", icon: HiOutlineBookOpen },
+    { name: `${t('home.name')}`, link: "/", icon: RiHome4Line, margin: true },
   ];
   const users = [
     {
