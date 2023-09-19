@@ -1,4 +1,3 @@
-
 import {
   FaAddressCard,
   FaDribbble,
@@ -7,7 +6,7 @@ import {
   FaGithub,
   FaPhone,
   FaTwitter,
-  FaMessage
+  FaMessage,
 } from "react-icons/fa6";
 
 import { Link } from "react-router-dom";
@@ -21,15 +20,22 @@ const Footer = () => {
     >
       <div className="">
         <div className="rgContainer py-6">
-          <div className="flex-wrap lg:grid  md:grid-col-4 lg:grid-cols-4 gap-6 justify-items-center text-black font-normal">
-            <div className="">
+          <div className="md:flex justify-between text-black font-normal">
+            <div className="md:w-[30%]">
               <div className="gap-4">
-                <img className="w-[240px] " src="https://i.ibb.co/zhYJKFk/resume-cv-cover-letter-transparent.png" alt="" />
+                <img
+                  className="w-[240px] "
+                  src="https://i.ibb.co/zhYJKFk/resume-cv-cover-letter-transparent.png"
+                  alt=""
+                />
               </div>
               <div>
                 <div>
                   <p className="py-6 w-[80%] md:w-[100%] text-justify">
-                    Resume Genius is a career site fueled by the best career experts and a community of millions of readers yearly. We share knowledge, tips, and tools to help everyone find their dream job.
+                    Resume Genius is a career site fueled by the best career
+                    experts and a community of millions of readers yearly. We
+                    share knowledge, tips, and tools to help everyone find their
+                    dream job.
                   </p>
                   <span className="flex gap-2">
                     <Link
@@ -58,13 +64,14 @@ const Footer = () => {
                     </Link>
                   </span>
                 </div>
-
               </div>
             </div>
 
             <div className="footerGrid mt-10 md:mt-5 lg:mt-0">
               <h2 className="text-2xl uppercase mb-6">Our Services</h2>
-              <Link to="/about" className="hover:text-[#0dcaf0] mb-1">About us</Link>
+              <Link to="/about" className="hover:text-[#0dcaf0] mb-1">
+                About us
+              </Link>
               <Link className="hover:text-[#0dcaf0] mb-1 " to="">
                 {" "}
                 Resume Templates
@@ -81,20 +88,8 @@ const Footer = () => {
                 {" "}
                 Contact Us
               </Link>
-
             </div>
-            <div >
-
-              <div className="footerGrid  mt-10 md:mt-5 lg:mt-0">
-                <h2 className="text-2xl mb-6">SERVICES</h2>
-                <Link className="hover:text-[#0dcaf0] mb-1 mt-2" to="/">Design </Link>
-                <Link className="hover:text-[#0dcaf0] mb-1 " to="/">Marketing </Link>
-                <Link className="hover:text-[#0dcaf0] mb-1 " to="/">Branding</Link>
-                <Link className="hover:text-[#0dcaf0] mb-1 " to="/">Advertisement</Link>
-              </div>
-
-            </div>
-
+            <div></div>
 
             <div className="mt-8 md:mt-5 lg:mt-0">
               <h3 className="text-2xl uppercase mb-6">Official Info</h3>
@@ -115,22 +110,27 @@ const Footer = () => {
         </div>
       </div>
       <div className="bg-[#197685] bg-opacity-20">
-      <div className="rgContainer p-4   flex flex-wrap items-center justify-between text-black font-normal">
-       <div className="">
-          <p>Copyright &copy; 2023 - Resume Genius</p>
-        </div>
-        <div className="">
-          <div className="flex gap-4 justify-center items-center">
-            <Link className="hover:text-[#0dcaf0]" to="/chatSystem">
-              <FaMessage />
-            </Link>
-            <Link className="hover:text-[#0dcaf0]" to="/terms">Terms </Link>
-            <Link className="hover:text-[#0dcaf0]" to="/privacyPolicy">Privacy
-            </Link>
-            <Link className="hover:text-[#0dcaf0]" to="/contactUs">Support</Link>
+        <div className="rgContainer p-4   flex flex-wrap items-center justify-between text-black font-normal">
+          <div className="">
+            <p>Copyright &copy; 2023 - Resume Genius</p>
+          </div>
+          <div className="">
+            <div className="flex gap-4 justify-center items-center">
+              <Link className="hover:text-[#0dcaf0]" to="/chatSystem">
+                <FaMessage />
+              </Link>
+              <Link className="hover:text-[#0dcaf0]" to="/terms">
+                Terms{" "}
+              </Link>
+              <Link className="hover:text-[#0dcaf0]" to="/privacyPolicy">
+                Privacy
+              </Link>
+              <Link className="hover:text-[#0dcaf0]" to="/contactUs">
+                Support
+              </Link>
+            </div>
           </div>
         </div>
-       </div>
       </div>
     </footer>
   );
