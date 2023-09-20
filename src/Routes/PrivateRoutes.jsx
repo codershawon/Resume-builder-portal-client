@@ -1,18 +1,24 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../Providers/AuthProvider';
+import React, { useContext, useEffect, useState } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import UseSpinner from '../Hooks/UseSpinner';
+import { AuthContext } from '../Providers/AuthProvider';
 
-const PrivateRoutes = ({children}) => {
-      const {user, loading} = useContext(AuthContext);
-      const location = useLocation();
-      if(loading){
-            return <UseSpinner></UseSpinner>
-      }
-      if(user) {
-            return children ;
-      }
-      return <Navigate to="/login" state={{form: location}} replace></Navigate>
+const PrivateRoutes = ({ children }) => {
+  const { user, loading } = useContext(AuthContext);
+  const [authCheckComplete, setAuthCheckComplete] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!loading) {
+      setAuthCheckComplete(true);
+    }
+  }, [loading]);
+
+  if (user) {
+    return children;
+  }
+
+  return <Navigate state={{ from: location }} to="/login" replace />;
 };
 
 export default PrivateRoutes;
+

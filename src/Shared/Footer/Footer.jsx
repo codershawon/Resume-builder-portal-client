@@ -7,7 +7,6 @@ import {
   FaGithub,
   FaPhone,
   FaTwitter,
-  FaMessage
 } from "react-icons/fa6";
 
 import { Link } from "react-router-dom";
@@ -121,9 +120,6 @@ const Footer = () => {
         </div>
         <div className="">
           <div className="flex gap-4 justify-center items-center">
-            <Link className="hover:text-[#0dcaf0]" to="/chatSystem">
-              <FaMessage />
-            </Link>
             <Link className="hover:text-[#0dcaf0]" to="/terms">Terms </Link>
             <Link className="hover:text-[#0dcaf0]" to="/privacyPolicy">Privacy
             </Link>

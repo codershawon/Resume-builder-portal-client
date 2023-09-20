@@ -11,9 +11,7 @@ import { useTranslation } from "react-i18next";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
-
-
-const ResumeBuilder = () => {
+const ResumeChecker = () => {
   const [uploadedFile, setUploadedFile] = useState(null);
   const [resultPercentage, setResultPercentage] = useState(0);
 
@@ -154,11 +152,6 @@ const ResumeBuilder = () => {
     localStorage.setItem("resumeFormData", JSON.stringify(formData));
   };
 
-  // const handleContinueEditing = () => {
-  //   localStorage.setItem("resumeText", resumeTextExtracted);
-  //   setShowResumeForm(true);
-  // };
-
 
   return (
 
@@ -221,4 +214,4 @@ const ResumeBuilder = () => {
   );
 };
 
-export default ResumeBuilder;
+export default ResumeChecker;

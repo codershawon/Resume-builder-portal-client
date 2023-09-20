@@ -50,7 +50,6 @@ const AuthProvider = ({ children }) => {
    
         axios.post('https://resume-builder-portal-server.vercel.app/jwt', {email: currentUser.email})
         .then(data =>{
-           console.log(data)
           localStorage.setItem('Access token', data.data.token)
           setLoading(false);
       })

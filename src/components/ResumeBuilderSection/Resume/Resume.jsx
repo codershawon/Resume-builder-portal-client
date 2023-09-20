@@ -1,9 +1,6 @@
 import React, { forwardRef, useEffect, useRef, useState } from "react";
 import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
-import { IoCallSharp } from "react-icons/io5";
-import { TiLocationArrow } from "react-icons/ti";
 import { FaUserCircle } from "react-icons/fa";
-// import { TiLocationArrow } from "react-icons/tb";
 import {
   AtSign,
   Calendar,
@@ -49,10 +46,6 @@ const Resume = forwardRef((props, ref) => {
 
     return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
   };
-
-
-
-
   const sectionDiv = {
 
     [sections.workExp]: info.workExp ? (
@@ -115,67 +108,7 @@ const Resume = forwardRef((props, ref) => {
         </div>
       </div>
     ) : null,
-    // [sections.workExp]: (
-    //   <div
-    //     key={"workExp"}
-    //     draggable
-    //     onDragOver={() => seTarget(info.workExp?.id)}
-    //     onDragEnd={() => setSource(info.workExp?.id)}
-    //     className={`${styles.section} ${info.workExp?.sectionTitle ? "" : styles.hidden
-    //       }`}
-    //   >
-    //     <div className={styles.content}>
-    //       {info.workExp?.details?.map((item) => (
-    //         <div className={styles.item} key={item.title}>
-    //           {item.title ? (
-    //             <p className={styles.title}>{item.title}</p>
-    //           ) : (
-    //             <span />
-    //           )}
-    //           {item.companyName ? (
-    //             <p className={styles.subTitle}>{item.companyName}</p>
-    //           ) : (
-    //             <span />
-    //           )}
-    //           {item.certificationLink ? (
-    //             <a className={styles.link} href={item.certificationLink}>
-    //               <Paperclip />
-    //               {item.certificationLink}
-    //             </a>
-    //           ) : (
-    //             <span />
-    //           )}
-    //           {item.startDate && item.endDate ? (
-    //             <div className={styles.date}>
-    //               <Calendar /> {getFormattedDate(item.startDate)}-
-    //               {getFormattedDate(item.endDate)}
-    //             </div>
-    //           ) : (
-    //             <div />
-    //           )}
-    //           {item.location ? (
-    //             <p className={styles.date}>
-    //               <MapPin /> Remote
-    //             </p>
-    //           ) : (
-    //             <span />
-    //           )}
-    //           {item.points?.length > 0 ? (
-    //             <ul className={styles.points}>
-    //               {item.points?.map((elem, index) => (
-    //                 <li className={styles.point} key={elem + index}>
-    //                   {elem}
-    //                 </li>
-    //               ))}
-    //             </ul>
-    //           ) : (
-    //             <span />
-    //           )}
-    //         </div>
-    //       ))}
-    //     </div>
-    //   </div>
-    // ),
+   
     [sections.project]: (
       <div
         key={"project"}

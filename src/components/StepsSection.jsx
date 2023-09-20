@@ -11,13 +11,13 @@ const StepsSection = () => {
   return (
    
       <div className="rgContainer bg-[#fff] mt-28">
-        {/* SubTile Section Start */}
+        {/* SubTitle Section Start */}
         <SectionTitle
           subHeading= {t("steps:step1.subHeading")}
           heading=
             {t("steps:step1.heading")}
           ></SectionTitle>
-        {/* SubTile Section End */}
+        {/* SubTitle Section End */}
 
         {/* Step Card Sections Start */}
         <Tabs>

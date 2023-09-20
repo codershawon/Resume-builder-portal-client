@@ -19,11 +19,9 @@ const PremiumTemplates = () => {
             })
             .catch((error) => console.error(error));
     }, [])
-    console.log('resume', resumeCollections);
 
     const premiumResumes = resumeCollections.filter(resume => resume.price > 0);
 
-    console.log('premiumResumes', premiumResumes);
     return (
         <div className="my-20">
             <h2 className="font-bold text-3xl md:text-5xl"> <span className="text-[#42C3E4]">Professional</span> Resume Templates</h2>

@@ -4,7 +4,6 @@ import ResumeBody from "../ResumeBody/ResumeBody";
 
 const ResumeBuilder = () => {
     const {name} = useParams();
-    // console.log(name);
     return (
         <div>
             <ResumeBody

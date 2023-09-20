@@ -22,7 +22,7 @@ const Review = () => {
                 setTestimonials(pendingTestimonials);
             })
             .catch((error) => console.error(error));
-    }, [testimonials]);
+    }, []);
 
 
 
@@ -100,8 +100,6 @@ const Review = () => {
             }
         });
     };
-    
-
     return (
         <div>
             <h3 className="text-3xl text-center font-semibold my-4">Manage Reviews</h3>

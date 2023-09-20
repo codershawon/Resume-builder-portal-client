@@ -17,7 +17,6 @@ const FreeReume = () => {
     }, []);
 
     const freeResumes = resumeCollections.filter(resume => resume.price === 0);
-    console.log(freeResumes);
 
     const visibleTemplates = showAllTemplates ? freeResumes : freeResumes.slice(0, templatesToShow);
     const remainingTemplates = freeResumes.length - templatesToShow;

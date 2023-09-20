@@ -72,7 +72,6 @@ const Dashboard = () => {
     { name: `${t('myTemplates.name')}`, link: "/dashboard/my-template/:id", icon: HiTemplate },
     { name: `${t('feedback.name')}`, link: "/dashboard/feedback", icon: FcFeedback },
     { name: `${t('payment.name')}`, link: "/dashboard/payment", icon: FaWallet },
-    { name: `${t('paymentHistory.name')}`, link: "/", icon: FaHistory },
     { name: `${t('templates.name')}`, link: "/allresume", icon: RiContactsBook2Line, margin: true },
     { name: `${t('home.name')}`, link: "/", icon: RiHome4Line, margin: true },
   ];
