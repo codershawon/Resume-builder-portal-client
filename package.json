@@ -46,6 +46,7 @@
     "react-hook-form": "^7.45.4",
     "react-i18next": "^13.2.2",
     "react-icons": "^4.10.1",
+    "react-lazyload": "^3.2.0",
     "react-loader-spinner": "^5.3.4",
     "react-messenger-customer-chat": "^0.8.0",
     "react-paginate": "^8.2.0",

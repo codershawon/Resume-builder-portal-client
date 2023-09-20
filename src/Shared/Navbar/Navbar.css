@@ -41,7 +41,7 @@
 
   /* dropdown style */
   .navDropdown{
-   @apply hidden md:absolute top-12 right-0 rounded-l text-black bg-white shadow-md px-4 py-2 transition  z-10
+   @apply hidden md:absolute top-9 right-0 rounded-l text-black bg-white shadow-md px-4 py-1 transition  z-10
   }
 
   .navStyle:hover .navDropdown {

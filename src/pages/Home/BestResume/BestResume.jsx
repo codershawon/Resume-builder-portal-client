@@ -1,17 +1,18 @@
 import "swiper/css";
 import "swiper/css/navigation";
 import "./BestResume.css";
-
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useContext, useEffect, useState } from "react";
-
 import { Autoplay } from "swiper/modules";
 import SectionTitle from "../../../Hooks/SectionTitle";
 import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
 import useCart from "../../../Hooks/useCart";
 import { AuthContext } from "../../../Providers/AuthProvider";
+
+import LazyLoad from "react-lazyload";
+
 
 const BestResume = () => {
   const { user } = useContext(AuthContext);
@@ -40,7 +41,6 @@ const BestResume = () => {
     });
     setResume(filteredResume);
   };
-
 
   const handleAddToCart = (resume) => {
     // console.log(resume);
@@ -105,8 +105,9 @@ const BestResume = () => {
             setResume(resumeCollections);
             setActiveButton("all");
           }}
-          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold ${activeButton === "all" ? "active-button" : ""
-            }`}
+          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold ${
+            activeButton === "all" ? "active-button" : ""
+          }`}
         >
           All
         </button>
@@ -115,8 +116,9 @@ const BestResume = () => {
             filterItem("photo");
             setActiveButton("photo");
           }}
-          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${activeButton === "photo" ? "active-button" : ""
-            }`}
+          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${
+            activeButton === "photo" ? "active-button" : ""
+          }`}
         >
           With Photo
         </button>
@@ -125,8 +127,9 @@ const BestResume = () => {
             filterItem("noPhoto");
             setActiveButton("noPhoto");
           }}
-          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${activeButton === "noPhoto" ? "active-button" : ""
-            }`}
+          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${
+            activeButton === "noPhoto" ? "active-button" : ""
+          }`}
         >
           No Photo
         </button>
@@ -180,7 +183,10 @@ const BestResume = () => {
           {allResume.map((resume) => (
             <SwiperSlide className="" key={resume._id}>
               <div className="slider-content">
-                <img className="" src={resume.image} alt="resume" />
+                <LazyLoad height={297} offset={100}>
+                  <img className="" src={resume.image} alt="resume" />
+                </LazyLoad>
+                {/* <img className="" src={resume.image} alt="resume" /> */}
                 <Link
                   to={
                     parseFloat(resume.price) === 0
@@ -190,12 +196,22 @@ const BestResume = () => {
                 >
                   {/* Render the button conditionally */}
                   {parseFloat(resume.price) > 0 ? (
-                    <button onClick={() => handleAddToCart(resume)} className="useButton">
+                    <button
+                      onClick={() => handleAddToCart(resume)}
+                      className="useButton"
+                    >
                       Use this template
-                      <span className="ml-2 text-sm font-semibold">${parseFloat(resume.price)}</span>
+                      <span className="ml-2 text-sm font-semibold">
+                        ${parseFloat(resume.price)}
+                      </span>
                     </button>
                   ) : (
-                    <Link className='useButton' to={`/templates/${resume.name}`}>Use this template</Link>
+                    <Link
+                      className="useButton"
+                      to={`/templates/${resume.name}`}
+                    >
+                      Use this template
+                    </Link>
                   )}
                 </Link>
               </div>
@@ -208,4 +224,3 @@ const BestResume = () => {
 };
 
 export default BestResume;
-

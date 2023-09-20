@@ -7,9 +7,11 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import SignUp from "../Home/SignUp/SignUp";
 import Swal from "sweetalert2";
+import Lottie from "lottie-react";
 import { useContext, useRef } from "react";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import loginLottie from './loginAnimation.json';
 
 
 const Login = () => {
@@ -100,6 +102,9 @@ const handleReset = () => {
     <div className="hero min-h-screen bg-white">
       <div className="hero-content flex-col md:flex-row">
         <div className="text-center lg:text-left">
+
+        <Lottie className="w-full lg:h-[600px]" animationData={loginLottie} />
+
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div className="card-body bg-white">
