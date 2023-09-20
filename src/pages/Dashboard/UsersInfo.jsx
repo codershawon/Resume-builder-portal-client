@@ -44,27 +44,6 @@ const UsersInfo = () => {
               <th>Nationality</th>
             </tr>
           </thead>
-          {/* <tbody>
-            {users.map((user, index) => (
-              <tr key={index}>
-                <th>{index + 1}</th>
-                <td>
-                  <img
-                    src={user?.photoURL}
-                    alt="usersPhoto"
-                    className="w-10 rounded"
-                  />
-                </td>
-                <td>{user.name ? user.name : "No Info"}</td>
-                <td>{user.email ? user.email : "No Info"}</td>
-                <td>{user.phone ? user.phone : "No Info"}</td>
-                <td>{user.birthdate ? user.birthdate : "No Info"}</td>
-                <td>{user.city ? user.city : "No Info"}</td>
-                <td>{user.country ? user.country : "No Info"}</td>
-                <td>{user.nationality ? user.nationality : "No Info"}</td>
-              </tr>
-            ))}
-          </tbody> */}
           <tbody>
             {currentPageUsers.map((user, index) => (
               <tr key={index}>

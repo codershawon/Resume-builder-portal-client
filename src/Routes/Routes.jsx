@@ -15,15 +15,12 @@ import PrivateRoutes from "./PrivateRoutes";
 import Profile from "../pages/Dashboard/Profile";
 import ResumeBuilder from "../components/ResumeBuilderSection/ResumeBuilder/ResumeBuilder";
 import ResumeForm from "../components/ResumeCheck/ResumeForm";
-// import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
 import { createBrowserRouter } from "react-router-dom";
 import Feedback from "../pages/Feedback/Feedback";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import Terms from "../components/Terms/Terms";
 import Privacypolicy from "../components/Privacypolicy/Privacypolicy";
 import UsersInfo from "../pages/Dashboard/UsersInfo";
-
-import WatchVideo from "../components/Watchvideo/WatchVideo";
 import Blogs from "../pages/Blogs/Blogs";
 import BlogDetails from "../pages/Blogs/BlogDetails";
 import BlogPage from "../pages/Dashboard/Blog/BlogPage";
@@ -31,6 +28,7 @@ import ChatSystem from "../pages/VideoCall/ChatSystem";
 import CoverLetterFormBuilder from "../pages/CoverLetter/CoverLetterFormBuilder";
 import CoverLetterChecker from "../pages/CoverLetter/CoverLetterChecker";
 import Review from "../pages/Dashboard/Review";
+import ResumeChecker from "../components/ResumeCheck/ResumeChecker";
 
 
 
@@ -44,11 +42,15 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element:<Home />,
       },
       {
         path: "allresume",
-        element: <AllResume></AllResume>,
+        element: <PrivateRoutes><AllResume></AllResume></PrivateRoutes>,
+      },
+      {
+        path: "/resumeChecker",
+        element: <ResumeChecker/>,
       },
       {
         path: "contactUs",
@@ -58,15 +60,6 @@ export const router = createBrowserRouter([
         path: "templates/:name",
         element: <ResumeBuilder />,
       },
-
-      // {
-      //   path: "resumeBuilder/:id",
-      //   element: <ResumeBuilder />,
-      // },
-      // {
-      //   path:"resume-form",
-      //   element:<ResumeForm/>,
-      // },
       {
         path: "/coverLetterBuilder/:id",
         element: <CoverLetterFormBuilder />,
@@ -98,7 +91,7 @@ export const router = createBrowserRouter([
         element:<Faqs />
       },{
         path: "/about",
-        element: <AboutUs />,
+        element: <PrivateRoutes><AboutUs /></PrivateRoutes>,
       },
       {
         path:"/terms",
@@ -107,10 +100,6 @@ export const router = createBrowserRouter([
       {
         path:"/privacyPolicy",
         element:<Privacypolicy />
-      },
-      {
-        path:"/watchVideo",
-        element:<WatchVideo />
       }
       
     ],

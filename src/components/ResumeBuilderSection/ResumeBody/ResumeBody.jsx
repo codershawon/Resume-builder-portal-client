@@ -6,7 +6,6 @@ import ResumeEditor from "../ResumeEditor/ResumeEditor";
 import Resume from "../Resume/Resume";
 import { Link } from "react-router-dom";
 import { FaMessage } from "react-icons/fa6";
-import { FaVideo } from "react-icons/fa";
 
 const ResumeBody = ({name}) => {
 
@@ -88,9 +87,6 @@ const ResumeBody = ({name}) => {
             />
           ))}
         </div>
-        <Link to="/video">   <button>
-                Video Chat <FaVideo/>
-              </button></Link>
      <Link to="/chatSystem">   <button>
                 Chat <FaMessage/>
               </button></Link>

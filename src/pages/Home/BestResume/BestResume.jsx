@@ -3,16 +3,19 @@ import "swiper/css/navigation";
 import "./BestResume.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Autoplay } from "swiper/modules";
 import SectionTitle from "../../../Hooks/SectionTitle";
 import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
 import useCart from "../../../Hooks/useCart";
+import { AuthContext } from "../../../Providers/AuthProvider";
+
 import LazyLoad from "react-lazyload";
 
+
 const BestResume = () => {
-  const { user } = useAuth();
+  const { user } = useContext(AuthContext);
   const [, refetch] = useCart();
 
   const navigate = useNavigate();
@@ -21,7 +24,6 @@ const BestResume = () => {
   const [activeButton, setActiveButton] = useState("all");
   const [resumeCollections, setResumeCollections] = useState([]);
   const [allResume, setResume] = useState(resumeCollections);
-  console.log(resumeCollections);
 
   useEffect(() => {
     fetch("https://resume-builder-portal-server.vercel.app/resume")

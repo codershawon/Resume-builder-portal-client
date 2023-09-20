@@ -12,12 +12,17 @@ import { useTranslation } from "react-i18next";
 const StepsSection = () => {
   const { t } = useTranslation(["steps"]);
   return (
-    <div className="rgContainer bg-[#fff] mt-28">
-      {/* SubTile Section Start */}
-      <SectionTitle
-        subHeading={t("steps:step1.subHeading")}
-        heading={t("steps:step1.heading")}></SectionTitle>
-      {/* SubTile Section End */}
+
+   
+      <div className="rgContainer bg-[#fff] mt-28">
+        {/* SubTitle Section Start */}
+        <SectionTitle
+          subHeading= {t("steps:step1.subHeading")}
+          heading=
+            {t("steps:step1.heading")}
+          ></SectionTitle>
+        {/* SubTitle Section End */}
+
 
       {/* Step Card Sections Start */}
       <Tabs>
