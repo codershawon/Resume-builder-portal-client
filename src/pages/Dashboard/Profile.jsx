@@ -167,9 +167,9 @@ const Profile = () => {
 
   return (
     <>
-      <div className="w-full h-full lg:flex gap-4">
+      <div className="w-full  lg:flex gap-4">
         <div
-          className="w-[80%] lg:w-[38%]  text-white "
+          className="w-[80%] lg:w-[38%]  text-white mx-auto "
           style={{ backgroundImage: "url(https://i.ibb.co/K0XHbpd/35.png)" }}>
           <div className="py-14 md:px-6 lg:px-10 px-2 h-full border-4 border-[#197685]  rounded-e-3xl">
             <div className="flex justify-center ">
@@ -341,7 +341,8 @@ const Profile = () => {
         </div>
         
 
-        <div className="w-[80%] lg:w-[58%] mx-10 overflow-hidden">
+
+         <div className="w-[80%] lg:w-[58%] mx-10 overflow-hidden">
           
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3   gap-6">
             {currentPageItems.map((resume) => (
@@ -390,7 +391,7 @@ const Profile = () => {
               activeLinkClassName="active"
             />
           </div>
-        </div>
+        </div> 
       </div>
     </>
   );

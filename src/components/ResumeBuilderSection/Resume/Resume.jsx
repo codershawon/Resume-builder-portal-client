@@ -1,4 +1,6 @@
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
+import { FaUserCircle } from "react-icons/fa";
 import {
   AtSign,
   Calendar,
@@ -6,10 +8,10 @@ import {
   Linkedin,
   MapPin,
   Paperclip,
+  
 } from "react-feather";
-import React, { forwardRef, useEffect, useRef, useState } from "react";
 
-import { FaUserCircle } from "react-icons/fa";
+
 import styles from "./Resume.module.css";
 import { useAllTemplates } from "../../../Hooks/useAllTemplates";
 import { useParams } from "react-router-dom";

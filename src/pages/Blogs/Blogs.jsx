@@ -18,7 +18,7 @@ const Blogs = () => {
       ></SectionTitle>
 
       <div className="flex justify-center pt-4 pb-16">
-        <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-x-12 gap-y-6 ">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-12 gap-y-6 ">
           {blogs.map((singleBlog) => (
             <SingleBlog
               key={singleBlog._id}

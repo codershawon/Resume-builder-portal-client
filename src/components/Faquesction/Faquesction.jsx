@@ -1,19 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import FixedWidth from "../FixedWidth";
+
 
 const Faquesction = () => {
   return (
-    
-      <div >
-        <div className="my-10">
+      <div className="mb-32 rgContainer">
+        <div className="my-5 "> 
+
           <div className="ms-4">
-            <h2 className="text-4xl font-semibold">Resume Genius</h2>
+            <h2 className="text-3xl font-semibold">Resume</h2>
             <p>Answers to commonly asked questions about Resume Format</p>
           </div>
         </div>
         <div tabIndex={0} className="collapse  collapse-plus">
-          <div className="collapse-title text-2xl font-medium">
+          <div className="collapse-title text-xl font-medium">
             What is Resume Page ?
           </div>
           <hr />
@@ -67,7 +67,7 @@ const Faquesction = () => {
           </div>
         </div>
         <div tabIndex={0} className="collapse collapse-plus ">
-          <div className="collapse-title text-2xl font-medium">
+          <div className="collapse-title text-xl font-medium">
           Why should I use Resume Page?
           </div>
           <hr />
@@ -117,7 +117,7 @@ const Faquesction = () => {
           </div>
         </div>
         <div tabIndex={0} className="collapse collapse-plus ">
-          <div className="collapse-title text-2xl font-medium">
+          <div className="collapse-title text-xl font-medium">
             What does Resume Page provide you?
           </div>
           <hr />
@@ -129,7 +129,7 @@ const Faquesction = () => {
         </div>
 
         <div tabIndex={0} className="collapse collapse-plus">
-          <div className="collapse-title text-2xl font-medium">
+          <div className="collapse-title text-xl font-medium">
             How do you change your template?
           </div>
           <hr />
@@ -144,7 +144,7 @@ const Faquesction = () => {
           </div>
         </div>
         <div tabIndex={0} className="collapse collapse-plus ">
-          <div className="collapse-title text-2xl font-medium">
+          <div className="collapse-title text-xl font-medium">
             How can I edit my resume or cover letter?
           </div>
           <hr />
@@ -160,7 +160,7 @@ const Faquesction = () => {
           </div>
         </div>
         <div tabIndex={0} className="collapse collapse-plus ">
-          <div className="collapse-title text-2xl font-medium">
+          <div className="collapse-title text-xl font-medium">
             How do I change the status of an application?
           </div>
           <hr />
@@ -172,7 +172,7 @@ const Faquesction = () => {
           </div>
         </div>
         <div tabIndex={0} className="collapse collapse-plus">
-          <div className="collapse-title text-2xl font-medium">
+          <div className="collapse-title text-xl font-medium">
             How do I cancel my subscription?
           </div>
           <hr />
@@ -185,7 +185,7 @@ const Faquesction = () => {
           </div>
         </div>
         <div tabIndex={0} className="collapse collapse-plus ">
-          <div className="collapse-title text-2xl font-medium">
+          <div className="collapse-title text-xl font-medium">
             How do I import a resume?
           </div>
           <hr />
@@ -202,7 +202,7 @@ const Faquesction = () => {
         </div>
 
         <div tabIndex={0} className="collapse collapse-plus ">
-          <div className="collapse-title text-2xl font-medium">
+          <div className="collapse-title text-xl font-medium">
             Where can I view my receipt?
           </div>
           <hr />
@@ -215,7 +215,7 @@ const Faquesction = () => {
           </div>
         </div>
         <div tabIndex={0} className="collapse collapse-plus ">
-          <div className="collapse-title text-2xl font-medium">
+          <div className="collapse-title text-xl font-medium">
             How do I delete my data?
           </div>
           <hr />
@@ -229,7 +229,7 @@ const Faquesction = () => {
           </div>
         </div>
         <div tabIndex={0} className="collapse collapse-plus ">
-          <div className="collapse-title text-2xl font-medium">
+          <div className="collapse-title text-xl font-medium">
             How can I download my resume or cover letter?
           </div>
           <hr />
@@ -245,7 +245,7 @@ const Faquesction = () => {
           </div>
         </div>
         <div tabIndex={0} className="collapse collapse-plus ">
-          <div className="collapse-title text-2xl font-medium">
+          <div className="collapse-title text-xl font-medium">
             How can I add a page break?
           </div>
           <hr />
@@ -259,7 +259,7 @@ const Faquesction = () => {
         </div>
 
         <div tabIndex={0} className="collapse collapse-plus ">
-          <div className="collapse-title text-2xl font-medium">
+          <div className="collapse-title text-xl font-medium">
             How can I sort the sections on my resume?
           </div>
           <hr />
@@ -274,7 +274,7 @@ const Faquesction = () => {
           </div>
         </div>
         <div tabIndex={0} className="collapse collapse-plus">
-          <div className="collapse-title text-2xl font-medium">
+          <div className="collapse-title text-xl font-medium">
             How do I change my job search?
           </div>
           <hr />
@@ -287,7 +287,7 @@ const Faquesction = () => {
           </div>
         </div>
         <div tabIndex={0} className="collapse collapse-plus">
-          <div className="collapse-title text-2xl font-medium">
+          <div className="collapse-title text-xl font-medium">
             How can I delete an item?
           </div>
           <hr />
@@ -301,7 +301,7 @@ const Faquesction = () => {
           </div>
         </div>
         <div tabIndex={0} className="collapse collapse-plus ">
-          <div className="collapse-title text-2xl font-medium">
+          <div className="collapse-title text-xl font-medium">
             How can I add or remove a photo?
           </div>
           <hr />
@@ -315,24 +315,15 @@ const Faquesction = () => {
           </div>
         </div>
 
-        <div
-          className=" text-center py-10 my-12"
-          style={{
-            backgroundImage: "url(https://i.ibb.co/K0XHbpd/35.png)",
-          }}
-        >
-          <h1 className=" text-4xl flex justify-center items-center  font-bold text-gray-700 py-50">
-            We’ll help you write every kind of cover letter
-          </h1>
-        </div>
+        
 
         <div>
-          <div className="my-10 ms-4">
-            <h2 className="text-4xl font-semibold mb-2">Cover Letter</h2>
+          <div className="mt-12 mb-5 ms-4">
+            <h2 className="text-3xl font-semibold mb-2">Cover Letter</h2>
             <p>Answers to commonly asked questions about Cover Letter Format</p>
           </div>
           <div tabIndex={0} className="collapse collapse-plus">
-            <div className="collapse-title text-2xl font-medium ">
+            <div className="collapse-title text-xl font-medium ">
               What is a cover letter template?
             </div>
             <hr />
@@ -347,7 +338,7 @@ const Faquesction = () => {
             </div>
           </div>
           <div tabIndex={0} className="collapse collapse-plus">
-            <div className="collapse-title text-2xl font-medium">
+            <div className="collapse-title text-xl font-medium">
               How do I use a cover letter template?
             </div>
             <hr />
@@ -362,7 +353,7 @@ const Faquesction = () => {
             </div>
           </div>
           <div tabIndex={0} className="collapse collapse-plus">
-            <div className="collapse-title text-2xl font-medium">
+            <div className="collapse-title text-xl font-medium">
               What is a cover letter example?
             </div>
             <hr />
@@ -376,7 +367,7 @@ const Faquesction = () => {
             </div>
           </div>
           <div tabIndex={0} className="collapse collapse-plus">
-            <div className="collapse-title text-2xl font-medium">
+            <div className="collapse-title text-xl font-medium">
               How do I use a cover letter example?
             </div>
             <hr />
@@ -392,7 +383,7 @@ const Faquesction = () => {
             </div>
           </div>
           <div tabIndex={0} className="collapse collapse-plus ">
-            <div className="collapse-title text-2xl font-medium">
+            <div className="collapse-title text-xl font-medium">
               What is a cover letter format?
             </div>
             <hr />
@@ -406,7 +397,7 @@ const Faquesction = () => {
             </div>
           </div>
           <div tabIndex={0} className="collapse collapse-plus">
-            <div className="collapse-title text-2xl font-medium">
+            <div className="collapse-title text-xl font-medium">
               How long does it take to write a cover letter in your builder?
             </div>
             <hr />
@@ -417,7 +408,7 @@ const Faquesction = () => {
             </div>
           </div>
           <div tabIndex={0} className="collapse collapse-plus ">
-            <div className="collapse-title text-2xl font-medium">
+            <div className="collapse-title text-xl font-medium">
               Do I need a cover letter?
             </div>
             <hr />
@@ -436,7 +427,7 @@ const Faquesction = () => {
           </div>
         </div>
 
-        <div
+        {/* <div
           className=" text-center py-6 my-8"
           style={{
             backgroundImage: "url(https://i.ibb.co/K0XHbpd/35.png)",
@@ -445,9 +436,9 @@ const Faquesction = () => {
           <h1 className=" text-4xl flex justify-center items-center  font-bold text-gray-700 py-50">
             Contact Us
           </h1>
-        </div>
+        </div> */}
 
-        <div className="my-10 ms-4">
+        {/* <div className="my-10 ms-4">
           <p className="text-xl">
             Didn’t find the answer you were looking for? Our customer care
             support team is ready to help you!
@@ -464,7 +455,7 @@ const Faquesction = () => {
             </Link>{" "}
             page if you want to chat or send an email.
           </p>
-        </div>
+        </div> */}
       </div>
    
   );

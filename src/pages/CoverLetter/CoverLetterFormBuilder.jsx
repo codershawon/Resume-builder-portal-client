@@ -37,30 +37,6 @@ const CoverLetterFormBuilder = () => {
   const [inputProgress, setInputProgress] = useState(0);
   const [activeInput, setActiveInput] = useState(""); // Track the active input field
 
-  // Define placeholders for each input field
-  const placeholders = {
-    name: "Enter your name",
-    address: "Enter your address",
-    city: "Enter your city",
-    state: "Enter your state",
-    zipCode: "Enter your zip code",
-    email: "Enter your email",
-    phone: "Enter your phone number",
-    date: "Enter the date",
-
-    recipientName: "Enter recipient's name",
-    companyName: "Enter company name",
-    companyAddress: "Enter company address",
-    companyCity: "Enter company city",
-    companyState: "Enter company state",
-    companyZipCode: "Enter company zip code",
-
-    greeting: "Enter greeting",
-    body: "Enter body text",
-    closing: "Enter closing",
-    signature: "Enter your signature",
-  };
-
   useEffect(() => {
     // Function to calculate input progress based on the formData
     const calculateProgress = () => {
@@ -76,6 +52,9 @@ const CoverLetterFormBuilder = () => {
       const progress = (filledFields / totalFields) * 100;
       setInputProgress(progress);
     };
+
+    // Update input progress whenever formData changes
+    calculateProgress();
   }, [formData]);
 
   // Function to handle changes in input fields
@@ -110,32 +89,33 @@ const CoverLetterFormBuilder = () => {
   };
 
   return (
-    <div className="flex">
-      <div className="w-1/2 p-4">
-        {/* Progress Bar */}
-        <div className="mb-4 ">
-          <label
-            htmlFor="progress"
-            className="block text-gray-700 font-bold mb-2"
-          >
-            Input Progress
-          </label>
-          <div className="relative pt-1">
-            <div className="flex mb-2 items-center justify-between">
-              <div>
-                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-200">
-                  {Math.round(inputProgress)}%
-                </span>
-              </div>
-            </div>
-            <div className="flex h-2 mb-4 overflow-hidden text-xs bg-teal-200">
-              <div
-                style={{ width: `${inputProgress}%` }}
-                className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-teal-500"
-              ></div>
-            </div>
+    <div className="flex mb-10 md:px-20">
+      <div className="w-1/2 p-4 h-screen overflow-y-auto">
+      
+         {/* Progress Bar */}
+    <div className="mb-4 ">
+      <label
+        htmlFor="progress"
+        className="block text-gray-700 font-bold mb-2"
+      >
+        Input Progress
+      </label>
+      <div className="relative pt-1">
+        <div className="flex mb-2 items-center justify-between">
+          <div>
+            <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-200">
+              {Math.round(inputProgress)}%
+            </span>
           </div>
         </div>
+        <div className="flex h-2 mb-4 overflow-hidden text-xs bg-teal-200">
+          <div
+            style={{ width: `${inputProgress}%` }}
+            className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-teal-500"
+          ></div>
+        </div>
+      </div>
+    </div>
         {/* Sender Info */}
 
         {/* Name */}
@@ -145,7 +125,6 @@ const CoverLetterFormBuilder = () => {
           </label>
           <ReactQuill
             value={formData.name}
-            placeholder={placeholders.name} 
             onChange={(value) => handleQuillChange("name", value)}
             className="quill"
           />
@@ -393,11 +372,17 @@ const CoverLetterFormBuilder = () => {
       </div>
 
       <div className="w-1/2 p-4 ">
-        {/* Cover Letter */}
-        <div className="cover-letter-pdf p-4">
-          <CoverLetter {...formData} />
-        </div>
-      </div>
+  
+    
+    {/* Cover Letter */}
+    <div className="cover-letter-pdf p-4">
+ 
+
+      <CoverLetter {...formData} />
+    </div>
+  
+</div>
+
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 
-const socket = io("http://localhost:5000");
+const socket = io("http://localhost:4000");
 const ChatSystem = () => {
   const [username, setUsername] = useState("");
   const [chatActive, setChatActive] = useState(false);
@@ -27,11 +27,6 @@ const ChatSystem = () => {
         new Date(Date.now()).getMinutes(),
     };
 
-    // if(!newMessage == ""){
-    //   socket.emit("send-message", messageData);
-    // } else {
-    //   alert("Message cannot be empty")
-    // }
 
     !newMessage == ""
       ? socket.emit("send-message", messageData)

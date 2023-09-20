@@ -11,7 +11,7 @@ const useCart = () => {
         enabled: !loading, // Only enable the query if the loading state is false
         queryFn: async () => {
             const res = await axiosSecure(`/carts?email=${user?.email}`); // Send a GET request to fetch the user's cart
-            console.log('res from axios', res);
+
             return res.data; // Return the cart data from the response
         },
     });

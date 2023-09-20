@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
  import { faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
  import "./testimonial.css";
-import FixedWidth from "../../../components/fixedwidth";
+
 import SectionTitle from "../../../Hooks/SectionTitle";
 
 import { SwiperSlide ,Swiper} from "swiper/react";
@@ -19,6 +19,8 @@ import { Autoplay, Pagination } from "swiper/modules";
 import 'swiper/css';
  import 'swiper/css/pagination';
 import { useTranslation } from "react-i18next";
+import FixedWidth from "../../../components/fixedwidth";
+
 
 
 
@@ -43,7 +45,10 @@ const TestimonialSlider = () => {
     // Fetch testimonials from the backend
     fetch("https://resume-builder-portal-server.vercel.app/review")
       .then((res) => res.json())
-      .then((data) => setTestimonials(data))
+      .then((data) => {
+        const approvedTestimonials = data.filter((item) => item.status === "approved");
+        setTestimonials(approvedTestimonials);
+      })
       .catch((error) => console.error(error));
   }, []);
 
@@ -89,8 +94,8 @@ const TestimonialSlider = () => {
  
 
   return (
-    <FixedWidth>
-      <section className="my-28">
+    // <FixedWidth>
+      <section className="my-28 rgContainer">
         <div className="max-w-screen-xl mx-auto px-4 md:px-8">
           <div className=" text-center">
             <SectionTitle
@@ -170,9 +175,10 @@ const TestimonialSlider = () => {
           </div>
         </div>
       </section>
-    </FixedWidth>
+// </FixedWidth>
   );
 };
 
 
 export default TestimonialSlider;
+

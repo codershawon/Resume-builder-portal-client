@@ -1,19 +1,18 @@
 import "react-tabs/style/react-tabs.css";
 import "./login.css";
-
-import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
-import { ToastContainer, toast } from "react-toastify";
-import { useContext, useRef } from "react";
-
 import { AuthContext } from "../../Providers/AuthProvider";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import Lottie from "lottie-react";
 import SignUp from "../Home/SignUp/SignUp";
 import Swal from "sweetalert2";
-import loginLottie from './loginAnimation.json';
+import Lottie from "lottie-react";
+import { useContext, useRef } from "react";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import loginLottie from './loginAnimation.json';
+
 
 const Login = () => {
  
