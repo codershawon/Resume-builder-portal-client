@@ -68,7 +68,7 @@ export const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "templates/:name",
+        path: "templates/:id",
         element: <ResumeBuilder />,
       },
 
@@ -134,7 +134,7 @@ export const router = createBrowserRouter([
   {
     path: "dashboard",
     element: (
-      <PrivateRoutes>
+      <PrivateRoutes >
         <Dashboard></Dashboard>
       </PrivateRoutes>
     ),

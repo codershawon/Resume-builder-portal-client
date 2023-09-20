@@ -18,11 +18,11 @@ const BestResume = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-
+  // const from = location.state?.from?.pathname || "/";
   const [activeButton, setActiveButton] = useState("all");
   const [resumeCollections, setResumeCollections] = useState([]);
   const [allResume, setResume] = useState(resumeCollections);
-  console.log(resumeCollections);
+  // console.log(resumeCollections);
 
   useEffect(() => {
     fetch("https://resume-builder-portal-server.vercel.app/resume")
@@ -48,7 +48,7 @@ const BestResume = () => {
       const cartsItem = {
         profileId: resume._id,
         profile: resume.profile,
-        template: resume.template,
+        name: resume.name,
         price: resume.price,
         email: user.email,
       };
@@ -72,7 +72,8 @@ const BestResume = () => {
             });
           }
         });
-    } else {
+    } 
+    else {
       Swal.fire({
         title: "Please login to purchase the package",
         icon: "warning",
@@ -83,6 +84,8 @@ const BestResume = () => {
       }).then((result) => {
         if (result.isConfirmed) {
           navigate("/login", { state: { from: location } });
+       
+
         }
       });
     }
@@ -177,30 +180,33 @@ const BestResume = () => {
               </div>
             </SwiperSlide>
           ))} */}
-          {allResume.map((resume) => (
-            <SwiperSlide className="" key={resume._id}>
-              <div className="slider-content">
-                <img className="" src={resume.image} alt="resume" />
-                <Link
-                  to={
-                    parseFloat(resume.price) === 0
-                      ? `/resumeBuilder/${resume._id}`
-                      : `/dashboard/my-template/${resume._id}`
-                  }
-                >
-                  {/* Render the button conditionally */}
-                  {parseFloat(resume.price) > 0 ? (
-                    <button onClick={() => handleAddToCart(resume)} className="useButton">
-                      Use this template
-                      <span className="ml-2 text-sm font-semibold">${parseFloat(resume.price)}</span>
-                    </button>
-                  ) : (
-                    <Link className='useButton' to={`/templates/${resume.name}`}>Use this template</Link>
-                  )}
-                </Link>
-              </div>
-            </SwiperSlide>
-          ))}
+          {
+  allResume.map((resume) => (
+    <SwiperSlide className="" key={resume._id}>
+      <div className="slider-content">
+        <img className="" src={resume.image} alt="resume" />
+        <Link
+          to={
+            parseFloat(resume.price) === 0
+              ? `/templates/${resume.name}`
+              : `/dashboard/my-template/${resume.name}` // Remove the extra space here
+          }
+        >
+          {/* Render the button conditionally */}
+          {parseFloat(resume.price) > 0 ? (
+            <button onClick={() => handleAddToCart(resume)} className="useButton">
+              Use this template
+              <span className="ml-2 text-sm font-semibold">${parseFloat(resume.price)}</span>
+            </button>
+          ) : (
+            <button className='useButton'>Use this template</button> 
+          )}
+        </Link>
+      </div>
+    </SwiperSlide>
+  ))
+}
+
         </Swiper>
       </>
     </div>

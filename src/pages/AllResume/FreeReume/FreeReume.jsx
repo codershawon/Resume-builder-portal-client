@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import { Link } from 'react-router-dom';
 
 const FreeReume = () => {
@@ -37,7 +38,11 @@ const FreeReume = () => {
                     {visibleTemplates.map((resume, index) => (
                         <div key={index} className="p-5 resumeContents relative bg-slate-100">
                             <img className="w-full h-full" src={resume.image} alt={`Premium Resume ${index + 1}`} />
-                            <Link className='my-btn absolute top-[75%] left-0 w-full md:hidden text-center' to={`/templates/${resume.name}`}>Use this template</Link>
+                            <Link className='my-btn absolute top-[75%] left-0 w-full md:hidden text-center' to={`/templates/${resume.name}`}>Use this template
+                            <span className="ml-2 text-sm font-semibold">
+                 $ 0
+                </span>  
+                            </Link>
                         </div>
                     ))}
                 </div>

@@ -12,7 +12,7 @@ const Payment = () => {
   const [cart] = useCart();
   const [resume] = useCartResume();
 
-
+// console.log(resume);
 const total = cart.reduce((sum, resume) => sum + parseFloat(resume.price || 0), 0);
 const price = total.toFixed(2); // Format total to two decimal places
 
@@ -24,7 +24,7 @@ const price = total.toFixed(2); // Format total to two decimal places
      
       </div>
       <Elements stripe={stripePromise}>
-        <Checkout cart={cart} price={price} resumeId={resume._id} />
+        <Checkout cart={cart} price={price} resumeId={resume} />
       </Elements>
     </div>
   );
