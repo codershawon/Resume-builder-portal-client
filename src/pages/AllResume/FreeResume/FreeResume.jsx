@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import LazyLoad from "react-lazyload";
 
-const FreeReume = () => {
+const FreeResume = () => {
   const [resumeCollections, setResumeCollections] = useState([]);
   const [templatesToShow, setTemplatesToShow] = useState(4);
   const [showAllTemplates, setShowAllTemplates] = useState(false);
@@ -80,4 +80,4 @@ const FreeReume = () => {
   );
 };
 
-export default FreeReume;
+export default FreeResume;

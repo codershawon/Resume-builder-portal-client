@@ -74,7 +74,7 @@ export const router = createBrowserRouter([
         element:<ResumeForm/>,
       },{
         path:"/blogs",
-        element:<Blogs/>
+        element:<PrivateRoutes><Blogs/></PrivateRoutes>
       },
       {
         path:"/blogDetails/:id",
