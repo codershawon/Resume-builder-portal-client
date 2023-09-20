@@ -6,9 +6,11 @@ import {
     MapPin,
     Paperclip,
     Phone,
-  } from "react-feather";
-  import { TiLocationArrow } from "react-icons/ti";
-  // import { FaUserCircle } from "react-icons/fa";
+} from "react-feather";
+
+import { TiLocationArrow } from "react-icons/ti";
+
+// import { FaUserCircle } from "react-icons/fa";
   
   
   
