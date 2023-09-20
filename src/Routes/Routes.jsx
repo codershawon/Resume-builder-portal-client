@@ -29,26 +29,6 @@ import UsersInfo from "../pages/Dashboard/UsersInfo";
 import WatchVideo from "../components/Watchvideo/WatchVideo";
 import { createBrowserRouter } from "react-router-dom";
 
-// import ResumeTemplate from "../pages/ResumeTemplate/ResumeTemplate";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export const router = createBrowserRouter([
   {
     path: "/",

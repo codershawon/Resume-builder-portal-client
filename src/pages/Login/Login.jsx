@@ -9,8 +9,10 @@ import { useContext, useRef } from "react";
 
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
+import Lottie from "lottie-react";
 import SignUp from "../Home/SignUp/SignUp";
 import Swal from "sweetalert2";
+import loginLottie from './loginAnimation.json';
 import { useState } from "react";
 
 const Login = () => {
@@ -45,8 +47,7 @@ const Login = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-     // Redirect the user to the intended destination or a default location
-     navigate(from, { replace: true });
+      navigate(from, { replace: true });
     });
   };
 
@@ -71,7 +72,6 @@ const Login = () => {
         })
           .then((res) => res.json())
           .then(() => {
-            // Redirect the user to the intended destination or a default location
             navigate(from, { replace: true });
           });
       })
@@ -89,8 +89,6 @@ const handleReset = () => {
   resetPassword(email)
     .then(() => {
       toast.success("Please check your email for reset link");
-       // Redirect the user to the intended destination or a default location
-       navigate(from, { replace: true });
     })
     .catch(err => {
       setLoading(false);
@@ -105,10 +103,9 @@ const handleReset = () => {
     <div className="hero min-h-screen bg-white">
       <div className="hero-content flex-col md:flex-row">
         <div className="text-center lg:text-left">
-          <img
-            src="https://i.ibb.co/Qdmr9LH/register-e58071de.png"
-            alt=""
-          />
+
+        <Lottie className="w-full lg:h-[600px]" animationData={loginLottie} />
+
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div className="card-body bg-white">
