@@ -47,6 +47,7 @@ const AllResume = () => {
           </div> */}
         </div>
       </div>
+      
       <PremiumTemplates />
       <FreeReume />
       <FooterSection />
