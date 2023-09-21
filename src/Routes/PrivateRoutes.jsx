@@ -6,6 +6,7 @@ const PrivateRoutes = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const [authCheckComplete, setAuthCheckComplete] = useState(false);
   const location = useLocation();
+  console.log(location)
 
   useEffect(() => {
     if (!loading) {

@@ -1,9 +1,10 @@
 import { useTranslation } from "react-i18next";
 import "./AllResume.css";
 import FooterSection from "./FooterSection/FooterSection";
-import FreeReume from "./FreeReume/FreeReume";
 import PremiumTemplates from "./PremiumTemplates/PremiumTemplates";
 import LazyLoad from "react-lazyload";
+import FreeReume from "./FreeReume/FreeResume";
+
 
 const AllResume = () => {
   const { t } = useTranslation(["resumeTemplate"]);
@@ -46,6 +47,7 @@ const AllResume = () => {
           </div> */}
         </div>
       </div>
+      
       <PremiumTemplates />
       <FreeReume />
       <FooterSection />

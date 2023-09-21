@@ -16,7 +16,7 @@ i18n.use(Backend)
 		debug: false,
 		// can have multiple namespaces, in case you want to divide a huge
 		// translation into smaller pieces and load them on demand
-		ns: ["banner","navbar","resumeBuilder","steps","bestResume","testimonialSlider","resumeTemplate","dashboard"],
+		ns: ["banner","navbar","resumeBuilder","steps","bestResume","testimonialSlider","resumeTemplate","dashboard","footer"],
 
 		interpolation: {
 			espaceValue: false,

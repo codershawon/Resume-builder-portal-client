@@ -10,8 +10,10 @@ import {
 
 import { Link } from "react-router-dom";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation(["footer"]);
   return (
     <footer
       className="bg-slate-50 text-white "
@@ -31,10 +33,7 @@ const Footer = () => {
               <div>
                 <div>
                   <p className="py-6 w-[80%] md:w-[100%] text-justify">
-                    Resume Genius is a career site fueled by the best career
-                    experts and a community of millions of readers yearly. We
-                    share knowledge, tips, and tools to help everyone find their
-                    dream job.
+                  {t('footer:aboutUsDescription')}
                   </p>
                   <span className="flex gap-2">
                     <Link
@@ -67,42 +66,42 @@ const Footer = () => {
             </div>
 
             <div className="footerGrid mt-10 md:mt-5 lg:mt-0">
-              <h2 className="text-2xl uppercase mb-6">Our Services</h2>
+              <h2 className="text-2xl uppercase mb-6">{t('footer:ourServices')}</h2>
               <Link to="/about" className="hover:text-[#0dcaf0] mb-1">
-                About us
+              {t('footer:aboutUs')}
               </Link>
               <Link className="hover:text-[#0dcaf0] mb-1 " to="/allresume">
                 {" "}
-                Resume Templates
+                {t('footer:resumeTemplates')}
               </Link>
               <Link className="hover:text-[#0dcaf0] mb-1 " to="/faqs">
                 {" "}
-                FAQs
+                {t('footer:faqs')}
               </Link>
               <Link className="hover:text-[#0dcaf0] mb-1 " to="/blogs">
                 {" "}
-                Blog
+                {t('footer:blog')}
               </Link>
               <Link className="hover:text-[#0dcaf0] mb-1 " to="/contactUs">
                 {" "}
-                Contact Us
+                {t('footer:contactUs')}
               </Link>
             </div>
             <div></div>
 
             <div className="mt-8 md:mt-5 lg:mt-0">
-              <h3 className="text-2xl uppercase mb-6">Official Info</h3>
+              <h3 className="text-2xl uppercase mb-6"> {t('footer:officialInfo')}</h3>
               <div className="flex items-center gap-2 mt-8 mb-2">
                 <FaAddressCard></FaAddressCard>
-                <p>Dhaka, Bangladesh</p>
+                <p> {t('footer:address')}</p>
               </div>
               <div className="flex items-center gap-2 mb-2">
                 <FaEnvelope></FaEnvelope>
-                <p>info.webbattalion@gmail.com</p>
+                <p>{t('footer:email')}</p>
               </div>
               <div className="flex items-center gap-2 mb-2">
                 <FaPhone></FaPhone>
-                <p>+123 34598768</p>
+                <p>{t('footer:phone')}</p>
               </div>
             </div>
           </div>
@@ -111,18 +110,18 @@ const Footer = () => {
       <div className="bg-[#197685] bg-opacity-20">
         <div className="rgContainer p-4   flex flex-wrap items-center justify-between text-black font-normal">
           <div className="">
-            <p>Copyright &copy; 2023 - Resume Genius</p>
+            <p>{t('footer:copyright')}</p>
           </div>
           <div className="">
             <div className="flex gap-4 justify-center items-center">
               <Link className="hover:text-[#0dcaf0]" to="/terms">
-                Terms{" "}
+              {t('footer:terms')}
               </Link>
               <Link className="hover:text-[#0dcaf0]" to="/privacyPolicy">
-                Privacy
+              {t('footer:privacyPolicy')}
               </Link>
               <Link className="hover:text-[#0dcaf0]" to="/contactUs">
-                Support
+              {t('footer:support')}
               </Link>
             </div>
           </div>

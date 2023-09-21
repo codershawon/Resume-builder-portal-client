@@ -1,14 +1,14 @@
 {
-    "resume": "Plantilla de ",
-    "coverLetter": "Carta de presentación",
-    "career": "Carrera",
-    "blogs": "Blogs",
-    "contactUs": "Contáctenos",
-    "coverLetter2": "Carta de presentación",
-    "dashboard": "Panel de control",
-    "profile": "Perfil",
-    "settings": "Configuración",
-    "logout": "Cerrar sesión",
-    "login":"acceso"
+  "resume": "Currículum",
+  "coverLetter": "Carta de presentación",
+  "career": "Carrera",
+  "blogs": "Blogs",
+  "contactUs": "Contáctenos",
+  "dashboard": "Tablero",
+  "logout": "Cerrar sesión",
+  "login": "Iniciar sesión",
+  "resumeTemplate": "Plantilla de currículum",
+  "resumeChecker": "Verificador de currículum",
+  "coverLetterChecker": "Verificador de carta de presentación"
   }
   

@@ -85,7 +85,7 @@ const Navbar = () => {
               location.pathname === "/allresume" ? "navActive" : "navStyle"
             }
           >
-           <Link to="/allresume">{t("Resume Template")}</Link>
+           <Link to="/allresume">{t("resumeTemplate")}</Link>
 
           </li>
           <li
@@ -93,7 +93,7 @@ const Navbar = () => {
               location.pathname === "/resumeChecker" ? "navActive" : "navStyle"
             }
           >
-            <Link to="/resumeChecker">{t("resume checker")}</Link>
+            <Link to="/resumeChecker">{t("resumeChecker")}</Link>
 
           </li>
         </ul>
@@ -111,7 +111,7 @@ const Navbar = () => {
               location.pathname === "/coverLetterChecker" ? "navActive" : "navStyle"
             }
           >
-            <Link to="/coverLetterChecker">{t("cover letter checker")}</Link>
+            <Link to="/coverLetterChecker">{t("coverLetterChecker")}</Link>
 
           </li>
         </ul>
