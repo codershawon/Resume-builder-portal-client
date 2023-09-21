@@ -63,6 +63,7 @@ const FreeResume = () => {
                 to={`/templates/${resume.name}`}
               >
                 Use this template
+                <span className="ml-2 text-sm font-semibold">$ 0</span>
               </Link>
 
             </div>
