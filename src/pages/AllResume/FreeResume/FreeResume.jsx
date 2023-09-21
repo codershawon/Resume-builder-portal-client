@@ -53,11 +53,6 @@ const FreeResume = () => {
                 src={resume.image}
                 alt={`Premium Resume ${index + 1}`}
               /></LazyLoad>
-              {/* <img
-                className="w-full h-full"
-                src={resume.image}
-                alt={`Premium Resume ${index + 1}`}
-              /> */}
               <Link
                 className="my-btn absolute top-[75%] left-0 w-full md:hidden text-center"
                 to={`/templates/${resume.name}`}
