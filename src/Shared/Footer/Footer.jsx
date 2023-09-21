@@ -17,8 +17,7 @@ const Footer = () => {
   return (
     <footer
       className="bg-slate-50 text-white "
-      style={{ backgroundImage: "url(https://i.ibb.co/K0XHbpd/35.png)" }}
-    >
+      style={{ backgroundImage: "url(https://i.ibb.co/K0XHbpd/35.png)" }}>
       <div className="">
         <div className="rgContainer py-6">
           <div className="flex-wrap lg:grid  md:grid-col-4 lg:grid-cols-4 gap-6 justify-items-center text-black font-normal">
