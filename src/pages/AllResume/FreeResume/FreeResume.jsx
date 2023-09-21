@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import LazyLoad from "react-lazyload";
 
 const FreeResume = () => {
+  
   const [resumeCollections, setResumeCollections] = useState([]);
   const [templatesToShow, setTemplatesToShow] = useState(4);
   const [showAllTemplates, setShowAllTemplates] = useState(false);
