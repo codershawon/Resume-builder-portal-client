@@ -12,10 +12,12 @@ import useCart from "../../../Hooks/useCart";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
 import LazyLoad from "react-lazyload";
+import { useTranslation } from "react-i18next";
 
 
 const BestResume = () => {
   const { user } = useContext(AuthContext);
+  const { t } = useTranslation(["bestResume"]);
   const [, refetch] = useCart();
 
   const navigate = useNavigate();
@@ -91,8 +93,8 @@ const BestResume = () => {
   return (
     <div className="rgContainer mt-28">
       <SectionTitle
-        subHeading={"Our Host template"}
-        heading={"Our best resume templates available"}
+        subHeading={`${t('bestResume:subHeading')}`}
+        heading={`${t('bestResume:heading')}`}
       ></SectionTitle>
       {/* <div className='text-center font-bold text-3xl sm:text-5xl mt-10'>
                 <h2>Our best resume</h2>
@@ -109,7 +111,7 @@ const BestResume = () => {
             activeButton === "all" ? "active-button" : ""
           }`}
         >
-          All
+          {t('bestResume:all')}
         </button>
         <button
           onClick={() => {
@@ -120,7 +122,7 @@ const BestResume = () => {
             activeButton === "photo" ? "active-button" : ""
           }`}
         >
-          With Photo
+          {t('bestResume:withPhoto')}
         </button>
         <button
           onClick={() => {
@@ -131,7 +133,7 @@ const BestResume = () => {
             activeButton === "noPhoto" ? "active-button" : ""
           }`}
         >
-          No Photo
+        {t('bestResume:noPhoto')}
         </button>
       </div>
 
@@ -200,7 +202,7 @@ const BestResume = () => {
                       onClick={() => handleAddToCart(resume)}
                       className="useButton"
                     >
-                      Use this template
+                       {t('bestResume:useThisTemplate')}
                       <span className="ml-2 text-sm font-semibold">
                         ${parseFloat(resume.price)}
                       </span>
@@ -210,7 +212,7 @@ const BestResume = () => {
                       className="useButton"
                       to={`/templates/${resume.name}`}
                     >
-                      Use this template
+                       {t('bestResume:useThisTemplate')}
                     </Link>
                   )}
                 </Link>
