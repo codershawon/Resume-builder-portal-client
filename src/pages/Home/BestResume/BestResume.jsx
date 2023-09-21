@@ -1,17 +1,14 @@
 import "swiper/css";
 import "swiper/css/navigation";
 import "./BestResume.css";
-
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useEffect, useState } from "react";
-
+import { useContext, useEffect, useState } from "react";
 import { Autoplay } from "swiper/modules";
 import SectionTitle from "../../../Hooks/SectionTitle";
 import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
 import useCart from "../../../Hooks/useCart";
-<<<<<<< HEAD
 import { AuthContext } from "../../../Providers/AuthProvider";
 
 import LazyLoad from "react-lazyload";
@@ -21,20 +18,14 @@ import { useTranslation } from "react-i18next";
 const BestResume = () => {
   const { user } = useContext(AuthContext);
   const { t } = useTranslation(["bestResume"]);
-=======
-
-const BestResume = () => {
-  const { user } = useAuth();
->>>>>>> b5a9ce891e9835cc2379714d4255e16b37e44696
   const [, refetch] = useCart();
 
   const navigate = useNavigate();
   const location = useLocation();
-  // const from = location.state?.from?.pathname || "/";
+
   const [activeButton, setActiveButton] = useState("all");
   const [resumeCollections, setResumeCollections] = useState([]);
   const [allResume, setResume] = useState(resumeCollections);
-  // console.log(resumeCollections);
 
   useEffect(() => {
     fetch("https://resume-builder-portal-server.vercel.app/resume")
@@ -53,14 +44,13 @@ const BestResume = () => {
     setResume(filteredResume);
   };
 
-
   const handleAddToCart = (resume) => {
     // console.log(resume);
     if (user && user.email) {
       const cartsItem = {
         profileId: resume._id,
         profile: resume.profile,
-        name: resume.name,
+        template: resume.template,
         price: resume.price,
         email: user.email,
       };
@@ -84,8 +74,7 @@ const BestResume = () => {
             });
           }
         });
-    } 
-    else {
+    } else {
       Swal.fire({
         title: "Please login to purchase the package",
         icon: "warning",
@@ -96,8 +85,6 @@ const BestResume = () => {
       }).then((result) => {
         if (result.isConfirmed) {
           navigate("/login", { state: { from: location } });
-       
-
         }
       });
     }
@@ -109,7 +96,10 @@ const BestResume = () => {
         subHeading={`${t('bestResume:subHeading')}`}
         heading={`${t('bestResume:heading')}`}
       ></SectionTitle>
-     
+      {/* <div className='text-center font-bold text-3xl sm:text-5xl mt-10'>
+                <h2>Our best resume</h2>
+                <h2>templates available</h2>
+            </div> */}
 
       <div className="text-center my-8">
         <button
@@ -117,8 +107,9 @@ const BestResume = () => {
             setResume(resumeCollections);
             setActiveButton("all");
           }}
-          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold ${activeButton === "all" ? "active-button" : ""
-            }`}
+          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold ${
+            activeButton === "all" ? "active-button" : ""
+          }`}
         >
           {t('bestResume:all')}
         </button>
@@ -127,8 +118,9 @@ const BestResume = () => {
             filterItem("photo");
             setActiveButton("photo");
           }}
-          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${activeButton === "photo" ? "active-button" : ""
-            }`}
+          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${
+            activeButton === "photo" ? "active-button" : ""
+          }`}
         >
           {t('bestResume:withPhoto')}
         </button>
@@ -137,8 +129,9 @@ const BestResume = () => {
             filterItem("noPhoto");
             setActiveButton("noPhoto");
           }}
-          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${activeButton === "noPhoto" ? "active-button" : ""
-            }`}
+          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${
+            activeButton === "noPhoto" ? "active-button" : ""
+          }`}
         >
         {t('bestResume:noPhoto')}
         </button>
@@ -179,7 +172,6 @@ const BestResume = () => {
           }}
           className="mySwiper"
         >
-<<<<<<< HEAD
           {/* {allResume.map((resume, i) => (
             <SwiperSlide className="" key={i}>
               <div className="slider-content">
@@ -227,36 +219,6 @@ const BestResume = () => {
               </div>
             </SwiperSlide>
           ))}
-=======
-    
-          {
-  allResume.map((resume) => (
-    <SwiperSlide className="" key={resume._id}>
-      <div className="slider-content">
-        <img className="" src={resume.image} alt="resume" />
-        <Link
-          to={
-            parseFloat(resume.price) === 0
-              ? `/templates/${resume.name}`
-              : `/dashboard/my-template/${resume.name}` // Remove the extra space here
-          }
-        >
-          {/* Render the button conditionally */}
-          {parseFloat(resume.price) > 0 ? (
-            <button onClick={() => handleAddToCart(resume)} className="useButton">
-              Use this template
-              <span className="ml-2 text-sm font-semibold">${parseFloat(resume.price)}</span>
-            </button>
-          ) : (
-            <button className='useButton'>Use this template</button> 
-          )}
-        </Link>
-      </div>
-    </SwiperSlide>
-  ))
-}
-
->>>>>>> b5a9ce891e9835cc2379714d4255e16b37e44696
         </Swiper>
       </>
     </div>
@@ -264,4 +226,3 @@ const BestResume = () => {
 };
 
 export default BestResume;
-
