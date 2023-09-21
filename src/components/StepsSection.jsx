@@ -16,22 +16,25 @@ const StepsSection = () => {
   const { t } = useTranslation(["steps"]);
   return (
 
-   
-      <div className="rgContainer bg-[#fff] mt-28">
-        {/* SubTitle Section Start */}
+
+    <div className="rgContainer bg-[#fff] mt-28">
+      {/* SubTitle Section Start */}
+      <div data-aos="fade-up" data-aos-duration="2000">
         <SectionTitle
           subHeading={t("steps:step1.subHeading")}
           heading=
-            {t("steps:step1.heading")}
-          ></SectionTitle>
-        {/* SubTitle Section End */}
+          {t("steps:step1.heading")}
+        ></SectionTitle>
+      </div>
+      {/* SubTitle Section End */}
 
 
       {/* Step Card Sections Start */}
       <Tabs>
         <TabList>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Tab>
+            <Tab data-aos="fade-left"
+              data-aos-duration="2000">
               <a href="#step1">
                 <div className="bg-[#F4F7FC] text-white py-10 px-8 shadow-lg rounded-md hover-design">
                   <div className="h-14 w-14 icon-hover bg-[rgba(247,138,203,.2)] flex justify-center items-center rounded-full mb-5">
@@ -53,7 +56,8 @@ const StepsSection = () => {
               </a>
             </Tab>
 
-            <Tab>
+            <Tab data-aos="fade-down"
+              data-aos-duration="2000">
               <a href="#step2">
                 <div className="bg-[#F4F7FC] text-white py-10 px-8 shadow-lg rounded-md hover-design">
                   <div className="h-14 w-14 icon-hover bg-[rgba(0,174,255,.2)] flex justify-center items-center rounded-full mb-5">
@@ -75,7 +79,8 @@ const StepsSection = () => {
               </a>
             </Tab>
 
-            <Tab>
+            <Tab data-aos="fade-right"
+              data-aos-duration="1000">
               <a href="#step3">
                 <div className="bg-[#F4F7FC] text-white py-10 px-8 shadow-lg rounded-md hover-design">
                   <div className="h-14 w-14 icon-hover bg-[rgba(247,138,203,.2)] flex justify-center items-center rounded-full mb-5">
@@ -107,7 +112,7 @@ const StepsSection = () => {
             <section
               className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-2 justify-between gap-10 "
               id="step1">
-              <div className="flex flex-col justify-center ">
+              <div data-aos="zoom-out-right" data-aos-duration="2000" className="flex flex-col justify-center ">
                 <p className="text-[#ddd] font-bold text-6xl md:text-9xl mb-5 md:mb-9">
                   {" "}
                   01
@@ -117,7 +122,7 @@ const StepsSection = () => {
                 </h3>
                 <p>{t("steps:step1.content")}</p>
               </div>
-              <div className="">
+              <div data-aos="zoom-in-left" data-aos-duration="1000">
                 <Lottie
                   className="w-full lg:h-[500px]"
                   animationData={steps1}
@@ -132,13 +137,13 @@ const StepsSection = () => {
             <section
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10"
               id="step2">
-              <div className="">
+              <div data-aos="zoom-in-right" data-aos-duration="2000" className="">
                 <Lottie
                   className="w-full lg:h-[600px]"
                   animationData={steps2}
                 />
               </div>
-              <div className="flex flex-col justify-center ">
+              <div data-aos="zoom-in-left" data-aos-duration="2000" className="flex flex-col justify-center ">
                 <p className="text-[#ddd] font-bold text-6xl md:text-9xl mb-5 md:mb-9">
                   {" "}
                   02
@@ -158,7 +163,7 @@ const StepsSection = () => {
             <section
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10"
               id="step3">
-              <div className="flex flex-col justify-center ">
+              <div data-aos="zoom-in-right" data-aos-duration="2000" className="flex flex-col justify-center ">
                 <p className="text-[#ddd] font-bold text-6xl md:text-9xl mb-5 md:mb-9">
                   {" "}
                   03
@@ -168,7 +173,7 @@ const StepsSection = () => {
                 </h3>
                 <p>{t("steps:step3.content")}</p>
               </div>
-              <div className="">
+              <div data-aos="zoom-in-left" data-aos-duration="1000" className="">
                 <Lottie
                   className="w-full lg:h-[500px]"
                   animationData={steps3}

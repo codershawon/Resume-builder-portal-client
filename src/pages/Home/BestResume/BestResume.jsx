@@ -92,55 +92,56 @@ const BestResume = () => {
 
   return (
     <div className="rgContainer mt-28">
-      <SectionTitle
-        subHeading={`${t('bestResume:subHeading')}`}
-        heading={`${t('bestResume:heading')}`}
-      ></SectionTitle>
-      {/* <div className='text-center font-bold text-3xl sm:text-5xl mt-10'>
+      <div data-aos="fade-down"
+        data-aos-anchor-placement="center-bottom">
+        <SectionTitle
+          subHeading={`${t('bestResume:subHeading')}`}
+          heading={`${t('bestResume:heading')}`}
+        ></SectionTitle>
+        {/* <div className='text-center font-bold text-3xl sm:text-5xl mt-10'>
                 <h2>Our best resume</h2>
                 <h2>templates available</h2>
             </div> */}
 
-      <div className="text-center my-8">
-        <button
-          onClick={() => {
-            setResume(resumeCollections);
-            setActiveButton("all");
-          }}
-          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold ${
-            activeButton === "all" ? "active-button" : ""
-          }`}
-        >
-          {t('bestResume:all')}
-        </button>
-        <button
-          onClick={() => {
-            filterItem("photo");
-            setActiveButton("photo");
-          }}
-          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${
-            activeButton === "photo" ? "active-button" : ""
-          }`}
-        >
-          {t('bestResume:withPhoto')}
-        </button>
-        <button
-          onClick={() => {
-            filterItem("noPhoto");
-            setActiveButton("noPhoto");
-          }}
-          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${
-            activeButton === "noPhoto" ? "active-button" : ""
-          }`}
-        >
-        {t('bestResume:noPhoto')}
-        </button>
+        <div className="text-center my-8">
+          <button
+            onClick={() => {
+              setResume(resumeCollections);
+              setActiveButton("all");
+            }}
+            className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold ${activeButton === "all" ? "active-button" : ""
+              }`}
+          >
+            {t('bestResume:all')}
+          </button>
+          <button
+            onClick={() => {
+              filterItem("photo");
+              setActiveButton("photo");
+            }}
+            className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${activeButton === "photo" ? "active-button" : ""
+              }`}
+          >
+            {t('bestResume:withPhoto')}
+          </button>
+          <button
+            onClick={() => {
+              filterItem("noPhoto");
+              setActiveButton("noPhoto");
+            }}
+            className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${activeButton === "noPhoto" ? "active-button" : ""
+              }`}
+          >
+            {t('bestResume:noPhoto')}
+          </button>
+        </div>
       </div>
+
 
 
       <>
         <Swiper data-aos="fade-up"
-            data-aos-anchor-placement="center-bottom"
+          data-aos-anchor-placement="center-bottom"
           slidesPerView={1}
           spaceBetween={15}
           autoplay={{
@@ -174,9 +175,9 @@ const BestResume = () => {
           }}
           className="mySwiper"
         >
-          
+
           {allResume.map((resume) => (
-            <SwiperSlide  className="" key={resume._id}>
+            <SwiperSlide className="" key={resume._id}>
               <div className="slider-content">
                 <LazyLoad height={297} offset={100}>
                   <img className="" src={resume.image} alt="resume" />
@@ -195,7 +196,7 @@ const BestResume = () => {
                       onClick={() => handleAddToCart(resume)}
                       className="useButton"
                     >
-                       {t('bestResume:useThisTemplate')}
+                      {t('bestResume:useThisTemplate')}
                       <span className="ml-2 text-sm font-semibold">
                         ${parseFloat(resume.price)}
                       </span>
@@ -205,7 +206,7 @@ const BestResume = () => {
                       className="useButton"
                       to={`/templates/${resume.name}`}
                     >
-                       {t('bestResume:useThisTemplate')}
+                      {t('bestResume:useThisTemplate')}
                     </Link>
                   )}
                 </Link>
