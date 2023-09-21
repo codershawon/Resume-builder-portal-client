@@ -15,7 +15,7 @@ const Review = () => {
 
     useEffect(() => {
         // Fetch testimonials from the backend
-        fetch("http://localhost:4000/review")
+        fetch("https://resume-builder-portal-server.vercel.app/review")
             .then((res) => res.json())
             .then((data) => {
                 const pendingTestimonials = data.filter((item) => item.status === "pending");
@@ -41,7 +41,7 @@ const Review = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // Send a PUT request to update testimonial status
-                fetch(`http://localhost:4000/review/${testimonial._id}`, {
+                fetch(`https://resume-builder-portal-server.vercel.app/review/${testimonial._id}`, {
                     method: "PUT",
                 })
                     .then((res) => res.json())
@@ -83,7 +83,7 @@ const Review = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // Use the correct URL for the delete request
-                fetch(`http://localhost:4000/review/${testimonial._id}`, {
+                fetch(`https://resume-builder-portal-server.vercel.app/review/${testimonial._id}`, {
                     method: "DELETE",
                 })
                     .then((res) => res.json())

@@ -26,7 +26,8 @@ const Privacypolicy = () => {
               heading={"Navigating Our Privacy Policy"}
             ></SectionTitle>
 
-      <div className="my-10 px-6 md:px-20 lg:px-36 text-justify">
+
+    <div className="my-10 px-6 md:px-20 lg:px-36 text-justify">
         <p className=" mb-1">
           Published August 1, 2023. Effective as of November 1, 2023.{" "}
         </p>
@@ -50,13 +51,6 @@ const Privacypolicy = () => {
           Terms of Use are incorporated by reference into this Policy.
         </p>
       </div>
-
-      {/* <div className="my-10 flex-grow px-6 md:px-20 lg:px-36 ">
-        <div>
-          <h2 className="text-4xl font-semibold mb-3">Full Privacy Policy</h2>
-          <p>Last Updated: November 01, 2023</p>
-        </div>
-      </div> */}
 
       <div className="my-10 px-6 md:px-20 lg:px-36 text-justify">
         <div>
