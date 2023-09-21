@@ -57,7 +57,6 @@ const Privacypolicy = () => {
           <p>Last Updated: November 01, 2023</p>
         </div>
       </div> */}
-
       <div className="rgContainer my-10 text-justify">
         <div>
           <h4 className="text-2xl font-bold mb-5">1. Introduction</h4>

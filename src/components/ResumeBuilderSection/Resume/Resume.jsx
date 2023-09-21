@@ -1,15 +1,9 @@
 import React, { forwardRef, useEffect, useRef, useState } from "react";
 import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
+import { IoCallSharp } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
-import {
-  AtSign,
-  Calendar,
-  GitHub,
-  Linkedin,
-  MapPin,
-  Paperclip,
-  
-} from "react-feather";
+import { AtSign, Calendar, GitHub, Linkedin, MapPin, Paperclip, Phone} from "react-feather";
+
 
 
 import styles from "./Resume.module.css";
