@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SingleBlog from "./SingleBlog";
 import SectionTitle from "../../Hooks/SectionTitle";
 
 const Blogs = () => {
+  
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
     fetch("https://resume-builder-portal-server.vercel.app/blogs")
@@ -11,7 +12,7 @@ const Blogs = () => {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <div className="md:mt-20 mt-16">
+    <div data-aos="zoom-in" className="md:mt-20 mt-16">
       <SectionTitle
         subHeading={"Where we share our thoughts and ideas"}
         heading={"Blog Posts"}

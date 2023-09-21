@@ -124,9 +124,9 @@ const TestimonialSlider = () => {
                         showFullTextArray[idx] ? "auto" : "350px"
                       }]`}
                     >
-                      <FaQuoteLeft className="quoteLeft"></FaQuoteLeft>
+                      <FaQuoteLeft  className="quoteLeft"></FaQuoteLeft>
                      <br />
-                      <p className="text-gray-600 md:text-lg font-medium text-base">
+                      <p data-aos="flip-left"  data-aos-duration="2000" className="text-gray-600 md:text-lg font-medium text-base">
                         {showFullTextArray[idx]
                           ? item?.reviewText
                           : item?.reviewText.slice(0, 208)}

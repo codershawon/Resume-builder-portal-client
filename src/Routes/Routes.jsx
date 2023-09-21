@@ -66,7 +66,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/coverLetterChecker",
-        element: <CoverLetterChecker/>,
+        element: <CoverLetterChecker />,
       },
 
       {
@@ -77,8 +77,11 @@ export const router = createBrowserRouter([
         element:<PrivateRoutes><Blogs/></PrivateRoutes>
       },
       {
-        path:"/blogDetails/:id",
-        element:<BlogDetails/>,
+        path: "/blogDetails/:id",
+        element: (
+          <PrivateRoutes>
+            <BlogDetails />
+          </PrivateRoutes>),
         loader: ({ params }) =>
           fetch(`https://resume-builder-portal-server.vercel.app/blogs/${params.id}`),
       },
@@ -87,26 +90,26 @@ export const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path:"/faqs",
-        element:<Faqs />
-      },{
+        path: "/faqs",
+        element: <Faqs />
+      }, {
         path: "/about",
         element: <PrivateRoutes><AboutUs /></PrivateRoutes>,
       },
       {
-        path:"/terms",
-        element:<Terms />
+        path: "/terms",
+        element: <Terms />
       },
       {
         path:"/privacyPolicy",
         element:<Privacypolicy />
       }
-      
+
     ],
   },
   {
     path: "/chatSystem",
-    element: <ChatSystem/>
+    element: <ChatSystem />
   },
   {
     path: "dashboard",
@@ -118,8 +121,8 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path:"adminHome",
-        element:<AdminHome/>
+        path: "adminHome",
+        element: <AdminHome />
       },
       {
         path: "blog",
@@ -137,7 +140,7 @@ export const router = createBrowserRouter([
         path: "usersInfo",
         element: (
           <AdminRoute>
-            <UsersInfo/>
+            <UsersInfo />
           </AdminRoute>
         ),
       },
@@ -145,7 +148,7 @@ export const router = createBrowserRouter([
         path: "review",
         element: (
           <AdminRoute>
-            <Review/>
+            <Review />
           </AdminRoute>
         ),
       },
@@ -162,8 +165,12 @@ export const router = createBrowserRouter([
         element: <Payment />,
       },
       {
+        path: "myPayments",
+        element: <MyPayments />,
+      },
+      {
         path: "feedback",
-        element: <Feedback/>,
+        element: <Feedback />,
       },
     ],
   },

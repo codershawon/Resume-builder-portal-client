@@ -13,11 +13,11 @@ const PremiumTemplates = () => {
   const [resumeCollections, setResumeCollections] = useState([]);
   const { user } = useAuth();
   const [, refetch] = useCart();
- console.log(resumeCollections);
+  console.log(resumeCollections);
 
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   useEffect(() => {
     fetch("https://resume-builder-portal-server.vercel.app/resume")
       .then((res) => res.json())
@@ -26,7 +26,7 @@ const PremiumTemplates = () => {
       })
       .catch((error) => console.error(error));
   }, []);
-//   console.log("resume", resumeCollections);
+  //   console.log("resume", resumeCollections);
 
   const premiumResumes = resumeCollections.filter((resume) => resume.price > 0);
 
@@ -91,38 +91,38 @@ const PremiumTemplates = () => {
       </p>
 
       <div className="grid gird-cols sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-16 my-10">
-  {premiumResumes.map((resume, index) => (
-    <div key={index} className="p-5 resumeContents bg-slate-100">
-      <div className="relative">
-        <div className="absolute bottom-0 left-0 w-full">
-          <Link to={`/dashboard/my-template/${resume.name}`}>
-            <button
-              onClick={() => handleAddToCart(resume)}
-              className="my-btn w-full text-center"
-            >
-              Use this template
-              {parseFloat(resume.price) > 0 && (
-                <span className="ml-2 text-sm font-semibold">
-                  ${parseFloat(resume.price).toFixed(2)}
-                </span>
-              )}
-            </button>
-          </Link>
-        </div>
-        <div className="absolute bottom-[95%] left-[50%] translate-x-[-50%]">
-          <div className=" relative w-fit">
-            <img className="w-20" src={icon} alt="" />
+        {premiumResumes.map((resume, index) => (
+          <div key={index} className="p-5 resumeContents bg-slate-100">
+            <div className="relative">
+              <div className="absolute bottom-0 left-0 w-full">
+                <Link to={`/dashboard/my-template/${resume.name}`}>
+                  <button
+                    onClick={() => handleAddToCart(resume)}
+                    className="my-btn w-full text-center"
+                  >
+                    Use this template
+                    {parseFloat(resume.price) > 0 && (
+                      <span className="ml-2 text-sm font-semibold">
+                        ${parseFloat(resume.price).toFixed(2)}
+                      </span>
+                    )}
+                  </button>
+                </Link>
+              </div>
+              <div className="absolute bottom-[95%] left-[50%] translate-x-[-50%]">
+                <div className=" relative w-fit">
+                  <img className="w-20" src={icon} alt="" />
+                </div>
+              </div>
+              <img
+                className="w-full max-h-[480px]"
+                src={resume.image}
+                alt={`Premium Resume ${index + 1}`}
+              />
+            </div>
           </div>
-        </div>
-        <img
-          className="w-full max-h-[480px]"
-          src={resume.image}
-          alt={`Premium Resume ${index + 1}`}
-        />
+        ))}
       </div>
-    </div>
-  ))}
-</div>
 
 
 

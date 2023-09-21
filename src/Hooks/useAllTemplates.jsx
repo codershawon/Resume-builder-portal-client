@@ -6,11 +6,9 @@ import {
     MapPin,
     Paperclip,
     Phone,
-} from "react-feather";
-
-import { TiLocationArrow } from "react-icons/ti";
-
-// import { FaUserCircle } from "react-icons/fa";
+  } from "react-feather";
+  import { TiLocationArrow } from "react-icons/ti";
+  // import { FaUserCircle } from "react-icons/fa";
   
   
   
@@ -452,7 +450,7 @@ import { TiLocationArrow } from "react-icons/ti";
                 }}>
                 </div>
               </div>
-  
+
               <div className="flex items-center ">
                 <div>
                   <p className="font-semibold text-4xl">{info.basicInfo?.detail?.name}</p>
@@ -460,15 +458,14 @@ import { TiLocationArrow } from "react-icons/ti";
                 </div>
               </div>
             </div>
-  
+
             <div className=" flex gap-3">
               <div className="bg-[#6C999A] text-white w-[40%] min-h-[100%] ms-12 px-5 ">
-  
                 <div className=" mt-16">
                   <h5 className="uppercase font-semibold">Profile</h5>
                   <p>{summarySection}</p>
                 </div>
-  
+
                 <div className=" mt-20">
                   <p className=" text-xl font-semibold mb-2">Contact Me</p>
                   <div className="flex flex-col ps-3">
@@ -508,341 +505,64 @@ import { TiLocationArrow } from "react-icons/ti";
                 </div>
               </div>
               <div className="w-[50%] mt-16 ms-auto">
-  
-                <div>
-                  <h5 className="uppercase font-bold flex items-center gap-3">  Education</h5>
-  
+
+                <div className="min-h-[120px] w-full mb-4 text-justify">
+                  <h5 className="uppercase font-bold flex items-center gap-3">Education</h5>
                   <p className="">{educationSection}</p>
                 </div>
-                <div>
-                  <h5 className="uppercase font-bold flex items-center gap-3">  Skills</h5>
-                  <p className="">{workExpSection}</p>
+
+                <div className="min-h-[120px] w-full mb-4 text-justify">
+                  <h5 className="uppercase font-bold flex items-center gap-3">Skills</h5>
+                  <p className="">{skillSection}</p>
                 </div>
-                <div>
-                  <h5 className="uppercase font-bold flex items-center gap-3">  Project</h5>
+
+                <div className="min-h-[120px] w-full mb-4 text-justify">
+                  <h5 className="uppercase font-bold flex items-center gap-3">Project</h5>
                   <p className="">{projectSection}</p>
                 </div>
-                <div className=" my-10">
-                  <h5 className="uppercase font-bold flex items-center gap-3">  Achievement</h5>
+
+                <div className=" min-h-[120px] w-full mb-4 text-justify">
+                  <h5 className="uppercase font-bold flex items-center gap-3">Achievement</h5>
                   {achievementSection}
                 </div>
-  
-                <div>
-                  <h5 className="uppercase font-bold flex items-center gap-3">  Others</h5>
+
+                <div className="min-h-[120px] w-full mb-4 text-justify">
+                  <h5 className="uppercase font-bold flex items-center gap-3">Others</h5>
                   {otherSection}
                 </div>
               </div>
             </div>
           </div>
         </div>
-      ),
-  
-  
-      // Template 8
-      (
-        <div key="template8" className=''>
-          <div ref={containerRef} className={styles.container}>
-            <div className="flex gap-10">
-  
-              <div
-                className=" p-4 text-start h-full w-[38%] "
-              >
-                <div className="flex justify-center mt-4 mb-7">
-                  <div className=" rounded-full border-4 border-white mx-auto  h-48 w-48 bg-cover bg-center" style={{
-                    backgroundImage: `url(${info.basicInfo?.detail?.photo || 'https://i.ibb.co/KGnMKN0/user.png'})`,
-                  }}>
-                  </div>
-                </div>
-  
-                <p className="text-[27px] uppercase font-medium mt-4 mb-3">contact</p>
-                {info.basicInfo?.detail?.phone ? (
-                  <a className="flex text-[14px] mb-2 gap-1">
-                    <span className="">Phone  </span><span>:</span>
-                    {info.basicInfo?.detail?.phone}
-                  </a>
-                ) : (
-                  <span />
-                )}
-                {info.basicInfo?.detail?.email ? (
-                  <a className="flex w-full h-full text-[14px] mb-2 gap-1" type="email">
-                    <span className="">Email </span><span>:</span>
-                    {info.basicInfo?.detail?.email}
-                  </a>
-                ) : (
-                  <span />
-                )}
-  
-  
-                <p className=" text-[27px] uppercase font-medium mt-4 mb-3">Career Objective</p>
-                <p className="h-full w-full mb-4 text-[5px] font-medium text-justify">{summarySection}</p>
-                <p className=" text-[27px] uppercase font-medium mt-4 mb-3">Skills</p>
-                {achievementSection}
-              </div>
-  
-              <div className="h-full w-[62%] pt-8 ps-7 bg-sky-100 text-black mt-8">
-                <p className="mb-2 text-start font-medium text-[35px] uppercase ">{info.basicInfo?.detail?.name}</p>
-  
-                <p className="text-[20px] font-medium mb-4 uppercase">{info.basicInfo?.detail?.title}</p>
-                <p className="uppercase bg-gray-50 w-[85%] ps-2 pt-1 pb-1 font-medium my-2 text-gray-700 text-[17px] ">Education</p>
-                <p>{educationSection}</p>
-  
-                <p className="uppercase bg-gray-50 w-[85%] ps-2 pt-1 pb-1 font-medium my-2 text-gray-700 text-[17px] ">PROFESSIONAL EXPERIENCE</p>
-                <p className="">{workExpSection}</p>
-  
-              </div>
-  
-  
-            </div>
-          </div>
-        </div>
-      ),
-      // Template 9
-      (
-        <div key="template9" className=''>
-          <div ref={containerRef} className={styles.container}>
-            <div className="flex gap-3">
-  
-              <div
-                className=" p-4 text-start h-full w-[38%] "
-              >
-                <div className="flex justify-center  mt-4 mb-7">
-                  <div className=" rounded-full border-4 border-white mx-auto  h-48 w-48 bg-cover bg-center" style={{
-                    backgroundImage: `url(${info.basicInfo?.detail?.photo || 'https://i.ibb.co/KGnMKN0/user.png'})`,
-                  }}>
-                  </div>
-                </div>
-                <p className="border-t-4 mb-3"></p>
-                <p className="uppercase  pt-3 pb-1 font-semibold  text-[20px] ">Education</p>
-                <p>{educationSection}</p>
-                {/* <p className=" text-[27px] uppercase font-medium mt-4 mb-3">Career Objective</p> */}
-                <p className="border-t-4 mb-3"></p>
-                <p className=" uppercase  pt-3 pb-1 font-semibold  text-[20px] ">Skills</p>
-                {achievementSection}
-                <p className="border-t-4 mb-3"></p>
-                <p className="uppercase  pt-3 pb-1 font-semibold  text-[20px] ">Interest</p>
-              </div>
-              <div className="border-l-2 "></div>
-  
-              <div className="h-full w-[62%] pt-8 ps-7  text-black mt-8">
-                <p className="mb-2 text-start font-medium text-[35px] uppercase ">{info.basicInfo?.detail?.name}</p>
-  
-                <p className="text-[20px] text-gray-500 font-medium mb-4 uppercase">{info.basicInfo?.detail?.title}</p>
-                <p className="border-t-4 mb-3"></p>
-                <div className="flex gap-3 my-3 text-gray-500 items-center">
-                  {info.basicInfo?.detail?.phone ? (
-                    <a className="flex  text-[14px] mb-2 gap-1">
-                      <span className="">Phone  </span><span>:</span>
-                      {info.basicInfo?.detail?.phone}
-                    </a>
-                  ) : (
-                    <span />
-                  )}
-                  {info.basicInfo?.detail?.email ? (
-                    <a className="flex  h-full text-[14px] mb-2 gap-1" type="email">
-                      <span className="">Email </span><span>:</span>
-                      {info.basicInfo?.detail?.email}
-                    </a>
-                  ) : (
-                    <span />
-                  )}
-                </div>
-                <p className="border-t-4 mb-3"></p>
-                <p className=" uppercase  pt-3 pb-1 font-semibold  text-[20px] ">profile</p>
-  
-                <p className="h-full w-full mb-4 text-gray-600 font-medium text-justify">{summarySection}</p>
-  
-  
-                <p className="uppercase  pt-3 pb-1 font-semibold  text-[20px] ">Work EXPERIENCE</p>
-                <p className="">{workExpSection}</p>
-  
-  
-  
-              </div>
-  
-  
-            </div>
-          </div>
-        </div>
-      ),
-      // Template 10
-      (
-        <div key="template10" className=''>
-          <div ref={containerRef} className={styles.container}>
-            <div className=" p-4 text-start h-full">
-              <p className="border-t-[7px] border-[#BDB76B] mb-2"></p>
-              <p className="mb-1 text-[#BDB76B] text-start font-medium text-[35px] uppercase ">{info.basicInfo?.detail?.name}</p>
-              <p className="text-[20px] text-[#BDB76B] font-normal mb-1 uppercase">{info.basicInfo?.detail?.title}</p>
-              <p className="text-gray-600">address :</p>
-              <div className="flex  w-full gap-1 mb-3 text-gray-600 ">
-                {info.basicInfo?.detail?.phone ? (
-                  <a className="flex w-[30%] mb-2 gap-1">
-                    <span className="">Phone  </span><span>:</span>
-                    {info.basicInfo?.detail?.phone}
-                  </a>
-                ) : (
-                  <span />
-                )}
-                {info.basicInfo?.detail?.email ? (
-                  <a className="flex h-full text-blue-400 mb-2 gap-1" type="email">
-                    <span className=""> </span><span></span>
-                    {info.basicInfo?.detail?.email}
-                  </a>
-                ) : (
-                  <span />
-                )}
-              </div>
-              <p className="border-t-2 border-[#BDB76B]"></p>
-              <p className=" uppercase  pt-3 font-normal text-[#BDB76B] text-[20px] ">personal summary</p>
-              <p className="h-full w-full mb-2 text-gray-600 text-justify">{summarySection}</p>
-              <p className="uppercase  pt-1 font-normal  text-[20px] text-[#BDB76B]">Work History</p>
-              <p className="">{workExpSection}</p>
-              <p className=" uppercase  pt-1 font-normal  text-[20px]  text-[#BDB76B]">Skills</p>
-              {/* TODO:: Skill section flex kora lagbe */}
-              {achievementSection}
-              <p className="uppercase  pt-1 font-normal  text-[20px] text-[#BDB76B]">Education</p>
-              <p>{educationSection}</p>
-            </div>
-          </div>
-        </div>
-      ),
-      // Template 11
-      (
-        <div key="template11" className=''>
-          <div ref={containerRef} className={styles.container}>
-            <div className=" p-4 h-full">
-              <p className="mb-1 text-center text-teal-400  text-[32px] uppercase ">{info.basicInfo?.detail?.name}</p>
-              <p className="text-[17px] text-center  font-normal mb-1 uppercase">{info.basicInfo?.detail?.title}</p>
-              <p className="border-t-2 border-teal-400 mb-1"></p>
-              <p className="border-t-[5px] border-teal-400 mb-2"></p>
-              <div className="flex  justify-center w-full gap-3 mb-3 text-gray-600 ">
-                <p className="text-gray-600">Address : Des Molanisia,550 </p>
-                {info.basicInfo?.detail?.phone ? (
-                  <a className="flex  mb-2 gap-1">
-                    <span className="">Phone  </span><span>:</span>
-                    {info.basicInfo?.detail?.phone}
-                  </a>
-                ) : (
-                  <span />
-                )}
-                {info.basicInfo?.detail?.email ? (
-                  <a className="flex h-full  mb-2 gap-1" type="email">
-                    <span className=""> </span><span></span>
-                    {info.basicInfo?.detail?.email}
-                  </a>
-                ) : (
-                  <span />
-                )}
-              </div>
-  
-              <p className=" uppercase  pt-1 font-medium  text-teal-400 text-[18px] ">personal summary</p>
-  
-              <p className="h-full w-full mb-1 text-gray-600 text-justify">{summarySection}</p>
-              <p className="uppercase  pt-1 font-medium  text-teal-400 text-[18px]">Work</p>
-              <p className="">{workExpSection}</p>
-              {/* TODO:: skill e flex kora lagbe */}
-              <p className=" uppercase  pt-1 font-medium  text-teal-400 text-[18px]  ">Skills</p>
-              {achievementSection}
-              <p className="uppercase  pt-1 font-medium  text-teal-400 text-[18px] ">Education</p>
-              <p>{educationSection}</p>
-            </div>
-  
-          </div>
-        </div>
-      ),
-      // Template 12
-      (
-        <div key="template12" className=''>
-          <div ref={containerRef} className={styles.container}>
-  
-  
+     
+    ),
+
+    // Template 8
+    (
+      <div key="template8" className=''>
+        <div ref={containerRef} className={styles.container}>
+          <div className="flex gap-10">
+
             <div
-              className=" p-4 h-full"
+              className=" p-4 text-start  w-[38%] "
             >
-              <p className="mb-1 text-center text-red-600  text-[32px] uppercase ">{info.basicInfo?.detail?.name}</p>
-              <p className="text-[17px] text-center  font-normal mb-1 uppercase">{info.basicInfo?.detail?.title}</p>
-  
-              {/* 
-             <p className="border-t-[5px]  mb-2"></p> */}
-              <p className="text-gray-600 text-center">Address : Des Molanisia,550 </p>
-              <div className="flex  justify-center w-full gap-3 mb-3 text-gray-600 ">
-  
-                {info.basicInfo?.detail?.phone ? (
-                  <a className="flex  mb-2 gap-1">
-                    <span className="">Phone  </span><span>:</span>
-                    {info.basicInfo?.detail?.phone}
-                  </a>
-                ) : (
-                  <span />
-                )}
-                {info.basicInfo?.detail?.email ? (
-                  <a className="flex h-full  mb-2 gap-1" type="email">
-                    <span className=""> </span><span></span>
-                    {info.basicInfo?.detail?.email}
-                  </a>
-                ) : (
-                  <span />
-                )}
-              </div>
-  
-              <div className="flex gap-2">
-                <p className=" uppercase  pt-1 font-medium  text-red-600 text-[18px] "> summary</p>
-                <p className="border-red-600 mt-5 w-[100%] border-b-[1px]  "></p>
-              </div>
-  
-  
-              <p className="h-full w-[100%] ps-[25%] mb-1 text-gray-600 text-justify">{summarySection}</p>
-              <div className="flex gap-2">
-                <p className=" uppercase  pt-1 font-medium  text-red-600 text-[18px] ">work</p>
-                <p className="border-red-600 mt-5 w-[100%] border-b-[1px]  "></p>
-              </div>
-  
-              <p className="ps-[25%]">{workExpSection}</p>
-              {/* TODO:: skill e flex kora lagbe */}
-              <div className="flex gap-2">
-                <p className=" uppercase  pt-1 font-medium  text-red-600 text-[18px] ">SKills</p>
-                <p className="border-red-600 mt-5 w-[100%] border-b-[1px]  "></p>
-              </div>
-  
-              <p className="ps-[25%]">{achievementSection}</p>
-  
-              <div className="flex gap-2">
-                <p className=" uppercase  pt-1 font-medium  text-red-600 text-[18px] ">Education</p>
-                <p className="border-red-600 mt-5 w-[100%] border-b-[1px]  "></p>
-              </div>
-              <p className="ps-[25%]">{educationSection}</p>
-            </div>
-          </div>
-        </div>
-      ),
-      // Template 13
-      (
-        <div key="template13" className=''>
-          <div ref={containerRef} className={styles.container}>
-            <div className="flex gap-5">
-  
-              <div
-                className=" p-4 text-start bg-gray-700 text-white h-full w-[40%] "
-              >
-                <div className="flex justify-center mt-4 mb-7">
-                  <div className=" rounded-full border-4 border-white mx-auto  h-48 w-48 bg-cover bg-center" style={{
-                    backgroundImage: `url(${info.basicInfo?.detail?.photo || 'https://i.ibb.co/KGnMKN0/user.png'})`,
-                  }}>
-                  </div>
+              <div className="flex justify-center mt-4 mb-7">
+                <div className=" rounded-full border-4 border-white mx-auto  h-48 w-48 bg-cover bg-center" style={{
+                  backgroundImage: `url(${info.basicInfo?.detail?.photo || 'https://i.ibb.co/KGnMKN0/user.png'})`,
+                }}>
                 </div>
-                <p className="mb-2 text-start text-yellow-50 font-base text-[26px] uppercase ">{info.basicInfo?.detail?.name}</p>
-                <p className="text-[14px] text-yellow-50 font-thin mb-4 uppercase">{info.basicInfo?.detail?.title}</p>
-  
-                <p className="border-t-[2px] mt-9 mb-5 border-yellow-50"></p>
-                <p className=" text-[16px] uppercase text-yellow-50 font-medium mt-4 mb-3">About me</p>
-                <p className="h-full w-full mb-4    text-justify">{summarySection}</p>
-  
-  
-  
-  
-                <p className=" text-[27px] uppercase font-medium mt-4 mb-3">Skills</p>
-                {achievementSection}
-  
-                <p className="text-[27px] uppercase font-medium mt-4 mb-3">contact</p>
+              </div>
+
+              <div className=" min-h-[120px] w-full mb-4 text-justify">
+                <p className="uppercase font-bold flex items-center gap-3">contact</p>
+                {info.basicInfo?.detail?.address ? (
+                  <a className="flex text-[14px] mb-2 gap-1">
+                    <span className="">Address  </span><span>:</span>
+                    {info.basicInfo?.detail?.address}
+                  </a>
+                ) : (
+                  <span />
+                )}
                 {info.basicInfo?.detail?.phone ? (
                   <a className="flex text-[14px] mb-2 gap-1">
                     <span className="">Phone  </span><span>:</span>
@@ -852,50 +572,381 @@ import { TiLocationArrow } from "react-icons/ti";
                   <span />
                 )}
                 {info.basicInfo?.detail?.email ? (
-                  <a className="flex w-full h-full text-[14px] mb-2 gap-1" type="email">
+                  <a className="flex w-full  text-[14px] mb-2 gap-1" type="email">
                     <span className="">Email </span><span>:</span>
                     {info.basicInfo?.detail?.email}
                   </a>
                 ) : (
                   <span />
                 )}
-  
               </div>
-  
-  
-  
-  
-              <div className="h-full w-[60%] ps-4 mt-4 text-black ">
-                <p className="uppercase bg-yellow-100 w-full ps-2 pt-1 pb-1 font-medium my-2 text-gray-700 text-[17px] ">Work EXPERIENCE</p>
+
+
+              <div className=" min-h-[120px] w-full mb-4 text-justify">
+                <h5 className="uppercase font-bold flex items-center gap-3">Career Objective</h5>
+                <p className="">{summarySection}</p>
+              </div>
+
+              <div className=" min-h-[120px] w-full mb-4 text-justify">
+                <h5 className="uppercase font-bold flex items-center gap-3">Skills</h5>
+                <p className="">{skillSection}</p>
+              </div>
+            </div>
+
+            <div className=" w-[62%] pt-8 ps-7 bg-sky-100 text-black mt-8">
+              <p className="mb-2 text-start font-medium text-[35px] uppercase ">{info.basicInfo?.detail?.name}</p>
+              <p className="text-[20px] font-medium mb-4 uppercase">{info.basicInfo?.detail?.title}</p>
+              <div className=" min-h-[120px] w-full mb-4 text-justify">
+                <h5 className="uppercase font-bold flex items-center gap-3">Education</h5>
+                <p className="">{educationSection}</p>
+              </div>
+
+              <div className=" min-h-[120px] w-full mb-4 text-justify">
+                <h5 className="uppercase font-bold flex items-center gap-3">PROFESSIONAL EXPERIENCE</h5>
                 <p className="">{workExpSection}</p>
-  
-  
-                <p className="uppercase bg-yellow-100 w-full ps-2 pt-1 pb-1 font-medium my-2 text-gray-700 text-[17px] ">Education</p>
-                <p>{educationSection}</p>
-                <p className="uppercase bg-yellow-100 w-full ps-2 pt-1 pb-1 font-medium my-2 text-gray-700 text-[17px] ">Language</p>
-  
-  
-  
               </div>
-  
-  
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    ),
+    // Template 9
+    (
+      <div key="template9" className=''>
+        <div ref={containerRef} className={styles.container}>
+          <div className="flex gap-3">
+
+            <div
+              className=" p-4 text-start  w-[38%] "
+            >
+              <div className="flex justify-center  mt-4 mb-7">
+                <div className=" rounded-full border-4 border-white mx-auto  h-48 w-48 bg-cover bg-center" style={{
+                  backgroundImage: `url(${info.basicInfo?.detail?.photo || 'https://i.ibb.co/KGnMKN0/user.png'})`,
+                }}>
+                </div>
+              </div>
+              <p className="border-t-4 mb-3"></p>
+              <div className=" min-h-[120px] w-full mb-4 text-justify">
+                <h5 className="uppercase font-bold flex items-center gap-3">Education</h5>
+                <p className="">{educationSection}</p>
+              </div>
+
+              {/* <p className=" text-[27px] uppercase font-medium mt-4 mb-3">Career Objective</p> */}
+              <p className="border-t-4 mb-3"></p>
+              <div className=" min-h-[120px] w-full mb-4 text-justify">
+                <h5 className="uppercase font-bold flex items-center gap-3">Skills</h5>
+                <p className="">{skillSection}</p>
+              </div>
+              <p className="border-t-4 mb-3"></p>
+              <div className=" min-h-[120px] w-full mb-4 text-justify">
+                <h5 className="uppercase font-bold flex items-center gap-3">Language</h5>
+                <p className="">{languageSection}</p>
+              </div>
+            </div>
+            <div className="border-l-2 "></div>
+
+            <div className=" w-[62%] pt-8 ps-7  text-black mt-8">
+              <p className="mb-2 text-start font-medium text-[35px] uppercase ">{info.basicInfo?.detail?.name}</p>
+
+              <p className="text-[20px] text-gray-500 font-medium mb-4 uppercase">{info.basicInfo?.detail?.title}</p>
+              <p className="border-t-4 mb-3"></p>
+              <div className="flex gap-3 my-3 text-gray-500 items-center">
+                {info.basicInfo?.detail?.address ? (
+                  <a className="flex  text-[14px] mb-2 gap-1">
+                    <span className="">Address  </span><span>:</span>
+                    {info.basicInfo?.detail?.address}
+                  </a>
+                ) : (
+                  <span />
+                )}
+                {info.basicInfo?.detail?.phone ? (
+                  <a className="flex  text-[14px] mb-2 gap-1">
+                    <span className="">Phone  </span><span>:</span>
+                    {info.basicInfo?.detail?.phone}
+                  </a>
+                ) : (
+                  <span />
+                )}
+                {info.basicInfo?.detail?.email ? (
+                  <a className="flex   text-[14px] mb-2 gap-1" type="email">
+                    <span className="">Email </span><span>:</span>
+                    {info.basicInfo?.detail?.email}
+                  </a>
+                ) : (
+                  <span />
+                )}
+              </div>
+              <p className="border-t-4 mb-3"></p>
+              <div className=" min-h-[120px] w-full mb-4 text-justify">
+                <h5 className="uppercase font-bold flex items-center gap-3">Summary</h5>
+                <p className="text-gray-600">{summarySection}</p>
+              </div>
+
+
+              <div className=" min-h-[120px] w-full mb-4 text-justify">
+                <h5 className="uppercase font-bold flex items-center gap-3">Work EXPERIENCE</h5>
+                <p>{workExpSection}</p>
+              </div>
             </div>
           </div>
         </div>
-      ),
-      // Template 14
-      (
-        <div key="template14">
-          <div ref={containerRef} className={styles.container}>
-            <div className="flex gap-5 mt-14 bg-[#c6a68dbb] py-10">
+      </div>
+    ),
+    // Template 10
+    (
+      <div key="template10" className=''>
+        <div ref={containerRef} className={styles.container}>
+          <div className=" p-4 text-start ">
+            <p className="border-t-[7px] border-[#BDB76B] mb-2"></p>
+            <p className="mb-1 text-[#BDB76B] text-start font-medium text-[35px] uppercase ">{info.basicInfo?.detail?.name}</p>
+            <p className="text-[20px] text-[#BDB76B] font-normal mb-1 uppercase">{info.basicInfo?.detail?.title}</p>
+            <p className="text-gray-600">address :</p>
+            <div className="flex  w-full gap-1 mb-3 text-gray-600 ">
+              {info.basicInfo?.detail?.address ? (
+                <a className="flex w-[30%] mb-2 gap-1">
+                  <span className="">Address </span><span>:</span>
+                  {info.basicInfo?.detail?.address}
+                </a>
+              ) : (
+                <span />
+              )}
+              {info.basicInfo?.detail?.phone ? (
+                <a className="flex w-[30%] mb-2 gap-1">
+                  <span className="">Phone  </span><span>:</span>
+                  {info.basicInfo?.detail?.phone}
+                </a>
+              ) : (
+                <span />
+              )}
+              {info.basicInfo?.detail?.email ? (
+                <a className="flex  text-blue-400 mb-2 gap-1" type="email">
+                  <span className=""> </span><span></span>
+                  {info.basicInfo?.detail?.email}
+                </a>
+              ) : (
+                <span />
+              )}
+            </div>
+            <p className="border-t-2 border-[#BDB76B]"></p>
+            <div className=" min-h-[100px] w-full mb-4 text-justify">
+              <h5 className="uppercase  pt-3 font-normal text-[#BDB76B] text-[20px]">personal summary</h5>
+              <p>{summarySection}</p>
+            </div>
+            <div className=" min-h-[100px] w-full mb-4 text-justify">
+              <h5 className="uppercase  pt-3 font-normal text-[#BDB76B] text-[20px]">Work History</h5>
+              <p>{workExpSection}</p>
+            </div>
+            <div className=" min-h-[100px] w-full mb-4 text-justify">
+              <h5 className="uppercase  pt-3 font-normal text-[#BDB76B] text-[20px]">Skills</h5>
+              <p>{skillSection}</p>
+            </div>
+            <div className=" min-h-[100px] w-full mb-4 text-justify">
+              <h5 className="uppercase  pt-3 font-normal text-[#BDB76B] text-[20px]">Education</h5>
+              <p>{educationSection}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
+    // Template 11
+    (
+      <div key="template11" className=''>
+        <div ref={containerRef} className={styles.container}>
+          <div className=" p-4 ">
+            <p className="mb-1 text-center text-teal-400  text-[32px] uppercase ">{info.basicInfo?.detail?.name}</p>
+            <p className="text-[17px] text-center  font-normal mb-1 uppercase">{info.basicInfo?.detail?.title}</p>
+            <p className="border-t-2 border-teal-400 mb-1"></p>
+            <p className="border-t-[5px] border-teal-400 mb-2"></p>
+            <div className="flex  justify-center w-full gap-3 mb-3 text-gray-600 ">
+              <p className="text-gray-600">Address : {info.basicInfo?.detail?.address} </p>
+              {info.basicInfo?.detail?.phone ? (
+                <a className="flex  mb-2 gap-1">
+                  <span className="">Phone  </span><span>:</span>
+                  {info.basicInfo?.detail?.phone}
+                </a>
+              ) : (
+                <span />
+              )}
+              {info.basicInfo?.detail?.email ? (
+                <a className="flex   mb-2 gap-1" type="email">
+                  <span className=""> </span><span></span>
+                  {info.basicInfo?.detail?.email}
+                </a>
+              ) : (
+                <span />
+              )}
+            </div>
+
+            <div className=" min-h-[100px] w-full mb-4 text-justify">
+              <h5 className="uppercase  pt-1 font-medium  text-teal-400 text-[18px]">personal summary</h5>
+              <p>{summarySection}</p>
+            </div>
+            <div className=" min-h-[100px] w-full mb-4 text-justify">
+              <h5 className="uppercase  pt-1 font-medium  text-teal-400 text-[18px]">Work</h5>
+              <p>{workExpSection}</p>
+            </div>
+            <div className=" min-h-[100px] w-full mb-4 text-justify">
+              <h5 className="uppercase  pt-1 font-medium  text-teal-400 text-[18px]">Skills</h5>
+              <p>{skillSection}</p>
+            </div>
+            <div className=" min-h-[100px] w-full mb-4 text-justify">
+              <h5 className="uppercase  pt-1 font-medium  text-teal-400 text-[18px]">Education</h5>
+              <p>{educationSection}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    ),
+    // Template 12
+    (
+      <div key="template12" className=''>
+        <div ref={containerRef} className={styles.container}>
+
+
+          <div
+            className=" p-4 "
+          >
+            <p className="mb-1 text-center text-red-600  text-[32px] uppercase ">{info.basicInfo?.detail?.name}</p>
+            <p className="text-[17px] text-center  font-normal mb-1 uppercase">{info.basicInfo?.detail?.title}</p>
+
+            {/* 
+             <p className="border-t-[5px]  mb-2"></p> */}
+            <p className="text-gray-600 text-center">{info.basicInfo?.detail?.address}</p>
+            <div className="flex  justify-center w-full gap-3 mb-3 text-gray-600 ">
+
+              {info.basicInfo?.detail?.phone ? (
+                <a className="flex  mb-2 gap-1">
+                  <span className="">Phone  </span><span>:</span>
+                  {info.basicInfo?.detail?.phone}
+                </a>
+              ) : (
+                <span />
+              )}
+              {info.basicInfo?.detail?.email ? (
+                <a className="flex   mb-2 gap-1" type="email">
+                  <span className=""> </span><span></span>
+                  {info.basicInfo?.detail?.email}
+                </a>
+              ) : (
+                <span />
+              )}
+            </div>
+
+            <div className=" min-h-[100px] w-full mb-4 text-justify">
+              <h5 className="uppercase  pt-1 font-medium  text-red-600 text-[18px]">summary</h5>
+              <p className="border-red-600 mt-5 w-[100%] border-b-[1px]">{summarySection}</p>
+            </div>
+            <div className=" min-h-[100px] w-full mb-4 text-justify">
+              <h5 className="uppercase  pt-1 font-medium  text-red-600 text-[18px]">Work</h5>
+              <p className="border-red-600 mt-5 w-[100%] border-b-[1px]">{workExpSection}</p>
+            </div>
+            <div className=" min-h-[100px] w-full mb-4 text-justify">
+              <h5 className="uppercase  pt-1 font-medium  text-red-600 text-[18px]">Skills</h5>
+              <p className="border-red-600 mt-5 w-[100%] border-b-[1px]">{skillSection}</p>
+            </div>
+            <div className=" min-h-[100px] w-full mb-4 text-justify">
+              <h5 className="uppercase  pt-1 font-medium  text-red-600 text-[18px]">Education</h5>
+              <p className="border-red-600 mt-5 w-[100%] border-b-[1px]">{educationSection}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
+    // Template 13
+    (
+      <div key="template13" className=''>
+        <div ref={containerRef} className={styles.container}>
+          <div className="flex gap-5">
+
+            <div
+              className=" min-h-[1060px] p-4 text-start bg-gray-700 text-white  w-[40%] "
+            >
+              <div className="flex justify-center mt-4 mb-7">
+                <div className=" rounded-full border-4 border-white mx-auto  h-48 w-48 bg-cover bg-center" style={{
+                  backgroundImage: `url(${info.basicInfo?.detail?.photo || 'https://i.ibb.co/KGnMKN0/user.png'})`,
+                }}>
+                </div>
+              </div>
+              <p className="mb-2 text-start text-yellow-50 font-base text-[26px] uppercase ">{info.basicInfo?.detail?.name}</p>
+              <p className="text-[14px] text-yellow-50 font-thin mb-4 uppercase">{info.basicInfo?.detail?.title}</p>
+
+              <p className="border-t-[2px] mt-9 mb-5 border-yellow-50"></p>
+
+              <div className=" min-h-[120px] w-full mb-4 text-justify">
+                <p className=" text-[16px] uppercase text-yellow-50 font-bold mb-3">About me</p>
+                {summarySection}
+              </div>
+
+              <div className=" min-h-[120px] w-full mb-4 text-justify">
+                <p className=" text-[16px] uppercase text-yellow-50 font-bold mb-3">Skills</p>
+                {skillSection}
+              </div>
+
+              <div className=" min-h-[120px] w-full mb-4 text-justify">
+                <p className=" text-[16px] uppercase text-yellow-50 font-bold mb-3">contact</p>
+
+                {info.basicInfo?.detail?.address ? (
+                  <a className="flex flex-col text-[14px] mb-2 gap-1">
+                    {info.basicInfo?.detail?.address}
+                  </a>
+                ) : (
+                  <span />
+                )}
+                {info.basicInfo?.detail?.phone ? (
+                  <a className="flex text-[14px] mb-2 gap-1">
+                    {info.basicInfo?.detail?.phone}
+                  </a>
+                ) : (
+                  <span />
+                )}
+                {info.basicInfo?.detail?.email ? (
+                  <a className="flex w-full  text-[14px] mb-2 gap-1" type="email">
+                    {info.basicInfo?.detail?.email}
+                  </a>
+                ) : (
+                  <span />
+                )}
+              </div>
+
+            </div>
+            <div className=" w-[60%] ps-4 mt-4 text-black ">
+              <div className=" min-h-[220px] w-full mb-4 text-justify">
+                <p className="uppercase bg-yellow-100 w-full ps-2 pt-1 pb-1 font-medium my-2 text-gray-700 text-[17px] ">Work EXPERIENCE</p>
+                {workExpSection}
+              </div>
+
+              <div className=" min-h-[120px] w-full  text-justify">
+                <p className="uppercase bg-yellow-100 w-full ps-2 pt-1 pb-1 font-medium  text-gray-700 text-[17px] ">Education</p>
+                {educationSection}
+              </div>
+
+              <div className=" min-h-[220px] w-full mb-4 text-justify">
+                <p className="uppercase bg-yellow-100 w-full ps-2 pt-1 pb-1 font-medium my-2 text-gray-700 text-[17px] ">Language</p>
+                {languageSection}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
+    // Template 14
+    (
+      <div key="template14">
+        <div ref={containerRef} className={styles.container}>
+          <div className="min-h-[1060px]">
+
+            <div className="flex gap-5  bg-[#c6a68dbb] py-10 ">
               <div className="w-[40%]">
                 <div className=" rounded-full border-4 border-white mx-auto  h-48 w-48 bg-cover bg-center" style={{
                   backgroundImage: `url(${info.basicInfo?.detail?.photo || 'https://i.ibb.co/KGnMKN0/user.png'})`,
                 }}>
                 </div>
-  
               </div>
-  
+
               <div className="flex items-center">
                 <div>
                   <p className="font-semibold text-5xl text-center">{info.basicInfo?.detail?.name}</p>
@@ -903,65 +954,67 @@ import { TiLocationArrow } from "react-icons/ti";
                 </div>
               </div>
             </div>
-  
+
             <div className=" flex gap-3">
-              <div className="bg-[#b2c3bf7f] w-[40%] min-h-[100%] px-5 ">
-                <div className=" mt-20">
-                  <p className=" text-xl font-semibold mb-2">Contact</p>
-                  <div className="flex flex-col ps-3">
-                    {info.basicInfo?.detail?.email ? (
-                      <a className="flex gap-x-1 items-center border p-2 border-black mb-2" type="email">
-                        {info.basicInfo?.detail?.email}
+              <div className="bg-[#b2c3bf7f] w-[40%] min-h-[790px] px-5">
+
+                <div className="mt-10">
+                  <div className=" min-h-[120px] w-full mb-4 text-justify">
+                    <p className=" text-[16px] uppercase font-bold mb-3">contact</p>
+                    {info.basicInfo?.detail?.address ? (
+                      <a className="flex flex-col text-[14px] mb-2 gap-1">
+                        {info.basicInfo?.detail?.address}
                       </a>
                     ) : (
                       <span />
                     )}
                     {info.basicInfo?.detail?.phone ? (
-                      <a className="flex gap-x-1 items-center border p-2 border-black mb-2">
+                      <a className="flex text-[14px] mb-2 gap-1">
                         {info.basicInfo?.detail?.phone}
                       </a>
                     ) : (
                       <span />
                     )}
-  
+                    {info.basicInfo?.detail?.email ? (
+                      <a className="flex w-full  text-[14px] mb-2 gap-1" type="email">
+                        {info.basicInfo?.detail?.email}
+                      </a>
+                    ) : (
+                      <span />
+                    )}
+                  </div>
+
+                  <div className=" min-h-[120px] w-full mb-4 text-justify">
+                    <p className=" text-[16px] uppercase font-bold mb-3">Education</p>
+                    {educationSection}
+                  </div>
+
+                  <div className=" min-h-[120px] w-full mb-4 text-justify">
+                    <p className=" text-[16px] uppercase font-bold mb-3">Key Skills</p>
+                    {skillSection}
                   </div>
                 </div>
-  
-                <div className="my-5">
-                  <h5 className="uppercase font-bold flex items-center gap-3">Education</h5>
-  
-                  <p className="">{educationSection}</p>
-                </div>
-  
-                <div className="">
-                  <h5 className="uppercase font-bold flex items-center gap-3">Key Skills</h5>
-                  {achievementSection}
-                </div>
-  
-  
-  
               </div>
-              <div className="w-[56%]">
-                <div className=" mt-16">
-                  <h5 className="uppercase font-semibold">Profile</h5>
-                  <p>{summarySection}</p>
+              <div className="w-[56%] mt-10">
+
+                <div className="min-h-[120px] w-full mb-4 text-justify">
+                  <p className=" text-[16px] uppercase font-bold mb-3">Professional Profile</p>
+                  {summarySection}
                 </div>
-  
-                <div className="my-5">
-                  <h5 className="uppercase font-bold flex items-center gap-3">Work Experience</h5>
-                  <p className="">{workExpSection}</p>
+
+                <div className=" min-h-[120px] w-full mb-4 text-justify">
+                  <p className=" text-[16px] uppercase font-bold mb-3">Work Experience</p>
+                  {workExpSection}
                 </div>
               </div>
             </div>
           </div>
+
         </div>
-      )
-  
-    ];
-  
-    return templates;
-  
-  
-  
-  }
-  
+      </div>
+    )
+
+  ];
+
+  return templates;
+}

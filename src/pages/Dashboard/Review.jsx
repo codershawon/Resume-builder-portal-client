@@ -15,7 +15,7 @@ const Review = () => {
 
     useEffect(() => {
         // Fetch testimonials from the backend
-        fetch("https://resume-builder-portal-server.vercel.app/review")
+        fetch("http://localhost:4000/review")
             .then((res) => res.json())
             .then((data) => {
                 const pendingTestimonials = data.filter((item) => item.status === "pending");
@@ -69,7 +69,7 @@ const Review = () => {
     };
     
     const handleDelete = (testimonial) => {
-        // Close the modal before showing the Swal dialog
+
         document.getElementById('my_modal_5').close();
     
         Swal.fire({

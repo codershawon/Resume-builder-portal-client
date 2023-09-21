@@ -17,8 +17,7 @@ const Footer = () => {
   return (
     <footer
       className="bg-slate-50 text-white "
-      style={{ backgroundImage: "url(https://i.ibb.co/K0XHbpd/35.png)" }}
-    >
+      style={{ backgroundImage: "url(https://i.ibb.co/K0XHbpd/35.png)" }}>
       <div className="">
         <div className="rgContainer py-6">
           <div className="md:flex justify-between text-black font-normal">

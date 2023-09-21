@@ -133,7 +133,6 @@ const Navbar = () => {
             <Link to="/blogs">{t("blogs")}</Link>
 
 
-
           </li>
           <li
             className={
@@ -224,8 +223,8 @@ const Navbar = () => {
         <div className="flex  items-center">
           <Link to="/">
             <img
-              className="w-44 lg:w-full"
-              src="https://i.ibb.co/zhYJKFk/resume-cv-cover-letter-transparent.png"
+              className="w-48 lg:w-60"
+              src="https://i.ibb.co/RjydDyx/logo3.png"
               alt="Resume genius logo"
             />
           </Link>

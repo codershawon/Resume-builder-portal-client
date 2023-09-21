@@ -137,8 +137,10 @@ const BestResume = () => {
         </button>
       </div>
 
+
       <>
-        <Swiper
+        <Swiper data-aos="fade-up"
+            data-aos-anchor-placement="center-bottom"
           slidesPerView={1}
           spaceBetween={15}
           autoplay={{
@@ -172,18 +174,9 @@ const BestResume = () => {
           }}
           className="mySwiper"
         >
-          {/* {allResume.map((resume, i) => (
-            <SwiperSlide className="" key={i}>
-              <div className="slider-content">
-                <img className="" src={resume?.template} alt="resume" />
-                <Link to="/resumeBuilder">
-                  <button className="useButton">Use this template</button>
-                </Link>
-              </div>
-            </SwiperSlide>
-          ))} */}
+          
           {allResume.map((resume) => (
-            <SwiperSlide className="" key={resume._id}>
+            <SwiperSlide  className="" key={resume._id}>
               <div className="slider-content">
                 <LazyLoad height={297} offset={100}>
                   <img className="" src={resume.image} alt="resume" />

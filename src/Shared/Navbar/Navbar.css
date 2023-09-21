@@ -1,18 +1,17 @@
 
 /* nav bar style */
 .navBar{
-   @apply bg-white sticky top-0 py-4 md:py-1 z-10 w-full shadow-md uppercase;
+   @apply bg-white sticky top-0 py-4 md:py-1 z-50 w-full shadow-md uppercase;
 }
 
 /* navigation route style {Link tag} */
 .navStyle {
-    @apply text-xs font-bold lg:text-base lg:font-medium  p-2 lg:px-4 my-4 hover:text-[#197685] ;
+    @apply text-xs font-bold lg:text-base lg:font-medium  p-2 lg:px-4 my-4 hover:text-[#197685];
   }
   
-
 /* active route style */
 .navActive {
-    @apply text-lg font-semibold  p-2 rounded-2xl shadow-lg;
+    @apply text-white font-semibold  p-2 rounded-2xl border bg-[#42C3E4];
   }
   
 

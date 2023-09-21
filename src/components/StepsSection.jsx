@@ -8,6 +8,9 @@ import steps3 from "./steps4.json";
 import Lottie from "lottie-react";
 import SectionTitle from "../Hooks/SectionTitle";
 import { useTranslation } from "react-i18next";
+import Aos from "aos";
+import 'aos/dist/aos.css';
+Aos.init();
 
 const StepsSection = () => {
   const { t } = useTranslation(["steps"]);
@@ -17,7 +20,7 @@ const StepsSection = () => {
       <div className="rgContainer bg-[#fff] mt-28">
         {/* SubTitle Section Start */}
         <SectionTitle
-          subHeading= {t("steps:step1.subHeading")}
+          subHeading={t("steps:step1.subHeading")}
           heading=
             {t("steps:step1.heading")}
           ></SectionTitle>

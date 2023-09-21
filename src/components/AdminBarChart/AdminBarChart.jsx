@@ -33,7 +33,7 @@ const AdminBarChart = () => {
   };
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-xl">
+    <div data-aos="zoom-in" data-aos-duration="1000" className="w-full bg-white rounded-lg shadow-xl">
     <ResponsiveContainer width="100%" aspect={2.0 / 1.0}>
         <BarChart
           data={data}
