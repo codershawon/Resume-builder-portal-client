@@ -78,4 +78,3 @@ const FreeResume = () => {
 };
 
 export default FreeResume;
-
