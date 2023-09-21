@@ -14,7 +14,7 @@ const MyPayments = () => {
     console.log(currentUsers);
 
     useEffect(() => {
-        fetch(`http://localhost:4000/payment/${user.email}`)
+        fetch(`https://resume-builder-portal-server.vercel.app/payment/${user.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setCurrentUsers(data);

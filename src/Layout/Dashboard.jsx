@@ -105,7 +105,7 @@ const Dashboard = () => {
       link: "/dashboard/payment",
       icon: FaWallet,
     },
-    { name: `${t("paymentHistory.name")}`, link: "/", icon: FaHistory },
+    { name: `${t("paymentHistory.name")}`, link: "/dashboard/myPayments", icon: FaHistory },
     {
       name: `${t("templates.name")}`,
       link: "/allresume",

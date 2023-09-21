@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SectionTitle from "../../Hooks/SectionTitle";
+import FixedWidth from "../fixedwidth";
 
 const Terms = () => {
   return (
     <div>
       <div className="breadcrumb-wrap md:mb-12 mb-9">
-        <nav className="breadcrumbs">
+        <nav className="breadcrumbs ">
           <ul>
             <li>
               <Link className="text-[#efc778] hover:underline " to="/">
@@ -26,7 +27,10 @@ const Terms = () => {
         heading={"Terms of Service"}
       ></SectionTitle>
 
-      <div className="my-10 px-6 md:px-20 lg:px-36">
+   
+     
+    <div className="max-w-[1600px] mx-auto">
+    <div className="my-10 px-6 md:px-20 lg:px-36">
         <p className="font-semibold text-[17px] mb-2">
           Last Updated: November 01, 2023
         </p>
@@ -221,6 +225,8 @@ const Terms = () => {
           </p>
         </div>
       </div>
+    </div>
+   
     </div>
   );
 };
