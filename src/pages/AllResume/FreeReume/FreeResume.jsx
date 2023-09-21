@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import LazyLoad from "react-lazyload";
 
-const FreeReume = () => {
-  
+const FreeResume = () => {
   const [resumeCollections, setResumeCollections] = useState([]);
   const [templatesToShow, setTemplatesToShow] = useState(4);
   const [showAllTemplates, setShowAllTemplates] = useState(false);
@@ -49,7 +48,7 @@ const FreeReume = () => {
               key={index}
               className="p-5 resumeContents relative bg-slate-100"
             >
-
+              
               <LazyLoad height={300} offset={100}><img
                 className="w-full h-full"
                 src={resume.image}
@@ -78,5 +77,5 @@ const FreeReume = () => {
   );
 };
 
+export default FreeResume;
 
-export default FreeReume;
