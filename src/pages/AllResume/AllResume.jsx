@@ -3,7 +3,8 @@ import "./AllResume.css";
 import FooterSection from "./FooterSection/FooterSection";
 import PremiumTemplates from "./PremiumTemplates/PremiumTemplates";
 import LazyLoad from "react-lazyload";
-import FreeResume from "./FreeResume/FreeResume";
+import FreeReume from "./FreeReume/FreeResume";
+
 
 const AllResume = () => {
   const { t } = useTranslation(["resumeTemplate"]);
@@ -47,7 +48,7 @@ const AllResume = () => {
         </div>
       </div>
       <PremiumTemplates />
-      <FreeResume />
+      <FreeReume />
       <FooterSection />
     </div>
   );
