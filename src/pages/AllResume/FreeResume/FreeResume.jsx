@@ -48,7 +48,7 @@ const FreeResume = () => {
               key={index}
               className="p-5 resumeContents relative bg-slate-100"
             >
-              
+
               <LazyLoad height={300} offset={100}><img
                 className="w-full h-full"
                 src={resume.image}
@@ -76,5 +76,6 @@ const FreeResume = () => {
     </div>
   );
 };
+
 
 export default FreeResume;
