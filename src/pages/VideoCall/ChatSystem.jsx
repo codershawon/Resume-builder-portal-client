@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 
-const socket = io("http://localhost:4000");
+const socket = io("https://resume-builder-portal-server.vercel.app");
 const ChatSystem = () => {
   const [username, setUsername] = useState("");
   const [chatActive, setChatActive] = useState(false);
