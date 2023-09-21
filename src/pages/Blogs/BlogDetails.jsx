@@ -37,7 +37,7 @@ const BlogDetails = () => {
       photoUrl: user.photoURL,
     };
 
-    fetch(`http://localhost:4000/blogs/${_id}`, {
+    fetch(`https://resume-builder-portal-server.vercel.app/blogs/${_id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
