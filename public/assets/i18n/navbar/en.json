@@ -1,14 +1,15 @@
 {
-    "resumeTemplate": "Resume Template",
-    "coverLetter": "Cover Letter",
-    "career": "Career",
-    "blogs": "Blogs",
-    "contactUs": "Contact Us",
-    "coverLetter2": "Cover Letter",
-    "dashboard": "Dashboard",
-    "profile": "Profile",
-    "settings": "Settings",
-    "logout": "Log Out",
-    "login":"Login"
+  "resume": "Resume",
+  "coverLetter": "Cover Letter",
+  "career": "Career",
+  "blogs": "Blogs",
+  "contactUs": "Contact Us",
+  "dashboard": "Dashboard",
+  "logout": "Logout",
+  "login": "Login",
+  "resumeTemplate": "Resume Template",
+  "resumeChecker": "Resume Checker",
+  "coverLetterChecker": "Cover Letter Checker"
+
   }
   

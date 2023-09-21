@@ -5,7 +5,7 @@ import ReactPaginate from "react-paginate";
 
 const UsersInfo = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const pageSize = 7;
+  const pageSize = 5;
 
   const [axiosSecure] = useAxiosSecure();
   const { data: users = [], refetch } = useQuery(["users"], async () => {
@@ -22,7 +22,7 @@ const UsersInfo = () => {
 
 
   return (
-    <div>
+    <div className="relative w-full h-full">
       <h3 className="text-3xl text-center font-semibold my-8">
         Users Information
       </h3>
@@ -44,27 +44,6 @@ const UsersInfo = () => {
               <th>Nationality</th>
             </tr>
           </thead>
-          {/* <tbody>
-            {users.map((user, index) => (
-              <tr key={index}>
-                <th>{index + 1}</th>
-                <td>
-                  <img
-                    src={user?.photoURL}
-                    alt="usersPhoto"
-                    className="w-10 rounded"
-                  />
-                </td>
-                <td>{user.name ? user.name : "No Info"}</td>
-                <td>{user.email ? user.email : "No Info"}</td>
-                <td>{user.phone ? user.phone : "No Info"}</td>
-                <td>{user.birthdate ? user.birthdate : "No Info"}</td>
-                <td>{user.city ? user.city : "No Info"}</td>
-                <td>{user.country ? user.country : "No Info"}</td>
-                <td>{user.nationality ? user.nationality : "No Info"}</td>
-              </tr>
-            ))}
-          </tbody> */}
           <tbody>
             {currentPageUsers.map((user, index) => (
               <tr key={index}>
@@ -89,7 +68,7 @@ const UsersInfo = () => {
         </table>
        </div>
       </div>
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-center mt-8 absolute bottom-0 left-1/3">
         <ReactPaginate
           previousLabel={"Previous"}
           nextLabel={"Next"}

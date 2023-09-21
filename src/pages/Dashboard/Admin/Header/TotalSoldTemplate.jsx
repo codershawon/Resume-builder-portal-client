@@ -13,7 +13,6 @@ const TotalSoldTemplate = () => {
             })
             .catch((error) => console.error(error));
     }, []);
-    console.log(users);
     
     
     return (

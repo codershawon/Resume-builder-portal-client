@@ -3,11 +3,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaAngleDown, FaDribbble, FaPowerOff } from "react-icons/fa6";
 import { useContext } from "react";
-import { AuthContext } from "../../Providers/AuthProvider";
+
 import { FaLanguage, FaUserCircle } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 import useAdmin from "../../Hooks/useAdmin";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 //navbar
 const Navbar = () => {
@@ -71,9 +72,31 @@ const Navbar = () => {
 
   const navOptions = (
     <>
-      <li className={location.pathname === "/allresume" ? "navActive" : "navStyle "}>
-        <Link to="/allresume">{t("Resume")}</Link>
+      <li
+        className={`relative navHover ${location.pathname === "" ? "navActive" : "navStyle"
+          }`}>
+        <Link className="flex items-center gap-1" to="/">
+          {t("resume")} <FaAngleDown />
+        </Link>
+        {/* Dropdown options */}
+        <ul className="navDropdown">
+          <li
+            className={
+              location.pathname === "/allresume" ? "navActive" : "navStyle"
+            }
+          >
+           <Link to="/allresume">{t("resumeTemplate")}</Link>
 
+          </li>
+          <li
+            className={
+              location.pathname === "/resumeChecker" ? "navActive" : "navStyle"
+            }
+          >
+            <Link to="/resumeChecker">{t("resumeChecker")}</Link>
+
+          </li>
+        </ul>
       </li>
       <li
         className={`relative navHover ${location.pathname === "" ? "navActive" : "navStyle"
@@ -88,16 +111,7 @@ const Navbar = () => {
               location.pathname === "/coverLetterChecker" ? "navActive" : "navStyle"
             }
           >
-            <Link to="/coverLetterChecker">{t("cover letter checker")}</Link>
-
-          </li>
-          <li
-            className={
-              location.pathname === "/coverLetterBuilder" ? "navActive" : "navStyle"
-            }
-          >
-            <Link to="/coverLetterBuilder">{t("cover letter builder")}</Link>
-
+            <Link to="/coverLetterChecker">{t("coverLetterChecker")}</Link>
 
           </li>
         </ul>
@@ -117,7 +131,6 @@ const Navbar = () => {
             }
           >
             <Link to="/blogs">{t("blogs")}</Link>
-
 
 
           </li>
@@ -174,16 +187,6 @@ const Navbar = () => {
                 <ul
                   tabIndex={0}
                   className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-30 lg:w-52">
-                  <li>
-                    <Link to={`/dashboard/profile`}>
-                      <FaUserCircle></FaUserCircle> {t("profile")}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link>
-                      <FaDribbble></FaDribbble> {t("settings")}
-                    </Link>
-                  </li>
                   <hr className="my-3" />
                   <li>
                     <button onClick={handleLogout} className="">
@@ -280,3 +283,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

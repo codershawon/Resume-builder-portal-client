@@ -1,9 +1,15 @@
 import React, { forwardRef, useEffect, useRef, useState } from "react";
 import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
-import { IoCallSharp } from "react-icons/io5";
-import { TiLocationArrow } from "react-icons/ti";
 import { FaUserCircle } from "react-icons/fa";
-import { AtSign, Calendar, GitHub, Linkedin, MapPin, Paperclip, Phone} from "react-feather";
+import {
+  AtSign,
+  Calendar,
+  GitHub,
+  Linkedin,
+  MapPin,
+  Paperclip,
+  
+} from "react-feather";
 
 
 import styles from "./Resume.module.css";
@@ -40,10 +46,6 @@ const Resume = forwardRef((props, ref) => {
 
     return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
   };
-
-
-
-
   const sectionDiv = {
 
     [sections.workExp]: info.workExp ? (
@@ -106,7 +108,7 @@ const Resume = forwardRef((props, ref) => {
         </div>
       </div>
     ) : null,
-
+   
     [sections.project]: (
       <div
         key={"project"}

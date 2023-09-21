@@ -13,7 +13,6 @@ const PremiumTemplateUsers = () => {
             })
             .catch((error) => console.error(error));
     }, []);
-    console.log(users);
 
     const uniqueUserEmails = new Set(users.map(user => user.email));
     const totalUniqueUsers = uniqueUserEmails.size;
