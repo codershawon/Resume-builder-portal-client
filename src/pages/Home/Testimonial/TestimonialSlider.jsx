@@ -95,7 +95,7 @@ const TestimonialSlider = () => {
 
   return (
     // <FixedWidth>
-      <section className="my-28 rgContainer">
+      <section data-aos="zoom-in-up"   data-aos-duration="2000" className="my-28 rgContainer">
         <div className="max-w-screen-xl mx-auto px-4 md:px-8">
           <div className=" text-center">
             <SectionTitle

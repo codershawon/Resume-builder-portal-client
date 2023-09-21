@@ -29,6 +29,7 @@ import CoverLetterFormBuilder from "../pages/CoverLetter/CoverLetterFormBuilder"
 import CoverLetterChecker from "../pages/CoverLetter/CoverLetterChecker";
 import Review from "../pages/Dashboard/Review";
 import ResumeChecker from "../components/ResumeCheck/ResumeChecker";
+import MyPayments from "../pages/Dashboard/MyPayments";
 
 
 
