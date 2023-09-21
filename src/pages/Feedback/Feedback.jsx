@@ -62,6 +62,7 @@ const Feedback = () => {
       image: profile?.photoURL || user?.photoURL,
       email: user?.email,
       name: profile?.name,
+      status: "pending"
     };
 
     // Send a POST request to submit the feedback

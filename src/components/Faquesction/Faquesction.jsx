@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Faquesction = () => {
   return (
     
-      <div className="mb-32  ">
+      <div  className="mb-32  ">
         <div className="my-5 "> 
 
           <div className="ms-4">

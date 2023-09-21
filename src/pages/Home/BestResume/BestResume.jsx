@@ -90,50 +90,53 @@ const BestResume = () => {
 
   return (
     <div className="rgContainer mt-28">
-      <SectionTitle
-        subHeading={"Our Host template"}
-        heading={"Our best resume templates available"}
-      ></SectionTitle>
-      {/* <div className='text-center font-bold text-3xl sm:text-5xl mt-10'>
-                <h2>Our best resume</h2>
-                <h2>templates available</h2>
-            </div> */}
 
-      <div className="text-center my-8">
-        <button
-          onClick={() => {
-            setResume(resumeCollections);
-            setActiveButton("all");
-          }}
-          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold ${activeButton === "all" ? "active-button" : ""
-            }`}
-        >
-          All
-        </button>
-        <button
-          onClick={() => {
-            filterItem("photo");
-            setActiveButton("photo");
-          }}
-          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${activeButton === "photo" ? "active-button" : ""
-            }`}
-        >
-          With Photo
-        </button>
-        <button
-          onClick={() => {
-            filterItem("noPhoto");
-            setActiveButton("noPhoto");
-          }}
-          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${activeButton === "noPhoto" ? "active-button" : ""
-            }`}
-        >
-          No Photo
-        </button>
+      <div data-aos="fade-down"
+      data-aos-anchor-placement="center-bottom">
+        <SectionTitle
+          subHeading={"Our Host template"}
+          heading={"Our best resume templates available"}
+        ></SectionTitle>
+
+
+        <div className="text-center my-8">
+          <button
+            onClick={() => {
+              setResume(resumeCollections);
+              setActiveButton("all");
+            }}
+            className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold ${activeButton === "all" ? "active-button" : ""
+              }`}
+          >
+            All
+          </button>
+          <button
+            onClick={() => {
+              filterItem("photo");
+              setActiveButton("photo");
+            }}
+            className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${activeButton === "photo" ? "active-button" : ""
+              }`}
+          >
+            With Photo
+          </button>
+          <button
+            onClick={() => {
+              filterItem("noPhoto");
+              setActiveButton("noPhoto");
+            }}
+            className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${activeButton === "noPhoto" ? "active-button" : ""
+              }`}
+          >
+            No Photo
+          </button>
+        </div>
       </div>
 
+
       <>
-        <Swiper
+        <Swiper data-aos="fade-up"
+            data-aos-anchor-placement="center-bottom"
           slidesPerView={1}
           spaceBetween={15}
           autoplay={{
@@ -167,18 +170,9 @@ const BestResume = () => {
           }}
           className="mySwiper"
         >
-          {/* {allResume.map((resume, i) => (
-            <SwiperSlide className="" key={i}>
-              <div className="slider-content">
-                <img className="" src={resume?.template} alt="resume" />
-                <Link to="/resumeBuilder">
-                  <button className="useButton">Use this template</button>
-                </Link>
-              </div>
-            </SwiperSlide>
-          ))} */}
+          
           {allResume.map((resume) => (
-            <SwiperSlide className="" key={resume._id}>
+            <SwiperSlide  className="" key={resume._id}>
               <div className="slider-content">
                 <img className="" src={resume.image} alt="resume" />
                 <Link

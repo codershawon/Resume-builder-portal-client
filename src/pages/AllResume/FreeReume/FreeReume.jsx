@@ -30,8 +30,8 @@ const FreeReume = () => {
     return (
         <div>
             <div className="my-20">
-                <h2 className="font-bold text-3xl md:text-5xl"><span className="text-[#42C3E4]">Free</span> Resume Templates</h2>
-                <p className="text-xl">Free templates mean business. Candidates applying for senior positions in construction, sales, information technology, and pharmaceutical industries will find a great selection of premium and free resume templates in this collection.</p>
+                <h2 data-aos="fade-left" data-aos-duration="2000" className="font-bold text-3xl md:text-5xl"><span className="text-[#42C3E4]">Free</span> Resume Templates</h2>
+                <p data-aos="fade-right" data-aos-duration="2000" className="text-xl">Free templates mean business. Candidates applying for senior positions in construction, sales, information technology, and pharmaceutical industries will find a great selection of premium and free resume templates in this collection.</p>
 
                 <div className="grid gird-cols sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 my-10">
                     {visibleTemplates.map((resume, index) => (

@@ -10,11 +10,11 @@ const AdminHome = () => {
     <div>
       <AdminHeader/>
       <div className='flex flex-col lg:flex-row gap-5 mx-auto p-4 lg:p-0'>
-        <div className='w-full lg:w-1/2 mt-5'>
+        <div data-aos="zoom-in" data-aos-duration="1000" className='w-full lg:w-1/2 mt-5'>
           <h1 className='text-3xl font-bold mb-5'>Monthly Resume Sales</h1>
           <AdminBarChart />
         </div>
-        <div className='w-full lg:w-1/2 mt-5 rounded-0'>
+        <div data-aos="zoom-in" data-aos-duration="1000" className='w-full lg:w-1/2 mt-5 rounded-0'>
           <h2 className='text-3xl font-bold mb-5'>Resume Distribution</h2>
           <CustomPieChart />
         </div>

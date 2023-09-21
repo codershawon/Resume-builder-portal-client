@@ -140,7 +140,7 @@ const CoverLetterChecker = () => {
   };
 
   return (
-    <div className="rgContainer my-[80px]">
+    <div data-aos="flip-left" className="rgContainer my-[80px]">
       <SectionTitle subHeading={"Cover Letter Checker"} heading={"Check your cover letter"} />
       <div className="p-8 bg-gray-50">
         <Dropzone onDrop={onDrop} accept=".pdf,.doc,.docx,.txt,.htm,.rtf">

@@ -3,16 +3,7 @@ import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
 import { IoCallSharp } from "react-icons/io5";
 import { TiLocationArrow } from "react-icons/ti";
 import { FaUserCircle } from "react-icons/fa";
-// import { TiLocationArrow } from "react-icons/tb";
-import {
-  AtSign,
-  Calendar,
-  GitHub,
-  Linkedin,
-  MapPin,
-  Paperclip,
-  
-} from "react-feather";
+import { AtSign, Calendar, GitHub, Linkedin, MapPin, Paperclip, Phone} from "react-feather";
 
 
 import styles from "./Resume.module.css";
@@ -115,67 +106,7 @@ const Resume = forwardRef((props, ref) => {
         </div>
       </div>
     ) : null,
-    // [sections.workExp]: (
-    //   <div
-    //     key={"workExp"}
-    //     draggable
-    //     onDragOver={() => seTarget(info.workExp?.id)}
-    //     onDragEnd={() => setSource(info.workExp?.id)}
-    //     className={`${styles.section} ${info.workExp?.sectionTitle ? "" : styles.hidden
-    //       }`}
-    //   >
-    //     <div className={styles.content}>
-    //       {info.workExp?.details?.map((item) => (
-    //         <div className={styles.item} key={item.title}>
-    //           {item.title ? (
-    //             <p className={styles.title}>{item.title}</p>
-    //           ) : (
-    //             <span />
-    //           )}
-    //           {item.companyName ? (
-    //             <p className={styles.subTitle}>{item.companyName}</p>
-    //           ) : (
-    //             <span />
-    //           )}
-    //           {item.certificationLink ? (
-    //             <a className={styles.link} href={item.certificationLink}>
-    //               <Paperclip />
-    //               {item.certificationLink}
-    //             </a>
-    //           ) : (
-    //             <span />
-    //           )}
-    //           {item.startDate && item.endDate ? (
-    //             <div className={styles.date}>
-    //               <Calendar /> {getFormattedDate(item.startDate)}-
-    //               {getFormattedDate(item.endDate)}
-    //             </div>
-    //           ) : (
-    //             <div />
-    //           )}
-    //           {item.location ? (
-    //             <p className={styles.date}>
-    //               <MapPin /> Remote
-    //             </p>
-    //           ) : (
-    //             <span />
-    //           )}
-    //           {item.points?.length > 0 ? (
-    //             <ul className={styles.points}>
-    //               {item.points?.map((elem, index) => (
-    //                 <li className={styles.point} key={elem + index}>
-    //                   {elem}
-    //                 </li>
-    //               ))}
-    //             </ul>
-    //           ) : (
-    //             <span />
-    //           )}
-    //         </div>
-    //       ))}
-    //     </div>
-    //   </div>
-    // ),
+
     [sections.project]: (
       <div
         key={"project"}
@@ -230,6 +161,7 @@ const Resume = forwardRef((props, ref) => {
         </div>
       </div>
     ),
+
     [sections.education]: (
       <div
         key={"education"}
@@ -266,6 +198,7 @@ const Resume = forwardRef((props, ref) => {
         </div>
       </div>
     ),
+
     [sections.achievement]: (
       <div
         key={"achievement"}
@@ -291,6 +224,7 @@ const Resume = forwardRef((props, ref) => {
         </div>
       </div>
     ),
+
     [sections.skills]: (
       <div
         key={"skills"}
@@ -324,6 +258,7 @@ const Resume = forwardRef((props, ref) => {
         </div>
       </div>
     ),
+
     [sections.language]: (
       <div
         key={"language"}
@@ -352,6 +287,7 @@ const Resume = forwardRef((props, ref) => {
         </div>
       </div>
     ),
+
     [sections.summary]: (
       <div
         key={"summary"}
@@ -385,7 +321,7 @@ const Resume = forwardRef((props, ref) => {
     ),
   };
 
-  const { [sections.summary]: summarySection, [sections.achievement]: achievementSection, [sections.other]: otherSection, [sections.education]: educationSection, [sections.project]: projectSection, [sections.workExp]: workExpSection, [sections.skills]: skillSection, [sections.language]:languageSection } = sectionDiv;
+  const { [sections.summary]: summarySection, [sections.achievement]: achievementSection, [sections.other]: otherSection, [sections.education]: educationSection, [sections.project]: projectSection, [sections.workExp]: workExpSection, [sections.skills]: skillSection, [sections.language]: languageSection } = sectionDiv;
 
   const swapSourceTarget = (source, target) => {
     if (!source || !target) return;
@@ -441,80 +377,11 @@ const Resume = forwardRef((props, ref) => {
   console.log(selectedTemplate);
 
 
-  console.log("photo", skillSection);
+
 
   return (
     <div ref={ref}>
-      {/* {templates}
-     {templates} */}
       {selectedTemplate}
-{/* 
-      <div key="template13" className=''>
-          <div ref={containerRef} className={styles.container}>
-            <div className="flex gap-5">
-  
-              <div
-                className=" p-4 text-start bg-gray-700 text-white h-full w-[40%] "
-              >
-                <div className="flex justify-center mt-4 mb-7">
-                  <div className=" rounded-full border-4 border-white mx-auto  h-48 w-48 bg-cover bg-center" style={{
-                    backgroundImage: `url(${info.basicInfo?.detail?.photo || 'https://i.ibb.co/KGnMKN0/user.png'})`,
-                  }}>
-                  </div>
-                </div>
-                <p className="mb-2 text-start text-yellow-50 font-base text-[26px] uppercase ">{info.basicInfo?.detail?.name}</p>
-                <p className="text-[14px] text-yellow-50 font-thin mb-4 uppercase">{info.basicInfo?.detail?.title}</p>
-  
-                <p className="border-t-[2px] mt-9 mb-5 border-yellow-50"></p>
-                <p className=" text-[16px] uppercase text-yellow-50 font-medium mt-4 mb-3">About me</p>
-                <p className="h-full w-full mb-4    text-justify">{summarySection}</p>
-  
-  
-  
-  
-                <p className=" text-[27px] uppercase font-medium mt-4 mb-3">Skills</p>
-                {achievementSection}
-  
-                <p className="text-[27px] uppercase font-medium mt-4 mb-3">contact</p>
-                {info.basicInfo?.detail?.phone ? (
-                  <a className="flex text-[14px] mb-2 gap-1">
-                    <span className="">Phone  </span><span>:</span>
-                    {info.basicInfo?.detail?.phone}
-                  </a>
-                ) : (
-                  <span />
-                )}
-                {info.basicInfo?.detail?.email ? (
-                  <a className="flex w-full h-full text-[14px] mb-2 gap-1" type="email">
-                    <span className="">Email </span><span>:</span>
-                    {info.basicInfo?.detail?.email}
-                  </a>
-                ) : (
-                  <span />
-                )}
-  
-              </div>
-  
-  
-  
-  
-              <div className="h-full w-[60%] ps-4 mt-4 text-black ">
-                <p className="uppercase bg-yellow-100 w-full ps-2 pt-1 pb-1 font-medium my-2 text-gray-700 text-[17px] ">Work EXPERIENCE</p>
-                <p className="">{workExpSection}</p>
-  
-  
-                <p className="uppercase bg-yellow-100 w-full ps-2 pt-1 pb-1 font-medium my-2 text-gray-700 text-[17px] ">Education</p>
-                <p>{educationSection}</p>
-                <p className="uppercase bg-yellow-100 w-full ps-2 pt-1 pb-1 font-medium my-2 text-gray-700 text-[17px] ">Language</p>
-  
-  
-  
-              </div>
-  
-  
-            </div>
-          </div>
-        </div> */}
     </div>
   );
 });

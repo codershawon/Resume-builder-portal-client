@@ -24,7 +24,7 @@ const Footer = () => {
           <div className="flex-wrap lg:grid  md:grid-col-4 lg:grid-cols-4 gap-6 justify-items-center text-black font-normal">
             <div className="">
               <div className="gap-4">
-                <img className="w-[240px] " src="https://i.ibb.co/zhYJKFk/resume-cv-cover-letter-transparent.png" alt="" />
+                <img className="w-[240px] " src="https://i.ibb.co/RjydDyx/logo3.png" alt="" />
               </div>
               <div>
                 <div>

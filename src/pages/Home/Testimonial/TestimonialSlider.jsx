@@ -94,7 +94,7 @@ const TestimonialSlider = () => {
 
   return (
     <FixedWidth>
-      <section className="my-28">
+      <section data-aos="zoom-in-up"   data-aos-duration="2000"  className="my-28">
         <div className="max-w-screen-xl mx-auto px-4 md:px-8">
           <div className=" text-center">
             <SectionTitle
@@ -123,9 +123,9 @@ const TestimonialSlider = () => {
                         showFullTextArray[idx] ? "auto" : "350px"
                       }]`}
                     >
-                      <FaQuoteLeft className="quoteLeft"></FaQuoteLeft>
+                      <FaQuoteLeft  className="quoteLeft"></FaQuoteLeft>
                      <br />
-                      <p className="text-gray-600 md:text-lg font-medium text-base">
+                      <p data-aos="flip-left"  data-aos-duration="2000" className="text-gray-600 md:text-lg font-medium text-base">
                         {showFullTextArray[idx]
                           ? item?.reviewText
                           : item?.reviewText.slice(0, 208)}

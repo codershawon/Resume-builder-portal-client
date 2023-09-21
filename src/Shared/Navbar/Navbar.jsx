@@ -71,7 +71,7 @@ const Navbar = () => {
 
   const navOptions = (
     <>
-      <li className={location.pathname === "" ? "navActive" : "navStyle "}>
+      <li className={location.pathname === "/allresume" ? "navActive" : "navStyle "}>
         <Link to="/allresume">{t("Resume")}</Link>
 
       </li>
@@ -220,8 +220,8 @@ const Navbar = () => {
         <div className="flex  items-center">
           <Link to="/">
             <img
-              className="w-44 lg:w-full"
-              src="https://i.ibb.co/zhYJKFk/resume-cv-cover-letter-transparent.png"
+              className="w-48 lg:w-60"
+              src="https://i.ibb.co/RjydDyx/logo3.png"
               alt="Resume genius logo"
             />
           </Link>

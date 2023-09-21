@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { FaCalendar, FaCalendarCheck, FaStopwatch } from "react-icons/fa";
-import { useLoaderData } from "react-router-dom";
+import { Navigate, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useContext } from "react";
 
 const BlogDetails = () => {
+  const { user } = useContext(AuthContext);
   const blogDetails = useLoaderData();
   const [commentText, setCommentText] = useState('');
   const [comments, setComments] = useState(blogDetails.comments); // Initialize with existing comments
-
-  const { user } = useContext(AuthContext);
+  console.log("User:", user);
+  if (!user) {
+    return <Navigate to="/login" />;
+  }
+  
+  console.log("user", user);
   const {
     _id,
     authorUrl,
@@ -58,6 +63,9 @@ const BlogDetails = () => {
     setCommentText('');
   };
 
+  // if (!user) {
+  //   return <Navigate to="/login" />;
+  // }
 
 
   return (
