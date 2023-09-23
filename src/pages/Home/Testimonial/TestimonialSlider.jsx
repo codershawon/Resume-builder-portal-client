@@ -19,7 +19,8 @@ import { Autoplay, Pagination } from "swiper/modules";
 import 'swiper/css';
  import 'swiper/css/pagination';
 import { useTranslation } from "react-i18next";
-import FixedWidth from "../../../components/FixedWidth";
+import FixedWidth from "../../../components/fixedwidth";
+
 
 
 
@@ -93,8 +94,8 @@ const TestimonialSlider = () => {
  
 
   return (
-    <FixedWidth>
-      <section className="my-28">
+    // <FixedWidth>
+      <section data-aos="zoom-in-up"   data-aos-duration="2000" className="my-28 rgContainer">
         <div className="max-w-screen-xl mx-auto px-4 md:px-8">
           <div className=" text-center">
             <SectionTitle
@@ -123,9 +124,9 @@ const TestimonialSlider = () => {
                         showFullTextArray[idx] ? "auto" : "350px"
                       }]`}
                     >
-                      <FaQuoteLeft className="quoteLeft"></FaQuoteLeft>
+                      <FaQuoteLeft  className="quoteLeft"></FaQuoteLeft>
                      <br />
-                      <p className="text-gray-600 md:text-lg font-medium text-base">
+                      <p data-aos="flip-left"  data-aos-duration="2000" className="text-gray-600 md:text-lg font-medium text-base">
                         {showFullTextArray[idx]
                           ? item?.reviewText
                           : item?.reviewText.slice(0, 208)}
@@ -174,9 +175,10 @@ const TestimonialSlider = () => {
           </div>
         </div>
       </section>
-    </FixedWidth>
+// </FixedWidth>
   );
 };
 
 
 export default TestimonialSlider;
+

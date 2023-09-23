@@ -1,14 +1,14 @@
 {
-    "resumeTemplate": "Modèle de CV",
-    "coverLetter": "Lettre de motivation",
-    "career": "Carrière",
-    "blogs": "Blogs",
-    "contactUs": "Contactez-nous",
-    "coverLetter2": "Lettre de motivation",
-    "dashboard": "Tableau de bord",
-    "profile": "Profil",
-    "settings": "Paramètres",
-    "logout": "Se déconnecter",
-    "login":"se connecter"
+  "resume": "CV",
+  "coverLetter": "Lettre de motivation",
+  "career": "Carrière",
+  "blogs": "Blogs",
+  "contactUs": "Contactez-nous",
+  "dashboard": "Tableau de bord",
+  "logout": "Se déconnecter",
+  "login": "Se connecter",
+  "resumeTemplate": "Modèle de CV",
+  "resumeChecker": "Vérificateur de CV",
+  "coverLetterChecker": "Vérificateur de lettre de motivation"
   }
   

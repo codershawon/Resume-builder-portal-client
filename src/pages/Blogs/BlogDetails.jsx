@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { FaCalendar, FaCalendarCheck, FaStopwatch } from "react-icons/fa";
-import { useLoaderData } from "react-router-dom";
+import { Navigate, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useContext } from "react";
 
 const BlogDetails = () => {
+  const { user } = useContext(AuthContext);
   const blogDetails = useLoaderData();
   const [commentText, setCommentText] = useState('');
   const [comments, setComments] = useState(blogDetails.comments); // Initialize with existing comments
-
-  const { user } = useContext(AuthContext);
+  console.log("User:", user);
+  if (!user) {
+    return <Navigate to="/login" />;
+  }
+  
+  console.log("user", user);
   const {
     _id,
     authorUrl,
@@ -22,6 +27,7 @@ const BlogDetails = () => {
     blogDescription,
     imageUrl,
   } = blogDetails;
+  console.log(blogDetails)
 
   const addComment = (e) => {
     e.preventDefault();
@@ -32,7 +38,7 @@ const BlogDetails = () => {
       photoUrl: user.photoURL,
     };
 
-    fetch(`http://localhost:4000/blogs/${_id}`, {
+    fetch(`https://resume-builder-portal-server.vercel.app/blogs/${_id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -111,7 +117,7 @@ const BlogDetails = () => {
           </button>
         </form>
         <div className="rounded-lg">
-          {comments.map((comment, index) => (
+          {comments?.map((comment, index) => (
             <div key={index} className="mb-3 p-3 bg-gray-50 rounded-xl">
               <div className="chat chat-start">
                 <div className="chat-image avatar">

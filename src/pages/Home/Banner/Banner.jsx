@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./Banner.css";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import Aos from "aos";
+import 'aos/dist/aos.css';
+Aos.init();
 
 const Banner = () => {
   const { t } = useTranslation(["banner"]);
@@ -25,22 +28,28 @@ const Banner = () => {
   return (
     <div className=" max-w-[1400px] mx-auto">
       <div className="banner-section overflow-hidden grid md:grid-cols-1 lg:grid-cols-2 text-center md:text-left lg:items-start mt-10 lg:mt-0 ">
-        <div className="banner-content ">
-          <h1 className="text-sm uppercase font-semibold text-gray-500 mb-2 lg:pt-36">
+
+        <div data-aos="zoom-in-right" className="banner-content ">
+          <h1 data-aos="fade-right"
+            data-aos-duration="2000" className="text-sm uppercase font-semibold text-gray-500 mb-2 lg:pt-36">
             {t("banner:unlockPotential")}
           </h1>
-          <h2 className="text-4xl w-full lg:w-full font-bold mb-2">
+          <h2 data-aos="fade-left" data-aos-duration="2000"
+            className="text-4xl w-full lg:w-full font-bold mb-2">
             {t("banner:bannerTitle")}
           </h2>
-          <p className="w-full md:w-full lg:w-full lg:block text-base font-medium mb-2">
-            {t("banner:bannerDescription")}
+          <p data-aos="fade-right" data-aos-duration="2000"
+            className="w-full md:w-full lg:w-full lg:block text-base font-medium mb-2">
+            {t('banner:bannerDescription')}
           </p>
-          <p className="text-gray-600 font-medium mb-2 lg:block w-full lg:w-full">
-            {t("banner:bannerDescription2")}
+          <p data-aos="fade-right" data-aos-duration="2000" className="text-gray-600 font-medium mb-2 lg:block w-full lg:w-full">
+            {t('banner:bannerDescription2')}
           </p>
-          <Link to="/allResume">
-            <button className="my-btn">{t("banner:bannerCTA")}</button>
-          </Link>
+          <div data-aos="fade-up"
+            data-aos-duration="3000">
+
+            <Link to="/allResume"><button className="my-btn">{t('banner:bannerCTA')}</button></Link>
+          </div>
         </div>
 
         <div className="overflow-clip h-full">
@@ -51,9 +60,8 @@ const Banner = () => {
                   key={index}
                   src={image}
                   alt={`Resume ${index + 1}`}
-                  className={`absolute transition-opacity duration-1000 ${
-                    index === currentImageIndex ? "opacity-100" : "opacity-0"
-                  }`}
+                  className={`absolute transition-opacity duration-1000 ${index === currentImageIndex ? "opacity-100" : "opacity-0"
+                    }`}
                   style={{
                     right: `-${index * 100}%`,
                     transform: "translateX(40%)",

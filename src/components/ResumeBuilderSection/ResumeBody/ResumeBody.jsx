@@ -6,11 +6,10 @@ import ResumeEditor from "../ResumeEditor/ResumeEditor";
 import Resume from "../Resume/Resume";
 import { Link } from "react-router-dom";
 import { FaMessage } from "react-icons/fa6";
-import { FaVideo } from "react-icons/fa";
 
-const ResumeBody = ({name}) => {
+const ResumeBody = ({ name }) => {
 
-  const colors = ["#239ce2", "#48bb78", "#0bc5ea", "#a0aec0", "#ed8936"];
+  const colors = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#34495e", "#e67e22", "#e74c3c ", "#7f8fa6", "#40739e", "#c23616", "#b71540", "#60a3bc", "#38ada9",];
   const sections = {
     basicInfo: "Basic Info",
     summary: "Summary",
@@ -75,7 +74,10 @@ const ResumeBody = ({name}) => {
   });
   return (
     <div className={styles.container}>
-      <p className={styles.heading}>Resume Builder</p>
+      <div className="mt-10 mb-5">
+        <h2 data-aos="fade-right" data-aos-duration="1000" className="font-bold text-3xl md:text-5xl md:text-center"> <span className="text-[#42C3E4]">Create</span> Your</h2>
+        <h2 data-aos="fade-right" data-aos-duration="1000" className="font-bold text-3xl md:text-5xl text-start"> <span className="">Professional</span> Resume Templates</h2>
+      </div>
       <div className={styles.toolbar}>
         <div className={styles.colors}>
           {colors.map((item) => (
@@ -88,9 +90,6 @@ const ResumeBody = ({name}) => {
             />
           ))}
         </div>
-        <Link to="/video">   <button>
-                Video Chat <FaVideo/>
-              </button></Link>
      <Link to="/chatSystem">   <button>
                 Chat <FaMessage/>
               </button></Link>
@@ -105,20 +104,24 @@ const ResumeBody = ({name}) => {
           content={() => resumeRef.current}
         />
       </div>
-      
+
       <div className={styles.main}>
-        <ResumeEditor
-          sections={sections}
-          information={resumeInformation}
-          setInformation={setResumeInformation}
-        />
-        <Resume
-          ref={resumeRef}
-          name={name}
-          sections={sections}
-          information={resumeInformation}
-          activeColor={activeColor}
-        />
+        <div className="flex-grow">
+          <ResumeEditor
+            sections={sections}
+            information={resumeInformation}
+            setInformation={setResumeInformation}
+          />
+        </div>
+        <div>
+          <Resume
+            ref={resumeRef}
+            name={name}
+            sections={sections}
+            information={resumeInformation}
+            activeColor={activeColor}
+          />
+        </div>
       </div>
     </div>
   );

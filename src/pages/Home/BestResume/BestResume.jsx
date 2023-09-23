@@ -3,16 +3,20 @@ import "swiper/css/navigation";
 import "./BestResume.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Autoplay } from "swiper/modules";
 import SectionTitle from "../../../Hooks/SectionTitle";
 import Swal from "sweetalert2";
-import useAuth from "../../../Hooks/useAuth";
 import useCart from "../../../Hooks/useCart";
+import { AuthContext } from "../../../Providers/AuthProvider";
+
 import LazyLoad from "react-lazyload";
+import { useTranslation } from "react-i18next";
+
 
 const BestResume = () => {
-  const { user } = useAuth();
+  const { user } = useContext(AuthContext);
+  const { t } = useTranslation(["bestResume"]);
   const [, refetch] = useCart();
 
   const navigate = useNavigate();
@@ -21,7 +25,6 @@ const BestResume = () => {
   const [activeButton, setActiveButton] = useState("all");
   const [resumeCollections, setResumeCollections] = useState([]);
   const [allResume, setResume] = useState(resumeCollections);
-  console.log(resumeCollections);
 
   useEffect(() => {
     fetch("https://resume-builder-portal-server.vercel.app/resume")
@@ -88,53 +91,56 @@ const BestResume = () => {
 
   return (
     <div className="rgContainer mt-28">
-      <SectionTitle
-        subHeading={"Our Host template"}
-        heading={"Our best resume templates available"}
-      ></SectionTitle>
-      {/* <div className='text-center font-bold text-3xl sm:text-5xl mt-10'>
+      <div data-aos="fade-down"
+        data-aos-anchor-placement="center-bottom">
+        <SectionTitle
+          subHeading={`${t('bestResume:subHeading')}`}
+          heading={`${t('bestResume:heading')}`}
+        ></SectionTitle>
+        {/* <div className='text-center font-bold text-3xl sm:text-5xl mt-10'>
                 <h2>Our best resume</h2>
                 <h2>templates available</h2>
             </div> */}
 
-      <div className="text-center my-8">
-        <button
-          onClick={() => {
-            setResume(resumeCollections);
-            setActiveButton("all");
-          }}
-          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold ${
-            activeButton === "all" ? "active-button" : ""
-          }`}
-        >
-          All
-        </button>
-        <button
-          onClick={() => {
-            filterItem("photo");
-            setActiveButton("photo");
-          }}
-          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${
-            activeButton === "photo" ? "active-button" : ""
-          }`}
-        >
-          With Photo
-        </button>
-        <button
-          onClick={() => {
-            filterItem("noPhoto");
-            setActiveButton("noPhoto");
-          }}
-          className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${
-            activeButton === "noPhoto" ? "active-button" : ""
-          }`}
-        >
-          No Photo
-        </button>
+        <div className="text-center my-8">
+          <button
+            onClick={() => {
+              setResume(resumeCollections);
+              setActiveButton("all");
+            }}
+            className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold ${activeButton === "all" ? "active-button" : ""
+              }`}
+          >
+            {t('bestResume:all')}
+          </button>
+          <button
+            onClick={() => {
+              filterItem("photo");
+              setActiveButton("photo");
+            }}
+            className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${activeButton === "photo" ? "active-button" : ""
+              }`}
+          >
+            {t('bestResume:withPhoto')}
+          </button>
+          <button
+            onClick={() => {
+              filterItem("noPhoto");
+              setActiveButton("noPhoto");
+            }}
+            className={`shadow-md px-3 py-2 hover:bg-[#42C3E4] hover:text-white rounded-2xl font-semibold mx-3 ${activeButton === "noPhoto" ? "active-button" : ""
+              }`}
+          >
+            {t('bestResume:noPhoto')}
+          </button>
+        </div>
       </div>
 
+
+
       <>
-        <Swiper
+        <Swiper data-aos="fade-up"
+          data-aos-anchor-placement="center-bottom"
           slidesPerView={1}
           spaceBetween={15}
           autoplay={{
@@ -168,16 +174,7 @@ const BestResume = () => {
           }}
           className="mySwiper"
         >
-          {/* {allResume.map((resume, i) => (
-            <SwiperSlide className="" key={i}>
-              <div className="slider-content">
-                <img className="" src={resume?.template} alt="resume" />
-                <Link to="/resumeBuilder">
-                  <button className="useButton">Use this template</button>
-                </Link>
-              </div>
-            </SwiperSlide>
-          ))} */}
+
           {allResume.map((resume) => (
             <SwiperSlide className="" key={resume._id}>
               <div className="slider-content">
@@ -198,7 +195,7 @@ const BestResume = () => {
                       onClick={() => handleAddToCart(resume)}
                       className="useButton"
                     >
-                      Use this template
+                      {t('bestResume:useThisTemplate')}
                       <span className="ml-2 text-sm font-semibold">
                         ${parseFloat(resume.price)}
                       </span>
@@ -208,7 +205,7 @@ const BestResume = () => {
                       className="useButton"
                       to={`/templates/${resume.name}`}
                     >
-                      Use this template
+                      {t('bestResume:useThisTemplate')}
                     </Link>
                   )}
                 </Link>
@@ -222,3 +219,5 @@ const BestResume = () => {
 };
 
 export default BestResume;
+
+

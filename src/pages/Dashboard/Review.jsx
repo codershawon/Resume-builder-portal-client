@@ -22,7 +22,7 @@ const Review = () => {
                 setTestimonials(pendingTestimonials);
             })
             .catch((error) => console.error(error));
-    }, [testimonials]);
+    }, []);
 
 
 
@@ -41,7 +41,7 @@ const Review = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // Send a PUT request to update testimonial status
-                fetch(`http://localhost:4000/review/${testimonial._id}`, {
+                fetch(`https://resume-builder-portal-server.vercel.app/review/${testimonial._id}`, {
                     method: "PUT",
                 })
                     .then((res) => res.json())
@@ -69,7 +69,7 @@ const Review = () => {
     };
     
     const handleDelete = (testimonial) => {
-        // Close the modal before showing the Swal dialog
+
         document.getElementById('my_modal_5').close();
     
         Swal.fire({
@@ -83,7 +83,7 @@ const Review = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // Use the correct URL for the delete request
-                fetch(`http://localhost:4000/review/${testimonial._id}`, {
+                fetch(`https://resume-builder-portal-server.vercel.app/review/${testimonial._id}`, {
                     method: "DELETE",
                 })
                     .then((res) => res.json())
@@ -100,8 +100,6 @@ const Review = () => {
             }
         });
     };
-    
-
     return (
         <div>
             <h3 className="text-3xl text-center font-semibold my-4">Manage Reviews</h3>

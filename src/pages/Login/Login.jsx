@@ -7,26 +7,30 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import SignUp from "../Home/SignUp/SignUp";
 import Swal from "sweetalert2";
+import Lottie from "lottie-react";
 import { useContext, useRef } from "react";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import loginLottie from './loginAnimation.json';
 
 
 const Login = () => {
- 
+
   // eye
   const [control, setControl] = useState(false);
 
   const [password, setPassword] = useState(false);
-  const emailRef=useRef()
-  
+  const emailRef = useRef()
+
   // Login
 
-  const { signInUser, signInWithGoogle, loading, setLoading,resetPassword } =
+  const { signInUser, signInWithGoogle, loading, setLoading, resetPassword } =
     useContext(AuthContext);
 
   const navigate = useNavigate();
   const location = useLocation();
+  console.log('Location:', location);
+  console.log('From:', location.state?.from);
   const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {
@@ -44,11 +48,11 @@ const Login = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      navigate(from, { replace: true });
+      navigate(location.state?.from || '/', { replace: true });
     });
   };
 
- // Google
+  // Google
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
@@ -59,7 +63,7 @@ const Login = () => {
           email: loggedInUser.email,
           photoURL: loggedInUser.photoURL,
         };
-     
+
         fetch("https://resume-builder-portal-server.vercel.app/users", {
           method: "POST",
           headers: {
@@ -69,7 +73,7 @@ const Login = () => {
         })
           .then((res) => res.json())
           .then(() => {
-            navigate(from, { replace: true });
+            navigate(location.state?.from || '/', { replace: true });
           });
       })
       .catch((err) => {
@@ -78,32 +82,31 @@ const Login = () => {
         toast.error(err.message);
       });
   };
-  
-//Handle Reset
-const handleReset = () => {
-  const email = emailRef.current.value;
 
-  resetPassword(email)
-    .then(() => {
-      toast.success("Please check your email for reset link");
-    })
-    .catch(err => {
-      setLoading(false);
-      console.log(err.message);
-      toast.error(err.message);
-    });
+  //Handle Reset
+  const handleReset = () => {
+    const email = emailRef.current.value;
 
-  return console.log(email);
-};
+    resetPassword(email)
+      .then(() => {
+        toast.success("Please check your email for reset link");
+      })
+      .catch(err => {
+        setLoading(false);
+        console.log(err.message);
+        toast.error(err.message);
+      });
+
+    return console.log(email);
+  };
 
   return (
     <div className="hero min-h-screen bg-white">
       <div className="hero-content flex-col md:flex-row">
         <div className="text-center lg:text-left">
-          <img
-            src="https://i.ibb.co/Qdmr9LH/register-e58071de.png"
-            alt=""
-          />
+
+        <Lottie className="w-full lg:h-[600px]" animationData={loginLottie} />
+
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div className="card-body bg-white">
@@ -210,11 +213,11 @@ const handleReset = () => {
                   <TabPanel>
                     <div>
                       <SignUp></SignUp>
-                      
+
                     </div>
                   </TabPanel>
                 </Tabs>
-                <ToastContainer/>
+                <ToastContainer />
               </div>
             </div>
           </div>

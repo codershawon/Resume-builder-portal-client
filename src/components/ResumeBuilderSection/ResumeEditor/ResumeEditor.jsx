@@ -284,7 +284,7 @@ function ResumeEditor(props) {
       <div className={styles.row}>
         <InputControl
           label="Name"
-          placeholder="Enter your full name eg. Aashu"
+          placeholder="eg. Aashu"
           value={values.name}
           onChange={(event) =>
             setValues((prev) => ({ ...prev, name: event.target.value }))
@@ -334,6 +334,8 @@ function ResumeEditor(props) {
             setValues((prev) => ({ ...prev, phone: event.target.value }))
           }
         />
+      </div>
+      <div className={styles.row}>
         <InputControl
           label="Address"
           value={values.address}
@@ -471,6 +473,7 @@ function ResumeEditor(props) {
           github: values.github,
           email: values.email,
           phone: values.phone,
+          address: values.address,
         };
 
         props.setInformation((prev) => ({
@@ -707,6 +710,7 @@ function ResumeEditor(props) {
         : activeInfo?.detail?.github || "",
       phone: activeInfo?.detail?.phone || "",
       email: activeInfo?.detail?.email || "",
+      address: activeInfo?.detail?.address || "",
       summary: typeof activeInfo?.detail !== "object" ? activeInfo.detail : "",
       other: typeof activeInfo?.detail !== "object" ? activeInfo.detail : "",
     });

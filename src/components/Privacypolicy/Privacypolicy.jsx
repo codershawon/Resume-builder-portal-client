@@ -26,12 +26,12 @@ const Privacypolicy = () => {
               heading={"Navigating Our Privacy Policy"}
             ></SectionTitle>
 
-      <div className="my-10 px-6 md:px-20 lg:px-36 text-justify">
+      <div className="rgContainer my-10 text-justify">
         <p className=" mb-1">
           Published August 1, 2023. Effective as of November 1, 2023.{" "}
         </p>
         <p>
-          Welcome to our Resume Genius website ("us", "we", or "our"). We are
+          Welcome to our Resume Crafters website ("us", "we", or "our"). We are
           committed to protecting your personal information and your right to
           privacy. This Privacy Policy explains how we collect, use, disclose,
           and safeguard your information. By using our resume building services,
@@ -57,12 +57,11 @@ const Privacypolicy = () => {
           <p>Last Updated: November 01, 2023</p>
         </div>
       </div> */}
-
-      <div className="my-10 px-6 md:px-20 lg:px-36 text-justify">
+      <div className="rgContainer my-10 text-justify">
         <div>
           <h4 className="text-2xl font-bold mb-5">1. Introduction</h4>
           <p>
-            Welcome to our Resume Genius website ("us", "we", or "our"). We are
+            Welcome to our Resume Crafters website ("us", "we", or "our"). We are
             committed to protecting your personal information and your right to
             privacy. This Privacy Policy explains how we collect, use, disclose,
             and safeguard your information. By using our resume building
@@ -223,7 +222,7 @@ const Privacypolicy = () => {
             7. Ensuring Your Information's Security
           </h2>
           <p>
-            At Resume Genius, safeguarding your information is of paramount
+            At Resume Crafters, safeguarding your information is of paramount
             importance to us. We diligently implement rigorous security measures
             to protect your valuable data from any unauthorized access or
             disclosure. However, it's essential to recognize that no method of
@@ -258,7 +257,7 @@ const Privacypolicy = () => {
             9. Changes to This Policy
           </h2>
           <p>
-            At Resume Genius, we are dedicated to maintaining the highest
+            At Resume Crafters, we are dedicated to maintaining the highest
             standards of transparency and clarity. As our services evolve to
             better serve your needs, it may become necessary to update our
             Privacy Policy to reflect these changes accurately. Rest assured
