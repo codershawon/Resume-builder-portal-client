@@ -27,6 +27,7 @@ const BlogDetails = () => {
     blogDescription,
     imageUrl,
   } = blogDetails;
+  console.log(blogDetails)
 
   const addComment = (e) => {
     e.preventDefault();
@@ -63,9 +64,6 @@ const BlogDetails = () => {
     setCommentText('');
   };
 
-  // if (!user) {
-  //   return <Navigate to="/login" />;
-  // }
 
 
   return (
@@ -119,7 +117,7 @@ const BlogDetails = () => {
           </button>
         </form>
         <div className="rounded-lg">
-          {comments.map((comment, index) => (
+          {comments?.map((comment, index) => (
             <div key={index} className="mb-3 p-3 bg-gray-50 rounded-xl">
               <div className="chat chat-start">
                 <div className="chat-image avatar">

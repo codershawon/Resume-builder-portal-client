@@ -7,7 +7,6 @@ import { useContext, useEffect, useState } from "react";
 import { Autoplay } from "swiper/modules";
 import SectionTitle from "../../../Hooks/SectionTitle";
 import Swal from "sweetalert2";
-import useAuth from "../../../Hooks/useAuth";
 import useCart from "../../../Hooks/useCart";
 import { AuthContext } from "../../../Providers/AuthProvider";
 

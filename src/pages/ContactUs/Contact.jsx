@@ -54,7 +54,7 @@ const Contact = () => {
         <div className="mt-10 ">
           <h3 className="contact__title">
             Contact Us | <span className="text-[#0dcaf0]">Resume</span>{" "}
-            <span className="text-[#197685]">Genius</span>
+            <span className="text-[#197685]">Crafters</span>
           </h3>
           <p className="">
             Exceptional resume guidance and top-tier customer support. <br /> We

@@ -47,7 +47,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "allresume",
-        element: <PrivateRoutes><AllResume></AllResume></PrivateRoutes>,
+        element: <AllResume></AllResume>
       },
       {
         path: "/resumeChecker",
@@ -75,7 +75,7 @@ export const router = createBrowserRouter([
         element:<ResumeForm/>,
       },{
         path:"/blogs",
-        element:<PrivateRoutes><Blogs/></PrivateRoutes>
+        element:<Blogs/>
       },
       {
         path: "/blogDetails/:id",
@@ -95,7 +95,7 @@ export const router = createBrowserRouter([
         element: <Faqs />
       }, {
         path: "/about",
-        element: <PrivateRoutes><AboutUs /></PrivateRoutes>,
+        element: <AboutUs />
       },
       {
         path: "/terms",

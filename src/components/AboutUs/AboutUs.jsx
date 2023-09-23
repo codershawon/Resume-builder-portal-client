@@ -19,7 +19,7 @@ const AboutUs = () => {
     <>
       <div className="mt-10">
         <SectionTitle
-          subHeading={"Resume Genius Team"}
+          subHeading={"Resume Crafters Team"}
           heading={
             "Meet Our Team"
           }></SectionTitle>

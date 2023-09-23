@@ -337,59 +337,6 @@ const Profile = () => {
             </div>
           </dialog>
         </div>
-        
-
-
-         <div className="w-[80%] lg:w-[58%] mx-10 overflow-hidden">
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3   gap-6">
-            {currentPageItems.map((resume) => (
-              <div className="mx-auto relative" key={resume._id}>
-                <img className="w-full" src={resume.image} alt="" />
-                {/* <button className="">hello</button> */}
-                <Link
-                className="absolute bottom-0 w-full"
-                  to={
-                    parseFloat(resume.price) === 0
-                      ? `/resumeBuilder/${resume._id}`
-                      : `/dashboard/my-template/${resume._id}`
-                  }>
-                  {parseFloat(resume.price) > 0 ? (
-                    <button
-                      onClick={() => handleAddToCart(resume)}
-                      className="profile-btn">
-                      Use this template
-                      <span className="ml-2 text-sm font-semibold">
-                        ${parseFloat(resume.price)}
-                      </span>
-                    </button>
-                  ) : (
-                    <button className="profile-btn">
-                      Use this template <span>Free</span>
-                    </button>
-                  )}
-                </Link>
-              </div>
-            ))}
-          </div>
-          <div className="flex justify-center mt-8">
-            <ReactPaginate
-              previousLabel={"Previous"}
-              nextLabel={"Next"}
-              breakLabel={"..."}
-              breakClassName={"break-me"}
-              pageCount={pageCount}
-              marginPagesDisplayed={2}
-              pageRangeDisplayed={5}
-              onPageChange={handlePageChange}
-              containerClassName="pagination"
-              previousLinkClassName="page-num"
-              nextLinkClassName="page-num"
-              pageLinkClassName="page-num"
-              activeLinkClassName="active"
-            />
-          </div>
-        </div> 
       </div>
     </>
   );

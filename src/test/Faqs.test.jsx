@@ -23,11 +23,11 @@ test("Renders the FAQ page with the breadcrumb", () => {
     );
   
     // Check if the FAQ page title is present
-    const pageTitle = getByText("Frequently Asked Questions");
+    const pageTitle = getByText("Get answers to commonly asked questions");
     expect(pageTitle).toBeInTheDocument();
   
     // Check if the 'As seen in' section is present
-    const asSeenInTitle = getByText("As seen in:");
+    const asSeenInTitle = getByText("Check Our FAQ");
     expect(asSeenInTitle).toBeInTheDocument();
   });
   

@@ -225,7 +225,7 @@ const Navbar = () => {
             <img
               className="w-48 lg:w-60"
               src="https://i.ibb.co/RjydDyx/logo3.png"
-              alt="Resume genius logo"
+              alt="Resume crafters logo"
             />
           </Link>
         </div>

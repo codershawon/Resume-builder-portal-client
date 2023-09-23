@@ -112,7 +112,7 @@ const Dashboard = () => {
       icon: RiContactsBook2Line,
       margin: true,
     },
-    { name: `${t("home.name")}`, link: "/dashboard/myPayments", icon: RiHome4Line, margin: true },
+    { name: `${t("home.name")}`, link: "/", icon: RiHome4Line, margin: true },
   ];
 
   // const user = true;
