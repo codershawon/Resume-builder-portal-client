@@ -61,7 +61,7 @@ const MyTemplates = () => {
       className="w-full h-full mt-5  bg-slate-50 text-black relative"
       style={{ backgroundImage: "url(https://i.ibb.co/K0XHbpd/35.png)" }}>
       <Helmet>
-        <title> Resume-Genius | My Templates</title>
+        <title> Resume-Crafters | My Templates</title>
       </Helmet>
       <SectionTitle subHeading={"Items in My Cart"} heading="My Templates" />
 

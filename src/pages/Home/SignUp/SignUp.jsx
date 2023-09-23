@@ -7,7 +7,6 @@ import { FcGoogle } from "react-icons/fc";
 import React, { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
-
 const SignUp = () => {
   const {
     createUser,
@@ -22,6 +21,7 @@ const SignUp = () => {
   const [password, setPassword] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState(false);
   const [show, setShow] = useState(false);
+
 
   const {
     register,
@@ -44,17 +44,17 @@ const SignUp = () => {
     })
     .then(res => res.json())
     .then(imageData => {
-      const imageUrl = imageData.data.display_url;
+      const imageUrl = imageData.data?.display_url;
 
       createUser(data.email, data.password)
         .then((result) => {
-          const loggedUser = result.user;
+          const loggedUser = result?.user;
           console.log(loggedUser);
           updateUserProfile(data.name, imageUrl)
             .then(() => {
               const saveUser = {
-                name: data.name,
-                email: data.email,
+                name: data?.name,
+                email: data?.email,
                 photoURL: imageUrl,
               };
 
@@ -76,7 +76,7 @@ const SignUp = () => {
                       showConfirmButton: false,
                       timer: 1500,
                     });
-                    navigate("/");
+                    navigate(location.state?.from || '/', { replace: true });
                   }
                 });
             })
@@ -89,14 +89,13 @@ const SignUp = () => {
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
-        const loggedInUser = result.user;
+        const loggedInUser = result?.user;
         console.log(loggedInUser);
         const saveUser = {
           name: loggedInUser.displayName,
           email: loggedInUser.email,
           photoURL: loggedInUser.photoURL,
         };
-        //fetch("http://localhost:5000users", {
         fetch("https://resume-builder-portal-server.vercel.app/users", {
           method: "POST",
           headers: {
@@ -106,7 +105,7 @@ const SignUp = () => {
         })
           .then((res) => res.json())
           .then(() => {
-            navigate(from, { replace: true });
+            navigate(location.state?.from || '/', { replace: true });
           });
       })
       .catch((err) => {

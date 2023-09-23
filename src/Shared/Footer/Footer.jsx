@@ -25,7 +25,7 @@ const Footer = () => {
               <div className="gap-4">
                 <img
                   className="w-[240px] "
-                  src="https://i.ibb.co/zhYJKFk/resume-cv-cover-letter-transparent.png"
+                  src="https://i.ibb.co/RjydDyx/logo3.png"
                   alt=""
                 />
               </div>
