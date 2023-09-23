@@ -24,7 +24,7 @@ const Banner = () => {
 
   return (
     <div className=" max-w-[1400px] mx-auto">
-     <div className="banner-section overflow-hidden grid md:grid-cols-1 lg:grid-cols-2 text-center md:text-left lg:items-start mt-10 lg:mt-0 ">
+      <div className="banner-section overflow-hidden grid md:grid-cols-1 lg:grid-cols-2 text-center md:text-left lg:items-start mt-10 lg:mt-0 ">
         <div className="banner-content ">
           <h1 className="text-sm uppercase font-semibold text-gray-500 mb-2 lg:pt-36">
             {t("banner:unlockPotential")}
@@ -33,12 +33,14 @@ const Banner = () => {
             {t("banner:bannerTitle")}
           </h2>
           <p className="w-full md:w-full lg:w-full lg:block text-base font-medium mb-2">
-            {t('banner:bannerDescription')}
+            {t("banner:bannerDescription")}
           </p>
           <p className="text-gray-600 font-medium mb-2 lg:block w-full lg:w-full">
-          {t('banner:bannerDescription2')}
+            {t("banner:bannerDescription2")}
           </p>
-          <Link to="/allResume"><button className="my-btn">{t('banner:bannerCTA')}</button></Link>
+          <Link to="/allResume">
+            <button className="my-btn">{t("banner:bannerCTA")}</button>
+          </Link>
         </div>
 
         <div className="overflow-clip h-full">
